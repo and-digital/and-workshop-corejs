@@ -4,24 +4,21 @@
 
 */
 
-function Animal() { }
+function Animal() {}
 
 Animal.prototype.speak = function() {
-  return "meow";
-}
+  return 'meow';
+};
 
 Animal.eat = function() {
   return 'nom nom nom';
-}
-
-const Cat = new Animal();
+};
 
 test('Make cat meow', () => {
+  const Cat = new Animal();
 
-    const Cat = new Animal();
-
-    expect(Cat.speak()).toBe('meow');
-    expect(Animal.eat()).toBe('nom nom nom');
+  expect(Cat.speak()).toBe('meow');
+  expect(Animal.eat()).toBe('nom nom nom');
 });
 
 /*
@@ -33,9 +30,7 @@ test('Make cat meow', () => {
 */
 
 test('Hear the kitten meow', () => {
+  const Kitty = new Kitten();
 
-    const Kitty = new Kitten();
-
-    expect(Kitty.speak()).toBe('kitten meow');
+  expect(Kitty.speak()).toBe('kitten meow');
 });
-

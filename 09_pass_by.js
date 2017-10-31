@@ -11,12 +11,35 @@ function changeStuff(num, obj1, obj2) {
   obj2 = { item: 'changed' };
 }
 
-var num = 10;
-var obj1 = { item: 'unchanged' };
-var obj2 = { item: 'unchanged' };
+let num = 10;
+let obj1 = { item: 'unchanged' };
+let obj2 = { item: 'unchanged' };
 
 changeStuff(num, obj1, obj2);
 
 console.log(num); //10
 console.log(obj1.item); //changed
 console.log(obj2.item); //unchanged
+
+function identify() {
+  return this.name.toUpperCase();
+}
+
+function speak() {
+  var greeting = "Hello, I'm " + identify.call(this);
+  console.log(greeting);
+}
+
+var me = {
+  name: 'Kyle'
+};
+
+var you = {
+  name: 'Reader'
+};
+
+identify.call(me); // KYLE
+identify.call(you); // READER
+
+speak.call(me); // Hello, I'm KYLE
+speak.call(you); // Hello, I'm READER

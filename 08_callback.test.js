@@ -47,7 +47,7 @@ describe('About Higher Order Functions', function() {
     expect(numbers).toEqual(/* 🤔 */);
   });
 
-  it("should use 'all' to test whether all items pass condition", function() {
+  it('should use every to test whether all items pass condition', function() {
     //## FIND the write Array function to use on MDN
     const onlyEven = [2, 4, 6];
     const mixedBag = [2, 4, 5, 6];
@@ -60,8 +60,8 @@ describe('About Higher Order Functions', function() {
     expect(mixedBag.xxx(isEven)).toBe(/* 🤔 */);
   });
 
-  it("should use 'any' to test if any items passes condition", function() {
-    //## FIND the write Array function to use on MDN
+  it("should use 'some' to test if any items passes condition", function() {
+    //## FIND the right Array function to use on MDN
     const onlyEven = [2, 4, 6];
     const mixedBag = [2, 4, 5, 6];
 

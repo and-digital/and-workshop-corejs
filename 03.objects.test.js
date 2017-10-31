@@ -26,8 +26,8 @@ test('key access', () => {
 
 test('computed property names', () => {
   //RULE: USE computed property names
-  const real = '';
-  const fake = '';
+  const real = 'real_';
+  const fake = 'fake_';
 
   const vip = {
     real_name: 'Kelly',

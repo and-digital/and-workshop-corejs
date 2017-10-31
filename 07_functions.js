@@ -19,7 +19,7 @@ function namedFunction() {
 
 /* a function can return anoter function */
 function foo() {
-  return function bar() {
+  return function() {
     console.log('function bar called!\n');
   };
 }
@@ -100,12 +100,12 @@ stringToUppercase = [':)', 'hello', 'world'].pop().toUpperCase();
 console.log('stringToUppercase in a single line:', stringToUppercase);
 
 /* you can return a function from a function
-  the inner function (clousre) will memoize the parameters
+  the inner function (closure) will memoize the parameters
 */
 
 function addPrefix(prefix) {
   return function(str) {
-    let prefixedStr = `${prefix} ${str}`;
+    let prefixedStr = `prefix is : ${prefix} and string is  ${str}`;
     return prefixedStr;
   };
 }

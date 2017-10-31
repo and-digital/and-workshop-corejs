@@ -90,9 +90,9 @@ function foo() {
   console.log('foo');
 }
 
-var someFoo = foo; // variable reference to `foo`
+const someFoo = foo; // variable reference to `foo`
 
-var myObject = {
+const myObject = {
   someFoo: foo
 };
 
