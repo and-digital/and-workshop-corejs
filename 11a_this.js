@@ -45,7 +45,7 @@ function foo2(num) {
   console.log('foo2: ' + num);
   console.log(data);
   // keep track of how many times `foo` is called
-  data.count = 2;
+  data.count++;
 }
 
 for (i = 0; i < 10; i++) {
