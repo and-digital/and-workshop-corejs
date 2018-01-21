@@ -60,7 +60,7 @@ it('should return 1 candidate with [JUNIOR, PHP]', () => {
 it('should return 5 candidate with [JAVASCRIPT]', () => {
   const candidates = filter(data, ['JAVASCRIPT']);
 
-  expect(candidates.length).toBe(5);
+  expect(candidates.length).toBe(4);
   expect(candidates[0].name).toBe('Julian Assange');
-  expect(candidates[2].name).toBe('Donald Obama');
+  expect(candidates[2].name).toBe('Maria Bianchi');
 });

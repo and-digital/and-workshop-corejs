@@ -1,18 +1,18 @@
 /**
  *  AVAILABLE FILTERS:
  *  ["AVAILABLE_IMMEDIATELY", "FRESH_GRAD", "JUNIOR", "JAVASCRIPT", "PHP", "AWS", "REACT", "JAVA"]
- *   
+ *
  *  "AVAILABLE_IMMEDIATELY" and "FRESH_GRAD" will override all the other filters if specified
- * 
+ *
  *  if "AVAILABLE_IMMEDIATELY" and "FRESH_GRAD" are both specified as filter, "FRESH_GRAD" will be ignored
- * 
- * 
+ *
+ *
  *  Exercise: refactor this code
  *  - take care of naming variables
  *  - get rid of the 'for loops'
  *  - move it to modern JS!
  *  - oh, there are missing tests/scenario
- *  
+ *
  *   happy refactory :)
  */
 
@@ -40,15 +40,18 @@ function filter(results, filters) {
           var hasFilter = false;
           for (var j = results[i].options.length; j--; ) {
             if (!availableImmediately && !freshGrad) {
-              if (filters[k].indexOf(results[i].options[j]) !== -1) {
+              if (filters[k] == results[i].options[j].code) {
                 hasFilter = true;
               }
             } else if (
               availableImmediately &&
-              results[i].options[j] === 'AVAILABLE_IMMEDIATELY'
+              results[i].options[j].code === 'AVAILABLE_IMMEDIATELY'
             ) {
               hasFilter = true;
-            } else if (freshGrad && results[i].options[j] === 'FRESH_GRAD') {
+            } else if (
+              freshGrad &&
+              results[i].options[j].code === 'FRESH_GRAD'
+            ) {
               hasFilter = true;
             }
           }
