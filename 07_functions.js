@@ -103,6 +103,7 @@ console.log('stringToUppercase in a single line:', stringToUppercase);
   the inner function (closure) will memoize the parameters
 */
 
+//curry example 1
 function addPrefix(prefix) {
   return function(str) {
     let prefixedStr = `prefix is : ${prefix} and string is  ${str}`;
@@ -123,3 +124,32 @@ prefixedYOU = prefixWithSmilingFaceWithSunglasses(' YOU!');
 
 console.log('prefixedJob:', prefixedJob);
 console.log('prefixedYOU:', prefixedYOU, '\n');
+
+//curry example 2
+const candidates = [
+  { skill: 'JS', name: 'Jane' },
+  { skill: 'JS', name: 'Mario' },
+  { skill: 'PHP', name: 'Mel' },
+  { skill: 'CSS', name: 'Lorna' },
+  { skill: 'JAVA', name: 'Lorna' }
+];
+
+const hasSkill = function(skill) {
+  return function(candidate) {
+    return candidate.skill == skill;
+  };
+};
+
+let filteredCandidates = candidates.filter(hasSkill('JS'));
+
+// curry example 3
+let convert = function(from, to) {
+  let rate = 1.2; // some http request to an external service that gives you back the exchange rate
+  return function(amount) {
+    return amount * rate;
+  };
+};
+let convertGBPEUR = convert('GBP', 'EUR');
+
+convertGBPEUR(100);
+convertGBPEUR(3000);

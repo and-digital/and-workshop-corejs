@@ -188,3 +188,15 @@ Called with a context object owning the call? Use that context object.
 Default: undefined in strict mode, global object otherwise.
 
 */
+
+const candidates = [
+  { skill: 'JS', name: 'Jane' },
+  { skill: 'JS', name: 'Mario' },
+  { skill: 'PHP', name: 'Mel' },
+  { skill: 'CSS', name: 'Lorna' },
+  { skill: 'JAVA', name: 'Lorna' }
+];
+
+const hasSkill = skill => candidate => candidate.skill == skill;
+
+let filteredCandidates = candidates.filter(hasSkill('JS'));

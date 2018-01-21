@@ -51,6 +51,7 @@ describe('About Functions', function() {
     expect(mysteryFunction3(10) + mysteryFunction5(5)).toBe(/* 🤔 */);
   });
 
+  //currying
   it('should allow extra function arguments', function() {
     function returnFirstArg(firstArg) {
       return firstArg;
