@@ -111,6 +111,6 @@ describe('About Functions', function() {
 
     expect(markTaskDone('task1')).toEqual('task1 done!');
     expect(markTaskDone('task2')).toEqual('task2 done!');
-    expect(hemphasis('do it').toEqual('do it!'));
+    expect(hemphasis('do it')).toEqual('do it!');
   });
 });
