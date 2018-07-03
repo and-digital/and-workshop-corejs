@@ -99,9 +99,7 @@ stringToUppercase = [':)', 'hello', 'world'].pop().toUpperCase();
 
 console.log('stringToUppercase in a single line:', stringToUppercase);
 
-/* you can return a function from a function
-  the inner function (closure) will memoize the parameters
-*/
+/* You can return a function from a function */
 
 //curry example 1
 function addPrefix(prefix) {
