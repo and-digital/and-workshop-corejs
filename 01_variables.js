@@ -14,30 +14,30 @@ var z = y,
 
 console.log(z + y); // undefinedA
 
-var l = 0; // x is declared global, then assigned a value of 0
-
 console.log(typeof z); // undefined, since z doesn't exist yet
 
+var l = 0; // l is declared global, then assigned a value of 0
+
 function foo() {
-  // when a is called,
-  var y = 2; // y is declared local to function a, then assigned a value of 2
+  // when foo is called,
+  var y = 2; // y is declared local to function foo, then assigned a value of 2
 
   console.log(l, y); // 0 2
 
-  function b() {
-    // when b is called
-    l = 3; // assigns 3 to existing global x, doesn't create a new global var
+  function bar() {
+    // when bar is called
+    l = 3; // assigns 3 to existing global l, doesn't create a new global var
     y = 4; // assigns 4 to existing outer y, doesn't create a new global var
     z = 5; // creates a new global variable z and assigns a value of 5.
   } // (Throws a ReferenceError in strict mode.)
 
-  b(); // calling b creates z as a global variable
+  bar(); // calling b creates z as a global variable
   console.log(l, y, z); // 3 4 5
 }
 
-foo(); // calling a also calls b
+foo(); // calling foo also calls bar
 console.log(l, z); // 3 5
-console.log(typeof y); // undefined as y is local to function a
+console.log(typeof y); // undefined as y is local to function foo
 
 //# #HOISTING
 
@@ -53,10 +53,10 @@ The result of the code above is: "My cat's name is Tigger"
 dogName('Chloe');
 
 function dogName(name) {
-  console.log("My cat's name is " + name);
+  console.log("My dog's name is " + name);
 }
 /*
-The result of the code above is: "My cat's name is Chloe"
+The result of the code above is: "My dog's name is Chloe"
 */
 
 num = 6;
@@ -87,11 +87,11 @@ let i = 'global';
 console.log(this.x); // "global"
 console.log(this.i); // undefined
 
-/* In ECMAScript 2015, let bindings are not subject to Variable Hoisting, which means that let declarations do not move 
-   to the top of the current execution context.  
-   Referencing the variable in the block before the initialization results in a ReferenceError (contrary to a variable declared with var, 
-   which will just have the undefined value). 
-   The variable is in a "temporal dead zone" from the start of the block until the initialization is processed. 
+/* In ECMAScript 2015, let bindings are not subject to Variable Hoisting, which means that let declarations do not move
+   to the top of the current execution context.
+   Referencing the variable in the block before the initialization results in a ReferenceError (contrary to a variable declared with var,
+   which will just have the undefined value).
+   The variable is in a "temporal dead zone" from the start of the block until the initialization is processed.
 */
 
 function varTest() {
@@ -187,8 +187,8 @@ var MY_FAV = 20;
 let MY_FAV = 20;
 
 // it's important to note the nature of block scoping
-if (MY_FAV === 7) { 
-    // this is fine and creates a block scoped MY_FAV variable 
+if (MY_FAV === 7) {
+    // this is fine and creates a block scoped MY_FAV variable
     // (works equally well with let to declare a block scoped non const variable)
     let MY_FAV = 20;
 
@@ -203,7 +203,7 @@ if (MY_FAV === 7) {
 console.log('my favorite number is ' + MY_FAV);
 
 // throws an error - Uncaught SyntaxError: Missing initializer in const declaration
-const FOO; 
+const FOO;
 
 // const also works on objects
 const MY_OBJECT = {'key': 'value'};
