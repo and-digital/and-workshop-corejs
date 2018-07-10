@@ -1,5 +1,5 @@
 describe('About objects', () => {
-  it('should return using property access', () => {
+  it('should return using key access', () => {
     //RULE: USE key access
     const obj = {
       name: 'Julian',
@@ -12,7 +12,7 @@ describe('About objects', () => {
     expect(/* 🤔 */).toBe(35);
   });
 
-  it('should return using key access', () => {
+  it('should return using property access', () => {
     //RULE: USE property access
     const obj = {
       name: 'Julian',
