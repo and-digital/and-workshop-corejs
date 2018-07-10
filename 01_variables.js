@@ -31,7 +31,7 @@ function foo() {
     z = 5; // creates a new global variable z and assigns a value of 5.
   } // (Throws a ReferenceError in strict mode.)
 
-  bar(); // calling b creates z as a global variable
+  bar(); // calling bar creates z as a global variable
   console.log(l, y, z); // 3 4 5
 }
 
