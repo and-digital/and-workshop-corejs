@@ -1,5 +1,5 @@
 //## GENERATOR
-//a new type of function that does’t not behave with the run-to-completion behaviour
+//a new type of function that does not behave with the run-to-completion behaviour
 
 function* foo() {
   let x = 1;
@@ -37,8 +37,8 @@ console.log(n1); // { value: 42, done: true }
 
 /* the iterator should listen for the promise to resolve (or reject)
 
-then either resume the generator with the 
-fulfilment message 
+then either resume the generator with the
+fulfilment message
 
 or throw an error into the generator with the rejection reason) */
 
@@ -69,7 +69,7 @@ const makeRequestA1 = async () => {
 };
 
 /*
-1 - Our function has the keyword async before it. 
+1 - Our function has the keyword async before it.
 The await keyword can only be used inside functions defined with async.
  Any async function returns a promise implicitly, and the resolve value of the promise will be whatever you return from the function (which is the string "done" in our case).
 
@@ -103,8 +103,8 @@ const makeRequestA2 = async () => {
 };
 
 /*
-You have probably found yourself in a situation where you call a promise1 and then use what it returns to call promise2, 
-then use the results of both promises to call a promise3. 
+You have probably found yourself in a situation where you call a promise1 and then use what it returns to call promise2,
+then use the results of both promises to call a promise3.
 Your code most likely looked like this
 */
 const makeRequestP3 = () => {

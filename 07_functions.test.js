@@ -98,12 +98,12 @@ describe('About Functions', function() {
     expect(reverse('hello')).toEqual('olleh');
   });
 
-  it('should return a human age in dog age (1 1 human year to 7 dog years', () => {
+  it('should return the dog age equivalent of a human age (1 year for Fido = 7 years for you)', () => {
     function puppyCalculator() {}
 
     expect(puppyCalculator(35)).toBe(5);
     expect(puppyCalculator(6)).toBe(1);
-    expect(puppyCalculator(89)).toBe(12);
+    expect(puppyCalculator(89)).toBe(13);
   });
 
   it('should return a string with a defined suffix', () => {

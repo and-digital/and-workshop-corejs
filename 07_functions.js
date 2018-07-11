@@ -5,7 +5,7 @@ let aFunction = function() {
 };
 
 /*
-One of the benefit of creating a named function expression is that in case we encounted an error, 
+One of the benefits of creating a named function expression is that in case we encounted an error,
 the stack trace will contain the name of the function, making it easier to find the origin of the error.
 */
 
@@ -17,7 +17,7 @@ function namedFunction() {
   /* logic */
 })();
 
-/* a function can return anoter function */
+/* a function can return another function */
 function foo() {
   return function() {
     console.log('function bar called!\n');
@@ -38,7 +38,7 @@ const returnedValueFromBaz = baz(a);
 console.log(`returned value from calling baz is: ${returnedValueFromBaz}\n`);
 
 /* you can specify any number of argurments to a function
-  BUT as a caller you are not force to pass all of them
+  BUT as a caller you are not forced to pass all of them
 */
 
 function doS(firstArgument, secondArgument, thirdArgument) {
@@ -83,7 +83,7 @@ function third(param) {
 
 third(second(first(42)));
 
-/* you can also have chained function calls based on the return value 
+/* you can also have chained function calls based on the return value
   for example Array, String and Number have their own functions
 */
 
@@ -104,7 +104,7 @@ console.log('stringToUppercase in a single line:', stringToUppercase);
 //curry example 1
 function addPrefix(prefix) {
   return function(str) {
-    let prefixedStr = `prefix is : ${prefix} and string is  ${str}`;
+    let prefixedStr = `prefix is : ${prefix} and string is ${str}`;
     return prefixedStr;
   };
 }

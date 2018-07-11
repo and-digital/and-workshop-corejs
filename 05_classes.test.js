@@ -1,36 +1,38 @@
-/* 
-	
-	Task 1) Refactor the following traditional Javascript "class" into new class syntax
+describe('About classes', () => {
+  /*
 
-*/
+    Task 1) Refactor the following traditional Javascript "class" into new class syntax
 
-function Animal() {}
+  */
 
-Animal.prototype.speak = function() {
-  return 'meow';
-};
+  function Animal() {}
 
-Animal.eat = function() {
-  return 'nom nom nom';
-};
+  Animal.prototype.speak = function() {
+    return 'meow';
+  };
 
-test('Make cat meow', () => {
-  const Cat = new Animal();
+  Animal.eat = function() {
+    return 'nom nom nom';
+  };
 
-  expect(Cat.speak()).toBe('meow');
-  expect(Animal.eat()).toBe('nom nom nom');
-});
+  it('should make the cat meow and animal eat', () => {
+    const Cat = new Animal();
 
-/*
+    expect(Cat.speak()).toBe('meow');
+    expect(Animal.eat()).toBe('nom nom nom');
+  });
 
-	 Task 2) Create a class Kitten, that extends the Animal. Overwriting the previous speak method.
-		The test should fail when you add the extended class, you will need to override the method for the test to pass
-	 	Tip: Use extends keyword
+  /*
 
-*/
+    Task 2) Create a class Kitten, that extends the Animal. Overwriting the previous speak method.
+      The test should fail when you add the extended class, you will need to override the method for the test to pass
+      Tip: Use extends keyword
 
-test('Hear the kitten meow', () => {
-  const Kitty = new Kitten();
+  */
 
-  expect(Kitty.speak()).toBe('kitten meow');
+  it('should hear the kitten meow', () => {
+    const Kitty = new Kitten();
+
+    expect(Kitty.speak()).toBe('kitten meow');
+  });
 });
