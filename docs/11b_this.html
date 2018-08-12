@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>11b_this.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page_wrapper">
+            <div id="jump_page">
+              
+                
+                <a class="source" href="01_variables.html">
+                  ./01_variables.js
+                </a>
+              
+                
+                <a class="source" href="01_variables.test.html">
+                  ./01_variables.test.js
+                </a>
+              
+                
+                <a class="source" href="03_objects.html">
+                  ./03_objects.js
+                </a>
+              
+                
+                <a class="source" href="03_objects.test.html">
+                  ./03_objects.test.js
+                </a>
+              
+                
+                <a class="source" href="03_types.test.html">
+                  ./03_types.test.js
+                </a>
+              
+                
+                <a class="source" href="04_object_prototypes.test.html">
+                  ./04_object_prototypes.test.js
+                </a>
+              
+                
+                <a class="source" href="05_classes.test.html">
+                  ./05_classes.test.js
+                </a>
+              
+                
+                <a class="source" href="07_functions.html">
+                  ./07_functions.js
+                </a>
+              
+                
+                <a class="source" href="07_functions.test.html">
+                  ./07_functions.test.js
+                </a>
+              
+                
+                <a class="source" href="08_callback.exercise_01.html">
+                  ./08_callback.exercise_01.js
+                </a>
+              
+                
+                <a class="source" href="08_callback.html">
+                  ./08_callback.js
+                </a>
+              
+                
+                <a class="source" href="08_callback.test.html">
+                  ./08_callback.test.js
+                </a>
+              
+                
+                <a class="source" href="09_pass_by.html">
+                  ./09_pass_by.js
+                </a>
+              
+                
+                <a class="source" href="10_closure_and_scoping.test.html">
+                  ./10_closure_and_scoping.test.js
+                </a>
+              
+                
+                <a class="source" href="11_this.alerternative.html">
+                  ./11_this.alerternative.js
+                </a>
+              
+                
+                <a class="source" href="11_this.test.html">
+                  ./11_this.test.js
+                </a>
+              
+                
+                <a class="source" href="11a_this.html">
+                  ./11a_this.js
+                </a>
+              
+                
+                <a class="source" href="11b_this.html">
+                  ./11b_this.js
+                </a>
+              
+                
+                <a class="source" href="12_exercise.html">
+                  ./12_exercise.js
+                </a>
+              
+                
+                <a class="source" href="12_exercise.test.html">
+                  ./12_exercise.test.js
+                </a>
+              
+                
+                <a class="source" href="12_goodies.html">
+                  ./12_goodies.js
+                </a>
+              
+                
+                <a class="source" href="13_promises.test.html">
+                  ./13_promises.test.js
+                </a>
+              
+                
+                <a class="source" href="14_async_await.html">
+                  ./14_async_await.js
+                </a>
+              
+                
+                <a class="source" href="14_async_await.test.html">
+                  ./14_async_await.test.js
+                </a>
+              
+                
+                <a class="source" href="server.html">
+                  ./server.js
+                </a>
+              
+            </div>
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>11b_this.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              <h2 id="call-site">CALL-SITE</h2>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+<span class="hljs-comment">/*
+To understand this binding, we have to understand the call-site: 
+the location in code where a function is called (not where it's declared). 
+
+We must inspect the call-site to answer the question: what's this this a reference to?
+
+Finding the call-site is generally: "go locate where a function is called from", 
+but it's not always that easy, as certain coding patterns 
+can obscure the true call-site.
+
+What's important is to think about the call-stack 
+(the stack of functions that have been called to get us to the current moment 
+in execution). 
+
+The call-site we care about is in the invocation before 
+the currently executing function.
+
+Let's demonstrate call-stack and call-site:
+*/</span>
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">baz</span>(<span class="hljs-params"></span>) </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>call-stack is: <code>baz</code>
+so, our call-site is in the global scope</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'baz'</span>);
+  bar(); <span class="hljs-comment">// &lt;-- call-site for `bar`</span>
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">bar</span>(<span class="hljs-params"></span>) </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>call-stack is: <code>baz</code> -&gt; <code>bar</code>
+so, our call-site is in <code>baz</code></p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'bar'</span>);
+  foo(); <span class="hljs-comment">// &lt;-- call-site for `foo`</span>
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">foo</span>(<span class="hljs-params"></span>) </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>call-stack is: <code>baz</code> -&gt; <code>bar</code> -&gt; <code>foo</code>
+so, our call-site is in <code>bar</code></p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'foo'</span>);
+}
+
+baz(); <span class="hljs-comment">// &lt;-- call-site for `baz`</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <h2 id="default-binding">DEFAULT BINDING</h2>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+<span class="hljs-keyword">var</span> a = <span class="hljs-number">2</span>;
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">lolz1</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`lolz1 this.a: <span class="hljs-subst">${<span class="hljs-keyword">this</span>.a}</span>`</span>);
+}
+
+lolz1(); <span class="hljs-comment">// undefined - 2 in the browser non-strict mode</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <h2 id="implicit-binding">IMPLICIT BINDING</h2>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+<span class="hljs-comment">/* the call-site uses the obj context to reference the function, so you could say that 
+the obj object "owns" or "contains" the function reference at the time the function is called.
+*/</span>
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">lolz2</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`lolz2 this.a: <span class="hljs-subst">${<span class="hljs-keyword">this</span>.a}</span>\n`</span>);
+}
+
+<span class="hljs-keyword">const</span> obj = {
+  <span class="hljs-attr">a</span>: <span class="hljs-number">2</span>,
+  <span class="hljs-attr">lolz2</span>: lolz2
+};
+
+obj.lolz2(); <span class="hljs-comment">// 2</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <h2 id="implicit-lost">IMPLICIT LOST</h2>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">lolz3</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`lolz3 this.a: <span class="hljs-subst">${<span class="hljs-keyword">this</span>.a}</span>\n`</span>);
+}
+
+<span class="hljs-keyword">const</span> obj2 = {
+  <span class="hljs-attr">a</span>: <span class="hljs-number">2</span>,
+  <span class="hljs-attr">lolz3</span>: lolz3
+};
+
+<span class="hljs-keyword">const</span> ref = obj2.lolz3; <span class="hljs-comment">// function reference/alias!</span>
+
+<span class="hljs-keyword">var</span> a = <span class="hljs-string">'oops, global'</span>; <span class="hljs-comment">// `a` also property on global object</span>
+
+ref(); <span class="hljs-comment">// "oops, global" in the browser - undefined</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <h2 id="explicit-binding">EXPLICIT BINDING</h2>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">xyz</span>(<span class="hljs-params">something</span>) </span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`xyz this.a is <span class="hljs-subst">${<span class="hljs-keyword">this</span>.a}</span>`</span>, something);
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.a + something;
+}
+
+<span class="hljs-keyword">const</span> antherObj = {
+  <span class="hljs-attr">a</span>: <span class="hljs-number">2</span>
+};
+
+<span class="hljs-keyword">var</span> bar = xyz.bind(antherObj);
+
+<span class="hljs-keyword">var</span> b = bar(<span class="hljs-number">3</span>); <span class="hljs-comment">// 2 3</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">`b is: <span class="hljs-subst">${b}</span>\n`</span>); <span class="hljs-comment">// 5</span>
+
+<span class="hljs-comment">/* So, now we've uncovered the 4 rules for binding this in function calls. 
+All you need to do is find the call-site and inspect it to see which rule applies. 
+But, what if the call-site has multiple eligible rules? There must be an order of precedence to these rules, 
+and so we will next demonstrate what order to apply the rules.
+
+It should be clear that the default binding is the lowest priority rule of the 4. So we'll just set that one aside.
+
+Which is more precedent, implicit binding or explicit binding? Let's test it:
+*/</span>
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">zzz</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`zzz this.a: <span class="hljs-subst">${<span class="hljs-keyword">this</span>.a}</span>`</span>);
+}
+
+<span class="hljs-keyword">const</span> o1 = {
+  <span class="hljs-attr">a</span>: <span class="hljs-number">2</span>,
+  <span class="hljs-attr">zzz</span>: zzz
+};
+
+<span class="hljs-keyword">const</span> o2 = {
+  <span class="hljs-attr">a</span>: <span class="hljs-number">3</span>,
+  <span class="hljs-attr">zzz</span>: zzz
+};
+
+o1.zzz(); <span class="hljs-comment">// 2</span>
+o2.zzz(); <span class="hljs-comment">// 3</span>
+
+o1.zzz.call(o2); <span class="hljs-comment">// 3</span>
+o2.zzz.call(o1); <span class="hljs-comment">// 2</span>
+
+<span class="hljs-comment">/* So, explicit binding takes precedence over implicit binding, 
+which means you should ask first if explicit binding applies before checking for implicit binding. 
+
+Determining this
+
+Now, we can summarize the rules for determining this from a function call's call-site, in their order of precedence. 
+Ask these questions in this order, and stop when the first rule applies.
+
+- Is the function called with new (new binding)? If so, this is the newly constructed object.
+
+const bar = new foo()
+
+
+- Is the function called with call or apply (explicit binding), even hidden inside a bind hard binding? If so, this is the explicitly specified object.
+
+const bar = foo.call( obj2 )
+
+
+- Is the function called with a context (implicit binding), otherwise known as an owning or containing object? If so, this is that context object.
+
+const bar = obj1.foo()
+
+
+Otherwise, default the this (default binding). If in strict mode, pick undefined, otherwise pick the global object.
+
+const bar = foo()
+*/</span></pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

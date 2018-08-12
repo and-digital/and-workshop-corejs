@@ -5,6 +5,7 @@
   "main": "",
   "scripts": {
     "test": "jest --watch",
+    "docs": "./node_modules/.bin/docco ./*.js",
     "precommit": "lint-staged"
   },
   "author": "",
@@ -20,5 +21,8 @@
       "prettier --write --single-quote",
       "git add"
     ]
+  },
+  "devDependencies": {
+    "docco": "^0.8.0"
   }
 }

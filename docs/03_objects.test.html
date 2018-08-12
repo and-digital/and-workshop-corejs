@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>03_objects.test.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page_wrapper">
+            <div id="jump_page">
+              
+                
+                <a class="source" href="01_variables.html">
+                  ./01_variables.js
+                </a>
+              
+                
+                <a class="source" href="01_variables.test.html">
+                  ./01_variables.test.js
+                </a>
+              
+                
+                <a class="source" href="03_objects.html">
+                  ./03_objects.js
+                </a>
+              
+                
+                <a class="source" href="03_objects.test.html">
+                  ./03_objects.test.js
+                </a>
+              
+                
+                <a class="source" href="03_types.test.html">
+                  ./03_types.test.js
+                </a>
+              
+                
+                <a class="source" href="04_object_prototypes.test.html">
+                  ./04_object_prototypes.test.js
+                </a>
+              
+                
+                <a class="source" href="05_classes.test.html">
+                  ./05_classes.test.js
+                </a>
+              
+                
+                <a class="source" href="07_functions.html">
+                  ./07_functions.js
+                </a>
+              
+                
+                <a class="source" href="07_functions.test.html">
+                  ./07_functions.test.js
+                </a>
+              
+                
+                <a class="source" href="08_callback.exercise_01.html">
+                  ./08_callback.exercise_01.js
+                </a>
+              
+                
+                <a class="source" href="08_callback.html">
+                  ./08_callback.js
+                </a>
+              
+                
+                <a class="source" href="08_callback.test.html">
+                  ./08_callback.test.js
+                </a>
+              
+                
+                <a class="source" href="09_pass_by.html">
+                  ./09_pass_by.js
+                </a>
+              
+                
+                <a class="source" href="10_closure_and_scoping.test.html">
+                  ./10_closure_and_scoping.test.js
+                </a>
+              
+                
+                <a class="source" href="11_this.alerternative.html">
+                  ./11_this.alerternative.js
+                </a>
+              
+                
+                <a class="source" href="11_this.test.html">
+                  ./11_this.test.js
+                </a>
+              
+                
+                <a class="source" href="11a_this.html">
+                  ./11a_this.js
+                </a>
+              
+                
+                <a class="source" href="11b_this.html">
+                  ./11b_this.js
+                </a>
+              
+                
+                <a class="source" href="12_exercise.html">
+                  ./12_exercise.js
+                </a>
+              
+                
+                <a class="source" href="12_exercise.test.html">
+                  ./12_exercise.test.js
+                </a>
+              
+                
+                <a class="source" href="12_goodies.html">
+                  ./12_goodies.js
+                </a>
+              
+                
+                <a class="source" href="13_promises.test.html">
+                  ./13_promises.test.js
+                </a>
+              
+                
+                <a class="source" href="14_async_await.html">
+                  ./14_async_await.js
+                </a>
+              
+                
+                <a class="source" href="14_async_await.test.html">
+                  ./14_async_await.test.js
+                </a>
+              
+                
+                <a class="source" href="server.html">
+                  ./server.js
+                </a>
+              
+            </div>
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>03_objects.test.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>describe(<span class="hljs-string">'About objects'</span>, () =&gt; {
+  it(<span class="hljs-string">'should return using key access'</span>, () =&gt; {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>RULE: USE key access</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-keyword">const</span> obj = {
+      <span class="hljs-attr">name</span>: <span class="hljs-string">'Julian'</span>,
+      <span class="hljs-attr">lastname</span>: <span class="hljs-string">'Brown'</span>,
+      <span class="hljs-attr">age</span>: <span class="hljs-string">'35'</span>
+    };
+
+    expect(<span class="hljs-comment">/* 🤔 */</span>).toBe(<span class="hljs-string">'Julian'</span>);
+    expect(<span class="hljs-comment">/* 🤔 */</span>).toBe(<span class="hljs-string">'Brown'</span>);
+    expect(<span class="hljs-comment">/* 🤔 */</span>).toBe(<span class="hljs-number">35</span>);
+  });
+
+  it(<span class="hljs-string">'should return using property access'</span>, () =&gt; {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>RULE: USE property access</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-keyword">const</span> obj = {
+      <span class="hljs-attr">name</span>: <span class="hljs-string">'Julian'</span>,
+      <span class="hljs-attr">lastname</span>: <span class="hljs-string">'Brown'</span>,
+      <span class="hljs-attr">age</span>: <span class="hljs-string">'35'</span>
+    };
+
+    expect(<span class="hljs-comment">/* 🤔 */</span>).toBe(<span class="hljs-string">'Julian'</span>);
+    expect(<span class="hljs-comment">/* 🤔 */</span>).toBe(<span class="hljs-string">'Brown'</span>);
+    expect(<span class="hljs-comment">/* 🤔 */</span>).toBe(<span class="hljs-number">35</span>);
+  });
+
+  it(<span class="hljs-string">'should return using computed property names'</span>, () =&gt; {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>RULE: USE computed property names</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-keyword">const</span> real = <span class="hljs-string">'real_'</span>;
+    <span class="hljs-keyword">const</span> fake = <span class="hljs-string">'fake_'</span>;
+
+    <span class="hljs-keyword">const</span> vip = {
+      <span class="hljs-attr">real_name</span>: <span class="hljs-string">'Kelly'</span>,
+      <span class="hljs-attr">real_lastname</span>: <span class="hljs-string">'White'</span>,
+      <span class="hljs-attr">fake_name</span>: <span class="hljs-string">'Pink'</span>,
+      <span class="hljs-attr">fake_lastname</span>: <span class="hljs-string">'Venn'</span>,
+      <span class="hljs-attr">age</span>: <span class="hljs-string">'35'</span>
+    };
+
+    expect(<span class="hljs-comment">/* 🤔 */</span>).toBe(<span class="hljs-string">'Kelly'</span>);
+    expect(<span class="hljs-comment">/* 🤔 */</span>).toBe(<span class="hljs-string">'White'</span>);
+    expect(<span class="hljs-comment">/* 🤔 */</span>).toBe(<span class="hljs-string">'Pink'</span>);
+    expect(<span class="hljs-comment">/* 🤔 */</span>).toBe(<span class="hljs-string">'Venn'</span>);
+    expect(<span class="hljs-comment">/* 🤔 */</span>).toBe(<span class="hljs-number">35</span>);
+  });
+
+  it(<span class="hljs-string">'should define object properties'</span>, () =&gt; {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>RULE: USE Object.defineProperty</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-keyword">const</span> vip = {
+      <span class="hljs-attr">name</span>: <span class="hljs-string">'Kelly'</span>,
+      <span class="hljs-attr">lastname</span>: <span class="hljs-string">'White'</span>,
+      <span class="hljs-attr">age</span>: <span class="hljs-string">'35'</span>
+    };
+
+    vip.age = <span class="hljs-number">37</span>;
+    expect(<span class="hljs-comment">/* 🤔 */</span>).toBe(<span class="hljs-string">'Kelly'</span>);
+    expect(<span class="hljs-comment">/* 🤔 */</span>).toBe(<span class="hljs-string">'White'</span>);
+    expect(<span class="hljs-comment">/* 🤔 */</span>).toBe(<span class="hljs-number">35</span>);
+  });</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object</a></p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+  it(<span class="hljs-string">'should return an array of keys from an object'</span>, () =&gt; {
+    <span class="hljs-keyword">const</span> vip = {
+      <span class="hljs-attr">name</span>: <span class="hljs-string">'Kelly'</span>,
+      <span class="hljs-attr">lastname</span>: <span class="hljs-string">'White'</span>,
+      <span class="hljs-attr">age</span>: <span class="hljs-number">35</span>
+    };
+
+    expect(<span class="hljs-comment">/* 🤔 */</span>).toEqual([<span class="hljs-string">'name'</span>, <span class="hljs-string">'lastname'</span>, <span class="hljs-string">'age'</span>]);
+  });
+
+  it(<span class="hljs-string">'should return an array of values from an object'</span>, () =&gt; {
+    <span class="hljs-keyword">const</span> vip = {
+      <span class="hljs-attr">name</span>: <span class="hljs-string">'Kelly'</span>,
+      <span class="hljs-attr">lastname</span>: <span class="hljs-string">'White'</span>,
+      <span class="hljs-attr">age</span>: <span class="hljs-number">35</span>
+    };
+
+    expect(<span class="hljs-comment">/* 🤔 */</span>).toEqual([<span class="hljs-string">'Kelly'</span>, <span class="hljs-string">'White'</span>, <span class="hljs-number">35</span>]);
+  });
+});</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

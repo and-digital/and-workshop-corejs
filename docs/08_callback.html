@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>08_callback.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page_wrapper">
+            <div id="jump_page">
+              
+                
+                <a class="source" href="01_variables.html">
+                  ./01_variables.js
+                </a>
+              
+                
+                <a class="source" href="01_variables.test.html">
+                  ./01_variables.test.js
+                </a>
+              
+                
+                <a class="source" href="03_objects.html">
+                  ./03_objects.js
+                </a>
+              
+                
+                <a class="source" href="03_objects.test.html">
+                  ./03_objects.test.js
+                </a>
+              
+                
+                <a class="source" href="03_types.test.html">
+                  ./03_types.test.js
+                </a>
+              
+                
+                <a class="source" href="04_object_prototypes.test.html">
+                  ./04_object_prototypes.test.js
+                </a>
+              
+                
+                <a class="source" href="05_classes.test.html">
+                  ./05_classes.test.js
+                </a>
+              
+                
+                <a class="source" href="07_functions.html">
+                  ./07_functions.js
+                </a>
+              
+                
+                <a class="source" href="07_functions.test.html">
+                  ./07_functions.test.js
+                </a>
+              
+                
+                <a class="source" href="08_callback.exercise_01.html">
+                  ./08_callback.exercise_01.js
+                </a>
+              
+                
+                <a class="source" href="08_callback.html">
+                  ./08_callback.js
+                </a>
+              
+                
+                <a class="source" href="08_callback.test.html">
+                  ./08_callback.test.js
+                </a>
+              
+                
+                <a class="source" href="09_pass_by.html">
+                  ./09_pass_by.js
+                </a>
+              
+                
+                <a class="source" href="10_closure_and_scoping.test.html">
+                  ./10_closure_and_scoping.test.js
+                </a>
+              
+                
+                <a class="source" href="11_this.alerternative.html">
+                  ./11_this.alerternative.js
+                </a>
+              
+                
+                <a class="source" href="11_this.test.html">
+                  ./11_this.test.js
+                </a>
+              
+                
+                <a class="source" href="11a_this.html">
+                  ./11a_this.js
+                </a>
+              
+                
+                <a class="source" href="11b_this.html">
+                  ./11b_this.js
+                </a>
+              
+                
+                <a class="source" href="12_exercise.html">
+                  ./12_exercise.js
+                </a>
+              
+                
+                <a class="source" href="12_exercise.test.html">
+                  ./12_exercise.test.js
+                </a>
+              
+                
+                <a class="source" href="12_goodies.html">
+                  ./12_goodies.js
+                </a>
+              
+                
+                <a class="source" href="13_promises.test.html">
+                  ./13_promises.test.js
+                </a>
+              
+                
+                <a class="source" href="14_async_await.html">
+                  ./14_async_await.js
+                </a>
+              
+                
+                <a class="source" href="14_async_await.test.html">
+                  ./14_async_await.test.js
+                </a>
+              
+                
+                <a class="source" href="server.html">
+                  ./server.js
+                </a>
+              
+            </div>
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>08_callback.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              <h2 id="callbacks">CALLBACKS</h2>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <h2 id="synchronous-callbacks">SYNCHRONOUS CALLBACKS</h2>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">let</span> numbers = [<span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">8</span>, <span class="hljs-number">10</span>];
+<span class="hljs-keyword">let</span> halves = numbers.map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">x</span>) </span>{
+  x / <span class="hljs-number">2</span>;
+});</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>halves is now [1, 2, 4, 5]
+numbers is still [2, 4, 8, 10]</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+numbers = [<span class="hljs-number">1</span>, <span class="hljs-number">4</span>, <span class="hljs-number">9</span>];
+roots = numbers.map(<span class="hljs-built_in">Math</span>.sqrt);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>roots is now [1, 2, 3]
+numbers is still [1, 4, 9]</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+<span class="hljs-keyword">const</span> arr = [<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>, <span class="hljs-string">'c'</span>];
+
+arr.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">element</span>) </span>{
+  <span class="hljs-built_in">console</span>.log(element);
+});
+
+<span class="hljs-keyword">const</span> readline = <span class="hljs-built_in">require</span>(<span class="hljs-string">'readline'</span>);
+
+<span class="hljs-keyword">const</span> rl = readline.createInterface({
+  <span class="hljs-attr">input</span>: process.stdin,
+  <span class="hljs-attr">output</span>: process.stdout
+});</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>rl.question(‘What do you think of Node.js? ‘, function(answer) {
+  console.log(<code>Thank you for your valuable feedback: ${answer}</code>);</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p>  rl.close();
+});</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p>rl.question(‘All good? ‘, logAnswer);</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p>function logAnswer(answer) {
+  console.log(<code>Thank you for your valuable feedback: ${answer}</code>);</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-9">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-9">&#182;</a>
+              </div>
+              <p>  rl.close();
+}</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-10">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-10">&#182;</a>
+              </div>
+              <h2 id="asynchronous-callback">ASYNCHRONOUS CALLBACK</h2>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+<span class="hljs-keyword">const</span> http = <span class="hljs-built_in">require</span>(<span class="hljs-string">'http'</span>);
+<span class="hljs-keyword">const</span> httpOptions = {
+  <span class="hljs-attr">hostname</span>: <span class="hljs-string">'jsonplaceholder.typicode.com'</span>,
+  <span class="hljs-attr">port</span>: <span class="hljs-number">80</span>,
+  <span class="hljs-attr">path</span>: <span class="hljs-string">'/comments'</span>
+};
+
+http.get(httpOptions, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">res</span>) </span>{
+  <span class="hljs-keyword">let</span> data = <span class="hljs-string">''</span>;
+  res.on(<span class="hljs-string">'data'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">chunk</span>) </span>{
+    data += chunk;
+  });
+
+  res.on(<span class="hljs-string">'end'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-11">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-11">&#182;</a>
+              </div>
+              <p>console.log(JSON.parse(data));</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  });
+});
+
+<span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);
+fs.readdir(<span class="hljs-string">'..'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, files</span>) </span>{
+  <span class="hljs-built_in">console</span>.log(files);
+});
+
+fs.readdir(<span class="hljs-string">'..'</span>, listFiles);
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">listFiles</span>(<span class="hljs-params">err, files</span>) </span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'\nfiles from listFiles function'</span>, files);
+}</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

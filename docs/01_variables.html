@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>01_variables.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page_wrapper">
+            <div id="jump_page">
+              
+                
+                <a class="source" href="01_variables.html">
+                  ./01_variables.js
+                </a>
+              
+                
+                <a class="source" href="01_variables.test.html">
+                  ./01_variables.test.js
+                </a>
+              
+                
+                <a class="source" href="03_objects.html">
+                  ./03_objects.js
+                </a>
+              
+                
+                <a class="source" href="03_objects.test.html">
+                  ./03_objects.test.js
+                </a>
+              
+                
+                <a class="source" href="03_types.test.html">
+                  ./03_types.test.js
+                </a>
+              
+                
+                <a class="source" href="04_object_prototypes.test.html">
+                  ./04_object_prototypes.test.js
+                </a>
+              
+                
+                <a class="source" href="05_classes.test.html">
+                  ./05_classes.test.js
+                </a>
+              
+                
+                <a class="source" href="07_functions.html">
+                  ./07_functions.js
+                </a>
+              
+                
+                <a class="source" href="07_functions.test.html">
+                  ./07_functions.test.js
+                </a>
+              
+                
+                <a class="source" href="08_callback.exercise_01.html">
+                  ./08_callback.exercise_01.js
+                </a>
+              
+                
+                <a class="source" href="08_callback.html">
+                  ./08_callback.js
+                </a>
+              
+                
+                <a class="source" href="08_callback.test.html">
+                  ./08_callback.test.js
+                </a>
+              
+                
+                <a class="source" href="09_pass_by.html">
+                  ./09_pass_by.js
+                </a>
+              
+                
+                <a class="source" href="10_closure_and_scoping.test.html">
+                  ./10_closure_and_scoping.test.js
+                </a>
+              
+                
+                <a class="source" href="11_this.alerternative.html">
+                  ./11_this.alerternative.js
+                </a>
+              
+                
+                <a class="source" href="11_this.test.html">
+                  ./11_this.test.js
+                </a>
+              
+                
+                <a class="source" href="11a_this.html">
+                  ./11a_this.js
+                </a>
+              
+                
+                <a class="source" href="11b_this.html">
+                  ./11b_this.js
+                </a>
+              
+                
+                <a class="source" href="12_exercise.html">
+                  ./12_exercise.js
+                </a>
+              
+                
+                <a class="source" href="12_exercise.test.html">
+                  ./12_exercise.test.js
+                </a>
+              
+                
+                <a class="source" href="12_goodies.html">
+                  ./12_goodies.js
+                </a>
+              
+                
+                <a class="source" href="13_promises.test.html">
+                  ./13_promises.test.js
+                </a>
+              
+                
+                <a class="source" href="14_async_await.html">
+                  ./14_async_await.js
+                </a>
+              
+                
+                <a class="source" href="14_async_await.test.html">
+                  ./14_async_await.test.js
+                </a>
+              
+                
+                <a class="source" href="server.html">
+                  ./server.js
+                </a>
+              
+            </div>
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>01_variables.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              <h2 id="variables">VARIABLES</h2>
+<p>var
+let
+const</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <h2 id="var">VAR</h2>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+<span class="hljs-keyword">var</span> a = <span class="hljs-number">0</span>;
+<span class="hljs-keyword">var</span> b = <span class="hljs-number">0</span>;
+
+<span class="hljs-keyword">var</span> z = y,
+  y = <span class="hljs-string">'A'</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>undefinedA</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">console</span>.log(z + y); 
+
+<span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">typeof</span> z); <span class="hljs-comment">// undefined, since z doesn't exist yet</span>
+
+<span class="hljs-keyword">var</span> l = <span class="hljs-number">0</span>; <span class="hljs-comment">// l is declared global, then assigned a value of 0</span>
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">foo</span>(<span class="hljs-params"></span>) </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>when foo is called,</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-keyword">var</span> y = <span class="hljs-number">2</span>; <span class="hljs-comment">// y is declared local to function foo, then assigned a value of 2</span>
+
+  <span class="hljs-built_in">console</span>.log(l, y); <span class="hljs-comment">// 0 2</span>
+
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">bar</span>(<span class="hljs-params"></span>) </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>when bar is called</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    l = <span class="hljs-number">3</span>; <span class="hljs-comment">// assigns 3 to existing global l, doesn't create a new global var</span>
+    y = <span class="hljs-number">4</span>; <span class="hljs-comment">// assigns 4 to existing outer y, doesn't create a new global var</span>
+    z = <span class="hljs-number">5</span>; <span class="hljs-comment">// creates a new global variable z and assigns a value of 5.</span>
+  } <span class="hljs-comment">// (Throws a ReferenceError in strict mode.)</span>
+
+  bar(); <span class="hljs-comment">// calling bar creates z as a global variable</span>
+  <span class="hljs-built_in">console</span>.log(l, y, z); <span class="hljs-comment">// 3 4 5</span>
+}
+
+foo(); <span class="hljs-comment">// calling foo also calls bar</span>
+<span class="hljs-built_in">console</span>.log(l, z); <span class="hljs-comment">// 3 5</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">typeof</span> y); <span class="hljs-comment">// undefined as y is local to function foo</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <h1 id="-hoisting">#HOISTING</h1>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">catName</span>(<span class="hljs-params">name</span>) </span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"My cat's name is "</span> + name);
+}
+
+catName(<span class="hljs-string">'Tigger'</span>);
+<span class="hljs-comment">/*
+The result of the code above is: "My cat's name is Tigger"
+*/</span>
+
+dogName(<span class="hljs-string">'Chloe'</span>);
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">dogName</span>(<span class="hljs-params">name</span>) </span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"My dog's name is "</span> + name);
+}
+<span class="hljs-comment">/*
+The result of the code above is: "My dog's name is Chloe"
+*/</span>
+
+num = <span class="hljs-number">6</span>;
+num + <span class="hljs-number">7</span>;
+<span class="hljs-keyword">var</span> num;
+<span class="hljs-comment">/* gives no errors as long as num is declared*/</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p>JavaScript only hoists declarations, not initializations.
+If you are using a variable that is declared and initialized after using it, the value will be undefined.
+The below two examples demonstrate the same behavior.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">var</span> x = <span class="hljs-number">1</span>; <span class="hljs-comment">// Initialize x</span>
+<span class="hljs-built_in">console</span>.log(x + <span class="hljs-string">' '</span> + y); <span class="hljs-comment">// '1 undefined'</span>
+<span class="hljs-keyword">var</span> y = <span class="hljs-number">2</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p>The following code will behave the same as the previous code:</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">var</span> x = <span class="hljs-number">1</span>; <span class="hljs-comment">// Initialize x</span>
+<span class="hljs-keyword">var</span> y; <span class="hljs-comment">// Declare y</span>
+<span class="hljs-built_in">console</span>.log(x + <span class="hljs-string">' '</span> + y); <span class="hljs-comment">// '1 undefined'</span>
+y = <span class="hljs-number">2</span>; <span class="hljs-comment">// Initialize y</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-9">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-9">&#182;</a>
+              </div>
+              <p><a href="http://ignaciothayer.com/post/a-dangerous-example-of-javascript-hoisting/">http://ignaciothayer.com/post/a-dangerous-example-of-javascript-hoisting/</a></p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-10">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-10">&#182;</a>
+              </div>
+              <h2 id="let">LET</h2>
+<p>The let statement declares a block scope local variable, optionally initializing it to a value.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+<span class="hljs-keyword">var</span> x = <span class="hljs-string">'global'</span>;
+<span class="hljs-keyword">let</span> i = <span class="hljs-string">'global'</span>;
+<span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.x); <span class="hljs-comment">// "global"</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.i); <span class="hljs-comment">// undefined</span>
+
+<span class="hljs-comment">/* In ECMAScript 2015, let bindings are not subject to Variable Hoisting, which means that let declarations do not move
+   to the top of the current execution context.
+   Referencing the variable in the block before the initialization results in a ReferenceError (contrary to a variable declared with var,
+   which will just have the undefined value).
+   The variable is in a "temporal dead zone" from the start of the block until the initialization is processed.
+*/</span>
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">varTest</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">var</span> x = <span class="hljs-number">1</span>;
+  <span class="hljs-keyword">if</span> (<span class="hljs-literal">true</span>) {
+    <span class="hljs-keyword">var</span> x = <span class="hljs-number">2</span>; <span class="hljs-comment">// same variable!</span>
+    <span class="hljs-built_in">console</span>.log(x); <span class="hljs-comment">// 2</span>
+  }
+  <span class="hljs-built_in">console</span>.log(x); <span class="hljs-comment">// 2</span>
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">letTest</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">let</span> x = <span class="hljs-number">1</span>;
+  <span class="hljs-keyword">if</span> (<span class="hljs-literal">true</span>) {
+    <span class="hljs-keyword">let</span> x = <span class="hljs-number">2</span>; <span class="hljs-comment">// different variable</span>
+    <span class="hljs-built_in">console</span>.log(x); <span class="hljs-comment">// 2</span>
+  }
+  <span class="hljs-built_in">console</span>.log(x); <span class="hljs-comment">// 1</span>
+}</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-11">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-11">&#182;</a>
+              </div>
+              <h2 id="hoisting-reprise">HOISTING reprise</h2>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">do_something</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-built_in">console</span>.log(bar); <span class="hljs-comment">// undefined</span>
+  <span class="hljs-built_in">console</span>.log(foo); <span class="hljs-comment">// ReferenceError</span>
+  <span class="hljs-keyword">var</span> bar = <span class="hljs-number">1</span>;
+  <span class="hljs-keyword">let</span> foo = <span class="hljs-number">2</span>;
+}
+
+<span class="hljs-keyword">let</span> j = <span class="hljs-number">1</span>;
+
+<span class="hljs-keyword">switch</span> (j) {
+  <span class="hljs-keyword">case</span> <span class="hljs-number">0</span>:
+    <span class="hljs-keyword">let</span> foo;
+    <span class="hljs-keyword">break</span>;
+
+  <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:
+    <span class="hljs-keyword">let</span> foo; <span class="hljs-comment">// SyntaxError for redeclaration.</span>
+    <span class="hljs-keyword">break</span>;
+}</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-12">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-12">&#182;</a>
+              </div>
+              <p>However, it’s important to point out that a block nested inside a case clause will create a new block scoped lexical environment,
+which will not produce the redeclaration errors shown above.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">switch</span> (j) {
+  <span class="hljs-keyword">case</span> <span class="hljs-number">0</span>: {
+    <span class="hljs-keyword">let</span> foo;
+    <span class="hljs-keyword">break</span>;
+  }
+  <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>: {
+    <span class="hljs-keyword">let</span> foo;
+    <span class="hljs-keyword">break</span>;
+  }
+}
+
+<span class="hljs-keyword">var</span> a = <span class="hljs-number">1</span>;
+<span class="hljs-keyword">var</span> b = <span class="hljs-number">2</span>;
+
+<span class="hljs-keyword">if</span> (a === <span class="hljs-number">1</span>) {
+  <span class="hljs-keyword">var</span> a = <span class="hljs-number">11</span>; <span class="hljs-comment">// the scope is global</span>
+  <span class="hljs-keyword">let</span> b = <span class="hljs-number">22</span>; <span class="hljs-comment">// the scope is inside the if-block</span>
+
+  <span class="hljs-built_in">console</span>.log(a); <span class="hljs-comment">// 11</span>
+  <span class="hljs-built_in">console</span>.log(b); <span class="hljs-comment">// 22</span>
+}
+
+<span class="hljs-built_in">console</span>.log(a); <span class="hljs-comment">// 11</span>
+<span class="hljs-built_in">console</span>.log(b); <span class="hljs-comment">// 2</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-13">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-13">&#182;</a>
+              </div>
+              <h2 id="const">CONST</h2>
+<p>The const declaration creates a read-only reference to a value.
+It does not mean the value it holds is immutable, just that the variable identifier cannot be reassigned.
+For instance, in the case where the content is an object, this means the object’s contents (e.g., its parameters) can be altered.</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-14">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-14">&#182;</a>
+              </div>
+              <p>NOTE: Constants can be declared with uppercase or lowercase, but a common
+convention is to use all-uppercase letters.</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-15">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-15">&#182;</a>
+              </div>
+              <p>define MY_FAV as a constant and give it the value 7</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">const</span> MY_FAV = <span class="hljs-number">7</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-16">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-16">&#182;</a>
+              </div>
+              <p>this will throw an error - Uncaught TypeError: Assignment to constant variable.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>MY_FAV = <span class="hljs-number">20</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-17">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-17">&#182;</a>
+              </div>
+              <p>MY_FAV is 7</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">console</span>.log(<span class="hljs-string">'my favorite number is: '</span> + MY_FAV);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-18">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-18">&#182;</a>
+              </div>
+              <p>trying to redeclare a constant throws an error -  Uncaught SyntaxError: Identifier ‘MY_FAV’ has already been declared</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">const</span> MY_FAV = <span class="hljs-number">20</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-19">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-19">&#182;</a>
+              </div>
+              <p>the name MY_FAV is reserved for constant above, so this will fail too</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">var</span> MY_FAV = <span class="hljs-number">20</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-20">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-20">&#182;</a>
+              </div>
+              <p>this throws an error too</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">let</span> MY_FAV = <span class="hljs-number">20</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-21">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-21">&#182;</a>
+              </div>
+              <p>it’s important to note the nature of block scoping</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">if</span> (MY_FAV === <span class="hljs-number">7</span>) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-22">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-22">&#182;</a>
+              </div>
+              <p>this is fine and creates a block scoped MY_FAV variable
+(works equally well with let to declare a block scoped non const variable)</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-keyword">let</span> MY_FAV = <span class="hljs-number">20</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-23">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-23">&#182;</a>
+              </div>
+              <p>MY_FAV is now 20</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'my favorite number is '</span> + MY_FAV);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-24">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-24">&#182;</a>
+              </div>
+              <p>this gets hoisted into the global context and throws an error</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-keyword">var</span> MY_FAV = <span class="hljs-number">20</span>;
+}</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-25">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-25">&#182;</a>
+              </div>
+              <p>MY_FAV is still 7</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">console</span>.log(<span class="hljs-string">'my favorite number is '</span> + MY_FAV);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-26">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-26">&#182;</a>
+              </div>
+              <p>throws an error - Uncaught SyntaxError: Missing initializer in const declaration</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">const</span> FOO;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-27">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-27">&#182;</a>
+              </div>
+              <p>const also works on objects</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">const</span> MY_OBJECT = {<span class="hljs-string">'key'</span>: <span class="hljs-string">'value'</span>};</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-28">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-28">&#182;</a>
+              </div>
+              <p>Attempting to overwrite the object throws an error - Uncaught TypeError: Assignment to constant variable.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>MY_OBJECT = {<span class="hljs-string">'OTHER_KEY'</span>: <span class="hljs-string">'value'</span>};</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-29">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-29">&#182;</a>
+              </div>
+              <p>However, object keys are not protected,
+so the following statement is executed without problem</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>MY_OBJECT.key = <span class="hljs-string">'otherValue'</span>; <span class="hljs-comment">// Use Object.freeze() to make object immutable</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-30">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-30">&#182;</a>
+              </div>
+              <p>The same applies to arrays</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">const</span> MY_ARRAY = [];</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-31">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-31">&#182;</a>
+              </div>
+              <p>It’s possible to push items into the array</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>MY_ARRAY.push(<span class="hljs-string">'A'</span>); <span class="hljs-comment">// ["A"]</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-32">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-32">&#182;</a>
+              </div>
+              <p>However, assigning a new array to the variable throws an error - Uncaught TypeError: Assignment to constant variable.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>MY_ARRAY = [<span class="hljs-string">'B'</span>];</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

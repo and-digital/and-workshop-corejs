@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>12_exercise.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page_wrapper">
+            <div id="jump_page">
+              
+                
+                <a class="source" href="01_variables.html">
+                  ./01_variables.js
+                </a>
+              
+                
+                <a class="source" href="01_variables.test.html">
+                  ./01_variables.test.js
+                </a>
+              
+                
+                <a class="source" href="03_objects.html">
+                  ./03_objects.js
+                </a>
+              
+                
+                <a class="source" href="03_objects.test.html">
+                  ./03_objects.test.js
+                </a>
+              
+                
+                <a class="source" href="03_types.test.html">
+                  ./03_types.test.js
+                </a>
+              
+                
+                <a class="source" href="04_object_prototypes.test.html">
+                  ./04_object_prototypes.test.js
+                </a>
+              
+                
+                <a class="source" href="05_classes.test.html">
+                  ./05_classes.test.js
+                </a>
+              
+                
+                <a class="source" href="07_functions.html">
+                  ./07_functions.js
+                </a>
+              
+                
+                <a class="source" href="07_functions.test.html">
+                  ./07_functions.test.js
+                </a>
+              
+                
+                <a class="source" href="08_callback.exercise_01.html">
+                  ./08_callback.exercise_01.js
+                </a>
+              
+                
+                <a class="source" href="08_callback.html">
+                  ./08_callback.js
+                </a>
+              
+                
+                <a class="source" href="08_callback.test.html">
+                  ./08_callback.test.js
+                </a>
+              
+                
+                <a class="source" href="09_pass_by.html">
+                  ./09_pass_by.js
+                </a>
+              
+                
+                <a class="source" href="10_closure_and_scoping.test.html">
+                  ./10_closure_and_scoping.test.js
+                </a>
+              
+                
+                <a class="source" href="11_this.alerternative.html">
+                  ./11_this.alerternative.js
+                </a>
+              
+                
+                <a class="source" href="11_this.test.html">
+                  ./11_this.test.js
+                </a>
+              
+                
+                <a class="source" href="11a_this.html">
+                  ./11a_this.js
+                </a>
+              
+                
+                <a class="source" href="11b_this.html">
+                  ./11b_this.js
+                </a>
+              
+                
+                <a class="source" href="12_exercise.html">
+                  ./12_exercise.js
+                </a>
+              
+                
+                <a class="source" href="12_exercise.test.html">
+                  ./12_exercise.test.js
+                </a>
+              
+                
+                <a class="source" href="12_goodies.html">
+                  ./12_goodies.js
+                </a>
+              
+                
+                <a class="source" href="13_promises.test.html">
+                  ./13_promises.test.js
+                </a>
+              
+                
+                <a class="source" href="14_async_await.html">
+                  ./14_async_await.js
+                </a>
+              
+                
+                <a class="source" href="14_async_await.test.html">
+                  ./14_async_await.test.js
+                </a>
+              
+                
+                <a class="source" href="server.html">
+                  ./server.js
+                </a>
+              
+            </div>
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>12_exercise.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-comment">/**
+ *  AVAILABLE FILTERS:
+ *  ["AVAILABLE_IMMEDIATELY", "FRESH_GRAD", "JUNIOR", "JAVASCRIPT", "PHP", "AWS", "REACT", "JAVA"]
+ *
+ *  "AVAILABLE_IMMEDIATELY" and "FRESH_GRAD" will override all the other filters if specified
+ *
+ *  if "AVAILABLE_IMMEDIATELY" and "FRESH_GRAD" are both specified as filter, "FRESH_GRAD" will be ignored
+ *
+ *
+ *  Exercise: refactor this code
+ *  - take care of naming variables
+ *  - get rid of the 'for loops'
+ *  - move it to modern JS!
+ *  - oh, there are missing tests/scenario
+ *
+ *   happy refactory :)
+ */</span>
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">filter</span>(<span class="hljs-params">results, filters</span>) </span>{
+  <span class="hljs-keyword">var</span> out = [];
+  <span class="hljs-keyword">var</span> resultsLength = results.length;
+  <span class="hljs-keyword">var</span> filterLength = filters.length;
+  <span class="hljs-keyword">var</span> hasOptions;
+  <span class="hljs-keyword">var</span> availableImmediately = <span class="hljs-literal">false</span>;
+  <span class="hljs-keyword">var</span> freshGrad = <span class="hljs-literal">false</span>;
+
+  <span class="hljs-keyword">if</span> (filterLength !== <span class="hljs-number">0</span>) {
+    <span class="hljs-keyword">if</span> (filters.indexOf(<span class="hljs-string">'AVAILABLE_IMMEDIATELY'</span>) !== <span class="hljs-number">-1</span>) {
+      availableImmediately = <span class="hljs-literal">true</span>;
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (filters.indexOf(<span class="hljs-string">'FRESH_GRAD'</span>) !== <span class="hljs-number">-1</span>) {
+      freshGrad = <span class="hljs-literal">true</span>;
+    }
+
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = resultsLength; i--; ) {
+      hasOptions = results[i].options &amp;&amp; results[i].options.length &gt; <span class="hljs-number">0</span>; <span class="hljs-comment">//has.options</span>
+
+      <span class="hljs-keyword">if</span> (results[i].options) {
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> k = filterLength; k--; ) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>loop through filters</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>          <span class="hljs-keyword">var</span> hasFilter = <span class="hljs-literal">false</span>;
+          <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> j = results[i].options.length; j--; ) {
+            <span class="hljs-keyword">if</span> (!availableImmediately &amp;&amp; !freshGrad) {
+              <span class="hljs-keyword">if</span> (filters[k] == results[i].options[j].code) {
+                hasFilter = <span class="hljs-literal">true</span>;
+              }
+            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (
+              availableImmediately &amp;&amp;
+              results[i].options[j].code === <span class="hljs-string">'AVAILABLE_IMMEDIATELY'</span>
+            ) {
+              hasFilter = <span class="hljs-literal">true</span>;
+            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (
+              freshGrad &amp;&amp;
+              results[i].options[j].code === <span class="hljs-string">'FRESH_GRAD'</span>
+            ) {
+              hasFilter = <span class="hljs-literal">true</span>;
+            }
+          }
+          hasOptions = hasOptions &amp;&amp; hasFilter;
+        }
+      }
+      <span class="hljs-keyword">if</span> (hasOptions) {
+        out.unshift(results[i]);
+      }
+    }
+  } <span class="hljs-keyword">else</span> {
+    out = results;
+  }
+  <span class="hljs-keyword">return</span> out;
+}
+
+<span class="hljs-built_in">module</span>.exports = filter;</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

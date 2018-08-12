@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>09_pass_by.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page_wrapper">
+            <div id="jump_page">
+              
+                
+                <a class="source" href="01_variables.html">
+                  ./01_variables.js
+                </a>
+              
+                
+                <a class="source" href="01_variables.test.html">
+                  ./01_variables.test.js
+                </a>
+              
+                
+                <a class="source" href="03_objects.html">
+                  ./03_objects.js
+                </a>
+              
+                
+                <a class="source" href="03_objects.test.html">
+                  ./03_objects.test.js
+                </a>
+              
+                
+                <a class="source" href="03_types.test.html">
+                  ./03_types.test.js
+                </a>
+              
+                
+                <a class="source" href="04_object_prototypes.test.html">
+                  ./04_object_prototypes.test.js
+                </a>
+              
+                
+                <a class="source" href="05_classes.test.html">
+                  ./05_classes.test.js
+                </a>
+              
+                
+                <a class="source" href="07_functions.html">
+                  ./07_functions.js
+                </a>
+              
+                
+                <a class="source" href="07_functions.test.html">
+                  ./07_functions.test.js
+                </a>
+              
+                
+                <a class="source" href="08_callback.exercise_01.html">
+                  ./08_callback.exercise_01.js
+                </a>
+              
+                
+                <a class="source" href="08_callback.html">
+                  ./08_callback.js
+                </a>
+              
+                
+                <a class="source" href="08_callback.test.html">
+                  ./08_callback.test.js
+                </a>
+              
+                
+                <a class="source" href="09_pass_by.html">
+                  ./09_pass_by.js
+                </a>
+              
+                
+                <a class="source" href="10_closure_and_scoping.test.html">
+                  ./10_closure_and_scoping.test.js
+                </a>
+              
+                
+                <a class="source" href="11_this.alerternative.html">
+                  ./11_this.alerternative.js
+                </a>
+              
+                
+                <a class="source" href="11_this.test.html">
+                  ./11_this.test.js
+                </a>
+              
+                
+                <a class="source" href="11a_this.html">
+                  ./11a_this.js
+                </a>
+              
+                
+                <a class="source" href="11b_this.html">
+                  ./11b_this.js
+                </a>
+              
+                
+                <a class="source" href="12_exercise.html">
+                  ./12_exercise.js
+                </a>
+              
+                
+                <a class="source" href="12_exercise.test.html">
+                  ./12_exercise.test.js
+                </a>
+              
+                
+                <a class="source" href="12_goodies.html">
+                  ./12_goodies.js
+                </a>
+              
+                
+                <a class="source" href="13_promises.test.html">
+                  ./13_promises.test.js
+                </a>
+              
+                
+                <a class="source" href="14_async_await.html">
+                  ./14_async_await.js
+                </a>
+              
+                
+                <a class="source" href="14_async_await.test.html">
+                  ./14_async_await.test.js
+                </a>
+              
+                
+                <a class="source" href="server.html">
+                  ./server.js
+                </a>
+              
+            </div>
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>09_pass_by.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-comment">/*
+It's always pass by value, but for objects the value of the variable is a reference. 
+Because of this, when you pass an object and change its members, those changes persist outside of the function. 
+This makes it look like pass by reference. But if you actually change the value of the object variable you will see that the change does not persist, proving it's really pass by value.
+
+*/</span>
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">changeStuff</span>(<span class="hljs-params">num, obj1, obj2</span>) </span>{
+  num = num * <span class="hljs-number">10</span>;
+  obj1.item = <span class="hljs-string">'changed'</span>;
+  obj2 = { <span class="hljs-attr">item</span>: <span class="hljs-string">'changed'</span> };
+}
+
+<span class="hljs-keyword">let</span> num = <span class="hljs-number">10</span>;
+<span class="hljs-keyword">let</span> obj1 = { <span class="hljs-attr">item</span>: <span class="hljs-string">'unchanged'</span> };
+<span class="hljs-keyword">let</span> obj2 = { <span class="hljs-attr">item</span>: <span class="hljs-string">'unchanged'</span> };
+
+changeStuff(num, obj1, obj2);
+
+<span class="hljs-built_in">console</span>.log(num); <span class="hljs-comment">//10</span>
+<span class="hljs-built_in">console</span>.log(obj1.item); <span class="hljs-comment">//changed</span>
+<span class="hljs-built_in">console</span>.log(obj2.item); <span class="hljs-comment">//unchanged</span>
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">identify</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.name.toUpperCase();
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">speak</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">var</span> greeting = <span class="hljs-string">"Hello, I'm "</span> + identify.call(<span class="hljs-keyword">this</span>);
+  <span class="hljs-built_in">console</span>.log(greeting);
+}
+
+<span class="hljs-keyword">var</span> me = {
+  <span class="hljs-attr">name</span>: <span class="hljs-string">'Kyle'</span>
+};
+
+<span class="hljs-keyword">var</span> you = {
+  <span class="hljs-attr">name</span>: <span class="hljs-string">'Reader'</span>
+};
+
+identify.call(me); <span class="hljs-comment">// KYLE</span>
+identify.call(you); <span class="hljs-comment">// READER</span>
+
+speak.call(me); <span class="hljs-comment">// Hello, I'm KYLE</span>
+speak.call(you); <span class="hljs-comment">// Hello, I'm READER</span></pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

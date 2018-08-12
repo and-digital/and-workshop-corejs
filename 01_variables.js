@@ -6,13 +6,14 @@
 
 //## VAR
 
-var a = 0,
-  b = 0;
+var a = 0;
+var b = 0;
 
 var z = y,
   y = 'A';
 
-console.log(z + y); // undefinedA
+  // undefinedA
+console.log(z + y); 
 
 console.log(typeof z); // undefined, since z doesn't exist yet
 
