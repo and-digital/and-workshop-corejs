@@ -2,10 +2,10 @@
 
 <html>
 <head>
-  <title>09_pass_by.js</title>
+  <title>01_variables.test.js</title>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
-  <link rel="stylesheet" media="all" href="docco.css" />
+  <link rel="stylesheet" media="all" href="../docco.css" />
 </head>
 <body>
   <div id="container">
@@ -21,127 +21,122 @@
               
                 
                 <a class="source" href="01_variables.html">
-                  ./01_variables.js
+                  ./src/01_variables.js
                 </a>
               
                 
                 <a class="source" href="01_variables.test.html">
-                  ./01_variables.test.js
+                  ./src/01_variables.test.js
                 </a>
               
                 
                 <a class="source" href="03_objects.html">
-                  ./03_objects.js
+                  ./src/03_objects.js
                 </a>
               
                 
                 <a class="source" href="03_objects.test.html">
-                  ./03_objects.test.js
+                  ./src/03_objects.test.js
                 </a>
               
                 
                 <a class="source" href="03_types.test.html">
-                  ./03_types.test.js
+                  ./src/03_types.test.js
                 </a>
               
                 
                 <a class="source" href="04_object_prototypes.test.html">
-                  ./04_object_prototypes.test.js
+                  ./src/04_object_prototypes.test.js
                 </a>
               
                 
                 <a class="source" href="05_classes.test.html">
-                  ./05_classes.test.js
+                  ./src/05_classes.test.js
                 </a>
               
                 
                 <a class="source" href="07_functions.html">
-                  ./07_functions.js
+                  ./src/07_functions.js
                 </a>
               
                 
                 <a class="source" href="07_functions.test.html">
-                  ./07_functions.test.js
+                  ./src/07_functions.test.js
                 </a>
               
                 
                 <a class="source" href="08_callback.exercise_01.html">
-                  ./08_callback.exercise_01.js
+                  ./src/08_callback.exercise_01.js
                 </a>
               
                 
                 <a class="source" href="08_callback.html">
-                  ./08_callback.js
+                  ./src/08_callback.js
                 </a>
               
                 
                 <a class="source" href="08_callback.test.html">
-                  ./08_callback.test.js
+                  ./src/08_callback.test.js
                 </a>
               
                 
                 <a class="source" href="09_pass_by.html">
-                  ./09_pass_by.js
+                  ./src/09_pass_by.js
                 </a>
               
                 
                 <a class="source" href="10_closure_and_scoping.test.html">
-                  ./10_closure_and_scoping.test.js
+                  ./src/10_closure_and_scoping.test.js
                 </a>
               
                 
                 <a class="source" href="11_this.alerternative.html">
-                  ./11_this.alerternative.js
+                  ./src/11_this.alerternative.js
                 </a>
               
                 
                 <a class="source" href="11_this.test.html">
-                  ./11_this.test.js
+                  ./src/11_this.test.js
                 </a>
               
                 
                 <a class="source" href="11a_this.html">
-                  ./11a_this.js
+                  ./src/11a_this.js
                 </a>
               
                 
                 <a class="source" href="11b_this.html">
-                  ./11b_this.js
+                  ./src/11b_this.js
                 </a>
               
                 
                 <a class="source" href="12_exercise.html">
-                  ./12_exercise.js
+                  ./src/12_exercise.js
                 </a>
               
                 
                 <a class="source" href="12_exercise.test.html">
-                  ./12_exercise.test.js
+                  ./src/12_exercise.test.js
                 </a>
               
                 
                 <a class="source" href="12_goodies.html">
-                  ./12_goodies.js
+                  ./src/12_goodies.js
                 </a>
               
                 
                 <a class="source" href="13_promises.test.html">
-                  ./13_promises.test.js
+                  ./src/13_promises.test.js
                 </a>
               
                 
                 <a class="source" href="14_async_await.html">
-                  ./14_async_await.js
+                  ./src/14_async_await.js
                 </a>
               
                 
                 <a class="source" href="14_async_await.test.html">
-                  ./14_async_await.test.js
-                </a>
-              
-                
-                <a class="source" href="server.html">
-                  ./server.js
+                  ./src/14_async_await.test.js
                 </a>
               
             </div>
@@ -153,7 +148,7 @@
         
           <li id="title">
               <div class="annotation">
-                  <h1>09_pass_by.js</h1>
+                  <h1>01_variables.test.js</h1>
               </div>
           </li>
         
@@ -168,51 +163,58 @@
               
             </div>
             
-            <div class="content"><div class='highlight'><pre><span class="hljs-comment">/*
-It's always pass by value, but for objects the value of the variable is a reference. 
-Because of this, when you pass an object and change its members, those changes persist outside of the function. 
-This makes it look like pass by reference. But if you actually change the value of the object variable you will see that the change does not persist, proving it's really pass by value.
+            <div class="content"><div class='highlight'><pre>describe(<span class="hljs-string">"About variables"</span>, () =&gt; {
+  it(<span class="hljs-string">'should understand VAR'</span>, () =&gt; {
+    <span class="hljs-keyword">var</span> x = <span class="hljs-number">5</span>;
+    <span class="hljs-keyword">var</span> x = <span class="hljs-number">6</span>;
+    expect(x).toBe(<span class="hljs-number">5</span>);
+  });
 
-*/</span>
+  it(<span class="hljs-string">'should understand the difference of LET and VAR'</span>, () =&gt; {
+    <span class="hljs-keyword">var</span> x = <span class="hljs-number">6</span>;
+    <span class="hljs-keyword">let</span> x = <span class="hljs-number">5</span>;
+    expect(x).toBe(<span class="hljs-number">5</span>);
+  });
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">changeStuff</span>(<span class="hljs-params">num, obj1, obj2</span>) </span>{
-  num = num * <span class="hljs-number">10</span>;
-  obj1.item = <span class="hljs-string">'changed'</span>;
-  obj2 = { <span class="hljs-attr">item</span>: <span class="hljs-string">'changed'</span> };
-}
+  it(<span class="hljs-string">'should understand LET'</span>, () =&gt; {
+    <span class="hljs-keyword">let</span> x = <span class="hljs-number">5</span>;
+    <span class="hljs-keyword">let</span> x = <span class="hljs-number">6</span>;
+    expect(x).toBe(<span class="hljs-number">6</span>);
+  });
 
-<span class="hljs-keyword">let</span> num = <span class="hljs-number">10</span>;
-<span class="hljs-keyword">let</span> obj1 = { <span class="hljs-attr">item</span>: <span class="hljs-string">'unchanged'</span> };
-<span class="hljs-keyword">let</span> obj2 = { <span class="hljs-attr">item</span>: <span class="hljs-string">'unchanged'</span> };
+  it(<span class="hljs-string">'should understand LET scoping'</span>, () =&gt; {
+    <span class="hljs-keyword">let</span> x = <span class="hljs-number">5</span>;
 
-changeStuff(num, obj1, obj2);
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">foo</span>(<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">let</span> x = <span class="hljs-number">20</span>;
 
-<span class="hljs-built_in">console</span>.log(num); <span class="hljs-comment">//10</span>
-<span class="hljs-built_in">console</span>.log(obj1.item); <span class="hljs-comment">//changed</span>
-<span class="hljs-built_in">console</span>.log(obj2.item); <span class="hljs-comment">//unchanged</span>
+      <span class="hljs-keyword">return</span> x;
+    }
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">identify</span>(<span class="hljs-params"></span>) </span>{
-  <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.name.toUpperCase();
-}
+    expect(x).toBe(<span class="hljs-number">20</span>);
+  });
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">speak</span>(<span class="hljs-params"></span>) </span>{
-  <span class="hljs-keyword">var</span> greeting = <span class="hljs-string">"Hello, I'm "</span> + identify.call(<span class="hljs-keyword">this</span>);
-  <span class="hljs-built_in">console</span>.log(greeting);
-}
+  it(<span class="hljs-string">'should understand CONST - scalar values'</span>, () =&gt; {
+    <span class="hljs-keyword">const</span> x = <span class="hljs-number">5</span>;
+    x = <span class="hljs-string">'foo'</span>;
+    expect(x).toBe(<span class="hljs-number">5</span>);
+  });
 
-<span class="hljs-keyword">var</span> me = {
-  <span class="hljs-attr">name</span>: <span class="hljs-string">'Kyle'</span>
-};
+  it(<span class="hljs-string">'should understand CONST - assignment'</span>, () =&gt; {
+    <span class="hljs-keyword">const</span> x;
+    x = <span class="hljs-number">5</span>
+    expect(x).toBe(<span class="hljs-number">5</span>);
+  });
 
-<span class="hljs-keyword">var</span> you = {
-  <span class="hljs-attr">name</span>: <span class="hljs-string">'Reader'</span>
-};
+  it(<span class="hljs-string">'should understand CONST - objects'</span>, () =&gt; {
+    <span class="hljs-keyword">const</span> person = {
+      <span class="hljs-string">"name"</span>: <span class="hljs-string">"Linus"</span>,
+      <span class="hljs-string">"age"</span>: <span class="hljs-number">42</span>
+    };
 
-identify.call(me); <span class="hljs-comment">// KYLE</span>
-identify.call(you); <span class="hljs-comment">// READER</span>
-
-speak.call(me); <span class="hljs-comment">// Hello, I'm KYLE</span>
-speak.call(you); <span class="hljs-comment">// Hello, I'm READER</span></pre></div></div>
+    expect(person.lastname).toBe(<span class="hljs-string">'torvalds'</span>);
+  });
+});</pre></div></div>
             
         </li>
         

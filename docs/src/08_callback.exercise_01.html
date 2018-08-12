@@ -2,10 +2,10 @@
 
 <html>
 <head>
-  <title>04_object_prototypes.test.js</title>
+  <title>08_callback.exercise_01.js</title>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
-  <link rel="stylesheet" media="all" href="docco.css" />
+  <link rel="stylesheet" media="all" href="../docco.css" />
 </head>
 <body>
   <div id="container">
@@ -21,127 +21,122 @@
               
                 
                 <a class="source" href="01_variables.html">
-                  ./01_variables.js
+                  ./src/01_variables.js
                 </a>
               
                 
                 <a class="source" href="01_variables.test.html">
-                  ./01_variables.test.js
+                  ./src/01_variables.test.js
                 </a>
               
                 
                 <a class="source" href="03_objects.html">
-                  ./03_objects.js
+                  ./src/03_objects.js
                 </a>
               
                 
                 <a class="source" href="03_objects.test.html">
-                  ./03_objects.test.js
+                  ./src/03_objects.test.js
                 </a>
               
                 
                 <a class="source" href="03_types.test.html">
-                  ./03_types.test.js
+                  ./src/03_types.test.js
                 </a>
               
                 
                 <a class="source" href="04_object_prototypes.test.html">
-                  ./04_object_prototypes.test.js
+                  ./src/04_object_prototypes.test.js
                 </a>
               
                 
                 <a class="source" href="05_classes.test.html">
-                  ./05_classes.test.js
+                  ./src/05_classes.test.js
                 </a>
               
                 
                 <a class="source" href="07_functions.html">
-                  ./07_functions.js
+                  ./src/07_functions.js
                 </a>
               
                 
                 <a class="source" href="07_functions.test.html">
-                  ./07_functions.test.js
+                  ./src/07_functions.test.js
                 </a>
               
                 
                 <a class="source" href="08_callback.exercise_01.html">
-                  ./08_callback.exercise_01.js
+                  ./src/08_callback.exercise_01.js
                 </a>
               
                 
                 <a class="source" href="08_callback.html">
-                  ./08_callback.js
+                  ./src/08_callback.js
                 </a>
               
                 
                 <a class="source" href="08_callback.test.html">
-                  ./08_callback.test.js
+                  ./src/08_callback.test.js
                 </a>
               
                 
                 <a class="source" href="09_pass_by.html">
-                  ./09_pass_by.js
+                  ./src/09_pass_by.js
                 </a>
               
                 
                 <a class="source" href="10_closure_and_scoping.test.html">
-                  ./10_closure_and_scoping.test.js
+                  ./src/10_closure_and_scoping.test.js
                 </a>
               
                 
                 <a class="source" href="11_this.alerternative.html">
-                  ./11_this.alerternative.js
+                  ./src/11_this.alerternative.js
                 </a>
               
                 
                 <a class="source" href="11_this.test.html">
-                  ./11_this.test.js
+                  ./src/11_this.test.js
                 </a>
               
                 
                 <a class="source" href="11a_this.html">
-                  ./11a_this.js
+                  ./src/11a_this.js
                 </a>
               
                 
                 <a class="source" href="11b_this.html">
-                  ./11b_this.js
+                  ./src/11b_this.js
                 </a>
               
                 
                 <a class="source" href="12_exercise.html">
-                  ./12_exercise.js
+                  ./src/12_exercise.js
                 </a>
               
                 
                 <a class="source" href="12_exercise.test.html">
-                  ./12_exercise.test.js
+                  ./src/12_exercise.test.js
                 </a>
               
                 
                 <a class="source" href="12_goodies.html">
-                  ./12_goodies.js
+                  ./src/12_goodies.js
                 </a>
               
                 
                 <a class="source" href="13_promises.test.html">
-                  ./13_promises.test.js
+                  ./src/13_promises.test.js
                 </a>
               
                 
                 <a class="source" href="14_async_await.html">
-                  ./14_async_await.js
+                  ./src/14_async_await.js
                 </a>
               
                 
                 <a class="source" href="14_async_await.test.html">
-                  ./14_async_await.test.js
-                </a>
-              
-                
-                <a class="source" href="server.html">
-                  ./server.js
+                  ./src/14_async_await.test.js
                 </a>
               
             </div>
@@ -153,7 +148,7 @@
         
           <li id="title">
               <div class="annotation">
-                  <h1>04_object_prototypes.test.js</h1>
+                  <h1>08_callback.exercise_01.js</h1>
               </div>
           </li>
         
@@ -165,22 +160,23 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-1">&#182;</a>
               </div>
-              
+              <h2 id="01-refactor-this-code-using-named-function-and-passing-them-as-callback">01 refactor this code, using named function and passing them as callback</h2>
+
             </div>
             
-            <div class="content"><div class='highlight'><pre>describe(<span class="hljs-string">'About object prototypes'</span>, () =&gt; {
-  <span class="hljs-comment">/*
+            <div class="content"><div class='highlight'><pre>
+<span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);
 
-      Task 1) Write a function that capitalises a string. To do this, add a prototype function to the base String object.
+<span class="hljs-keyword">const</span> file = <span class="hljs-string">'./todo.txt'</span>;
+fs.readFile(file, <span class="hljs-string">'utf8'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, todoList</span>) </span>{
+  <span class="hljs-keyword">if</span> (err) <span class="hljs-keyword">return</span> <span class="hljs-built_in">console</span>.log(err);
 
-        Note: You shouldn't do this (unless polyfilling old browsers) as this is modifying the native objects
-
-        Hint: To update a strings prototype use String.prototype.yourFunctionName =
-
-  */</span>
-
-  <span class="hljs-built_in">String</span>.prototype.capitalize = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>);</pre></div></div>
+  todoList = todoList + <span class="hljs-string">'\n watch GOT'</span>;
+  fs.writeFile(file, todoList, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>) </span>{
+    <span class="hljs-keyword">if</span> (err) <span class="hljs-keyword">return</span> <span class="hljs-built_in">console</span>.log(err);
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'todo added!'</span>);
+  });
+});</pre></div></div>
             
         </li>
         
@@ -191,40 +187,9 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-2">&#182;</a>
               </div>
-              <p>Your stuff</p>
+              <h2 id="02-create-a-08_callback-exercise_01-test-js-file-and-test-">02 create a 08_callback.exercise_01.test.js file and… test :)</h2>
 
             </div>
-            
-            <div class="content"><div class='highlight'><pre>  };
-
-  it(<span class="hljs-string">'should return a capitalised string'</span>, () =&gt; {
-    expect(<span class="hljs-string">'the little brown dog'</span>.capitalize()).toBe(<span class="hljs-string">'The little brown dog'</span>);
-  });
-
-  <span class="hljs-comment">/*
-
-      Task 2) Rewrite the following so that the toString function is not created each time a function is created
-        Hint: Use prototypes
-
-        - What is the performance impact of doing things this way?
-
-  */</span>
-
-  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Car</span>(<span class="hljs-params">model, year, miles</span>) </span>{
-    <span class="hljs-keyword">this</span>.model = model;
-    <span class="hljs-keyword">this</span>.year = year;
-    <span class="hljs-keyword">this</span>.miles = miles;
-
-    <span class="hljs-keyword">this</span>.toString = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-      <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.model + <span class="hljs-string">' has done '</span> + <span class="hljs-keyword">this</span>.miles + <span class="hljs-string">' miles'</span>;
-    };
-  }
-
-  it(<span class="hljs-string">'should have a toString() function for MyCar'</span>, () =&gt; {
-    <span class="hljs-keyword">const</span> MyCar = <span class="hljs-keyword">new</span> Car(<span class="hljs-string">'Model T'</span>, <span class="hljs-string">'1905'</span>, <span class="hljs-string">'200'</span>);
-    expect(MyCar.toString()).toBe(<span class="hljs-string">'Model T has done 200 miles'</span>);
-  });
-});</pre></div></div>
             
         </li>
         
