@@ -1,4 +1,4 @@
-// # Part 1: Variables
+// Variables
 
 // Hint: Run me in [Quokka](https://quokkajs.com/)
 
@@ -66,6 +66,8 @@ console.log(`${NAME} is ${age} years old`);
 
 // As you can see, `age` can be updated as it's a `let` whereas `NAME` cannot as it's a `const`. However, you _can_ update the properties of an object or an array if it's a const. 
 
+// -----
+
 // **Example:** Updating an object or an array. 
 
 const NAMES = ['Mo', 'Jo'];
@@ -91,3 +93,14 @@ console.log(NAMES);
 // **Output:** ```Molly```
 console.log(cat);
 // **Explanation:** Now Molly is bound to the global scope
+
+// ## A note on convention
+
+// In JavaScript there are no strict "naming standards", however there are some conventions. 
+
+// One of those is to [put your const variables as upper case](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const#Examples)
+
+// Like this...
+const NAME = "Mo";
+
+// This just makes it easier to see when you cannot overwrite a value. 

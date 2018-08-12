@@ -2,7 +2,7 @@
 
 <html>
 <head>
-  <title>Part 1: Variables</title>
+  <title>variables.js</title>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
   <link rel="stylesheet" media="all" href="../docco.css" />
@@ -11,7 +11,41 @@
   <div id="container">
     <div id="background"></div>
     
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page_wrapper">
+            <div id="jump_page">
+              
+                
+                <a class="source" href="glossary.html">
+                  ./src/glossary.js
+                </a>
+              
+                
+                <a class="source" href="this.html">
+                  ./src/this.js
+                </a>
+              
+                
+                <a class="source" href="variables.html">
+                  ./src/variables.js
+                </a>
+              
+            </div>
+          </div>
+        </li>
+      </ul>
+    
     <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>variables.js</h1>
+              </div>
+          </li>
         
         
         
@@ -21,7 +55,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-1">&#182;</a>
               </div>
-              <h1 id="part-1-variables">Part 1: Variables</h1>
+              <p>Variables</p>
 
             </div>
             
@@ -343,12 +377,9 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-23">&#182;</a>
               </div>
-              <p><strong>Example:</strong> Updating an object or an array. </p>
+              <hr>
 
             </div>
-            
-            <div class="content"><div class='highlight'><pre>
-<span class="hljs-keyword">const</span> NAMES = [<span class="hljs-string">'Mo'</span>, <span class="hljs-string">'Jo'</span>];</pre></div></div>
             
         </li>
         
@@ -359,11 +390,8 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-24">&#182;</a>
               </div>
-              <p>Let’s try pushing to the previously created array. </p>
-
+              
             </div>
-            
-            <div class="content"><div class='highlight'><pre>NAMES.push(<span class="hljs-string">'JoJo'</span>);</pre></div></div>
             
         </li>
         
@@ -374,11 +402,12 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-25">&#182;</a>
               </div>
-              <p><strong>Output:</strong> <code>[&#39;Mo&#39;, &#39;Jo&#39;, &#39;JoJo&#39;]</code></p>
+              <p><strong>Example:</strong> Updating an object or an array. </p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">console</span>.log(NAMES);</pre></div></div>
+            <div class="content"><div class='highlight'><pre>
+<span class="hljs-keyword">const</span> NAMES = [<span class="hljs-string">'Mo'</span>, <span class="hljs-string">'Jo'</span>];</pre></div></div>
             
         </li>
         
@@ -389,9 +418,11 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-26">&#182;</a>
               </div>
-              <p>How is this possible? Because a <code>const</code> says that the in memory reference cannot be changed, but the properties can. </p>
+              <p>Let’s try pushing to the previously created array. </p>
 
             </div>
+            
+            <div class="content"><div class='highlight'><pre>NAMES.push(<span class="hljs-string">'JoJo'</span>);</pre></div></div>
             
         </li>
         
@@ -402,9 +433,11 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-27">&#182;</a>
               </div>
-              <p>Note: This is similiar to how JS handles “pass by reference” and “pass by value”.</p>
+              <p><strong>Output:</strong> <code>[&#39;Mo&#39;, &#39;Jo&#39;, &#39;JoJo&#39;]</code></p>
 
             </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">console</span>.log(NAMES);</pre></div></div>
             
         </li>
         
@@ -415,7 +448,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-28">&#182;</a>
               </div>
-              <h2 id="what-if-you-don-t-add-the-var-let-const-">What if you don’t add the var, let, const?</h2>
+              <p>How is this possible? Because a <code>const</code> says that the in memory reference cannot be changed, but the properties can. </p>
 
             </div>
             
@@ -427,6 +460,32 @@
               
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-29">&#182;</a>
+              </div>
+              <p>Note: This is similiar to how JS handles “pass by reference” and “pass by value”.</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-30">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-30">&#182;</a>
+              </div>
+              <h2 id="what-if-you-don-t-add-the-var-let-const-">What if you don’t add the var, let, const?</h2>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-31">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-31">&#182;</a>
               </div>
               <p><strong>Example:</strong> A variable without a <code>var</code>, <code>let</code> or <code>const</code> keyword…</p>
 
@@ -440,11 +499,11 @@
         </li>
         
         
-        <li id="section-30">
+        <li id="section-32">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-30">&#182;</a>
+                <a class="pilcrow" href="#section-32">&#182;</a>
               </div>
               <p><strong>Output:</strong> <code>Molly</code></p>
 
@@ -455,13 +514,80 @@
         </li>
         
         
-        <li id="section-31">
+        <li id="section-33">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-31">&#182;</a>
+                <a class="pilcrow" href="#section-33">&#182;</a>
               </div>
               <p><strong>Explanation:</strong> Now Molly is bound to the global scope</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-34">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-34">&#182;</a>
+              </div>
+              <h2 id="a-note-on-convention">A note on convention</h2>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-35">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-35">&#182;</a>
+              </div>
+              <p>In JavaScript there are no strict “naming standards”, however there are some conventions. </p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-36">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-36">&#182;</a>
+              </div>
+              <p>One of those is to <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const#Examples">put your const variables as upper case</a></p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-37">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-37">&#182;</a>
+              </div>
+              <p>Like this…</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">const</span> NAME = <span class="hljs-string">"Mo"</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-38">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-38">&#182;</a>
+              </div>
+              <p>This just makes it easier to see when you cannot overwrite a value. </p>
 
             </div>
             

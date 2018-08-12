@@ -16,10 +16,9 @@ span.description {
     margin: auto;
     box-shadow: 0px 0px 17px #bebebe;
     background-color: #fdfdfd;
-    padding-top: 0px;
+    padding-top: 10px;
+    padding-bottom: 50px;
     margin-top: 30px;
-    height: calc(100vh - 80px);
-    overflow-y: scroll;
 }
 p.link {
     margin-top: 5px;
