@@ -169,7 +169,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-11">&#182;</a>
               </div>
-              <p><strong>Output:</strong> true 2 3</p>
+              <p><strong>Output:</strong> <code>true 2 3</code></p>
 
             </div>
             
@@ -223,7 +223,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-15">&#182;</a>
               </div>
-              <p>By “overwritten” we mean reassigned a new space in memory</p>
+              <p>A <code>const</code> cannot. And if you attempt to… an error will be thrown. </p>
 
             </div>
             
@@ -236,13 +236,9 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-16">&#182;</a>
               </div>
-              <p><strong>Example:</strong> Trying to change a const</p>
+              <p>Note: By “overwritten” we mean reassigned a new space in memory</p>
 
             </div>
-            
-            <div class="content"><div class='highlight'><pre>
-<span class="hljs-keyword">const</span> NAME = <span class="hljs-string">"Louis"</span>;
-<span class="hljs-keyword">let</span> age = <span class="hljs-number">12</span>;</pre></div></div>
             
         </li>
         
@@ -253,11 +249,13 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-17">&#182;</a>
               </div>
-              <p><strong>Output:</strong> Louis is 12 years old</p>
+              <p><strong>Example:</strong> Changing a <code>const</code> and <code>let</code> variable</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">console</span>.log(<span class="hljs-string">`<span class="hljs-subst">${NAME}</span> is <span class="hljs-subst">${age}</span> years old`</span>);</pre></div></div>
+            <div class="content"><div class='highlight'><pre>
+<span class="hljs-keyword">const</span> NAME = <span class="hljs-string">"Louis"</span>;
+<span class="hljs-keyword">let</span> age = <span class="hljs-number">12</span>;</pre></div></div>
             
         </li>
         
@@ -268,9 +266,11 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-18">&#182;</a>
               </div>
-              <h2 id="what-if-you-don-t-add-the-var-let-const-">What if you don’t add the var, let, const?</h2>
+              <p><strong>Output:</strong> <code>Louis is 12 years old</code></p>
 
             </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">console</span>.log(<span class="hljs-string">`<span class="hljs-subst">${NAME}</span> is <span class="hljs-subst">${age}</span> years old`</span>);</pre></div></div>
             
         </li>
         
@@ -280,6 +280,153 @@
               
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-19">&#182;</a>
+              </div>
+              <p>Note: We need to use a try/catch otherwise the assignment to <code>NAME</code> would throw an error (and stop the execution of the file)</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">try</span> {
+  age = age + <span class="hljs-number">1</span>;
+  NAME = <span class="hljs-string">"woo"</span>;
+} <span class="hljs-keyword">catch</span>(e) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-20">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-20">&#182;</a>
+              </div>
+              <p><strong>Output:</strong> <code>Assignment to constant variable.</code></p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-built_in">console</span>.log(e);
+}</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-21">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-21">&#182;</a>
+              </div>
+              <p><strong>Output:</strong> <code>Louis is 13 years old</code></p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">console</span>.log(<span class="hljs-string">`<span class="hljs-subst">${NAME}</span> is <span class="hljs-subst">${age}</span> years old`</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-22">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-22">&#182;</a>
+              </div>
+              <p>As you can see, <code>age</code> can be updated as it’s a <code>let</code> whereas <code>NAME</code> cannot as it’s a <code>const</code>. However, you <em>can</em> update the properties of an object or an array if it’s a const. </p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-23">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-23">&#182;</a>
+              </div>
+              <p><strong>Example:</strong> Updating an object or an array. </p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+<span class="hljs-keyword">const</span> NAMES = [<span class="hljs-string">'Mo'</span>, <span class="hljs-string">'Jo'</span>];</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-24">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-24">&#182;</a>
+              </div>
+              <p>Let’s try pushing to the previously created array. </p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>NAMES.push(<span class="hljs-string">'JoJo'</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-25">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-25">&#182;</a>
+              </div>
+              <p><strong>Output:</strong> <code>[&#39;Mo&#39;, &#39;Jo&#39;, &#39;JoJo&#39;]</code></p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">console</span>.log(NAMES);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-26">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-26">&#182;</a>
+              </div>
+              <p>How is this possible? Because a <code>const</code> says that the in memory reference cannot be changed, but the properties can. </p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-27">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-27">&#182;</a>
+              </div>
+              <p>Note: This is similiar to how JS handles “pass by reference” and “pass by value”.</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-28">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-28">&#182;</a>
+              </div>
+              <h2 id="what-if-you-don-t-add-the-var-let-const-">What if you don’t add the var, let, const?</h2>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-29">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-29">&#182;</a>
               </div>
               <p><strong>Example:</strong> A variable without a <code>var</code>, <code>let</code> or <code>const</code> keyword…</p>
 
@@ -293,13 +440,13 @@
         </li>
         
         
-        <li id="section-20">
+        <li id="section-30">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-20">&#182;</a>
+                <a class="pilcrow" href="#section-30">&#182;</a>
               </div>
-              <p><strong>Output:</strong> Molly</p>
+              <p><strong>Output:</strong> <code>Molly</code></p>
 
             </div>
             
@@ -308,11 +455,11 @@
         </li>
         
         
-        <li id="section-21">
+        <li id="section-31">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-21">&#182;</a>
+                <a class="pilcrow" href="#section-31">&#182;</a>
               </div>
               <p><strong>Explanation:</strong> Now Molly is bound to the global scope</p>
 
