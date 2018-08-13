@@ -2,7 +2,7 @@
 
 <html>
 <head>
-  <title>Glossary</title>
+  <title>Pass by reference / pass by value</title>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
   <link rel="stylesheet" media="all" href="../docco.css" />
@@ -64,7 +64,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-1">&#182;</a>
               </div>
-              <h1 id="glossary">Glossary</h1>
+              <h1 id="pass-by-reference-pass-by-value">Pass by reference / pass by value</h1>
 
             </div>
             
@@ -77,7 +77,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-2">&#182;</a>
               </div>
-              <h4 id="lexical-scope">Lexical Scope</h4>
+              <h2 id="what-s-the-difference-">What’s the difference?</h2>
 
             </div>
             
@@ -90,7 +90,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-3">&#182;</a>
               </div>
-              <p>The scope that you can “see”. It’s set in stone when the code is written. </p>
+              <p>Pass by reference is when a reference to an original object in memory is given to a function.</p>
 
             </div>
             
@@ -103,13 +103,9 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-4">&#182;</a>
               </div>
-              <p>What will a and b be? </p>
+              <p>Pass by value is when a value is passed to a function as a copy, not as a pointer to the original in memory value.</p>
 
             </div>
-            
-            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">let</span> a = <span class="hljs-number">1</span>;
-
-a = a + <span class="hljs-number">1</span>;</pre></div></div>
             
         </li>
         
@@ -120,11 +116,14 @@ a = a + <span class="hljs-number">1</span>;</pre></div></div>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-5">&#182;</a>
               </div>
-              <p><strong>Output: <code>2</code></strong> </p>
+              <p><strong>Example:</strong> A function that mutates the original data object.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">console</span>.log(a);</pre></div></div>
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">const</span> updateAge = <span class="hljs-function">(<span class="hljs-params">person</span>) =&gt;</span> {
+    person.age = person.age + <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">return</span> person;
+};</pre></div></div>
             
         </li>
         
@@ -135,9 +134,11 @@ a = a + <span class="hljs-number">1</span>;</pre></div></div>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-6">&#182;</a>
               </div>
-              <p><code>a</code> equals 2, it will always be two, there’s no way of dynamically changing this. </p>
+              <p>Let’s create an object in memory.</p>
 
             </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">const</span> sandra = { <span class="hljs-attr">name</span>: <span class="hljs-string">'sandra'</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">22</span> };</pre></div></div>
             
         </li>
         
@@ -148,9 +149,11 @@ a = a + <span class="hljs-number">1</span>;</pre></div></div>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-7">&#182;</a>
               </div>
-              <h4 id="dynamic-scope">Dynamic Scope</h4>
+              <p>And then let’s pass the object to our update function.</p>
 
             </div>
+            
+            <div class="content"><div class='highlight'><pre>updateAge(sandra);</pre></div></div>
             
         </li>
         
@@ -161,9 +164,11 @@ a = a + <span class="hljs-number">1</span>;</pre></div></div>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-8">&#182;</a>
               </div>
-              <p>Scope that changes at run-time. It’s not set in stone when the code is written. </p>
+              <p><strong>Output:</strong> <code>{ name: &#39;sandra&#39;, age: 23 }</code></p>
 
             </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">console</span>.log(sandra);</pre></div></div>
             
         </li>
         
@@ -174,11 +179,9 @@ a = a + <span class="hljs-number">1</span>;</pre></div></div>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-9">&#182;</a>
               </div>
-              <p>What will this be? </p>
+              <p>As you can see, the original object itself was modified. </p>
 
             </div>
-            
-            <div class="content"><div class='highlight'><pre><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">whatIsDynamicScopeDoe</span>(<span class="hljs-params"></span>) </span>{</pre></div></div>
             
         </li>
         
@@ -189,12 +192,15 @@ a = a + <span class="hljs-number">1</span>;</pre></div></div>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-10">&#182;</a>
               </div>
-              <p><strong>Output:</strong> <code>Nobody knows...</code></p>
+              <p><strong>Example:</strong> Ensuring immutability</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>);
-}</pre></div></div>
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">const</span> updateAgeImmutable = <span class="hljs-function">(<span class="hljs-params">person</span>) =&gt;</span> {
+    <span class="hljs-keyword">const</span> copy = { ...person };
+    copy.age = copy.age + <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">return</span> copy;
+};</pre></div></div>
             
         </li>
         
@@ -205,7 +211,52 @@ a = a + <span class="hljs-number">1</span>;</pre></div></div>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-11">&#182;</a>
               </div>
-              <p>That’s right, nobody knows … until you run it. </p>
+              <p>Let’s create an object in memory.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">const</span> dorianGray = { <span class="hljs-attr">name</span>: <span class="hljs-string">'dorianGray'</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">50</span> };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-12">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-12">&#182;</a>
+              </div>
+              <p>And then let’s pass the object to our update function.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>updateAgeImmutable(dorianGray);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-13">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-13">&#182;</a>
+              </div>
+              <p><strong>Output:</strong> <code>{ name: &#39;dorianGray&#39;, age: 50 }</code></p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">console</span>.log(dorianGray);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-14">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-14">&#182;</a>
+              </div>
+              <p>Here, we can see the value of the object hasn’t changed, that’s because we’ve created a new reference in memory.</p>
 
             </div>
             

@@ -16,6 +16,8 @@ const getAllTheCats = function(name = "Miggins") {
 
 // TODO: Different types of function definition (fat arrow, regular)
 
+// TODO: Public and Private methods
+
 // TODO: Recursive functions
 
 // TODO: Functions that take functions
