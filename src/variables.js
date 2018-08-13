@@ -16,6 +16,32 @@ const c = 1;
 // ## But, what's the difference? 
 // ### Difference 1: Scoping
 
+// JavaScript as a whole has what's known as "function scoping"
+
+// This means that variables, when declared are "scoped" to that function
+
+var a = 0;
+
+// **Example:** Functions and their scopes
+
+(function outer(){
+  var a = 1;
+  
+  (function inner(){
+    var a = 2;
+
+    // **Output:** 2
+    console.log(a);
+  })()
+
+  // **Output:** 1
+  console.log(a);
+})();
+
+// As you can see, we're not overwriting the outer variable. We have two, one in the inner function, one in the outer function. 
+
+// ----
+
 // `var` is function scoped, `const` and `let` are _block scoped_
 
 // But what does that mean? 
@@ -101,6 +127,6 @@ console.log(cat);
 // One of those is to [put your const variables as upper case](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const#Examples)
 
 // Like this...
-const NAME = "Mo";
+const PERSON = "Mo";
 
 // This just makes it easier to see when you cannot overwrite a value. 
