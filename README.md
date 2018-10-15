@@ -24,3 +24,7 @@ nodemon <file>
     * Explanation file for the concept (Use Docco to go through the concept)
     * Test javasript file (this if for the exercise)
     * Answer file (answers to the questions)
+    
+## Feedback / Updates To Make (Backlog)
+
+- [ ] Ensure appropriate information about object / array equality vs string, booleans etc. 
