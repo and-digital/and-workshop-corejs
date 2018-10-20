@@ -2,7 +2,7 @@
 
 <html>
 <head>
-  <title>test_runner.test.js</title>
+  <title>lodash.test.js</title>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
   <link rel="stylesheet" media="all" href="../docco.css" />
@@ -153,7 +153,7 @@
         
           <li id="title">
               <div class="annotation">
-                  <h1>test_runner.test.js</h1>
+                  <h1>lodash.test.js</h1>
               </div>
           </li>
         
@@ -169,9 +169,8 @@
             </div>
             
             <div class="content"><div class='highlight'><pre>
-<span class="hljs-keyword">const</span> expect2 = <span class="hljs-function">(<span class="hljs-params">expectedValue</span>) =&gt;</span> {
-    <span class="hljs-keyword">return</span> {
-        <span class="hljs-attr">toBe</span>: <span class="hljs-function">(<span class="hljs-params">value</span>) =&gt;</span> {</pre></div></div>
+<span class="hljs-keyword">const</span> _ = {
+    <span class="hljs-attr">chain</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{</pre></div></div>
             
         </li>
         
@@ -182,14 +181,23 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-2">&#182;</a>
               </div>
-              <p><strong>Task 1: Should check for strict equality</strong></p>
+              <p>Implement</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>
-            <span class="hljs-keyword">return</span> expectedValue === value;
-        },
-        <span class="hljs-attr">toEqual</span>: <span class="hljs-function">(<span class="hljs-params">value</span>) =&gt;</span> {</pre></div></div>
+            <div class="content"><div class='highlight'><pre>    },
+    <span class="hljs-attr">map</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">value, callback</span>)</span>{
+
+        <span class="hljs-keyword">const</span> newArray = [];
+
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; value.length; i++) {
+            newArray.push(callback(value[i]));
+        }
+
+        <span class="hljs-keyword">return</span> newArray;
+
+    },
+    <span class="hljs-attr">reduce</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">values, callback</span>)</span>{</pre></div></div>
             
         </li>
         
@@ -200,30 +208,38 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-3">&#182;</a>
               </div>
-              <p><strong>Task 2: Should check if two objects are identical</strong></p>
+              <p>Should take an array of values and apply the callback</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>            
-            <span class="hljs-keyword">return</span> expectedValue == value;
-        }
-    }
+            <div class="content"><div class='highlight'><pre>    },
+    <span class="hljs-attr">pick</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>Should pick a property from an object</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    }
 };
 
-describe(<span class="hljs-string">'.toBe'</span>, () =&gt; {
-    test(<span class="hljs-string">'Works for boolean'</span>, () =&gt; {
-        expect(expect2(<span class="hljs-literal">true</span>).toBe(<span class="hljs-literal">true</span>)).toBe(<span class="hljs-literal">true</span>);
-        expect(expect2(<span class="hljs-literal">false</span>).toBe(<span class="hljs-literal">false</span>)).toBe(<span class="hljs-literal">true</span>);
+describe(<span class="hljs-string">'_.map'</span>, () =&gt; {
+    test(<span class="hljs-string">'maps an array'</span>, () =&gt; {
+        expect(_.map([<span class="hljs-string">'Graham'</span>, <span class="hljs-string">'Sarah'</span>, <span class="hljs-string">'Bob'</span>], (name) =&gt; <span class="hljs-string">`The <span class="hljs-subst">${name}</span>`</span>)).toEqual([<span class="hljs-string">'The Graham'</span>, <span class="hljs-string">'The Sarah'</span>, <span class="hljs-string">'The Bob'</span>]);
     });
-    test(<span class="hljs-string">'Works for strings'</span>, () =&gt; {
-        <span class="hljs-keyword">const</span> stringReference = <span class="hljs-string">"testing"</span>;
-        expect(expect2(stringReference).toBe(stringReference)).toBe(<span class="hljs-literal">true</span>);
+    test(<span class="hljs-string">'does not mutate'</span>, () =&gt; {
+        <span class="hljs-keyword">const</span> originalValues = [<span class="hljs-string">'Graham'</span>, <span class="hljs-string">'Sarah'</span>, <span class="hljs-string">'Bob'</span>];
+        expect(_.map(originalValues, (name) =&gt; <span class="hljs-string">`The <span class="hljs-subst">${name}</span>`</span>)).toEqual([<span class="hljs-string">'The Graham'</span>, <span class="hljs-string">'The Sarah'</span>, <span class="hljs-string">'The Bob'</span>]);
+        expect(originalValues).toEqual([<span class="hljs-string">'Graham'</span>, <span class="hljs-string">'Sarah'</span>, <span class="hljs-string">'Bob'</span>]);
     });
-});
-
-test(<span class="hljs-string">'Implement toBe method'</span>, () =&gt; {
-    expect(expect2(<span class="hljs-literal">true</span>).toEqual(<span class="hljs-literal">true</span>)).not.toBe(<span class="hljs-literal">true</span>);
-    expect(expect2(<span class="hljs-literal">false</span>).toEqual(<span class="hljs-literal">false</span>)).not.toBe(<span class="hljs-literal">true</span>);
 });</pre></div></div>
             
         </li>

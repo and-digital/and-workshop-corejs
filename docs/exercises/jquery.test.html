@@ -2,7 +2,7 @@
 
 <html>
 <head>
-  <title>test_runner.test.js</title>
+  <title>jquery.test.js</title>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
   <link rel="stylesheet" media="all" href="../docco.css" />
@@ -153,7 +153,7 @@
         
           <li id="title">
               <div class="annotation">
-                  <h1>test_runner.test.js</h1>
+                  <h1>jquery.test.js</h1>
               </div>
           </li>
         
@@ -168,10 +168,32 @@
               
             </div>
             
-            <div class="content"><div class='highlight'><pre>
-<span class="hljs-keyword">const</span> expect2 = <span class="hljs-function">(<span class="hljs-params">expectedValue</span>) =&gt;</span> {
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">const</span> addClasshelper = <span class="hljs-function">(<span class="hljs-params">internalElement, name</span>) =&gt;</span> {
+    <span class="hljs-keyword">const</span> split = internalElement.split(<span class="hljs-string">'class="'</span>);
+    <span class="hljs-keyword">const</span> newElement = [split[<span class="hljs-number">0</span>], <span class="hljs-string">`class="<span class="hljs-subst">${name}</span> `</span> ,split[<span class="hljs-number">1</span>]].join(<span class="hljs-string">''</span>);
+    <span class="hljs-keyword">return</span> newElement;
+};
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">DomElement</span>(<span class="hljs-params">elemString</span>) </span>{
+    <span class="hljs-keyword">let</span> internalElement = <span class="hljs-string">`&lt;div class="hello"&gt; Test &lt;/div&gt;`</span>;
+
     <span class="hljs-keyword">return</span> {
-        <span class="hljs-attr">toBe</span>: <span class="hljs-function">(<span class="hljs-params">value</span>) =&gt;</span> {</pre></div></div>
+        <span class="hljs-attr">addClass</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">name</span>)</span>{
+            internalElement = addClasshelper(internalElement, name);
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+        },
+        <span class="hljs-attr">val</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+            <span class="hljs-keyword">return</span> internalElement;
+        }
+    }
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">$</span>(<span class="hljs-params">elemString</span>)</span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> DomElement(elemString);
+}
+
+<span class="hljs-built_in">console</span>.log($(<span class="hljs-string">'.hello'</span>).addClass(<span class="hljs-string">'red'</span>).addClass(<span class="hljs-string">'green'</span>).val());
+<span class="hljs-built_in">console</span>.log($(<span class="hljs-string">'.hello'</span>).addClass(<span class="hljs-string">'green'</span>).val());</pre></div></div>
             
         </li>
         
@@ -182,49 +204,9 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-2">&#182;</a>
               </div>
-              <p><strong>Task 1: Should check for strict equality</strong></p>
+              <p><strong>Exercise: Add another method to the fake JQuery example</strong></p>
 
             </div>
-            
-            <div class="content"><div class='highlight'><pre>
-            <span class="hljs-keyword">return</span> expectedValue === value;
-        },
-        <span class="hljs-attr">toEqual</span>: <span class="hljs-function">(<span class="hljs-params">value</span>) =&gt;</span> {</pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-3">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-3">&#182;</a>
-              </div>
-              <p><strong>Task 2: Should check if two objects are identical</strong></p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>            
-            <span class="hljs-keyword">return</span> expectedValue == value;
-        }
-    }
-};
-
-describe(<span class="hljs-string">'.toBe'</span>, () =&gt; {
-    test(<span class="hljs-string">'Works for boolean'</span>, () =&gt; {
-        expect(expect2(<span class="hljs-literal">true</span>).toBe(<span class="hljs-literal">true</span>)).toBe(<span class="hljs-literal">true</span>);
-        expect(expect2(<span class="hljs-literal">false</span>).toBe(<span class="hljs-literal">false</span>)).toBe(<span class="hljs-literal">true</span>);
-    });
-    test(<span class="hljs-string">'Works for strings'</span>, () =&gt; {
-        <span class="hljs-keyword">const</span> stringReference = <span class="hljs-string">"testing"</span>;
-        expect(expect2(stringReference).toBe(stringReference)).toBe(<span class="hljs-literal">true</span>);
-    });
-});
-
-test(<span class="hljs-string">'Implement toBe method'</span>, () =&gt; {
-    expect(expect2(<span class="hljs-literal">true</span>).toEqual(<span class="hljs-literal">true</span>)).not.toBe(<span class="hljs-literal">true</span>);
-    expect(expect2(<span class="hljs-literal">false</span>).toEqual(<span class="hljs-literal">false</span>)).not.toBe(<span class="hljs-literal">true</span>);
-});</pre></div></div>
             
         </li>
         

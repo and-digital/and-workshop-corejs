@@ -7,92 +7,86 @@
         <div class="content">
             <h1>Mastery: Core Javascript</h1>
             <div class="intro">
-                <p>This course should take you through all the main concepts, providing examples and exercises along the way. </p>
+                <p>Learn JavaScript in an applicable way through re-implementing the main libraries. </p>
                     
-                <p> This course has been designed with 🌴 remote in mind and the ability to re-visit and re-read 🤓 the content.</p>
+                <p>This course has been designed with 🌴 remote in mind and the ability to re-visit and re-read 🤓 the content.</p>
 
-                <p> All exercises are implemented with testing, and all exercises will touch upon testability as a core concept. </p>
+                <p>That said, to make the course as applicable as possible, exercises will mimic popular libraries and JavaScript API's </p>
 
-                <p>We will cover only coreJS language, we will not cover anything to do with the execution environment, so no DOM or Node APIs</p>
+                <p>All the libraries we use are just regular code that we can write. </p>
 
-                <p>That said, to make the course as applicable as possible, exercises will mimic popular libraries and JavaScript API's such as: </p>
+                <p>Ready to rock & roll? 🎸 🍞 — let's get to it! </p>
 
-                <ol> 
-                    <li>Creating a test runner (such as: Jest, Mocha)</li>
-                    <li>.map, .reduce, .filter</li>
-                    <li>Express</li>
-                    <li>jQUery</li>
-                    <li>Lodash</li>
-                    <li>React</li>
-                </ol>
-
-                <p><strong>Please note: </strong>All files in this repo are designed to be ran with <a href="https://quokkajs.com/">Quokka JS.</a></i></p>
+                <p> <strong>Please note: </strong></p>
+                <ul>
+                    <li>This course covers only core JS language, we will not cover execution environments (no DOM or Node APIs)</li>
+                </ul>
+                    
             </div>
+            <hr>
+                <div class="intro">
+                    <h2> Getting Started: </h2>
+                    <ul>
+                        <li>Install Jest <strong>npm install jest --global</strong></li>
+                        <li>Install <a href="https://quokkajs.com/">Quokka JS.</a> to understand the files easier </li>
+                        <li>Update your exercises with your code</li>
+                        <li>Write comments to explain what you've done</li>
+                    </ul>
+                </div>
             <hr>
             
             <div class="intro">
                 <h2>Part 1: Variables, Objects &amp; Types </h2>
                 <p>How to assign data to variables, and how JavaScript handles objects and the implications</p>
             </div>
-            <p class="link"><strong>Types 🐱 🐶 </strong> (<a href="./docs/src/types.html">Explanation</a>) <span class="description">What are types and why do we care?</span></p>
-            <p class="link"><strong>Variables 👍 </strong> (<a href="./docs/src/variables.html">Explanation</a>) <span class="description">Intro to const, let and var.</span></p>
-            <p class="link"><strong>Truthy / Fasley Values ✅❌ </strong> (<a href="./docs/src/truthy_falsey.html">Explanation</a>) <span class="description">What resolves to true and what resolves to false</span></p>
-            <p class="link"><strong>Objects &amp; Arrays [🗳,🗳] </strong> (<a href="./docs/src/objects_and_arrays.html">Explanation</a>) <span class="description">Creating, managing and structuring your data objects.</span></p>
-            <p class="link"><strong>Errors 🚫 </strong> (<a href="./docs/src/errors.html">Explanation</a>) <span class="description">How and when to create, throw and handle errors.</span></p>
-            <br>
-            <p class="exercise"><strong>Implement a test runner! 🚫 </strong> (<a href="./docs/exercises/test_runner.test.html">Explanation</a>) <span class="description">How and when to create, throw and handle errors.</span></p>
+            <p class="link"><strong> <a href="./docs/src/types.html">Types</a> 🐱 🐶 </strong>  <span class="description">What are types and why do we care?</span></p>
+            <p class="link"><strong> <a href="./docs/src/variables.html">Variables</a> 🔠 </strong>  <span class="description">Intro to const, let and var.</span></p>
+            <p class="link"><strong> <a href="./docs/src/truthy_falsey.html">Truthy / Fasley Values</a> ✅❌  </strong>  <span class="description">What resolves to true and what resolves to false</span></p>
+            <p class="link"><strong> <a href="./docs/src/objects_and_arrays.html">Objects &amp; Arrays</a> [🗳,🗳] </strong>  <span class="description">Creating, managing and structuring your data objects.</span></p>
+            <p class="link"><strong> <a href="./docs/src/modules.html"> Modules </a> </strong> <span class="description"> Regular vs Revealing and implementing pseudo-private variables </span></p>
+            <p class="link"><strong> <a href="./docs/src/errors.html">Errors</a>  </strong>  <span class="description">How and when to create, throw and handle errors.</span></p>
+            <p class="exercise"><strong> <a href="./docs/exercises/test_runner.test.html">Implement a test runner</a> </strong> <span class="description">Exercise to re-implement a jest-like test runner.</span></p>
 
             <div class="intro">
-                <h2>Part 2: Functions (Callbacks, Classes &amp; Functional Programming) </h2>
+                <h2>Part 2: Functional Style </h2>
                 <p> How to leverage JavaScripts powerful functional aspects for functional-esque programming, and maybe some Object Oriented too. </p>
             </div>
 
-            <p class="link"><strong>Functions</strong> (<a href="./docs/src/function.html">Explanation</a>) <span class="description"> Understanding function signatures, currying. </span></p>
-            <p class="link"><strong>Advanced Functions (Rest &amp; Spread) 🛏 🍽 </strong> (<a href="./docs/src/rest_spread.html">Explanation</a>) <span class="description">Using rest and spread to write cleaner, simpler functions.</span></p>
-            <p class="link"><strong>Immutability: Pass by reference / by value ⚔ </strong> (<a href="./docs/src/pass_by_reference_or_value.html">Explanation</a>) <span class="description">How functions interact with in memory variables.</span></p>
-            <p class="link"><strong>Prototypal Inheritance 👑 </strong> (<a href="./docs/src/prototypal_inheritance.html">Explanation</a>) <span class="description">How JS does inheritance and why your arrays have a .map </span></p>
-            <p class="link"><strong>Classes 🏫 📚 👦  </strong> (<a href="./docs/src/classes.html">Explanation</a>) <span class="description">A class is just a function ... but how!?</span></p>
+            <p class="link"><strong>Functions 💚 </strong> (<a href="./docs/src/function.html">Explanation</a>) <span class="description"> Understanding function signatures, currying. </span></p>
+            <p class="link"><strong>Closure (Functional Scope) 🔁 </strong> (<a href="./docs/src/closure.html">Explanation</a>) <span class="description">TBD</span></p>
+            <p class="link"><strong>Functional methods  🔁 </strong> <span class="description">Using .map, .reduce and .filter</span></p>
+            <p class="link"><strong>Advanced Functions (Rest &amp; Spread) 😴 🍞 </strong> (<a href="./docs/src/rest_spread.html">Explanation</a>) <span class="description">Using rest and spread to write cleaner, simpler functions.</span></p>
+            <p class="link"><strong>Immutability: Pass by reference / by value 🏈 </strong> (<a href="./docs/src/pass_by_reference_or_value.html">Explanation</a>) <span class="description">How functions interact with in memory variables.</span></p>
             <p class="link"><strong>Recursion ➿ </strong> <span class="description"></span></p>
+            <p class="exercise"><strong> <a href="./docs/exercises/lodash.test.html">Implement lodash</a> </strong> <span class="description">Exercise to re-implement lodash methods.</span></p>
 
             <div class="intro">
-                <h2>Part 3: Scoping &amp; Closures </h2>
+                <h2>Part 3: Classical Style </h2>
                 <p> How JavaScript handles scoping, what closures are and why you need to know them. </p>
             </div>
-
-            <p class="link"><strong>Closure (Functional Scope) </strong> (<a href="./docs/src/closure.html">Explanation</a>) <span class="description">TBD</span></p>
+            <p class="link designpattern"><strong>Constructor ⛑ </strong>  (<a href="./docs/src/constructor.html">Explanation</a>) <span class="description"> For creating instances. </span></p>
+            <p class="link"><strong>Prototypal Inheritance 👑 </strong> (<a href="./docs/src/prototypal_inheritance.html">Explanation</a>) <span class="description">How JS does inheritance and why your arrays have a .map </span></p>
+            <p class="link"><strong>Classes 🏫 📚 👦  </strong> (<a href="./docs/src/classes.html">Explanation</a>) <span class="description">A class is just a function ... but how!?</span></p>
             <p class="link"><strong>Dynamic Scoping (this)  🕵 </strong> (<a href="./docs/src/this.html">Explanation</a>) <span class="description">How JavaScript gives contexts dynamic scope with "this"</span></p>
+            <p class="link designpattern"><strong>Chained API ⛓ </strong> (<a href="./docs/src/chained_api.html">Explanation</a>) <span class="description"> Y'know that cool design pattern: $('.get').toggle().removeClass() </span></p>
+            <p class="exercise"><strong> <a href="./docs/exercises/jquery.test.html">Implement JQuery</a> </strong> <span class="description">Re-make a jquery like API.</span></p>
 
             <div class="intro">
-                <h2>Part 4: Dealing with asynchronicity (Asyncronous Callbacks, Async/Await, Promises) </h2>
+                <h2>Part 4: Async (Callbacks, Promises & Async/Await) </h2>
                 <p> Leveraging the single-threaded nature of JavaScript by using async</p>
             </div>
             <p class="link"><strong>The Event Loop</strong> (<a href="./docs/src/event_loop.html">Explanation</a>) <span class="description">How JavaScript handles processes and computation.</span></p>
             <p class="link"><strong>Callbacks</strong> (<a href="./docs/src/callback.html">Explanation</a>)  <span class="description"> How async can be handled with a callback. </span></p>
             <p class="link"><strong>Promises 🙏 </strong> (<a href="./docs/src/promises.html">Explanation</a>) <span class="description">Understanding the promise object and using it.</span></p>
             <p class="link"><strong>Async / Await 🕖  </strong> (<a href="./docs/src/async_await.html">Explanation</a>) <span class="description"> Taking Promises one step futher with async/await.</span></p>
+            <p class="exercise"><strong> <a href="./docs/exercises/promise.test.html">Implement the Promise API</a> </strong> <span class="description">Create a new Promise object and mimic the promise behaviour.</span></p>
             
             <div class="intro">
-                <h2>Part 5: Design Patterns </h2>
+                <h2>Part 5: Advanced (Design Patterns & Performance) </h2>
                 <p> How to organise your JS in different ways so it doesn't become no giant ball of spaghetti 🍝 </p>
             </div>
-            <p class="link"><strong>Modules</strong> (<a href="./docs/src/modules.html">Explanation</a>)<span class="description"> Regular vs Revealing and implementing pseudo-private variables </span></p>
-            <p class="link"><strong>Constructor ⛑ </strong>  (<a href="./docs/src/constructor.html">Explanation</a>) <span class="description"> For creating instances. </span></p>
-            <p class="link"><strong>Chained API ⛓ </strong> (<a href="./docs/src/chained_api.html">Explanation</a>) <span class="description"> Y'know that cool design pattern: $('.get').toggle().removeClass() </span></p>
-            <p class="link"><strong>Mixin 🍜 </strong> <span class="description"> Code reuse through a mixin object </span></p>
-            <p class="link"><strong>Publish / Subscribe 💌 </strong> <span class="description"> How to listen on a channel and react to events </span></p>
-
-            <div class="intro">
-                <h2>Part 5: Programming Paradigms </h2>
-                <p> Learning the different flavours you can incorporate in your code </p>
-            </div>
-            <p class="link"><strong>Reactive 🏃 </strong> <span class="description"> Events, streams and being reactive. </span></p>
-            <p class="link"><strong>Functional 🔨  </strong> <span class="description"> Leveraging functions, purity &amp; lack of side effects. </span></p>
-            <p class="link"><strong>Object Oriented 🗳 🗳 🗳 </strong> <span class="description"> The classical paradigm, inheritance, polymorphism etc. </span></p>
-
-            <div class="intro">
-                <h2>Part 6: Performance </h2>
-                <p> Implications of performance in JS </p>
-            </div>
+            <p class="designpattern link"><strong>Mixin 🍜 </strong> <span class="description"> Code reuse through a mixin object </span></p>
+            <p class="designpattern link"><strong>Publish / Subscribe 💌 </strong> <span class="description"> How to listen on a channel and react to events </span></p>
             <p class="link"><strong>Memory Leaks 🌊 </strong> <span class="description">  </span></p>
             <p class="link"><strong>Flame Graphs 🔥 </strong> <span class="description">  </span></p>
 
@@ -103,8 +97,8 @@
             <p class="link"><strong>Best Practices ✅ </strong>  (<a href="./docs/src/best_practices.html">Explanation</a>) <span class="description"> The best practices. </span></p>
             <p class="link"><strong>Glossary 📚 </strong>  (<a href="./docs/src/glossary.html">Explanation</a>) <span class="description"> All of the JS words. </span></p>
 
-            <div class="intro">
-                <p> That's all — you JavaScript Guru you ✌️ </p>
+            <div class="outro">
+                <p style="text-align: center;"> That's all — you JavaScript Guru you ✌️ </p>
             </div>
 
             <!-- <p class="link"><a href="./docs/src/01_variables.test.html">01_variables (test) </a> </p>
