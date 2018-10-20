@@ -122,3 +122,27 @@ console.log(request2);
 // Now you can see our login function only takes username, it doesn't know about a request object (HTTP specific).
 
 // If we moved away from HTTP, we could shift our login function easily, and re-implement a new input mapper.
+
+// ## The quintessential closure example
+
+// What will this return?
+
+const getFunctions = function() {
+    let funcs = [];
+   
+    for (var i = 0; i < 3; i++) {
+      funcs[i] = function() {
+        return `I am index ${i}!`;
+      };
+    }
+    return funcs;
+};
+   
+const funcs = getFunctions();
+console.log(funcs[0]())
+console.log(funcs[1]())
+console.log(funcs[2]())
+
+// Why does this happen? 
+
+// Because a function stores it's closure when it's _created_

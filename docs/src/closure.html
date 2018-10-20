@@ -20,8 +20,53 @@
             <div id="jump_page">
               
                 
+                <a class="source" href="../exercises/test_runner.test.html">
+                  ./exercises/test_runner.test.js
+                </a>
+              
+                
+                <a class="source" href="async_await.html">
+                  ./src/async_await.js
+                </a>
+              
+                
+                <a class="source" href="best_practices.html">
+                  ./src/best_practices.js
+                </a>
+              
+                
+                <a class="source" href="callback.html">
+                  ./src/callback.js
+                </a>
+              
+                
+                <a class="source" href="chained_api.html">
+                  ./src/chained_api.js
+                </a>
+              
+                
+                <a class="source" href="classes.html">
+                  ./src/classes.js
+                </a>
+              
+                
                 <a class="source" href="closure.html">
                   ./src/closure.js
+                </a>
+              
+                
+                <a class="source" href="constructor.html">
+                  ./src/constructor.js
+                </a>
+              
+                
+                <a class="source" href="errors.html">
+                  ./src/errors.js
+                </a>
+              
+                
+                <a class="source" href="event_loop.html">
+                  ./src/event_loop.js
                 </a>
               
                 
@@ -32,6 +77,11 @@
                 
                 <a class="source" href="glossary.html">
                   ./src/glossary.js
+                </a>
+              
+                
+                <a class="source" href="modules.html">
+                  ./src/modules.js
                 </a>
               
                 
@@ -50,6 +100,16 @@
                 </a>
               
                 
+                <a class="source" href="prototypal_inheritance.html">
+                  ./src/prototypal_inheritance.js
+                </a>
+              
+                
+                <a class="source" href="rest_spread.html">
+                  ./src/rest_spread.js
+                </a>
+              
+                
                 <a class="source" href="this.html">
                   ./src/this.js
                 </a>
@@ -57,6 +117,11 @@
                 
                 <a class="source" href="truthy_falsey.html">
                   ./src/truthy_falsey.js
+                </a>
+              
+                
+                <a class="source" href="types.html">
+                  ./src/types.js
                 </a>
               
                 
@@ -446,6 +511,75 @@ express.get(<span class="hljs-string">'/login2'</span>, createHTTPEndpoint({
                 <a class="pilcrow" href="#section-22">&#182;</a>
               </div>
               <p>If we moved away from HTTP, we could shift our login function easily, and re-implement a new input mapper.</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-23">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-23">&#182;</a>
+              </div>
+              <h2 id="the-quintessential-closure-example">The quintessential closure example</h2>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-24">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-24">&#182;</a>
+              </div>
+              <p>What will this return?</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+<span class="hljs-keyword">const</span> getFunctions = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">let</span> funcs = [];
+   
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">3</span>; i++) {
+      funcs[i] = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-string">`I am index <span class="hljs-subst">${i}</span>!`</span>;
+      };
+    }
+    <span class="hljs-keyword">return</span> funcs;
+};
+   
+<span class="hljs-keyword">const</span> funcs = getFunctions();
+<span class="hljs-built_in">console</span>.log(funcs[<span class="hljs-number">0</span>]())
+<span class="hljs-built_in">console</span>.log(funcs[<span class="hljs-number">1</span>]())
+<span class="hljs-built_in">console</span>.log(funcs[<span class="hljs-number">2</span>]())</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-25">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-25">&#182;</a>
+              </div>
+              <p>Why does this happen? </p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-26">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-26">&#182;</a>
+              </div>
+              <p>Because a function stores it’s closure when it’s <em>created</em></p>
 
             </div>
             

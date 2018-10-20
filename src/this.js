@@ -122,3 +122,11 @@ console.log(invoke(person.whatsTheirName))
 // The function is called _inside_ the invoke function, but again it's _not_ called with an ajoining object, so the value is set to the global scope.
 
 // ----
+
+// TODO: Useful for chained methods such as reduce where you don't explicitly pass the value
+
+// TODO: Add React example for classes that bind the this value
+
+// TODO: Add exercise to implement the React component API
+
+// TODO: Caching a this variable

@@ -2,6 +2,14 @@
 
 // Promises are a way to handle asyncronous behaviour in JavaScript
 
+// Promises themselves are constructor functions
+
+// So they're _just_ an object
+
+// But, they have specific control flow, that makes them useful
+
+// Understanding Promises is a pre-cursor to understanding `async/await`
+
 // ## How to create a Promise
 
 // A promise can be created in two ways
@@ -90,3 +98,5 @@ gitHubData
 // TODO: How to spot a promise
 
 // TODO: Converting callbacks to promises
+
+// TODO: The 3 states of promises (pending, fulfilled, rejected)

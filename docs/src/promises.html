@@ -20,8 +20,53 @@
             <div id="jump_page">
               
                 
+                <a class="source" href="../exercises/test_runner.test.html">
+                  ./exercises/test_runner.test.js
+                </a>
+              
+                
+                <a class="source" href="async_await.html">
+                  ./src/async_await.js
+                </a>
+              
+                
+                <a class="source" href="best_practices.html">
+                  ./src/best_practices.js
+                </a>
+              
+                
+                <a class="source" href="callback.html">
+                  ./src/callback.js
+                </a>
+              
+                
+                <a class="source" href="chained_api.html">
+                  ./src/chained_api.js
+                </a>
+              
+                
+                <a class="source" href="classes.html">
+                  ./src/classes.js
+                </a>
+              
+                
                 <a class="source" href="closure.html">
                   ./src/closure.js
+                </a>
+              
+                
+                <a class="source" href="constructor.html">
+                  ./src/constructor.js
+                </a>
+              
+                
+                <a class="source" href="errors.html">
+                  ./src/errors.js
+                </a>
+              
+                
+                <a class="source" href="event_loop.html">
+                  ./src/event_loop.js
                 </a>
               
                 
@@ -32,6 +77,11 @@
                 
                 <a class="source" href="glossary.html">
                   ./src/glossary.js
+                </a>
+              
+                
+                <a class="source" href="modules.html">
+                  ./src/modules.js
                 </a>
               
                 
@@ -50,6 +100,16 @@
                 </a>
               
                 
+                <a class="source" href="prototypal_inheritance.html">
+                  ./src/prototypal_inheritance.js
+                </a>
+              
+                
+                <a class="source" href="rest_spread.html">
+                  ./src/rest_spread.js
+                </a>
+              
+                
                 <a class="source" href="this.html">
                   ./src/this.js
                 </a>
@@ -57,6 +117,11 @@
                 
                 <a class="source" href="truthy_falsey.html">
                   ./src/truthy_falsey.js
+                </a>
+              
+                
+                <a class="source" href="types.html">
+                  ./src/types.js
                 </a>
               
                 
@@ -105,7 +170,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-3">&#182;</a>
               </div>
-              <h2 id="how-to-create-a-promise">How to create a Promise</h2>
+              <p>Promises themselves are constructor functions</p>
 
             </div>
             
@@ -118,7 +183,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-4">&#182;</a>
               </div>
-              <p>A promise can be created in two ways</p>
+              <p>So they’re <em>just</em> an object</p>
 
             </div>
             
@@ -131,7 +196,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-5">&#182;</a>
               </div>
-              <p><strong>Example:</strong> Creating a long-hand Promise.</p>
+              <p>But, they have specific control flow, that makes them useful</p>
 
             </div>
             
@@ -144,7 +209,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-6">&#182;</a>
               </div>
-              <p>Long hand, like so:</p>
+              <p>Understanding Promises is a pre-cursor to understanding <code>async/await</code></p>
 
             </div>
             
@@ -156,6 +221,58 @@
               
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <h2 id="how-to-create-a-promise">How to create a Promise</h2>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p>A promise can be created in two ways</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-9">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-9">&#182;</a>
+              </div>
+              <p><strong>Example:</strong> Creating a long-hand Promise.</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-10">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-10">&#182;</a>
+              </div>
+              <p>Long hand, like so:</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-11">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-11">&#182;</a>
               </div>
               <p>The promise constructuor is passed a function
 That function has two parameters (callbacks, actually)
@@ -171,68 +288,15 @@ When <code>reject</code> is called, the promise is rejected</p>
         </li>
         
         
-        <li id="section-8">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-8">&#182;</a>
-              </div>
-              <hr>
-
-            </div>
-            
-        </li>
-        
-        
-        <li id="section-9">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-9">&#182;</a>
-              </div>
-              
-            </div>
-            
-        </li>
-        
-        
-        <li id="section-10">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-10">&#182;</a>
-              </div>
-              <p><strong>Example:</strong> Creating a short-hand Promise.</p>
-
-            </div>
-            
-        </li>
-        
-        
-        <li id="section-11">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-11">&#182;</a>
-              </div>
-              <p>Or short hand…</p>
-
-            </div>
-            
-        </li>
-        
-        
         <li id="section-12">
             <div class="annotation">
               
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-12">&#182;</a>
               </div>
-              <p>This promise is immediately resolved</p>
+              <hr>
 
             </div>
-            
-            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">const</span> king = <span class="hljs-built_in">Promise</span>.resolve(<span class="hljs-string">"Easy come, easy go"</span>);</pre></div></div>
             
         </li>
         
@@ -243,11 +307,8 @@ When <code>reject</code> is called, the promise is rejected</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-13">&#182;</a>
               </div>
-              <p>This promise is immediately rejected</p>
-
+              
             </div>
-            
-            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">try</span> {</pre></div></div>
             
         </li>
         
@@ -257,6 +318,62 @@ When <code>reject</code> is called, the promise is rejected</p>
               
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-14">&#182;</a>
+              </div>
+              <p><strong>Example:</strong> Creating a short-hand Promise.</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-15">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-15">&#182;</a>
+              </div>
+              <p>Or short hand…</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-16">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-16">&#182;</a>
+              </div>
+              <p>This promise is immediately resolved</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">const</span> king = <span class="hljs-built_in">Promise</span>.resolve(<span class="hljs-string">"Easy come, easy go"</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-17">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-17">&#182;</a>
+              </div>
+              <p>This promise is immediately rejected</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">try</span> {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-18">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-18">&#182;</a>
               </div>
               <p>Rejected promises with throw an error.</p>
 
@@ -268,11 +385,11 @@ When <code>reject</code> is called, the promise is rejected</p>
         </li>
         
         
-        <li id="section-15">
+        <li id="section-19">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-15">&#182;</a>
+                <a class="pilcrow" href="#section-19">&#182;</a>
               </div>
               <p><strong>Output:</strong> <code>Easy come, easy go.</code></p>
 
@@ -284,65 +401,13 @@ When <code>reject</code> is called, the promise is rejected</p>
         </li>
         
         
-        <li id="section-16">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-16">&#182;</a>
-              </div>
-              <p>Note: When resolving or rejecting a promise, you can <em>only</em> pass one value. </p>
-
-            </div>
-            
-        </li>
-        
-        
-        <li id="section-17">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-17">&#182;</a>
-              </div>
-              <p>Pass an array if you like (you can spread it back out), but you can only return one value and one value only. </p>
-
-            </div>
-            
-        </li>
-        
-        
-        <li id="section-18">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-18">&#182;</a>
-              </div>
-              <h2 id="-then">.then</h2>
-
-            </div>
-            
-        </li>
-        
-        
-        <li id="section-19">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-19">&#182;</a>
-              </div>
-              <p>The only way to get a resolved value out of a promise is to “chain” a <code>.then</code> onto it. </p>
-
-            </div>
-            
-        </li>
-        
-        
         <li id="section-20">
             <div class="annotation">
               
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-20">&#182;</a>
               </div>
-              <p>A <code>.then</code> function takes a callback, which can <strong>only</strong> have one parameter. </p>
+              <p>Note: When resolving or rejecting a promise, you can <em>only</em> pass one value. </p>
 
             </div>
             
@@ -355,7 +420,7 @@ When <code>reject</code> is called, the promise is rejected</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-21">&#182;</a>
               </div>
-              <p><strong>Example:</strong> Getting data out of a promise</p>
+              <p>Pass an array if you like (you can spread it back out), but you can only return one value and one value only. </p>
 
             </div>
             
@@ -367,6 +432,58 @@ When <code>reject</code> is called, the promise is rejected</p>
               
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-22">&#182;</a>
+              </div>
+              <h2 id="-then">.then</h2>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-23">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-23">&#182;</a>
+              </div>
+              <p>The only way to get a resolved value out of a promise is to “chain” a <code>.then</code> onto it. </p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-24">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-24">&#182;</a>
+              </div>
+              <p>A <code>.then</code> function takes a callback, which can <strong>only</strong> have one parameter. </p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-25">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-25">&#182;</a>
+              </div>
+              <p><strong>Example:</strong> Getting data out of a promise</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-26">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-26">&#182;</a>
               </div>
               <p>Let’s imagine we’ve called an API which returns a promise of some data.</p>
 
@@ -383,11 +500,11 @@ When <code>reject</code> is called, the promise is rejected</p>
         </li>
         
         
-        <li id="section-23">
+        <li id="section-27">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-23">&#182;</a>
+                <a class="pilcrow" href="#section-27">&#182;</a>
               </div>
               <p>The only way to get it out is to chain a <code>.then</code> onto it. </p>
 
@@ -399,11 +516,11 @@ When <code>reject</code> is called, the promise is rejected</p>
         </li>
         
         
-        <li id="section-24">
+        <li id="section-28">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-24">&#182;</a>
+                <a class="pilcrow" href="#section-28">&#182;</a>
               </div>
               <p><strong>Output:</strong> <code>[{commit ... }]</code></p>
 
@@ -415,68 +532,15 @@ When <code>reject</code> is called, the promise is rejected</p>
         </li>
         
         
-        <li id="section-25">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-25">&#182;</a>
-              </div>
-              <p>Notice how the <code>.then</code> has a single returned parameter <code>data</code> in this instance. </p>
-
-            </div>
-            
-        </li>
-        
-        
-        <li id="section-26">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-26">&#182;</a>
-              </div>
-              <hr>
-
-            </div>
-            
-        </li>
-        
-        
-        <li id="section-27">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-27">&#182;</a>
-              </div>
-              
-            </div>
-            
-        </li>
-        
-        
-        <li id="section-28">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-28">&#182;</a>
-              </div>
-              <p><strong>Example:</strong> A promise with the callback stored in a variable.</p>
-
-            </div>
-            
-        </li>
-        
-        
         <li id="section-29">
             <div class="annotation">
               
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-29">&#182;</a>
               </div>
-              <p>Remember, callbacks don’t have to be anonymous, you can also assign them to variables.</p>
+              <p>Notice how the <code>.then</code> has a single returned parameter <code>data</code> in this instance. </p>
 
             </div>
-            
-            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">const</span> doSomething = <span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(data);</pre></div></div>
             
         </li>
         
@@ -487,12 +551,9 @@ When <code>reject</code> is called, the promise is rejected</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-30">&#182;</a>
               </div>
-              <p><strong>Output:</strong> <code>[{commit ... }]</code></p>
+              <hr>
 
             </div>
-            
-            <div class="content"><div class='highlight'><pre>gitHubData
-    .then(doSomething);</pre></div></div>
             
         </li>
         
@@ -503,8 +564,7 @@ When <code>reject</code> is called, the promise is rejected</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-31">&#182;</a>
               </div>
-              <p>TODO: Promise <code>.then</code> returning a (new) Promise</p>
-
+              
             </div>
             
         </li>
@@ -516,7 +576,7 @@ When <code>reject</code> is called, the promise is rejected</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-32">&#182;</a>
               </div>
-              <p>TODO: Promise alternative methods <code>.finally</code></p>
+              <p><strong>Example:</strong> A promise with the callback stored in a variable.</p>
 
             </div>
             
@@ -529,9 +589,11 @@ When <code>reject</code> is called, the promise is rejected</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-33">&#182;</a>
               </div>
-              <p>TODO: Promise exceptions with <code>.catch</code></p>
+              <p>Remember, callbacks don’t have to be anonymous, you can also assign them to variables.</p>
 
             </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">const</span> doSomething = <span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(data);</pre></div></div>
             
         </li>
         
@@ -542,9 +604,12 @@ When <code>reject</code> is called, the promise is rejected</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-34">&#182;</a>
               </div>
-              <p>TODO: Promise exceptions</p>
+              <p><strong>Output:</strong> <code>[{commit ... }]</code></p>
 
             </div>
+            
+            <div class="content"><div class='highlight'><pre>gitHubData
+    .then(doSomething);</pre></div></div>
             
         </li>
         
@@ -555,7 +620,7 @@ When <code>reject</code> is called, the promise is rejected</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-35">&#182;</a>
               </div>
-              <p>TODO: Promise libraries</p>
+              <p>TODO: Promise <code>.then</code> returning a (new) Promise</p>
 
             </div>
             
@@ -568,7 +633,7 @@ When <code>reject</code> is called, the promise is rejected</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-36">&#182;</a>
               </div>
-              <p>TODO: How to spot a promise</p>
+              <p>TODO: Promise alternative methods <code>.finally</code></p>
 
             </div>
             
@@ -581,7 +646,72 @@ When <code>reject</code> is called, the promise is rejected</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-37">&#182;</a>
               </div>
+              <p>TODO: Promise exceptions with <code>.catch</code></p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-38">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-38">&#182;</a>
+              </div>
+              <p>TODO: Promise exceptions</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-39">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-39">&#182;</a>
+              </div>
+              <p>TODO: Promise libraries</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-40">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-40">&#182;</a>
+              </div>
+              <p>TODO: How to spot a promise</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-41">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-41">&#182;</a>
+              </div>
               <p>TODO: Converting callbacks to promises</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-42">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-42">&#182;</a>
+              </div>
+              <p>TODO: The 3 states of promises (pending, fulfilled, rejected)</p>
 
             </div>
             

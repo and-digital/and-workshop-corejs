@@ -29,6 +29,22 @@ p.link {
     border-left: 10px solid #9cdbaf;
     padding: 15px;
 }
+p.exercise {
+    background-color: #ededed;
+    padding: 45px 15px 15px 25px;
+    position: relative;
+}
+p.exercise:before {
+    content: 'exercise';
+    padding: 3px 18px;
+    background-color: navy;
+    border-radius: 0px 0px 11px 0px;
+    position: absolute;
+    text-transform: capitalize;
+    color: white;
+    left: 0px;
+    top: 0px;
+}
 .intro {
     margin: 10px;
     background-color: white;
