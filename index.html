@@ -5,11 +5,11 @@
     </head>
     <body>
         <div class="content">
-            <h1>Mastery: Core Javascript</h1>
+            <h1>Core Javascript</h1>
             <div class="intro">
                 <p>Learn JavaScript in an applicable way through re-implementing the main libraries. </p>
                     
-                <p>This course has been designed with 🌴 remote in mind and the ability to re-visit and re-read 🤓 the content.</p>
+                <p>This course has been designed with 🌴 remote in mind and intentionally created with the ability for you to re-visit the content (and hopefully teach it to others!).</p>
 
                 <p>That said, to make the course as applicable as possible, exercises will mimic popular libraries and JavaScript API's </p>
 
@@ -23,7 +23,8 @@
                 </ul>
                     
             </div>
-            <hr>
+        </div>
+        <div class="content">
                 <div class="intro">
                     <h2> Getting Started: </h2>
                     <ul>
@@ -34,7 +35,8 @@
                     </ul>
                 </div>
             <hr>
-            
+        </div>
+        <div class="content">
             <div class="intro">
                 <h2>Part 1: Variables, Objects &amp; Types </h2>
                 <p>How to assign data to variables, and how JavaScript handles objects and the implications</p>
@@ -45,21 +47,30 @@
             <p class="link"><strong> <a href="./docs/src/objects_and_arrays.html">Objects &amp; Arrays</a> [🗳,🗳] </strong>  <span class="description">Creating, managing and structuring your data objects.</span></p>
             <p class="link"><strong> <a href="./docs/src/modules.html"> Modules </a> </strong> <span class="description"> Regular vs Revealing and implementing pseudo-private variables </span></p>
             <p class="link"><strong> <a href="./docs/src/errors.html">Errors</a>  </strong>  <span class="description">How and when to create, throw and handle errors.</span></p>
-            <p class="exercise"><strong> <a href="./docs/exercises/test_runner.test.html">Implement a test runner</a> </strong> <span class="description">Exercise to re-implement a jest-like test runner.</span></p>
-
+            <p class="exercise">
+                <strong> <a href="./docs/exercises/test_runner.test.html">Implement a test runner</a> </strong> <span class="description">Exercise to re-implement a jest-like test runner.</span>
+                <span class="code">jest exercises/test_runner.test.js  --watch</span>
+            </p>
+        </div>
+        
+        <div class="content">
             <div class="intro">
                 <h2>Part 2: Functional Style </h2>
                 <p> How to leverage JavaScripts powerful functional aspects for functional-esque programming, and maybe some Object Oriented too. </p>
             </div>
-
             <p class="link"><strong>Functions 💚 </strong> (<a href="./docs/src/function.html">Explanation</a>) <span class="description"> Understanding function signatures, currying. </span></p>
             <p class="link"><strong>Closure (Functional Scope) 🔁 </strong> (<a href="./docs/src/closure.html">Explanation</a>) <span class="description">TBD</span></p>
             <p class="link"><strong>Functional methods  🔁 </strong> <span class="description">Using .map, .reduce and .filter</span></p>
             <p class="link"><strong>Advanced Functions (Rest &amp; Spread) 😴 🍞 </strong> (<a href="./docs/src/rest_spread.html">Explanation</a>) <span class="description">Using rest and spread to write cleaner, simpler functions.</span></p>
             <p class="link"><strong>Immutability: Pass by reference / by value 🏈 </strong> (<a href="./docs/src/pass_by_reference_or_value.html">Explanation</a>) <span class="description">How functions interact with in memory variables.</span></p>
             <p class="link"><strong>Recursion ➿ </strong> <span class="description"></span></p>
-            <p class="exercise"><strong> <a href="./docs/exercises/lodash.test.html">Implement lodash</a> </strong> <span class="description">Exercise to re-implement lodash methods.</span></p>
-
+            <p class="exercise">
+                <strong> <a href="./docs/exercises/lodash.test.html">Implement lodash</a> </strong> <span class="description">Exercise to re-implement lodash methods.</span>
+                <span class="code">jest exercises/lodash.test.js  --watch</span>
+            </p>
+        </div>
+        
+        <div class="content">
             <div class="intro">
                 <h2>Part 3: Classical Style </h2>
                 <p> How JavaScript handles scoping, what closures are and why you need to know them. </p>
@@ -69,8 +80,13 @@
             <p class="link"><strong>Classes 🏫 📚 👦  </strong> (<a href="./docs/src/classes.html">Explanation</a>) <span class="description">A class is just a function ... but how!?</span></p>
             <p class="link"><strong>Dynamic Scoping (this)  🕵 </strong> (<a href="./docs/src/this.html">Explanation</a>) <span class="description">How JavaScript gives contexts dynamic scope with "this"</span></p>
             <p class="link designpattern"><strong>Chained API ⛓ </strong> (<a href="./docs/src/chained_api.html">Explanation</a>) <span class="description"> Y'know that cool design pattern: $('.get').toggle().removeClass() </span></p>
-            <p class="exercise"><strong> <a href="./docs/exercises/jquery.test.html">Implement JQuery</a> </strong> <span class="description">Re-make a jquery like API.</span></p>
-
+            <p class="exercise">
+                <strong> <a href="./docs/exercises/jquery.test.html">Implement JQuery</a> </strong> <span class="description">Re-make a jquery like API.</span>
+                <span class="code">jest exercises/jquery.test.js  --watch</span>
+            </p>
+        </div>
+        
+        <div class="content">
             <div class="intro">
                 <h2>Part 4: Async (Callbacks, Promises & Async/Await) </h2>
                 <p> Leveraging the single-threaded nature of JavaScript by using async</p>
@@ -79,8 +95,13 @@
             <p class="link"><strong>Callbacks</strong> (<a href="./docs/src/callback.html">Explanation</a>)  <span class="description"> How async can be handled with a callback. </span></p>
             <p class="link"><strong>Promises 🙏 </strong> (<a href="./docs/src/promises.html">Explanation</a>) <span class="description">Understanding the promise object and using it.</span></p>
             <p class="link"><strong>Async / Await 🕖  </strong> (<a href="./docs/src/async_await.html">Explanation</a>) <span class="description"> Taking Promises one step futher with async/await.</span></p>
-            <p class="exercise"><strong> <a href="./docs/exercises/promise.test.html">Implement the Promise API</a> </strong> <span class="description">Create a new Promise object and mimic the promise behaviour.</span></p>
-            
+            <p class="exercise"><strong> 
+                <a href="./docs/exercises/promise.test.html">Implement the Promise API</a> </strong> <span class="description">Create a new Promise object and mimic the promise behaviour.</span>
+                <span class="code">jest exercises/promise.test.js  --watch</span>
+            </p>
+        </div>
+        
+        <div class="content">
             <div class="intro">
                 <h2>Part 5: Advanced (Design Patterns & Performance) </h2>
                 <p> How to organise your JS in different ways so it doesn't become no giant ball of spaghetti 🍝 </p>
@@ -89,7 +110,9 @@
             <p class="designpattern link"><strong>Publish / Subscribe 💌 </strong> <span class="description"> How to listen on a channel and react to events </span></p>
             <p class="link"><strong>Memory Leaks 🌊 </strong> <span class="description">  </span></p>
             <p class="link"><strong>Flame Graphs 🔥 </strong> <span class="description">  </span></p>
+        </div>
 
+        <div class="content">
             <div class="intro">
                 <h2>Miscellaneous / Reference</h2>
                 <p> Stuff that don't fit in no box 🗳 </p>
