@@ -48,7 +48,7 @@
             <p class="link"><strong> <a href="./docs/src/modules.html"> Modules </a> </strong> <span class="description"> Regular vs Revealing and implementing pseudo-private variables </span></p>
             <p class="link"><strong> <a href="./docs/src/errors.html">Errors</a>  </strong>  <span class="description">How and when to create, throw and handle errors.</span></p>
             <p class="exercise">
-                <strong> <a href="./docs/exercises/test_runner.test.html">Implement a test runner</a> </strong> <span class="description">Exercise to re-implement a jest-like test runner.</span>
+                <strong> <a href="./docs/exercises/test_runner.test.html">Implement a test assertion library</a> </strong> <span class="description">Implement a jest inspired API assertion library.</span>
                 <span class="code">jest exercises/test_runner.test.js  --watch</span>
             </p>
         </div>
@@ -58,11 +58,11 @@
                 <h2>Part 2: Functional Style </h2>
                 <p> How to leverage JavaScripts powerful functional aspects for functional-esque programming, and maybe some Object Oriented too. </p>
             </div>
-            <p class="link"><strong>Functions 💚 </strong> (<a href="./docs/src/function.html">Explanation</a>) <span class="description"> Understanding function signatures, currying. </span></p>
-            <p class="link"><strong>Closure (Functional Scope) 🔁 </strong> (<a href="./docs/src/closure.html">Explanation</a>) <span class="description">TBD</span></p>
-            <p class="link"><strong>Functional methods  🔁 </strong> <span class="description">Using .map, .reduce and .filter</span></p>
-            <p class="link"><strong>Advanced Functions (Rest &amp; Spread) 😴 🍞 </strong> (<a href="./docs/src/rest_spread.html">Explanation</a>) <span class="description">Using rest and spread to write cleaner, simpler functions.</span></p>
-            <p class="link"><strong>Immutability: Pass by reference / by value 🏈 </strong> (<a href="./docs/src/pass_by_reference_or_value.html">Explanation</a>) <span class="description">How functions interact with in memory variables.</span></p>
+            <p class="link"><strong> <a href="./docs/src/function.html"> Functions</a> 💚 </strong> <span class="description"> Understanding function signatures, currying. </span></p>
+            <p class="link"><strong> <a href="./docs/src/closure.html"> Closure (Functional Scope)</a> 🔁  </strong> <span class="description">TBD</span></p>
+            <p class="link"><strong> <a href="./docs/src/pass_by_reference_or_value.html"> Immutability: Pass by reference / by value</a> 🏈 </strong> <span class="description">How functions interact with in memory variables.</span></p>
+            <p class="link"><strong> <a href="./docs/src/functional_methods.html">  Functional methods </a> 🗺 </a> </strong> <span class="description">Using .map, .reduce and .filter</span></p>
+            <p class="link"><strong> <a href="./docs/src/rest_spread.html"> Advanced Functions (Rest &amp; Spread)</a> 😴 🍞 </strong> <span class="description">Using rest and spread to write cleaner, simpler functions.</span></p>
             <p class="link"><strong>Recursion ➿ </strong> <span class="description"></span></p>
             <p class="exercise">
                 <strong> <a href="./docs/exercises/lodash.test.html">Implement lodash</a> </strong> <span class="description">Exercise to re-implement lodash methods.</span>
@@ -75,11 +75,11 @@
                 <h2>Part 3: Classical Style </h2>
                 <p> How JavaScript handles scoping, what closures are and why you need to know them. </p>
             </div>
-            <p class="link designpattern"><strong>Constructor ⛑ </strong>  (<a href="./docs/src/constructor.html">Explanation</a>) <span class="description"> For creating instances. </span></p>
-            <p class="link"><strong>Prototypal Inheritance 👑 </strong> (<a href="./docs/src/prototypal_inheritance.html">Explanation</a>) <span class="description">How JS does inheritance and why your arrays have a .map </span></p>
-            <p class="link"><strong>Classes 🏫 📚 👦  </strong> (<a href="./docs/src/classes.html">Explanation</a>) <span class="description">A class is just a function ... but how!?</span></p>
-            <p class="link"><strong>Dynamic Scoping (this)  🕵 </strong> (<a href="./docs/src/this.html">Explanation</a>) <span class="description">How JavaScript gives contexts dynamic scope with "this"</span></p>
-            <p class="link designpattern"><strong>Chained API ⛓ </strong> (<a href="./docs/src/chained_api.html">Explanation</a>) <span class="description"> Y'know that cool design pattern: $('.get').toggle().removeClass() </span></p>
+            <p class="link designpattern"><strong> <a href="./docs/src/constructor.html"> Constructor</a>⛑ </strong>  <span class="description"> For creating instances. </span></p>
+            <p class="link"><strong> <a href="./docs/src/prototypal_inheritance.html"> Prototypal Inheritance</a> 👑 </strong> <span class="description">How JS does inheritance and why your arrays have a .map </span></p>
+            <p class="link"><strong> <a href="./docs/src/classes.html"> Classes</a> 🏫 📚 👦 </strong> <span class="description">A class is just a function ... but how!?</span></p>
+            <p class="link"><strong> <a href="./docs/src/this.html"> Dynamic Scoping (this)</a> 🕵 </strong> <span class="description">How JavaScript gives contexts dynamic scope with "this"</span></p>
+            <p class="link designpattern"><strong> <a href="./docs/src/chained_api.html"> Chained API</a> ⛓ </strong> <span class="description"> Y'know that cool design pattern: $('.get').toggle().removeClass() </span></p>
             <p class="exercise">
                 <strong> <a href="./docs/exercises/jquery.test.html">Implement JQuery</a> </strong> <span class="description">Re-make a jquery like API.</span>
                 <span class="code">jest exercises/jquery.test.js  --watch</span>
@@ -91,10 +91,10 @@
                 <h2>Part 4: Async (Callbacks, Promises & Async/Await) </h2>
                 <p> Leveraging the single-threaded nature of JavaScript by using async</p>
             </div>
-            <p class="link"><strong>The Event Loop</strong> (<a href="./docs/src/event_loop.html">Explanation</a>) <span class="description">How JavaScript handles processes and computation.</span></p>
-            <p class="link"><strong>Callbacks</strong> (<a href="./docs/src/callback.html">Explanation</a>)  <span class="description"> How async can be handled with a callback. </span></p>
-            <p class="link"><strong>Promises 🙏 </strong> (<a href="./docs/src/promises.html">Explanation</a>) <span class="description">Understanding the promise object and using it.</span></p>
-            <p class="link"><strong>Async / Await 🕖  </strong> (<a href="./docs/src/async_await.html">Explanation</a>) <span class="description"> Taking Promises one step futher with async/await.</span></p>
+            <p class="link"><strong><a href="./docs/src/event_loop.html"> The Event Loop</a> ➿ </strong> <span class="description">How JavaScript handles processes and computation.</span></p>
+            <p class="link"><strong><a href="./docs/src/callback.html"> Callbacks</a> ➰ </strong>  <span class="description"> How async can be handled with a callback. </span></p>
+            <p class="link"><strong><a href="./docs/src/promises.html"> Promises</a> 🙏 </strong> <span class="description">Understanding the promise object and using it.</span></p>
+            <p class="link"><strong><a href="./docs/src/async_await.html"> Async / Await</a> 🕖 </strong> <span class="description"> Taking Promises one step futher with async/await.</span></p>
             <p class="exercise"><strong> 
                 <a href="./docs/exercises/promise.test.html">Implement the Promise API</a> </strong> <span class="description">Create a new Promise object and mimic the promise behaviour.</span>
                 <span class="code">jest exercises/promise.test.js  --watch</span>
@@ -117,8 +117,8 @@
                 <h2>Miscellaneous / Reference</h2>
                 <p> Stuff that don't fit in no box 🗳 </p>
             </div>
-            <p class="link"><strong>Best Practices ✅ </strong>  (<a href="./docs/src/best_practices.html">Explanation</a>) <span class="description"> The best practices. </span></p>
-            <p class="link"><strong>Glossary 📚 </strong>  (<a href="./docs/src/glossary.html">Explanation</a>) <span class="description"> All of the JS words. </span></p>
+            <p class="link"><strong> <a href="./docs/src/best_practices.html"> Best Practices ✅ </a> </strong><span class="description"> The best practices. </span></p>
+            <p class="link"><strong> <a href="./docs/src/glossary.html"> Glossary 📚 </a> </strong><span class="description"> All of the JS words. </span></p>
 
             <div class="outro">
                 <p style="text-align: center;"> That's all — you JavaScript Guru you ✌️ </p>

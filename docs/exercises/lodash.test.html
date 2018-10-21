@@ -90,6 +90,11 @@
                 </a>
               
                 
+                <a class="source" href="../src/functional_methods.html">
+                  ./src/functional_methods.js
+                </a>
+              
+                
                 <a class="source" href="../src/glossary.html">
                   ./src/glossary.js
                 </a>
@@ -170,7 +175,7 @@
             
             <div class="content"><div class='highlight'><pre>
 <span class="hljs-keyword">const</span> _ = {
-    <span class="hljs-attr">chain</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{</pre></div></div>
+    <span class="hljs-attr">reduce</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">values, callback</span>) </span>{</pre></div></div>
             
         </li>
         
@@ -181,23 +186,26 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-2">&#182;</a>
               </div>
-              <p>Implement</p>
+              <p>Should take an array of values and apply the callback
+(<a href="https://lodash.com/docs/4.17.10#reduce">https://lodash.com/docs/4.17.10#reduce</a>)</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>    },
-    <span class="hljs-attr">map</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">value, callback</span>)</span>{
+            <div class="content"><div class='highlight'><pre>
+
+    },
+    <span class="hljs-attr">map</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">value, callback</span>) </span>{
 
         <span class="hljs-keyword">const</span> newArray = [];
 
-        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; value.length; i++) {
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; value.length; i++) {
             newArray.push(callback(value[i]));
         }
 
         <span class="hljs-keyword">return</span> newArray;
 
     },
-    <span class="hljs-attr">reduce</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">values, callback</span>)</span>{</pre></div></div>
+    <span class="hljs-attr">pick</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">object, prop</span>) </span>{</pre></div></div>
             
         </li>
         
@@ -208,12 +216,16 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-3">&#182;</a>
               </div>
-              <p>Should take an array of values and apply the callback</p>
+              <p>Should pick a property from an object
+(<a href="https://lodash.com/docs/4.17.10#pick">https://lodash.com/docs/4.17.10#pick</a>)</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>    },
-    <span class="hljs-attr">pick</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{</pre></div></div>
+            <div class="content"><div class='highlight'><pre>
+        <span class="hljs-keyword">return</span> object[prop];
+    },
+
+    <span class="hljs-attr">partialRight</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">func, ...partialRightArgs</span>) </span>{</pre></div></div>
             
         </li>
         
@@ -224,21 +236,195 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-4">&#182;</a>
               </div>
-              <p>Should pick a property from an object</p>
+              <p>Should pick a property from an object
+(<a href="https://lodash.com/docs/4.17.10#partialRight">https://lodash.com/docs/4.17.10#partialRight</a>)</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>    }
+            <div class="content"><div class='highlight'><pre>
+        <span class="hljs-keyword">return</span> <span class="hljs-function">(<span class="hljs-params">...originalArgs</span>) =&gt;</span> func(...originalArgs, ...partialRightArgs);
+    },
+
+    <span class="hljs-attr">memoize</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">func</span>) </span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>Should pick a property from an object
+(<a href="https://lodash.com/docs/4.17.10#memoize">https://lodash.com/docs/4.17.10#memoize</a>)</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+        <span class="hljs-keyword">const</span> store = [];
+        <span class="hljs-keyword">const</span> cacheResult = <span class="hljs-function">(<span class="hljs-params">args, result</span>) =&gt;</span> { store.push({ args, result }); <span class="hljs-keyword">return</span> result; };
+        <span class="hljs-keyword">const</span> findInStore = <span class="hljs-function">(<span class="hljs-params">props</span>) =&gt;</span> store.find( <span class="hljs-function"><span class="hljs-params">entry</span> =&gt;</span> entry.args.every( <span class="hljs-function">(<span class="hljs-params">arg, index</span>) =&gt;</span> arg == props[index]));
+
+        <span class="hljs-keyword">return</span> <span class="hljs-function">(<span class="hljs-params">...props</span>) =&gt;</span> findInStore(props) ? findInStore(props).result : cacheResult(props, func(...props))
+    }
 };
 
 describe(<span class="hljs-string">'_.map'</span>, () =&gt; {
-    test(<span class="hljs-string">'maps an array'</span>, () =&gt; {
-        expect(_.map([<span class="hljs-string">'Graham'</span>, <span class="hljs-string">'Sarah'</span>, <span class="hljs-string">'Bob'</span>], (name) =&gt; <span class="hljs-string">`The <span class="hljs-subst">${name}</span>`</span>)).toEqual([<span class="hljs-string">'The Graham'</span>, <span class="hljs-string">'The Sarah'</span>, <span class="hljs-string">'The Bob'</span>]);
+    test(<span class="hljs-string">'Can concatenate a string as part of a map'</span>, () =&gt; {
+        expect(
+            _.map([<span class="hljs-string">'Graham'</span>, <span class="hljs-string">'Sarah'</span>, <span class="hljs-string">'Bob'</span>], (name) =&gt; <span class="hljs-string">`The <span class="hljs-subst">${name}</span>`</span>)
+        ).toEqual(
+            [<span class="hljs-string">'The Graham'</span>, <span class="hljs-string">'The Sarah'</span>, <span class="hljs-string">'The Bob'</span>]
+        );
+    });
+    test(<span class="hljs-string">'Can map an array with data objects'</span>, () =&gt; {
+        expect(
+            _.map([{ <span class="hljs-attr">name</span>: <span class="hljs-string">'Lou'</span> }], (person) =&gt; person.name)
+        )
+            .toEqual(
+                [<span class="hljs-string">'Lou'</span>]
+            );
     });
     test(<span class="hljs-string">'does not mutate'</span>, () =&gt; {
         <span class="hljs-keyword">const</span> originalValues = [<span class="hljs-string">'Graham'</span>, <span class="hljs-string">'Sarah'</span>, <span class="hljs-string">'Bob'</span>];
         expect(_.map(originalValues, (name) =&gt; <span class="hljs-string">`The <span class="hljs-subst">${name}</span>`</span>)).toEqual([<span class="hljs-string">'The Graham'</span>, <span class="hljs-string">'The Sarah'</span>, <span class="hljs-string">'The Bob'</span>]);
         expect(originalValues).toEqual([<span class="hljs-string">'Graham'</span>, <span class="hljs-string">'Sarah'</span>, <span class="hljs-string">'Bob'</span>]);
+    });
+});
+
+describe(<span class="hljs-string">'_.pick'</span>, () =&gt; {
+    test(<span class="hljs-string">'Can pick from a mapped array'</span>, () =&gt; {
+        expect(</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p>Now, we’ll remove our callback logic, in favour of a generic pick method</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            _.map([{ <span class="hljs-attr">name</span>: <span class="hljs-string">'Lou'</span> }], (person) =&gt; _.pick(person, <span class="hljs-string">'name'</span>))
+
+        ).toEqual(
+            [<span class="hljs-string">'Lou'</span>]
+        );
+    });
+});
+
+describe(<span class="hljs-string">'_.partialRight'</span>, () =&gt; {
+    test(<span class="hljs-string">'Can partially apply to the right of a function'</span>, () =&gt; {
+        expect(</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p>Now, we’ll remove our anonymous function completely</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            _.map([{ <span class="hljs-attr">name</span>: <span class="hljs-string">'Lou'</span> }], _.partialRight(_.pick, <span class="hljs-string">'name'</span>))
+
+        ).toEqual(
+            [<span class="hljs-string">'Lou'</span>]
+        );
+    });
+});
+
+describe(<span class="hljs-string">'_.memoize'</span>, () =&gt; {
+    test(<span class="hljs-string">'Returns correct result, twice'</span>, () =&gt; {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p>Store this as an object, so that jest can mock it</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="hljs-keyword">const</span> testObject = {
+            <span class="hljs-attr">add</span>: <span class="hljs-function">(<span class="hljs-params">first, second</span>) =&gt;</span> first + second
+        };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-9">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-9">&#182;</a>
+              </div>
+              <p>Now intercept the function with a spy, so we can check how often it’s called</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="hljs-keyword">const</span> spy = jest.spyOn(testObject, <span class="hljs-string">'add'</span>);
+        <span class="hljs-keyword">const</span> memoizedFunction = _.memoize(spy);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-10">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-10">&#182;</a>
+              </div>
+              <p>This is the first call of the function, so the mock <em>will</em> be called.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        expect(memoizedFunction(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>)).toEqual(<span class="hljs-number">4</span>);
+        expect(spy).toHaveBeenCalledTimes(<span class="hljs-number">1</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-11">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-11">&#182;</a>
+              </div>
+              <p>We expect it to be the same result, but this time, it’ll be from cache.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        expect(memoizedFunction(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>)).toEqual(<span class="hljs-number">4</span>);
+        expect(spy).toHaveBeenCalledTimes(<span class="hljs-number">1</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-12">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-12">&#182;</a>
+              </div>
+              <p>It won’t be called twice, now that it’s memoized.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        expect(spy).not.toHaveBeenCalledTimes(<span class="hljs-number">2</span>);
     });
 });</pre></div></div>
             

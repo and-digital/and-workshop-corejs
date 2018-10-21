@@ -2,7 +2,7 @@
 
 <html>
 <head>
-  <title>Function</title>
+  <title>functional_methods.js</title>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
   <link rel="stylesheet" media="all" href="../docco.css" />
@@ -156,6 +156,12 @@
     
     <ul class="sections">
         
+          <li id="title">
+              <div class="annotation">
+                  <h1>functional_methods.js</h1>
+              </div>
+          </li>
+        
         
         
         <li id="section-1">
@@ -164,8 +170,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-1">&#182;</a>
               </div>
-              <h1 id="function">Function</h1>
-
+              
             </div>
             
         </li>
@@ -177,7 +182,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-2">&#182;</a>
               </div>
-              <p>A function is the encapsulation of behaviours</p>
+              <p>When performing iterations / loops you can choose between an imperative loop and a declarative functional method</p>
 
             </div>
             
@@ -190,7 +195,8 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-3">&#182;</a>
               </div>
-              <h2 id="function-definitions-vs-expressions">Function definitions vs expressions</h2>
+              <p><strong>Imperative</strong> = Telling the code what to do and how to do it
+<strong>Declarative</strong> = Telling the code what to do</p>
 
             </div>
             
@@ -203,9 +209,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-4">&#182;</a>
               </div>
-              <ul>
-<li>Only declarations are hoisted, expressions are interpreted when they need to be</li>
-</ul>
+              <h2 id="why-functional-methods-are-superior">Why functional methods are superior</h2>
 
             </div>
             
@@ -218,7 +222,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-5">&#182;</a>
               </div>
-              <h2 id="function-signatures">Function Signatures</h2>
+              <p>Functional methods are immutable</p>
 
             </div>
             
@@ -231,20 +235,9 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-6">&#182;</a>
               </div>
-              <p>A function signature is the pattern the function expects you to implement
-For instance, the following function signature is: </p>
-<ul>
-<li>Expects a single parameter</li>
-<li>If no parameter is passed, the assumed default value for the cat is <code>Miggins</code></li>
-</ul>
+              <p>Functional methods utilise closures instead of temporary variables (less chance of pollution)</p>
 
             </div>
-            
-            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">const</span> getAllTheCats = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">name = <span class="hljs-string">"Miggins"</span></span>) </span>{
-    <span class="hljs-keyword">return</span> {
-        name
-    }
-};</pre></div></div>
             
         </li>
         
@@ -255,7 +248,7 @@ For instance, the following function signature is: </p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-7">&#182;</a>
               </div>
-              <h2 id="function-returning">Function Returning</h2>
+              <p><strong>Note:</strong> <code>.each</code> is a code smell, it indicates that a function has side effects</p>
 
             </div>
             
@@ -268,14 +261,9 @@ For instance, the following function signature is: </p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-8">&#182;</a>
               </div>
-              <p>A function returns <code>undefined</code> by default</p>
+              <p>TODO explain immutability </p>
 
             </div>
-            
-            <div class="content"><div class='highlight'><pre>
-<span class="hljs-keyword">const</span> undefinedReturn = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> { }
-
-<span class="hljs-built_in">console</span>.log(undefinedReturn());</pre></div></div>
             
         </li>
         
@@ -286,7 +274,7 @@ For instance, the following function signature is: </p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-9">&#182;</a>
               </div>
-              <h2 id="common-function-signatures">Common function signatures</h2>
+              <p>TODO When to choose functional over imperative</p>
 
             </div>
             
@@ -299,7 +287,7 @@ For instance, the following function signature is: </p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-10">&#182;</a>
               </div>
-              <p>The common interfaces that functions expose</p>
+              <p>TODO explain .map</p>
 
             </div>
             
@@ -312,7 +300,7 @@ For instance, the following function signature is: </p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-11">&#182;</a>
               </div>
-              <h3 id="infinite-arguments">Infinite Arguments</h3>
+              <h2 id="-map">.map</h2>
 
             </div>
             
@@ -325,7 +313,7 @@ For instance, the following function signature is: </p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-12">&#182;</a>
               </div>
-              <p>The following function signature takes infinite arguments</p>
+              <p>Callback is applied to each item in the collection</p>
 
             </div>
             
@@ -338,14 +326,9 @@ For instance, the following function signature is: </p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-13">&#182;</a>
               </div>
-              <p>This can be useful if you don’t know how many arguments you are going to recieve</p>
+              <p>Good for use cases, such as modifying a data collection</p>
 
             </div>
-            
-            <div class="content"><div class='highlight'><pre>
-<span class="hljs-keyword">const</span> add = <span class="hljs-function">(<span class="hljs-params">...args</span>) =&gt;</span> {
-    <span class="hljs-keyword">return</span> args.reduce( <span class="hljs-function">(<span class="hljs-params">prev, curr</span>) =&gt;</span> prev + curr );
-};</pre></div></div>
             
         </li>
         
@@ -356,13 +339,16 @@ For instance, the following function signature is: </p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-14">&#182;</a>
               </div>
-              <p><strong>Note:</strong> Use this over the previous <code>arguments</code> property</p>
+              <p>Useful if you need a function that returns the collection as the same length</p>
 
             </div>
             
             <div class="content"><div class='highlight'><pre>
-<span class="hljs-built_in">console</span>.log(add(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>))
-<span class="hljs-built_in">console</span>.log(add(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>))</pre></div></div>
+<span class="hljs-keyword">const</span> people = [{ <span class="hljs-attr">name</span>: <span class="hljs-string">'Akram'</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">21</span> }, { <span class="hljs-attr">name</span>: <span class="hljs-string">'Jinesh'</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">39</span> }];
+
+<span class="hljs-keyword">const</span> names = people.map(<span class="hljs-function">(<span class="hljs-params">person</span>) =&gt;</span> person.name );
+
+<span class="hljs-built_in">console</span>.log(names);</pre></div></div>
             
         </li>
         
@@ -373,7 +359,7 @@ For instance, the following function signature is: </p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-15">&#182;</a>
               </div>
-              <h3 id="object-api-with-defaults-">Object API (With defaults)</h3>
+              <h2 id="-filter">.filter</h2>
 
             </div>
             
@@ -386,24 +372,9 @@ For instance, the following function signature is: </p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-16">&#182;</a>
               </div>
-              <p>This takes an object and extends the object with defaults</p>
+              <p>TODO explain .filter</p>
 
             </div>
-            
-            <div class="content"><div class='highlight'><pre>
-<span class="hljs-keyword">const</span> setupToast = <span class="hljs-function">(<span class="hljs-params">options</span>) =&gt;</span> {
-    defaults = {
-        <span class="hljs-attr">time</span>: <span class="hljs-number">1000</span>,
-        <span class="hljs-attr">color</span>: <span class="hljs-string">'red'</span>
-    }
-
-    <span class="hljs-keyword">return</span> {
-        ...defaults,
-        ...options
-    };
-};
-
-<span class="hljs-built_in">console</span>.log(setupToast({ <span class="hljs-attr">time</span>: <span class="hljs-number">1000</span> }))</pre></div></div>
             
         </li>
         
@@ -414,7 +385,7 @@ For instance, the following function signature is: </p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-17">&#182;</a>
               </div>
-              <h3 id="curried-functions">Curried functions</h3>
+              <h2 id="-reduce">.reduce</h2>
 
             </div>
             
@@ -427,132 +398,7 @@ For instance, the following function signature is: </p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-18">&#182;</a>
               </div>
-              <p>A curried function is one that takes a function and returns a function</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>
-<span class="hljs-keyword">const</span> prefix = <span class="hljs-function">(<span class="hljs-params">prefix</span>) =&gt;</span> (name) =&gt; <span class="hljs-string">`<span class="hljs-subst">${prefix}</span> <span class="hljs-subst">${name}</span>`</span>;
-
-<span class="hljs-keyword">const</span> mr = prefix(<span class="hljs-string">'Mr'</span>);
-<span class="hljs-keyword">const</span> mrs = prefix(<span class="hljs-string">'Mrs'</span>);
-<span class="hljs-built_in">console</span>.log(mr(<span class="hljs-string">'John Brooks'</span>))
-<span class="hljs-built_in">console</span>.log(mrs(<span class="hljs-string">'Sarah Baker'</span>))</pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-19">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-19">&#182;</a>
-              </div>
-              <p>TODO: Anonymous vs named functions (variable definition is not the same as function definition)</p>
-
-            </div>
-            
-        </li>
-        
-        
-        <li id="section-20">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-20">&#182;</a>
-              </div>
-              <p>TODO: Anonymous functions and the call stack</p>
-
-            </div>
-            
-        </li>
-        
-        
-        <li id="section-21">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-21">&#182;</a>
-              </div>
-              <p>TODO: Memoize, throttle and debounce as curried functions</p>
-
-            </div>
-            
-        </li>
-        
-        
-        <li id="section-22">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-22">&#182;</a>
-              </div>
-              <p>TODO: Public and Private methods (maybe covered in design patterns?)</p>
-
-            </div>
-            
-        </li>
-        
-        
-        <li id="section-23">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-23">&#182;</a>
-              </div>
-              <p>TODO: Default function parameters</p>
-
-            </div>
-            
-        </li>
-        
-        
-        <li id="section-24">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-24">&#182;</a>
-              </div>
-              <p>TODO: Functions that don’t take extra properties</p>
-
-            </div>
-            
-        </li>
-        
-        
-        <li id="section-25">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-25">&#182;</a>
-              </div>
-              <p>TODO: Recursive functions</p>
-
-            </div>
-            
-        </li>
-        
-        
-        <li id="section-26">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-26">&#182;</a>
-              </div>
-              <p>TODO: Partial application</p>
-
-            </div>
-            
-        </li>
-        
-        
-        <li id="section-27">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-27">&#182;</a>
-              </div>
-              <p>TODO: Best practices with functions</p>
+              <p>TODO explain .reduce</p>
 
             </div>
             
