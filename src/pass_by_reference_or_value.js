@@ -40,3 +40,7 @@ updateAgeImmutable(dorianGray);
 console.log(dorianGray);
 
 // Here, we can see the value of the object hasn't changed, that's because we've created a new reference in memory.
+
+// TODO —> Mutating functions 
+
+// Read through this —> https://doesitmutate.xyz/

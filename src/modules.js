@@ -30,6 +30,8 @@ console.log(databaseSeed.init());
 
 // Reveals only certain methods, therefore creating pseudo-private methods inside the function closure.
 
+// Discuss testing implications of private methods
+
 const databasePatch = function (query) {
 
         const getPatch = function () {

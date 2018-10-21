@@ -8,4 +8,4 @@
 
 // TODO: Error object structure
 
-// TODO: Handling async errors
+// TODO: Handling async errors (show the examples)

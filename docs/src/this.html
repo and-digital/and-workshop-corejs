@@ -20,6 +20,16 @@
             <div id="jump_page">
               
                 
+                <a class="source" href="../exercises/advanced_async.test.html">
+                  ./exercises/advanced_async.test.js
+                </a>
+              
+                
+                <a class="source" href="../exercises/implement_patterns.test.html">
+                  ./exercises/implement_patterns.test.js
+                </a>
+              
+                
                 <a class="source" href="../exercises/jquery.test.html">
                   ./exercises/jquery.test.js
                 </a>
@@ -97,6 +107,11 @@
                 
                 <a class="source" href="glossary.html">
                   ./src/glossary.js
+                </a>
+              
+                
+                <a class="source" href="mixin.html">
+                  ./src/mixin.js
                 </a>
               
                 
@@ -967,6 +982,122 @@
                 <a class="pilcrow" href="#section-60">&#182;</a>
               </div>
               <p>TODO: Caching a this variable</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-61">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-61">&#182;</a>
+              </div>
+              <p>TODO: Dynamic scope allows us to do <code>super</code> call type behaviour with regular </p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-62">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-62">&#182;</a>
+              </div>
+              <h2 id="sub-classing">Sub Classing</h2>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+<span class="hljs-keyword">var</span> Person = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"> firstName, lastName </span>)</span>{
+ 
+    <span class="hljs-keyword">this</span>.firstName = firstName;
+    <span class="hljs-keyword">this</span>.lastName = lastName;
+    <span class="hljs-keyword">this</span>.gender = <span class="hljs-string">"male"</span>;
+   
+  };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-63">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-63">&#182;</a>
+              </div>
+              <p>a new instance of Person can then easily be created as follows:</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">var</span> clark = <span class="hljs-keyword">new</span> Person( <span class="hljs-string">"Clark"</span>, <span class="hljs-string">"Kent"</span> );</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-64">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-64">&#182;</a>
+              </div>
+              <p>Define a subclass constructor for for “Superhero”:</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">var</span> Superhero = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"> firstName, lastName, powers </span>)</span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-65">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-65">&#182;</a>
+              </div>
+              <p>Invoke the superclass constructor on the new object
+then use .call() to invoke the constructor as a method of
+the object to be initialized.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre> 
+    Person.call( <span class="hljs-keyword">this</span>, firstName, lastName );</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-66">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-66">&#182;</a>
+              </div>
+              <p>Finally, store their powers, a new array of traits not found in a normal “Person”</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-keyword">this</span>.powers = powers;
+};
+ 
+Superhero.prototype = <span class="hljs-built_in">Object</span>.create( Person.prototype );
+<span class="hljs-keyword">var</span> superman = <span class="hljs-keyword">new</span> Superhero( <span class="hljs-string">"Clark"</span>, <span class="hljs-string">"Kent"</span>, [<span class="hljs-string">"flight"</span>,<span class="hljs-string">"heat-vision"</span>] );
+<span class="hljs-built_in">console</span>.log( superman );</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-67">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-67">&#182;</a>
+              </div>
+              <p>Outputs Person attributes as well as powers</p>
 
             </div>
             
