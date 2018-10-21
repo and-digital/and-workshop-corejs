@@ -180,15 +180,15 @@
 };
 
 <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">DomElement</span>(<span class="hljs-params">elemString</span>) </span>{
-    <span class="hljs-keyword">let</span> internalElement = <span class="hljs-string">`&lt;div class="hello"&gt; Test &lt;/div&gt;`</span>;
+    <span class="hljs-keyword">let</span> fakeDOM = <span class="hljs-string">`&lt;div class="hello"&gt; Test &lt;/div&gt;`</span>;
 
     <span class="hljs-keyword">return</span> {
         <span class="hljs-attr">addClass</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">name</span>)</span>{
-            internalElement = addClasshelper(internalElement, name);
+            fakeDOM = addClasshelper(fakeDOM, name);
             <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
         },
         <span class="hljs-attr">val</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
-            <span class="hljs-keyword">return</span> internalElement;
+            <span class="hljs-keyword">return</span> fakeDOM;
         }
     }
 }
@@ -197,7 +197,17 @@
     <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> DomElement(elemString);
 }
 
-<span class="hljs-built_in">console</span>.log($(<span class="hljs-string">'.hello'</span>).addClass(<span class="hljs-string">'red'</span>).addClass(<span class="hljs-string">'green'</span>).val());
+describe(<span class="hljs-string">'$'</span>, () =&gt; {
+    test(<span class="hljs-string">'To '</span>, () =&gt; {
+        expect(
+            $(<span class="hljs-string">'.hello'</span>).addClass(<span class="hljs-string">'red'</span>).addClass(<span class="hljs-string">'green'</span>).val()
+        ).toEqual(
+            <span class="hljs-string">'&lt;div class=\"green red hello\"&gt; Test &lt;/div&gt;'</span>
+        );
+    });
+});
+
+
 <span class="hljs-built_in">console</span>.log($(<span class="hljs-string">'.hello'</span>).addClass(<span class="hljs-string">'green'</span>).val());</pre></div></div>
             
         </li>

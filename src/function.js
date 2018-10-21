@@ -82,6 +82,8 @@ console.log(mrs('Sarah Baker'))
 
 // TODO: Public and Private methods (maybe covered in design patterns?)
 
+// TODO: Difference in method vs function
+
 // TODO: Default function parameters
 
 // TODO: Functions that don't take extra properties

@@ -5,15 +5,15 @@ const addClasshelper = (internalElement, name) => {
 };
 
 function DomElement(elemString) {
-    let internalElement = `<div class="hello"> Test </div>`;
+    let fakeDOM = `<div class="hello"> Test </div>`;
 
     return {
         addClass: function(name){
-            internalElement = addClasshelper(internalElement, name);
+            fakeDOM = addClasshelper(fakeDOM, name);
             return this;
         },
         val: function(){
-            return internalElement;
+            return fakeDOM;
         }
     }
 }
@@ -22,7 +22,17 @@ function $(elemString){
     return new DomElement(elemString);
 }
 
-console.log($('.hello').addClass('red').addClass('green').val());
+describe('$', () => {
+    test('To ', () => {
+        expect(
+            $('.hello').addClass('red').addClass('green').val()
+        ).toEqual(
+            '<div class=\"green red hello\"> Test </div>'
+        );
+    });
+});
+
+
 console.log($('.hello').addClass('green').val());
 
 // **Exercise: Add another method to the fake JQuery example**
