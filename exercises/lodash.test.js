@@ -1,6 +1,7 @@
 
 const _ = {
     reduce: function (data, operation, start = 0) {
+        // ## Implement .reduce
         // Should take an array of values and apply the callback
         // (https://lodash.com/docs/4.17.10#reduce)
 
@@ -13,12 +14,15 @@ const _ = {
         return result;
     },
     map: function (collection, callback) {
-        // Now, implement .map *but this time _using_ reduce*
+        // ## Implement .map
+        // Now, implement .map
+        // **Bonus Point:** Do this whilst _using reduce_
         // (https://lodash.com/docs/4.17.10#map)
 
         return _.reduce(collection, (prev, ...args) => ([...prev, callback(...args)]), []);
     },
     pick: function (object, prop) {
+        // ## Implement .pick
         // Should pick a property from an object
         // (https://lodash.com/docs/4.17.10#pick)
 
@@ -26,13 +30,15 @@ const _ = {
     },
 
     partialRight: function (func, ...partialRightArgs) {
-        // Should pick a property from an object
+        // ## Implement .partialRight
+        // Should apply the arguments to the right of the original function
         // (https://lodash.com/docs/4.17.10#partialRight)
 
         return (...originalArgs) => func(...originalArgs, ...partialRightArgs);
     },
 
     memoize: function (func) {
+        // ## Implement .memoize
         // Should pick a property from an object
         // (https://lodash.com/docs/4.17.10#memoize)
 
@@ -41,6 +47,20 @@ const _ = {
         const findInStore = (props) => store.find(entry => entry.args.every((arg, index) => arg == props[index]));
 
         return (...props) => findInStore(props) ? findInStore(props).result : cacheResult(props, func(...props))
+    },
+
+    throttle: function(fn, delay){
+        // ## Implement .throttle
+        // Implement a throttle (that doesn't queue, but drops if the previous throttle is running)
+        // (https://lodash.com/docs/4.17.10#throttle)
+
+        let lastCall = 0;
+        return (...args) => {
+          const now = (new Date).getTime();
+          if (now - lastCall < delay) return;
+          lastCall = now;
+          return fn(...args);
+        }
     }
 };
 
@@ -142,5 +162,28 @@ describe('_.memoize', () => {
 
         // It won't be called twice, now that it's memoized.
         expect(spy).not.toHaveBeenCalledTimes(2);
+    });
+});
+
+
+describe('_.throttle', () => {
+    test('Returns correct result, twice', (done) => {
+        const click = jest.fn().mockReturnValue(3);
+        const throttledClick = _.throttle(click, 100);
+    
+        // If we run the throttle, it should return and the mock is called
+        expect(throttledClick()).toBe(3);
+        expect(click).toHaveBeenCalledTimes(1);
+
+        // Function won't be called, so we won't compute and the return is undefined
+        expect(throttledClick()).toBe(undefined);
+        expect(click).toHaveBeenCalledTimes(1);
+
+        // If we want and call again in the future, it should work
+        setTimeout(() => {
+            expect(throttledClick()).toBe(3);
+            expect(click).toHaveBeenCalledTimes(2);
+            done();
+        }, 500);
     });
 });
