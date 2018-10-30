@@ -1,4 +1,4 @@
-// # Promises 
+// # Promises
 
 // Promises are a way to handle asyncronous behaviour in JavaScript
 
@@ -44,15 +44,15 @@ try {
     console.log(e);
 }
 
-// Note: When resolving or rejecting a promise, you can _only_ pass one value. 
+// Note: When resolving or rejecting a promise, you can _only_ pass one value.
 
-// Pass an array if you like (you can spread it back out), but you can only return one value and one value only. 
+// Pass an array if you like (you can spread it back out), but you can only return one value and one value only.
 
 // ## .then
 
-// The only way to get a resolved value out of a promise is to "chain" a `.then` onto it. 
+// The only way to get a resolved value out of a promise is to "chain" a `.then` onto it.
 
-// A `.then` function takes a callback, which can **only** have one parameter. 
+// A `.then` function takes a callback, which can **only** have one parameter.
 
 // **Example:** Getting data out of a promise
 
@@ -65,21 +65,21 @@ const gitHubData = Promise.resolve([{
     author: "@codesMcGee"
 }])
 
-// The only way to get it out is to chain a `.then` onto it. 
+// The only way to get it out is to chain a `.then` onto it.
 gitHubData
     .then(data => {
         // **Output:** ```[{commit ... }]```
         console.log(data);
     });
 
-// Notice how the `.then` has a single returned parameter `data` in this instance. 
+// Notice how the `.then` has a single returned parameter `data` in this instance.
 
 // ---
 
 // **Example:** A promise with the callback stored in a variable.
 
 // Remember, callbacks don't have to be anonymous, you can also assign them to variables.
-const doSomething = data => console.log(data);    
+const doSomething = data => console.log(data);
 
 // **Output:** ```[{commit ... }]```
 gitHubData
@@ -96,6 +96,8 @@ gitHubData
 // TODO: Promise libraries
 
 // TODO: How to spot a promise
+
+// TODO: How to promisify a callback (wrap it manually, use a library with a promise implementation, use a promisify method)
 
 // TODO: Converting callbacks to promises
 
