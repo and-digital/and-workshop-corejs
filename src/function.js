@@ -85,10 +85,6 @@ console.log(setupToast({ time: 1000 }))
 
 // TODO: Anonymous vs named functions (variable definition is not the same as function definition)
 
-// TODO: Regular call is sugar for `.call`
-
-// TODO: Function invocation (.call, .apply, .bind, with parenthesis)
-
 // TODO: Anonymous functions and the call stack
 
 // TODO: Memoize, throttle and debounce as curried functions

@@ -45,6 +45,16 @@ function Promise(callback) {
     return this;
 };
 
+// ## Implement `all`
+// Remember, this is a 'static' method so we can apply it to our function object
+Promise.all = (ps) => new Promise((res) => {
+    let results = [];
+    ps.forEach((p, i) => p.then(result => {
+        results[i] = result;
+        if (results.length == ps.length) return res(results);
+    }))
+});
+
 describe('Promise', () => {
     test('.then gets passed the resolved value', (done) => {
         const resolveValue = "exampleResolvedValue";
@@ -91,12 +101,33 @@ describe('Promise', () => {
                 resolve();
             }, 100);
         });
+        
         fakePromise()
             .then(() => {
                 throw new Error('example error message');
             })
             .catch((e) => {
                 expect(e.message).toEqual('example error message');
+                done();
+            });
+    });
+    test('.all resolves two promises successfully', (done) => {
+
+        const fakePromiseOne = () => new Promise((resolve, reject) => {
+            setTimeout(function () {
+                resolve(10);
+            }, 100);
+        });
+
+        const fakePromiseTwo = () => new Promise((resolve, reject) => {
+            setTimeout(function () {
+                resolve(20);
+            }, 100);
+        });
+
+        Promise.all([ fakePromiseOne(), fakePromiseTwo() ])
+            .then((data) => {
+                expect(data).toEqual([10, 20]);
                 done();
             });
     });

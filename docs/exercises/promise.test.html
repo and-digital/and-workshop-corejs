@@ -298,6 +298,14 @@
     <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
 };
 
+<span class="hljs-built_in">Promise</span>.all = <span class="hljs-function">(<span class="hljs-params">ps</span>) =&gt;</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">res</span>) =&gt;</span> {
+    <span class="hljs-keyword">let</span> results = [];
+    ps.forEach(<span class="hljs-function">(<span class="hljs-params">p, i</span>) =&gt;</span> p.then(<span class="hljs-function"><span class="hljs-params">result</span> =&gt;</span> {
+        results[i] = result;
+        <span class="hljs-keyword">if</span> (results.length == ps.length) <span class="hljs-keyword">return</span> res(results);
+    }))
+});
+
 describe(<span class="hljs-string">'Promise'</span>, () =&gt; {
     test(<span class="hljs-string">'.then gets passed the resolved value'</span>, (done) =&gt; {
         <span class="hljs-keyword">const</span> resolveValue = <span class="hljs-string">"exampleResolvedValue"</span>;
@@ -344,12 +352,33 @@ describe(<span class="hljs-string">'Promise'</span>, () =&gt; {
                 resolve();
             }, <span class="hljs-number">100</span>);
         });
+        
         fakePromise()
             .then(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
                 <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">'example error message'</span>);
             })
             .catch(<span class="hljs-function">(<span class="hljs-params">e</span>) =&gt;</span> {
                 expect(e.message).toEqual(<span class="hljs-string">'example error message'</span>);
+                done();
+            });
+    });
+    test(<span class="hljs-string">'.all resolves two promises successfully'</span>, (done) =&gt; {
+
+        <span class="hljs-keyword">const</span> fakePromiseOne = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> {
+            setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+                resolve(<span class="hljs-number">10</span>);
+            }, <span class="hljs-number">100</span>);
+        });
+
+        <span class="hljs-keyword">const</span> fakePromiseTwo = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> {
+            setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+                resolve(<span class="hljs-number">20</span>);
+            }, <span class="hljs-number">100</span>);
+        });
+
+        <span class="hljs-built_in">Promise</span>.all([ fakePromiseOne(), fakePromiseTwo() ])
+            .then(<span class="hljs-function">(<span class="hljs-params">data</span>) =&gt;</span> {
+                expect(data).toEqual([<span class="hljs-number">10</span>, <span class="hljs-number">20</span>]);
                 done();
             });
     });
