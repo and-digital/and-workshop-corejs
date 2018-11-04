@@ -8,15 +8,35 @@
 
 // ## Function Signatures
 
-// A function signature is the pattern the function expects you to implement
+// A function signature is the pattern the function expects you to implement.
+
+// I introduce this word as it's useful when discussing functions, you should constantly think of your function signature. 
+
+// Thinking deeply about function signatures and your API's will help you construct more readable code. This is where TDD can also help us. It often makes more sense to define your behaviours and function signatures before you start coding. 
+
 // For instance, the following function signature is: 
 // * Expects a single parameter
 // * If no parameter is passed, the assumed default value for the cat is ```Miggins```
+
 const getAllTheCats = function(name = "Miggins") {
     return {
         name
     }
 };
+
+// ## Args vs Params
+
+// What's the difference? 
+
+// Arguments are the values _passed in_ to a function, parameters are what the function _receives_.
+
+// Making the distinction allows us to discuss code more easily. 
+
+// The number of arguments a function requires is called it's _arity_. 
+
+// A function that only takes a single argument is a unary function. 
+
+const unary = x => x;
 
 // ## Function Returning 
 
@@ -63,17 +83,6 @@ const setupToast = (options) => {
 
 console.log(setupToast({ time: 1000 }))
 
-// ### Curried functions
-
-// A curried function is one that takes a function and returns a function
-
-const prefix = (prefix) => (name) => `${prefix} ${name}`;
-
-const mr = prefix('Mr');
-const mrs = prefix('Mrs');
-console.log(mr('John Brooks'))
-console.log(mrs('Sarah Baker'))
-
 // TODO: Anonymous vs named functions (variable definition is not the same as function definition)
 
 // TODO: Regular call is sugar for `.call`
@@ -97,3 +106,16 @@ console.log(mrs('Sarah Baker'))
 // TODO: Partial application
 
 // TODO: Best practices with functions
+
+// ### Curried functions
+
+// A curried function is one that takes a function and returns a function
+
+// Currying breaks down the idea that all arguments of a function must be supplied at once, this makes for expressive code.
+
+const prefix = (prefix) => (name) => `${prefix} ${name}`;
+
+const mr = prefix('Mr');
+const mrs = prefix('Mrs');
+console.log(mr('John Brooks'))
+console.log(mrs('Sarah Baker'))
