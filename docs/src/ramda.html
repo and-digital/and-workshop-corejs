@@ -2,7 +2,7 @@
 
 <html>
 <head>
-  <title>errors.js</title>
+  <title>ramda.js</title>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
   <link rel="stylesheet" media="all" href="../docco.css" />
@@ -178,7 +178,7 @@
         
           <li id="title">
               <div class="annotation">
-                  <h1>errors.js</h1>
+                  <h1>ramda.js</h1>
               </div>
           </li>
         
@@ -193,6 +193,8 @@
               
             </div>
             
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">const</span> R = <span class="hljs-built_in">require</span>(<span class="hljs-string">'ramda'</span>);</pre></div></div>
+            
         </li>
         
         
@@ -202,9 +204,33 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-2">&#182;</a>
               </div>
-              <p>TODO: When to throw an error</p>
+              <p>Take the following set of data</p>
 
             </div>
+            
+            <div class="content"><div class='highlight'><pre>
+<span class="hljs-keyword">const</span> names = [
+    {
+        <span class="hljs-attr">age</span>: <span class="hljs-number">2</span>,
+        <span class="hljs-attr">firstName</span>: <span class="hljs-string">'Stewie'</span>,
+        <span class="hljs-attr">lastName</span>: <span class="hljs-string">'Griffin'</span>
+    }, 
+    {
+        <span class="hljs-attr">age</span>: <span class="hljs-number">10</span>,
+        <span class="hljs-attr">firstName</span>: <span class="hljs-string">'Homer'</span>,
+        <span class="hljs-attr">lastName</span>: <span class="hljs-string">'Simpson'</span>
+    }, 
+    {
+        <span class="hljs-attr">age</span>: <span class="hljs-number">14</span>,
+        <span class="hljs-attr">firstName</span>: <span class="hljs-string">'Robert'</span>,
+        <span class="hljs-attr">lastName</span>: <span class="hljs-string">'Paulson'</span>
+    }, 
+    {
+        <span class="hljs-attr">age</span>: <span class="hljs-number">15</span>,
+        <span class="hljs-attr">firstName</span>: <span class="hljs-string">'Willie'</span>,
+        <span class="hljs-attr">lastName</span>: <span class="hljs-string">'Nelson'</span>
+    }
+];</pre></div></div>
             
         </li>
         
@@ -215,7 +241,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-3">&#182;</a>
               </div>
-              <p>TODO: Types of errors</p>
+              <h2 id="imperative">Imperative</h2>
 
             </div>
             
@@ -228,9 +254,29 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-4">&#182;</a>
               </div>
-              <p>TODO: How try/catch works for syncronous functions</p>
+              <p>… This was hard to write 😭</p>
 
             </div>
+            
+            <div class="content"><div class='highlight'><pre>
+<span class="hljs-keyword">const</span> example1 = <span class="hljs-function">(<span class="hljs-params">names</span>) =&gt;</span> {
+    <span class="hljs-keyword">let</span> result = [];
+    <span class="hljs-keyword">let</span> total = <span class="hljs-number">0</span>;
+    
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; names.length; i++) {
+        <span class="hljs-keyword">if</span>(names[i].age &gt; <span class="hljs-number">12</span> &amp;&amp; names[i].age &lt; <span class="hljs-number">20</span>) {
+            result.push(names[i])
+        }
+    }
+
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; result.length; i++) {
+        total = total + result[i].age;
+    }
+
+    <span class="hljs-keyword">return</span> total;
+}
+
+<span class="hljs-built_in">console</span>.log(example1(names));</pre></div></div>
             
         </li>
         
@@ -241,7 +287,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-5">&#182;</a>
               </div>
-              <p>TODO: Error object structure</p>
+              <h2 id="semi-functional">Semi Functional</h2>
 
             </div>
             
@@ -254,9 +300,52 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-6">&#182;</a>
               </div>
-              <p>TODO: Handling async errors (show the examples)</p>
+              <p>Not that functional since the data is blended in, as is the notion of the age property.</p>
 
             </div>
+            
+            <div class="content"><div class='highlight'><pre>
+<span class="hljs-keyword">const</span> example2 = <span class="hljs-function">(<span class="hljs-params">names</span>) =&gt;</span> 
+    names.filter(<span class="hljs-function">(<span class="hljs-params">{ age }</span>) =&gt;</span> age &gt; <span class="hljs-number">12</span> &amp;&amp; age &lt; <span class="hljs-number">20</span>)
+        .map(<span class="hljs-function">(<span class="hljs-params">name</span>) =&gt;</span> name.age)
+        .reduce( <span class="hljs-function">(<span class="hljs-params">prev, curr</span>) =&gt;</span> prev + curr)
+
+<span class="hljs-built_in">console</span>.log(example2(names))</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <h2 id="point-free-functional">Point Free Functional</h2>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p>Now our function doesn’t know anything at all about the data, it’s all behaviour.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    
+<span class="hljs-keyword">const</span> example3 = <span class="hljs-function">(<span class="hljs-params">prop</span>) =&gt;</span> 
+    R.compose(
+        R.reduce(R.add, <span class="hljs-number">0</span>),
+        R.filter(R.both(R.lt(<span class="hljs-number">12</span>), R.gt(<span class="hljs-number">20</span>))),
+        R.map(R.prop(prop))
+    );
+<span class="hljs-built_in">console</span>.log(example3(<span class="hljs-string">'age'</span>)(names));</pre></div></div>
             
         </li>
         
