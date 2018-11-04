@@ -296,9 +296,36 @@
     callback(resolve, reject);
 
     <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
-};
+};</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <h2 id="implement-all">Implement <code>all</code></h2>
+<p>Remember, this is a “static” method so we can apply it to our function object</p>
 
-<span class="hljs-built_in">Promise</span>.all = <span class="hljs-function">(<span class="hljs-params">ps</span>) =&gt;</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">res</span>) =&gt;</span> {
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p><strong>Hint:</strong> Collect results of passed promises. Returnin a new promise when you have all results (utilise closures)</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">Promise</span>.all = <span class="hljs-function">(<span class="hljs-params">ps</span>) =&gt;</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">res</span>) =&gt;</span> {
     <span class="hljs-keyword">let</span> results = [];
     ps.forEach(<span class="hljs-function">(<span class="hljs-params">p, i</span>) =&gt;</span> p.then(<span class="hljs-function"><span class="hljs-params">result</span> =&gt;</span> {
         results[i] = result;

@@ -46,7 +46,9 @@ function Promise(callback) {
 };
 
 // ## Implement `all`
-// Remember, this is a 'static' method so we can apply it to our function object
+// Remember, this is a "static" method so we can apply it to our function object
+
+// **Hint:** Collect results of passed promises. Returnin a new promise when you have all results (utilise closures)
 Promise.all = (ps) => new Promise((res) => {
     let results = [];
     ps.forEach((p, i) => p.then(result => {
