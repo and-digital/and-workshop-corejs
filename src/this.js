@@ -1,50 +1,75 @@
 // # This
 
-// This is dynamic scope in Javascript, meaning that it is defined when the code _runs_ not when it is _written_. 
+// This in Javascript is dynamic scoping.
 
-// ## Implict Vs Explicit this binding
+// Dynamic scoping is code that can be understand only when the code _runs_ not when it is _written_. 
+
+// Lexical scope is the scope _we can see_ whereas dynamic scope might change, dependent on how a function is executed. 
+
+// Dynamic scoping creates impurity in our code as our function acts on data (objects) outside of it's own scope. 
+
+// ## Implict Vs Explicit binding (THE 4 ways)
+
+// Every function within JavaScript has a value of `this` whether you like it or not (sorry FP-ers #impurity).
 
 // You can either tell JavaScript what you want a value of this to be explicitly, or you can leave it up to JavaScript to try and work out what you wanted it to do.
 
-// In order to set the value explicitly, you could invoke the function with one of either: `call`, `bind` or `apply`.
+// In order to set the value explicitly, you could invoke the function with one of either: `call`, `bind` or `apply` (explicitly) or call it implicitly. 
 
-function aFunctionForThis(){
+// This means, in total that there are **4** ways to set the value of this. 
+
+function whatIsThis(){
     return this;
 }
 
 // ### Implicit binding
 
 // **Output:** ``` { clearInterval, clearTimeout ... } ```
-console.log(aFunctionForThis());
+console.log(whatIsThis());
 
 // Basically, since we didn't tell the function what our value of `this` should be, it returned the global object. 
+
+// The golden rule is that JavaScript will assign the value of this to the object it is called on.  
+
+const contextualWrapper = {
+    whatIsThis
+}
+
+// **Output:** ``` whatIsThis ```
+console.log(contextualWrapper.whatIsThis());
+
+// You **NEED** to understand the above 👆👆👆👆
+
+// Learn the above because it causes 99% of the confusion in JavaScipt.
 
 // ### Explicit Binding
 
 // **Output:** ```{ anEmptyObject: null }```
-console.log(aFunctionForThis.call({ anEmptyObject: null }));
+console.log(whatIsThis.call({ anEmptyObject: null }));
 
 // Here, we've told the function _exactly_ what we want our value of `this` to be, so it sets it as so. 
 
 // We can also do this with a `.apply` or a `.bind` method. 
 
 // **Output:** ```{ anEmptyObject: null }```
-console.log(aFunctionForThis.apply({ anEmptyObject: null }));
+console.log(whatIsThis.apply({ anEmptyObject: null }));
 
 // _Note:_ The difference between `.apply` and `.call` is that `.apply` passes it's arguments as an array. 
 
 // **Output:** ```{ anEmptyObject: null }```
-console.log(aFunctionForThis.bind({ anEmptyObject: null })());
+console.log(whatIsThis.bind({ anEmptyObject: null })());
 
 // _Note:_ Bind returns a function, that is to be called, 
 
-// ## Remember the simple rule
+// ## The golden rule of this
 
 // > Whatever object is before the function invokation is the value that `this` is set to, if there is none, it's global. 
 
-// Re-read that quote a few times and "commit" it to memory 😜. Seriously though, it's important. 
+// Re-read that quote a few times and "commit" it to memory 😜. 
 
-// ## An Example...
+// Seriously though, it's important. 
+
+// ## this, by example...
 
 // To understand it best, let's view an example
 
@@ -122,45 +147,3 @@ console.log(invoke(person.whatsTheirName))
 // The function is called _inside_ the invoke function, but again it's _not_ called with an ajoining object, so the value is set to the global scope.
 
 // ----
-
-// TODO: Useful for chained methods such as reduce where you don't explicitly pass the value
-
-// TODO: Add React example for classes that bind the this value
-
-// TODO: Add exercise to implement the React component API
-
-// TODO: Caching a this variable
-
-// TODO: Dynamic scope allows us to do `super` call type behaviour with regular 
-
-// ## Sub Classing
-
-var Person = function( firstName, lastName ){
- 
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.gender = "male";
-   
-  };
-
-// a new instance of Person can then easily be created as follows:
-var clark = new Person( "Clark", "Kent" );
- 
-// Define a subclass constructor for for "Superhero":
-var Superhero = function( firstName, lastName, powers ){
- 
-    // Invoke the superclass constructor on the new object
-    // then use .call() to invoke the constructor as a method of
-    // the object to be initialized.
- 
-    Person.call( this, firstName, lastName );
- 
-    // Finally, store their powers, a new array of traits not found in a normal "Person"
-    this.powers = powers;
-};
- 
-Superhero.prototype = Object.create( Person.prototype );
-var superman = new Superhero( "Clark", "Kent", ["flight","heat-vision"] );
-console.log( superman );
- 
-// Outputs Person attributes as well as powers

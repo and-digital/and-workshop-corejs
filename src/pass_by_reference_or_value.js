@@ -6,7 +6,17 @@
 
 // Pass by value is when a value is passed to a function as a copy, not as a pointer to the original in memory value.
 
-// **Example:** A function that mutates the original data object.
+// ## Why this matters?
+
+// It is really important to understand when something is created in memory, vs when we're acting on a reference.
+
+// This is the foundation of understanding JavaScript, when we're operating on a new object, vs when we're mutating the existing one. 
+
+// For instance, if we want to create a data store that is protected from the components that access it, we'll need to create new object references of our data store, rather than passing references to it directly. 
+
+// **Note:** Immutability also applies within Promises (a value returned in a promise will be a reference, not a copy!)
+
+// ## Mutating Example
 const updateAge = (person) => {
     person.age = person.age + 1;
     return person;
@@ -23,7 +33,7 @@ console.log(sandra);
 
 // As you can see, the original object itself was modified. 
 
-// **Example:** Ensuring immutability
+// ## Ensuring immutability
 const updateAgeImmutable = (person) => {
     const copy = { ...person };
     copy.age = copy.age + 1;
@@ -40,7 +50,5 @@ updateAgeImmutable(dorianGray);
 console.log(dorianGray);
 
 // Here, we can see the value of the object hasn't changed, that's because we've created a new reference in memory.
-
-// TODO —> Mutating functions 
 
 // Read through this —> https://doesitmutate.xyz/

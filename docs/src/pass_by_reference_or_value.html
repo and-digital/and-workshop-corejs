@@ -231,14 +231,9 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-5">&#182;</a>
               </div>
-              <p><strong>Example:</strong> A function that mutates the original data object.</p>
+              <h2 id="why-this-matters-">Why this matters?</h2>
 
             </div>
-            
-            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">const</span> updateAge = <span class="hljs-function">(<span class="hljs-params">person</span>) =&gt;</span> {
-    person.age = person.age + <span class="hljs-number">1</span>;
-    <span class="hljs-keyword">return</span> person;
-};</pre></div></div>
             
         </li>
         
@@ -249,11 +244,9 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-6">&#182;</a>
               </div>
-              <p>Let’s create an object in memory.</p>
+              <p>It is really important to understand when something is created in memory, vs when we’re acting on a reference.</p>
 
             </div>
-            
-            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">const</span> sandra = { <span class="hljs-attr">name</span>: <span class="hljs-string">'sandra'</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">22</span> };</pre></div></div>
             
         </li>
         
@@ -264,11 +257,9 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-7">&#182;</a>
               </div>
-              <p>And then let’s pass the object to our update function.</p>
+              <p>This is the foundation of understanding JavaScript, when we’re operating on a new object, vs when we’re mutating the existing one. </p>
 
             </div>
-            
-            <div class="content"><div class='highlight'><pre>updateAge(sandra);</pre></div></div>
             
         </li>
         
@@ -279,11 +270,9 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-8">&#182;</a>
               </div>
-              <p><strong>Output:</strong> <code>{ name: &#39;sandra&#39;, age: 23 }</code></p>
+              <p>For instance, if we want to create a data store that is protected from the components that access it, we’ll need to create new object references of our data store, rather than passing references to it directly. </p>
 
             </div>
-            
-            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">console</span>.log(sandra);</pre></div></div>
             
         </li>
         
@@ -294,7 +283,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-9">&#182;</a>
               </div>
-              <p>As you can see, the original object itself was modified. </p>
+              <p><strong>Note:</strong> Immutability also applies within Promises (a value returned in a promise will be a reference, not a copy!)</p>
 
             </div>
             
@@ -307,14 +296,13 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-10">&#182;</a>
               </div>
-              <p><strong>Example:</strong> Ensuring immutability</p>
+              <h2 id="mutating-example">Mutating Example</h2>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">const</span> updateAgeImmutable = <span class="hljs-function">(<span class="hljs-params">person</span>) =&gt;</span> {
-    <span class="hljs-keyword">const</span> copy = { ...person };
-    copy.age = copy.age + <span class="hljs-number">1</span>;
-    <span class="hljs-keyword">return</span> copy;
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">const</span> updateAge = <span class="hljs-function">(<span class="hljs-params">person</span>) =&gt;</span> {
+    person.age = person.age + <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">return</span> person;
 };</pre></div></div>
             
         </li>
@@ -330,7 +318,7 @@
 
             </div>
             
-            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">const</span> dorianGray = { <span class="hljs-attr">name</span>: <span class="hljs-string">'dorianGray'</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">50</span> };</pre></div></div>
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">const</span> sandra = { <span class="hljs-attr">name</span>: <span class="hljs-string">'sandra'</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">22</span> };</pre></div></div>
             
         </li>
         
@@ -345,7 +333,7 @@
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>updateAgeImmutable(dorianGray);</pre></div></div>
+            <div class="content"><div class='highlight'><pre>updateAge(sandra);</pre></div></div>
             
         </li>
         
@@ -356,11 +344,11 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-13">&#182;</a>
               </div>
-              <p><strong>Output:</strong> <code>{ name: &#39;dorianGray&#39;, age: 50 }</code></p>
+              <p><strong>Output:</strong> <code>{ name: &#39;sandra&#39;, age: 23 }</code></p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">console</span>.log(dorianGray);</pre></div></div>
+            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">console</span>.log(sandra);</pre></div></div>
             
         </li>
         
@@ -371,7 +359,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-14">&#182;</a>
               </div>
-              <p>Here, we can see the value of the object hasn’t changed, that’s because we’ve created a new reference in memory.</p>
+              <p>As you can see, the original object itself was modified. </p>
 
             </div>
             
@@ -384,9 +372,15 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-15">&#182;</a>
               </div>
-              <p>TODO —&gt; Mutating functions </p>
+              <h2 id="ensuring-immutability">Ensuring immutability</h2>
 
             </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">const</span> updateAgeImmutable = <span class="hljs-function">(<span class="hljs-params">person</span>) =&gt;</span> {
+    <span class="hljs-keyword">const</span> copy = { ...person };
+    copy.age = copy.age + <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">return</span> copy;
+};</pre></div></div>
             
         </li>
         
@@ -396,6 +390,64 @@
               
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-16">&#182;</a>
+              </div>
+              <p>Let’s create an object in memory.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">const</span> dorianGray = { <span class="hljs-attr">name</span>: <span class="hljs-string">'dorianGray'</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">50</span> };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-17">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-17">&#182;</a>
+              </div>
+              <p>And then let’s pass the object to our update function.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>updateAgeImmutable(dorianGray);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-18">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-18">&#182;</a>
+              </div>
+              <p><strong>Output:</strong> <code>{ name: &#39;dorianGray&#39;, age: 50 }</code></p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">console</span>.log(dorianGray);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-19">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-19">&#182;</a>
+              </div>
+              <p>Here, we can see the value of the object hasn’t changed, that’s because we’ve created a new reference in memory.</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-20">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-20">&#182;</a>
               </div>
               <p>Read through this —&gt; <a href="https://doesitmutate.xyz/">https://doesitmutate.xyz/</a></p>
 

@@ -197,7 +197,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-2">&#182;</a>
               </div>
-              <p>TODO: Which prototypes should you overwrite? </p>
+              <p>A prototype is how javascript allows shared functionality.</p>
 
             </div>
             
@@ -210,7 +210,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-3">&#182;</a>
               </div>
-              <p>TODO: Does updating a prototype affect the other objects that share it? (yes)</p>
+              <p>Every object in javascript has a prototype “link” (this can be seen as __proto__ or [[prototype]] in your browser)</p>
 
             </div>
             
@@ -223,7 +223,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-4">&#182;</a>
               </div>
-              <p>TODO: Prototypes and performance (they’re faster)</p>
+              <p>These __proto__ links eventually end up back at the parent Object type.</p>
 
             </div>
             
@@ -236,7 +236,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-5">&#182;</a>
               </div>
-              <p>TODO: The relevance of prototypes to classes (constructors and prototypes = classes)</p>
+              <h2 id="classes-vs-prototypes">Classes vs Prototypes</h2>
 
             </div>
             
@@ -249,7 +249,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-6">&#182;</a>
               </div>
-              <p>TODO: Is a prototype a clone of an object? </p>
+              <p>Classes are inert, they don’t really do anything and can’t be modified.</p>
 
             </div>
             
@@ -262,7 +262,529 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-7">&#182;</a>
               </div>
-              <p>TODO: Explain has own property and enumeration</p>
+              <p>This is where prototypal inheritance differs… in prototypal inheritance we have objects that are chained together (BUT, and it’s a big BUT 🍑) these objects <em>can</em> be manipulated (at runtime!).</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p>Therefore, prototypal inheritance can be seen as a sort of (dynamic inheritance), inheritance that can be modified / changed.</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-9">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-9">&#182;</a>
+              </div>
+              <p><strong>Note:</strong> JavaScript does not have multiple inheritance (inheriting from two objects at the same time)</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-10">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-10">&#182;</a>
+              </div>
+              <h2 id="using-constructors-for-inheritance">Using constructors for inheritance</h2>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-11">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-11">&#182;</a>
+              </div>
+              <p>Using constructors in JavaScript allows us to do inheritance, but it’s a two step process. </p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-12">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-12">&#182;</a>
+              </div>
+              <p><strong>Step 1:</strong> Create a set of instructions for the new object we’re creating (the constructor)</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-13">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-13">&#182;</a>
+              </div>
+              <p><strong>Step 2:</strong> Tell it which prototype to inherit from (assigning the function a prototype object)</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-14">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-14">&#182;</a>
+              </div>
+              <p>Note: You cannot (except using <strong>proto</strong> 🙄) edit an objects prototype reference after it is created.</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-15">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-15">&#182;</a>
+              </div>
+              <h2 id="using-constructors-for-object-creation">Using Constructors for Object creation</h2>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-16">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-16">&#182;</a>
+              </div>
+              <p>Below is an example of using prototypes for inheritance on objects. </p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-17">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-17">&#182;</a>
+              </div>
+              <p>We’ll do this by defining 3 sets of instructions (3 constructor functions)
+And then we’ll chain them all together using prototypal inheritance</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-18">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-18">&#182;</a>
+              </div>
+              <p><strong>Step 1:</strong> Create our first set of instructions (for object Animal)</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Animal</span>(<span class="hljs-params"></span>)  </span>{
+    <span class="hljs-keyword">this</span>.animal = <span class="hljs-literal">true</span>;
+}</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-19">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-19">&#182;</a>
+              </div>
+              <p><strong>Step 2:</strong> Create our second set of instructions (this time, for object Mammal)</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-20">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-20">&#182;</a>
+              </div>
+              <p>Except, this time we’ll explictly say we want object one to be the parent of any objects created from this set of instructions. </p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Mammal</span>(<span class="hljs-params"></span>)  </span>{
+    <span class="hljs-keyword">this</span>.mammal = <span class="hljs-literal">true</span>;
+}
+Mammal.prototype = <span class="hljs-keyword">new</span> Animal();</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-21">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-21">&#182;</a>
+              </div>
+              <p><strong>Step 3:</strong> Create our third(!) set of instructions (this time, for object Cat)</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-22">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-22">&#182;</a>
+              </div>
+              <p>Note, we’ve not yet made any <em>objects</em> only <em>functions</em> (read: instruction sets)</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Cat</span>(<span class="hljs-params">name</span>)  </span>{
+    <span class="hljs-keyword">this</span>.cat = <span class="hljs-literal">true</span>;
+    <span class="hljs-keyword">this</span>.name = name;
+}
+Cat.prototype = <span class="hljs-keyword">new</span> Mammal();</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-23">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-23">&#182;</a>
+              </div>
+              <p><strong>Step 4:</strong> Create our third(!) set of instructions (this time, for object Cat)</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-24">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-24">&#182;</a>
+              </div>
+              <p>Up until now, we’ve only created instruction sets, now we’re going to set it all in stone and create! yipee!</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+<span class="hljs-keyword">const</span> migginsInstance = <span class="hljs-keyword">new</span> Cat(<span class="hljs-string">'Miggins!'</span>);
+<span class="hljs-built_in">console</span>.log(migginsInstance.name);
+<span class="hljs-built_in">console</span>.log(migginsInstance.cat);
+<span class="hljs-built_in">console</span>.log(migginsInstance.animal);
+<span class="hljs-built_in">console</span>.log(migginsInstance.mammal);
+
+<span class="hljs-keyword">const</span> mammalInstance = <span class="hljs-keyword">new</span> Mammal();
+<span class="hljs-built_in">console</span>.log(mammalInstance.name);
+<span class="hljs-built_in">console</span>.log(mammalInstance.cat);
+<span class="hljs-built_in">console</span>.log(mammalInstance.animal);
+<span class="hljs-built_in">console</span>.log(mammalInstance.mammal);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-25">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-25">&#182;</a>
+              </div>
+              <h2 id="the-nature-of-prototypes">The nature of prototypes</h2>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-26">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-26">&#182;</a>
+              </div>
+              <p>Since prototypes are references to an object, if you mutate the object instance that is the parent of your object, you’ll <em>dynamically</em> update the prototype. </p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-27">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-27">&#182;</a>
+              </div>
+              <p><strong>Step 1:</strong> Let’s create some instructions for house building</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-28">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-28">&#182;</a>
+              </div>
+              <p>Let’s assume that by default a house has two floors</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">House</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">this</span>.roof = <span class="hljs-literal">true</span>;
+    <span class="hljs-keyword">this</span>.walls = <span class="hljs-number">4</span>;
+    <span class="hljs-keyword">this</span>.floors = <span class="hljs-number">2</span>;
+}</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-29">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-29">&#182;</a>
+              </div>
+              <p><strong>Step 2:</strong> Let’s create some instructions for building a bungalow</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-30">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-30">&#182;</a>
+              </div>
+              <p>Let’s now assume that a bungalow is the same as a house, but it only has one floor, so we create a bungalow constructor</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-31">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-31">&#182;</a>
+              </div>
+              <p>But don’t forget to link it to our house function!</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Bungalow</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">this</span>.floors = <span class="hljs-number">1</span>;
+}
+<span class="hljs-keyword">const</span> houseInstance = <span class="hljs-keyword">new</span> House();
+Bungalow.prototype = houseInstance;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-32">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-32">&#182;</a>
+              </div>
+              <p><strong>Step 3:</strong> Let’s now create a bungalow, but let’s modify the parent of our bungalow</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+<span class="hljs-keyword">const</span> bungalowInstanceOne = <span class="hljs-keyword">new</span> Bungalow();
+houseInstance.walls = <span class="hljs-literal">null</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-33">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-33">&#182;</a>
+              </div>
+              <p>Oh no, now our house has no walls!</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-34">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-34">&#182;</a>
+              </div>
+              <p>That’s because we’ve modified the object that our bungalow was referencing… damn. </p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-35">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-35">&#182;</a>
+              </div>
+              <h2 id="beware-updating-global-prototypes">Beware updating global prototypes</h2>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-36">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-36">&#182;</a>
+              </div>
+              <p>It’s for the reason above that we should avoid modifying our base prototypes. </p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-37">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-37">&#182;</a>
+              </div>
+              <p>For instance, what if I modify the <code>.toLowerCase</code> method to actually convert strings to upper case! muahaha 😈</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+<span class="hljs-built_in">String</span>.prototype.toLowerCase = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.toUpperCase();
+};</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-38">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-38">&#182;</a>
+              </div>
+              <p>Oh poop 💩 now all of our strings that reference this prototype object are now returning wierd stuff! Uh-oh!</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"test"</span>.toLowerCase());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-39">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-39">&#182;</a>
+              </div>
+              <h2 id="okay-but-why-just-why-">Okay, but why? Just WHY?</h2>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-40">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-40">&#182;</a>
+              </div>
+              <p>Prototypes allow us to have a single object in memory and reference just that single object</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-41">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-41">&#182;</a>
+              </div>
+              <p>This <em>was</em> useful years ago when memory was scarce, now … who really cares. </p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-42">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-42">&#182;</a>
+              </div>
+              <p>That said, prototypes allow us to implement inheritance and therefore implement different design patterns</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-43">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-43">&#182;</a>
+              </div>
+              <p>Design patterns appear not to be useful in small codebases, but they can make all the difference in larger ones (especially in libraries)</p>
 
             </div>
             

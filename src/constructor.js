@@ -1,28 +1,52 @@
 
 // # Constructors
 
-// A constructor is a design pattern
+// A constructor is a tool for object creation. 
 
-// It's simply a way of instantiating an object
+// Constructors in prototypal inheritance are what classes are in classical, instruction sets. 
 
-// You don't _need_ constructors, it's really personal preference
+// **Note:** You don't _need_ constructors it's really personal preference.
+
+// ## Why?
+
+// Using constructors can signify when you're doing something that pertains to object creation.
+
+// This helps with "code signalling" (indications of what your code is doing)
+
+// It's the same as why a `.map` is preferable to a `for` loop (read:a map implies the behaviour)
 
 // As with all design patterns: 
 // * Use them if you need
 // * Don't overuse them
 // * Don't needlessly apply them
 // * Be conscious of your teams knowledge
+// * Whatever you write, be prepared to teach
 
-// ## What's different about a Constructor? 
+// ## What is a constructor?
+
+// A constructor is a function that is a set of instructions used in object creation
 
 // When a function is called as constructor (with the `new` keyword), it changes:
 
-// * What the value of `this` is
-// * What the default `return` value is
+// * What the value of `this` is set to
+// * What the default `return` value of the function is (because we want this new instance)
+// * What the ```prototype``` object is referenced
 
-// ## Regular functions vs Constructor functions
+// ## The new keyword
 
-// The following is an example of a regular function...
+// A constructor is useless if you don't `new` it. 
+
+// A constructor is instructions to create an object, so to use it, we should create our object. 
+
+// ## Don't call constructors without new!
+
+// When created, this object literal will be created with a few things happening to it:
+// * A new object is created in memory
+// * The function will return `undefined` by default
+// * The value of `this` is set to global scope.
+// * The prototype isn't set
+
+// The following is an example of a function called without new...
 
 function iAmNotAConstructor() {
     console.log(this);
@@ -30,17 +54,18 @@ function iAmNotAConstructor() {
 
 console.log(iAmNotAConstructor());
 
-// Regular functions will return `undefined` and the value of `this` is set to global scope
+// ## What happens when you new?
 
-// The following is an example of a constructor function...
+// * A new object is created in memory
+// * The value of `this` is set to the object instance
+// * The function will return `this` by default
+// * The prototype will be set as the object it is copied from (the constructor function)
 
 function IAmAConstructor() {
     console.log(this);
 }
 
 console.log(new IAmAConstructor());
-
-// Constructor functions will return the constructor object itself, and the this value will be the constructor object
 
 // ## Calling a Constructor without new
 
@@ -57,6 +82,4 @@ console.log(new Person("Lou"))
 /* Uncomment this line: console.log(Person("Lou")) */
 console.log(global.name);
 
-// This now set `this` to be global, and our properties were all bound to global scope, ew. 
-
-// **Exercise: Implement the promise API with a constructor function**
+// This now set `this` to be global, and our properties were all bound to global scope, new.

@@ -192,7 +192,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-2">&#182;</a>
               </div>
-              <p>This is dynamic scope in Javascript, meaning that it is defined when the code <em>runs</em> not when it is <em>written</em>. </p>
+              <p>This in Javascript is dynamic scoping.</p>
 
             </div>
             
@@ -205,7 +205,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-3">&#182;</a>
               </div>
-              <h2 id="implict-vs-explicit-this-binding">Implict Vs Explicit this binding</h2>
+              <p>Dynamic scoping is code that can be understand only when the code <em>runs</em> not when it is <em>written</em>. </p>
 
             </div>
             
@@ -218,7 +218,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-4">&#182;</a>
               </div>
-              <p>You can either tell JavaScript what you want a value of this to be explicitly, or you can leave it up to JavaScript to try and work out what you wanted it to do.</p>
+              <p>Lexical scope is the scope <em>we can see</em> whereas dynamic scope might change, dependent on how a function is executed. </p>
 
             </div>
             
@@ -231,14 +231,9 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-5">&#182;</a>
               </div>
-              <p>In order to set the value explicitly, you could invoke the function with one of either: <code>call</code>, <code>bind</code> or <code>apply</code>.</p>
+              <p>Dynamic scoping creates impurity in our code as our function acts on data (objects) outside of it’s own scope. </p>
 
             </div>
-            
-            <div class="content"><div class='highlight'><pre>
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">aFunctionForThis</span>(<span class="hljs-params"></span>)</span>{
-    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
-}</pre></div></div>
             
         </li>
         
@@ -249,7 +244,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-6">&#182;</a>
               </div>
-              <h3 id="implicit-binding">Implicit binding</h3>
+              <h2 id="implict-vs-explicit-binding-the-4-ways-">Implict Vs Explicit binding (THE 4 ways)</h2>
 
             </div>
             
@@ -262,11 +257,9 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-7">&#182;</a>
               </div>
-              <p><strong>Output:</strong> <code>{ clearInterval, clearTimeout ... }</code></p>
+              <p>Every function within JavaScript has a value of <code>this</code> whether you like it or not (sorry FP-ers #impurity).</p>
 
             </div>
-            
-            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">console</span>.log(aFunctionForThis());</pre></div></div>
             
         </li>
         
@@ -277,7 +270,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-8">&#182;</a>
               </div>
-              <p>Basically, since we didn’t tell the function what our value of <code>this</code> should be, it returned the global object. </p>
+              <p>You can either tell JavaScript what you want a value of this to be explicitly, or you can leave it up to JavaScript to try and work out what you wanted it to do.</p>
 
             </div>
             
@@ -290,7 +283,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-9">&#182;</a>
               </div>
-              <h3 id="explicit-binding">Explicit Binding</h3>
+              <p>In order to set the value explicitly, you could invoke the function with one of either: <code>call</code>, <code>bind</code> or <code>apply</code> (explicitly) or call it implicitly. </p>
 
             </div>
             
@@ -303,11 +296,14 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-10">&#182;</a>
               </div>
-              <p><strong>Output:</strong> <code>{ anEmptyObject: null }</code></p>
+              <p>This means, in total that there are <strong>4</strong> ways to set the value of this. </p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">console</span>.log(aFunctionForThis.call({ <span class="hljs-attr">anEmptyObject</span>: <span class="hljs-literal">null</span> }));</pre></div></div>
+            <div class="content"><div class='highlight'><pre>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">whatIsThis</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+}</pre></div></div>
             
         </li>
         
@@ -318,7 +314,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-11">&#182;</a>
               </div>
-              <p>Here, we’ve told the function <em>exactly</em> what we want our value of <code>this</code> to be, so it sets it as so. </p>
+              <h3 id="implicit-binding">Implicit binding</h3>
 
             </div>
             
@@ -331,9 +327,11 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-12">&#182;</a>
               </div>
-              <p>We can also do this with a <code>.apply</code> or a <code>.bind</code> method. </p>
+              <p><strong>Output:</strong> <code>{ clearInterval, clearTimeout ... }</code></p>
 
             </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">console</span>.log(whatIsThis());</pre></div></div>
             
         </li>
         
@@ -344,11 +342,9 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-13">&#182;</a>
               </div>
-              <p><strong>Output:</strong> <code>{ anEmptyObject: null }</code></p>
+              <p>Basically, since we didn’t tell the function what our value of <code>this</code> should be, it returned the global object. </p>
 
             </div>
-            
-            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">console</span>.log(aFunctionForThis.apply({ <span class="hljs-attr">anEmptyObject</span>: <span class="hljs-literal">null</span> }));</pre></div></div>
             
         </li>
         
@@ -359,9 +355,14 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-14">&#182;</a>
               </div>
-              <p><em>Note:</em> The difference between <code>.apply</code> and <code>.call</code> is that <code>.apply</code> passes it’s arguments as an array. </p>
+              <p>The golden rule is that JavaScript will assign the value of this to the object it is called on.  </p>
 
             </div>
+            
+            <div class="content"><div class='highlight'><pre>
+<span class="hljs-keyword">const</span> contextualWrapper = {
+    whatIsThis
+}</pre></div></div>
             
         </li>
         
@@ -372,11 +373,11 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-15">&#182;</a>
               </div>
-              <p><strong>Output:</strong> <code>{ anEmptyObject: null }</code></p>
+              <p><strong>Output:</strong> <code>whatIsThis</code></p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">console</span>.log(aFunctionForThis.bind({ <span class="hljs-attr">anEmptyObject</span>: <span class="hljs-literal">null</span> })());</pre></div></div>
+            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">console</span>.log(contextualWrapper.whatIsThis());</pre></div></div>
             
         </li>
         
@@ -387,7 +388,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-16">&#182;</a>
               </div>
-              <p><em>Note:</em> Bind returns a function, that is to be called, </p>
+              <p>You <strong>NEED</strong> to understand the above 👆👆👆👆</p>
 
             </div>
             
@@ -400,7 +401,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-17">&#182;</a>
               </div>
-              <h2 id="remember-the-simple-rule">Remember the simple rule</h2>
+              <p>Learn the above because it causes 99% of the confusion in JavaScipt.</p>
 
             </div>
             
@@ -413,9 +414,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-18">&#182;</a>
               </div>
-              <blockquote>
-<p>Whatever object is before the function invokation is the value that <code>this</code> is set to, if there is none, it’s global. </p>
-</blockquote>
+              <h3 id="explicit-binding">Explicit Binding</h3>
 
             </div>
             
@@ -428,9 +427,11 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-19">&#182;</a>
               </div>
-              <p>Re-read that quote a few times and “commit” it to memory 😜. Seriously though, it’s important. </p>
+              <p><strong>Output:</strong> <code>{ anEmptyObject: null }</code></p>
 
             </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">console</span>.log(whatIsThis.call({ <span class="hljs-attr">anEmptyObject</span>: <span class="hljs-literal">null</span> }));</pre></div></div>
             
         </li>
         
@@ -441,7 +442,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-20">&#182;</a>
               </div>
-              <h2 id="an-example-">An Example…</h2>
+              <p>Here, we’ve told the function <em>exactly</em> what we want our value of <code>this</code> to be, so it sets it as so. </p>
 
             </div>
             
@@ -454,7 +455,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-21">&#182;</a>
               </div>
-              <p>To understand it best, let’s view an example</p>
+              <p>We can also do this with a <code>.apply</code> or a <code>.bind</code> method. </p>
 
             </div>
             
@@ -466,6 +467,142 @@
               
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-22">&#182;</a>
+              </div>
+              <p><strong>Output:</strong> <code>{ anEmptyObject: null }</code></p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">console</span>.log(whatIsThis.apply({ <span class="hljs-attr">anEmptyObject</span>: <span class="hljs-literal">null</span> }));</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-23">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-23">&#182;</a>
+              </div>
+              <p><em>Note:</em> The difference between <code>.apply</code> and <code>.call</code> is that <code>.apply</code> passes it’s arguments as an array. </p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-24">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-24">&#182;</a>
+              </div>
+              <p><strong>Output:</strong> <code>{ anEmptyObject: null }</code></p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">console</span>.log(whatIsThis.bind({ <span class="hljs-attr">anEmptyObject</span>: <span class="hljs-literal">null</span> })());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-25">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-25">&#182;</a>
+              </div>
+              <p><em>Note:</em> Bind returns a function, that is to be called, </p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-26">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-26">&#182;</a>
+              </div>
+              <h2 id="the-golden-rule-of-this">The golden rule of this</h2>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-27">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-27">&#182;</a>
+              </div>
+              <blockquote>
+<p>Whatever object is before the function invokation is the value that <code>this</code> is set to, if there is none, it’s global. </p>
+</blockquote>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-28">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-28">&#182;</a>
+              </div>
+              <p>Re-read that quote a few times and “commit” it to memory 😜. </p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-29">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-29">&#182;</a>
+              </div>
+              <p>Seriously though, it’s important. </p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-30">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-30">&#182;</a>
+              </div>
+              <h2 id="this-by-example-">this, by example…</h2>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-31">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-31">&#182;</a>
+              </div>
+              <p>To understand it best, let’s view an example</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-32">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-32">&#182;</a>
               </div>
               <p>Take this data object, that has a method <code>whatsTheirName</code> which allows us to return the value of the name on the object. </p>
 
@@ -481,11 +618,11 @@
         </li>
         
         
-        <li id="section-23">
+        <li id="section-33">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-23">&#182;</a>
+                <a class="pilcrow" href="#section-33">&#182;</a>
               </div>
               <p>Let’s ignore this <code>invoke</code> function for now (we’ll discuss it later).</p>
 
@@ -498,147 +635,13 @@
         </li>
         
         
-        <li id="section-24">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-24">&#182;</a>
-              </div>
-              <h2 id="understanding-how-the-value-of-this-is-applied">Understanding how the value of this is applied</h2>
-
-            </div>
-            
-        </li>
-        
-        
-        <li id="section-25">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-25">&#182;</a>
-              </div>
-              <p>Okay, first lets call the <code>whatsTheirName</code> function. </p>
-
-            </div>
-            
-        </li>
-        
-        
-        <li id="section-26">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-26">&#182;</a>
-              </div>
-              <p>What’s the result? </p>
-
-            </div>
-            
-        </li>
-        
-        
-        <li id="section-27">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-27">&#182;</a>
-              </div>
-              <p><strong>Output:</strong> Charlie Sheen</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">console</span>.log(person.whatsTheirName());</pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-28">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-28">&#182;</a>
-              </div>
-              <p>Okay, that’s what we expect.</p>
-
-            </div>
-            
-        </li>
-        
-        
-        <li id="section-29">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-29">&#182;</a>
-              </div>
-              <hr>
-
-            </div>
-            
-        </li>
-        
-        
-        <li id="section-30">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-30">&#182;</a>
-              </div>
-              
-            </div>
-            
-        </li>
-        
-        
-        <li id="section-31">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-31">&#182;</a>
-              </div>
-              <p>What about if we move that function to a variable?</p>
-
-            </div>
-            
-        </li>
-        
-        
-        <li id="section-32">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-32">&#182;</a>
-              </div>
-              <p><strong>Output:</strong> <code>undefined</code></p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">let</span> cacheFunctionInVariable = person.whatsTheirName;
-<span class="hljs-built_in">console</span>.log(cacheFunctionInVariable());</pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-33">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-33">&#182;</a>
-              </div>
-              <p>🤔 Remember this is to do with the rule. Since there is no object reference before the function invokation the value is set to global scope. </p>
-
-            </div>
-            
-        </li>
-        
-        
         <li id="section-34">
             <div class="annotation">
               
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-34">&#182;</a>
               </div>
-              <hr>
+              <h2 id="understanding-how-the-value-of-this-is-applied">Understanding how the value of this is applied</h2>
 
             </div>
             
@@ -651,7 +654,8 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-35">&#182;</a>
               </div>
-              
+              <p>Okay, first lets call the <code>whatsTheirName</code> function. </p>
+
             </div>
             
         </li>
@@ -663,7 +667,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-36">&#182;</a>
               </div>
-              <p>What if we explictly bind the context? </p>
+              <p>What’s the result? </p>
 
             </div>
             
@@ -676,11 +680,11 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-37">&#182;</a>
               </div>
-              <p><strong>Output:</strong> <code>Charlie Sheen</code></p>
+              <p><strong>Output:</strong> Charlie Sheen</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">console</span>.log(cacheFunctionInVariable.bind(person)());</pre></div></div>
+            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">console</span>.log(person.whatsTheirName());</pre></div></div>
             
         </li>
         
@@ -691,7 +695,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-38">&#182;</a>
               </div>
-              <p>Here we’re explicitly setting the value, so it’s what we’d expect</p>
+              <p>Okay, that’s what we expect.</p>
 
             </div>
             
@@ -729,7 +733,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-41">&#182;</a>
               </div>
-              <p>But does that modify the original variable?</p>
+              <p>What about if we move that function to a variable?</p>
 
             </div>
             
@@ -746,7 +750,8 @@
 
             </div>
             
-            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">console</span>.log(cacheFunctionInVariable());</pre></div></div>
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">let</span> cacheFunctionInVariable = person.whatsTheirName;
+<span class="hljs-built_in">console</span>.log(cacheFunctionInVariable());</pre></div></div>
             
         </li>
         
@@ -757,7 +762,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-43">&#182;</a>
               </div>
-              <p>No, it doesn’t. Bind is non-mutating. </p>
+              <p>🤔 Remember this is to do with the rule. Since there is no object reference before the function invokation the value is set to global scope. </p>
 
             </div>
             
@@ -795,11 +800,9 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-46">&#182;</a>
               </div>
-              <p>Okay, what about this?</p>
+              <p>What if we explictly bind the context? </p>
 
             </div>
-            
-            <div class="content"><div class='highlight'><pre>cacheFunctionInVariable = person.whatsTheirName.bind(person);</pre></div></div>
             
         </li>
         
@@ -814,7 +817,7 @@
 
             </div>
             
-            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">console</span>.log(cacheFunctionInVariable());</pre></div></div>
+            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">console</span>.log(cacheFunctionInVariable.bind(person)());</pre></div></div>
             
         </li>
         
@@ -825,7 +828,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-48">&#182;</a>
               </div>
-              <p>So we’ve now ensured every time the <code>cacheFunctionInVariable</code> is called it’s called with the right context, because we used <code>bind</code>. Nice! 🎉</p>
+              <p>Here we’re explicitly setting the value, so it’s what we’d expect</p>
 
             </div>
             
@@ -863,7 +866,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-51">&#182;</a>
               </div>
-              <p>Oh, but wait there’s more…</p>
+              <p>But does that modify the original variable?</p>
 
             </div>
             
@@ -876,9 +879,11 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-52">&#182;</a>
               </div>
-              <p>What about a function that takes a callback?</p>
+              <p><strong>Output:</strong> <code>undefined</code></p>
 
             </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">console</span>.log(cacheFunctionInVariable());</pre></div></div>
             
         </li>
         
@@ -889,11 +894,9 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-53">&#182;</a>
               </div>
-              <p><strong>Output:</strong> <code>undefined</code></p>
+              <p>No, it doesn’t. Bind is non-mutating. </p>
 
             </div>
-            
-            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">console</span>.log(invoke(person.whatsTheirName))</pre></div></div>
             
         </li>
         
@@ -904,7 +907,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-54">&#182;</a>
               </div>
-              <p>The function is called <em>inside</em> the invoke function, but again it’s <em>not</em> called with an ajoining object, so the value is set to the global scope.</p>
+              <hr>
 
             </div>
             
@@ -917,8 +920,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-55">&#182;</a>
               </div>
-              <hr>
-
+              
             </div>
             
         </li>
@@ -930,8 +932,11 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-56">&#182;</a>
               </div>
-              
+              <p>Okay, what about this?</p>
+
             </div>
+            
+            <div class="content"><div class='highlight'><pre>cacheFunctionInVariable = person.whatsTheirName.bind(person);</pre></div></div>
             
         </li>
         
@@ -942,9 +947,11 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-57">&#182;</a>
               </div>
-              <p>TODO: Useful for chained methods such as reduce where you don’t explicitly pass the value</p>
+              <p><strong>Output:</strong> <code>Charlie Sheen</code></p>
 
             </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">console</span>.log(cacheFunctionInVariable());</pre></div></div>
             
         </li>
         
@@ -955,7 +962,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-58">&#182;</a>
               </div>
-              <p>TODO: Add React example for classes that bind the this value</p>
+              <p>So we’ve now ensured every time the <code>cacheFunctionInVariable</code> is called it’s called with the right context, because we used <code>bind</code>. Nice! 🎉</p>
 
             </div>
             
@@ -968,7 +975,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-59">&#182;</a>
               </div>
-              <p>TODO: Add exercise to implement the React component API</p>
+              <hr>
 
             </div>
             
@@ -981,8 +988,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-60">&#182;</a>
               </div>
-              <p>TODO: Caching a this variable</p>
-
+              
             </div>
             
         </li>
@@ -994,7 +1000,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-61">&#182;</a>
               </div>
-              <p>TODO: Dynamic scope allows us to do <code>super</code> call type behaviour with regular </p>
+              <p>Oh, but wait there’s more…</p>
 
             </div>
             
@@ -1007,18 +1013,9 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-62">&#182;</a>
               </div>
-              <h2 id="sub-classing">Sub Classing</h2>
+              <p>What about a function that takes a callback?</p>
 
             </div>
-            
-            <div class="content"><div class='highlight'><pre>
-<span class="hljs-keyword">var</span> Person = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"> firstName, lastName </span>)</span>{
- 
-    <span class="hljs-keyword">this</span>.firstName = firstName;
-    <span class="hljs-keyword">this</span>.lastName = lastName;
-    <span class="hljs-keyword">this</span>.gender = <span class="hljs-string">"male"</span>;
-   
-  };</pre></div></div>
             
         </li>
         
@@ -1029,11 +1026,11 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-63">&#182;</a>
               </div>
-              <p>a new instance of Person can then easily be created as follows:</p>
+              <p><strong>Output:</strong> <code>undefined</code></p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">var</span> clark = <span class="hljs-keyword">new</span> Person( <span class="hljs-string">"Clark"</span>, <span class="hljs-string">"Kent"</span> );</pre></div></div>
+            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">console</span>.log(invoke(person.whatsTheirName))</pre></div></div>
             
         </li>
         
@@ -1044,11 +1041,9 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-64">&#182;</a>
               </div>
-              <p>Define a subclass constructor for for “Superhero”:</p>
+              <p>The function is called <em>inside</em> the invoke function, but again it’s <em>not</em> called with an ajoining object, so the value is set to the global scope.</p>
 
             </div>
-            
-            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">var</span> Superhero = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"> firstName, lastName, powers </span>)</span>{</pre></div></div>
             
         </li>
         
@@ -1059,14 +1054,9 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-65">&#182;</a>
               </div>
-              <p>Invoke the superclass constructor on the new object
-then use .call() to invoke the constructor as a method of
-the object to be initialized.</p>
+              <hr>
 
             </div>
-            
-            <div class="content"><div class='highlight'><pre> 
-    Person.call( <span class="hljs-keyword">this</span>, firstName, lastName );</pre></div></div>
             
         </li>
         
@@ -1077,28 +1067,7 @@ the object to be initialized.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-66">&#182;</a>
               </div>
-              <p>Finally, store their powers, a new array of traits not found in a normal “Person”</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>    <span class="hljs-keyword">this</span>.powers = powers;
-};
- 
-Superhero.prototype = <span class="hljs-built_in">Object</span>.create( Person.prototype );
-<span class="hljs-keyword">var</span> superman = <span class="hljs-keyword">new</span> Superhero( <span class="hljs-string">"Clark"</span>, <span class="hljs-string">"Kent"</span>, [<span class="hljs-string">"flight"</span>,<span class="hljs-string">"heat-vision"</span>] );
-<span class="hljs-built_in">console</span>.log( superman );</pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-67">
-            <div class="annotation">
               
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-67">&#182;</a>
-              </div>
-              <p>Outputs Person attributes as well as powers</p>
-
             </div>
             
         </li>

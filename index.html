@@ -38,8 +38,8 @@
         </div>
         <div class="content">
             <div class="intro">
-                <h2>Part 1: Variables, Objects &amp; Types </h2>
-                <p>How to assign data to variables, and how JavaScript handles objects and the implications</p>
+                <h2>Part 1: The Basics </h2>
+                <p>Variables, Objects, Arrays, Error Handling etc</p>
             </div>
             <p class="link"><strong> <a href="./docs/src/variables.html">Variables</a> 🔠 </strong>  <span class="description">Intro to const, let and var.</span></p>
             <p class="link"><strong> <a href="./docs/src/types.html">Types</a> 🐱 🐶 </strong>  <span class="description">What are types and why do we care?</span></p>
@@ -55,11 +55,17 @@
         
         <div class="content">
             <div class="intro">
-                <h2>Part 2: Functional Style </h2>
-                <p> How to leverage JavaScripts powerful functional aspects for functional-esque programming, and maybe some Object Oriented too. </p>
+                <h2>Part 2: Functional </h2>
+                <p>Functional in JavaScript is:</p>
+                <ol>
+                    <li>Closures</li>
+                    <li>Functions that return functions</li>
+                    <li>Functions that take functions</li>
+                    <li>Recursion</li>
+                </ol>
             </div>
             <p class="link"><strong> <a href="./docs/src/function.html"> Functions</a> 💚 </strong> <span class="description"> Understanding function signatures, currying. </span></p>
-            <p class="link"><strong> <a href="./docs/src/closure.html"> Closure (Functional Scope)</a> 🔁  </strong> <span class="description">TBD</span></p>
+            <p class="link"><strong> <a href="./docs/src/closure.html"> Closure (Functional Scope)</a> 🔁  </strong> <span class="description">Functions and how they access parent scope.</span></p>
             <p class="link"><strong> <a href="./docs/src/pass_by_reference_or_value.html"> Immutability: Pass by reference / by value</a> 🏈 </strong> <span class="description">How functions interact with in memory variables.</span></p>
             <p class="link"><strong> <a href="./docs/src/functional_methods.html">  Functional methods </a> 🗺 </a> </strong> <span class="description">Using .map, .reduce and .filter</span></p>
             <p class="link"><strong> <a href="./docs/src/rest_spread.html"> Advanced Functions (Rest &amp; Spread)</a> 😴 🍞 </strong> <span class="description">Using rest and spread to write cleaner, simpler functions.</span></p>
@@ -72,10 +78,16 @@
         
         <div class="content">
             <div class="intro">
-                <h2>Part 3: Classical Style </h2>
-                <p> Classical in JavaScript is: constructor design pattern + prototype + this + the new keyword </p>
+                <h2>Part 3: Object Oriented </h2>
+                <p> OOP in JavaScript is: </p>
+                <ol>
+                    <li>constructor functions (object instructions)</li>
+                    <li>new keyword (leveraging constructors)</li>
+                    <li>prototypal inheritance (to reference other objects)</li>
+                    <li>dynamic scoping (this)</li>
+                </ol>
             </div>
-            <p class="link designpattern"><strong> <a href="./docs/src/constructor.html"> Constructor</a>⛑ </strong>  <span class="description"> For creating instances. </span></p>
+            <p class="link designpattern"><strong> <a href="./docs/src/constructor.html"> Constructor (and the new keyword)</a>⛑ </strong>  <span class="description"> How we create objects in JavaScript. </span></p>
             <p class="link"><strong> <a href="./docs/src/prototypal_inheritance.html"> Prototypal Inheritance</a> 👑 </strong> <span class="description">How JS does inheritance and why your arrays have a .map </span></p>
             <p class="link"><strong> <a href="./docs/src/classes.html"> Classes</a> 🏫 📚 👦 </strong> <span class="description">A class is just a function ... but how!?</span></p>
             <p class="link"><strong> <a href="./docs/src/this.html"> Dynamic Scoping (this)</a> 🕵 </strong> <span class="description">How JavaScript gives contexts dynamic scope with "this"</span></p>
@@ -88,10 +100,15 @@
         
         <div class="content">
             <div class="intro">
-                <h2>Part 4: Async (Callbacks, Promises & Async/Await) </h2>
-                <p> Leveraging the single-threaded nature of JavaScript by using async</p>
+                <h2>Part 4: Async </h2>
+                <p> Async in JavaScript is: </p>
+                <ol>
+                    <li>Callbacks</li>
+                    <li>Promises</li>
+                    <li>Async/Await</li>
+                </ol>
             </div>
-            <p class="link"><strong><a href="./docs/src/event_loop.html"> The Event Loop</a> ➿ </strong> <span class="description">How JavaScript handles processes and computation.</span></p>
+            <p class="link"><strong><a href="./docs/src/event_loop.html"> The Event Loop</a> ➿ </strong> <span class="description">Why we need async anyway, and how JS handles async.</span></p>
             <p class="link"><strong><a href="./docs/src/callback.html"> Callbacks</a> ➰ </strong>  <span class="description"> How async can be handled with a callback. </span></p>
             <p class="link"><strong><a href="./docs/src/promises.html"> Promises</a> 🙏 </strong> <span class="description">Understanding the promise object and using it.</span></p>
             <p class="link"><strong><a href="./docs/src/async_await.html"> Async / Await</a> 🕖 </strong> <span class="description"> Taking Promises one step futher with async/await.</span></p>

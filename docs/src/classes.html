@@ -275,7 +275,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-8">&#182;</a>
               </div>
-              <p>TODO: How is a class related to a prototype?</p>
+              <h2 id="classes-are-sugar">Classes are <em>sugar</em></h2>
 
             </div>
             
@@ -288,7 +288,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-9">&#182;</a>
               </div>
-              <h2 id="classes-are-sugar">Classes are <em>sugar</em></h2>
+              <p>A class is simply a fancy constructor function (instruction set for an object).</p>
 
             </div>
             
@@ -301,14 +301,9 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-10">&#182;</a>
               </div>
-              <p>A class is simply a fancy constructor</p>
+              <p>A constructor can have static methods by applying them to a function</p>
 
             </div>
-            
-            <div class="content"><div class='highlight'><pre>
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">PromiseAsConstructor</span> (<span class="hljs-params"></span>) </span>{
-    <span class="hljs-keyword">this</span>.whatAmI = <span class="hljs-string">"A constructed Promise!"</span>
-}</pre></div></div>
             
         </li>
         
@@ -319,17 +314,9 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-11">&#182;</a>
               </div>
-              <p><strong>Output:</strong> <code>A constructed Promise!</code></p>
+              <h2 id="understanding-static-methods">Understanding static methods</h2>
 
             </div>
-            
-            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">console</span>.log((<span class="hljs-keyword">new</span> PromiseAsConstructor()).whatAmI);
-
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PromiseAsClass</span> </span>{
-    <span class="hljs-keyword">constructor</span>() {
-        <span class="hljs-keyword">this</span>.whatAmI = <span class="hljs-string">"A classical Promise!"</span>
-    }
-}</pre></div></div>
             
         </li>
         
@@ -340,11 +327,9 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-12">&#182;</a>
               </div>
-              <p><strong>Output:</strong> <code>A classical Promise!</code></p>
+              <p>A function is an object (object instance) so can have properties</p>
 
             </div>
-            
-            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">console</span>.log((<span class="hljs-keyword">new</span> PromiseAsClass()).whatAmI);</pre></div></div>
             
         </li>
         
@@ -355,7 +340,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-13">&#182;</a>
               </div>
-              <p>TODO: You must <em>new</em> a class to get it’s methods, unless you want it’s static methods. Make reference to: (Array.isNumber)</p>
+              <p>These properties are it’s “static” methods.</p>
 
             </div>
             
@@ -368,7 +353,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-14">&#182;</a>
               </div>
-              <p>TODO: Class linking and constructors</p>
+              <p>They are static because they don’t require you to call <code>new</code>.</p>
 
             </div>
             
@@ -381,7 +366,191 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-15">&#182;</a>
               </div>
-              <p>TODO: Example of creating a constructor chain with raw constructors and prototypes</p>
+              <p>They don’t require you to call <code>new</code> because they’re on the function itself. </p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-16">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-16">&#182;</a>
+              </div>
+              <h2 id="constructor-vs-class-example">Constructor vs Class example</h2>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-17">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-17">&#182;</a>
+              </div>
+              <p>Lets take a look at writing the same code in two different ways</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-18">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-18">&#182;</a>
+              </div>
+              <p>First with a constructor, then with a class. </p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-19">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-19">&#182;</a>
+              </div>
+              <p>Same same, but different. </p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">PromiseAsConstructor</span> (<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">this</span>.whatAmI = <span class="hljs-string">"A constructed Promise!"</span>
+}
+
+PromiseAsConstructor.staticMethod = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-string">"static constructor"</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-20">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-20">&#182;</a>
+              </div>
+              <p><strong>Output:</strong> <code>static constructor</code></p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">console</span>.log(PromiseAsConstructor.staticMethod());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-21">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-21">&#182;</a>
+              </div>
+              <p><strong>Output:</strong> <code>A constructed Promise!</code></p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">console</span>.log((<span class="hljs-keyword">new</span> PromiseAsConstructor()).whatAmI);
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PromiseAsClass</span> </span>{
+    <span class="hljs-keyword">constructor</span>() {
+        <span class="hljs-keyword">this</span>.whatAmI = <span class="hljs-string">"A classical Promise!"</span>
+    }
+
+    <span class="hljs-keyword">static</span> staticMethod() {
+        <span class="hljs-keyword">return</span> <span class="hljs-string">"static class"</span>;
+    }
+}</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-22">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-22">&#182;</a>
+              </div>
+              <p><strong>Output:</strong> <code>static class</code></p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">console</span>.log(PromiseAsClass.staticMethod());</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-23">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-23">&#182;</a>
+              </div>
+              <p><strong>Output:</strong> <code>A classical Promise!</code></p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">console</span>.log((<span class="hljs-keyword">new</span> PromiseAsClass()).whatAmI);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-24">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-24">&#182;</a>
+              </div>
+              <h2 id="instance-vs-prototypes-in-raw-js">Instance vs Prototypes in raw JS</h2>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-25">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-25">&#182;</a>
+              </div>
+              <p>Now you should start to understand why we have the following:</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">Array</span>.isArray([]));</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-26">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-26">&#182;</a>
+              </div>
+              <p>The <code>isArray</code> is a <em>static</em> method of the Array object. We couldn’t call <code>&quot;test&quot;.isArray()</code> </p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-27">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-27">&#182;</a>
+              </div>
+              <p>Why? Because as that would mean ALL of our objects in JavaScript would require an <code>isArray</code> function … not realistic. </p>
 
             </div>
             

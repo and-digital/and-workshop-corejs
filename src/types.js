@@ -20,3 +20,5 @@
 // TODO: Explain
 
 // TODO: Explain why arrays are objects
+
+// TODO: Coercion and primitive types

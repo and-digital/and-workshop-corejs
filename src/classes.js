@@ -11,16 +11,38 @@
 
 // ```new Promise()```
 
-// TODO: How is a class related to a prototype?
-
 // ## Classes are _sugar_
 
-// A class is simply a fancy constructor
+// A class is simply a fancy constructor function (instruction set for an object).
+
+// A constructor can have static methods by applying them to a function
+
+// ## Understanding static methods
+
+// A function is an object (object instance) so can have properties
+
+// These properties are it's "static" methods.
+
+// They are static because they don't require you to call `new`.
+
+// They don't require you to call `new` because they're on the function itself. 
+
+// ## Constructor vs Class example
+
+// Lets take a look at writing the same code in two different ways
+
+// First with a constructor, then with a class. 
+
+// Same same, but different. 
 
 function PromiseAsConstructor () {
     this.whatAmI = "A constructed Promise!"
 }
 
+PromiseAsConstructor.staticMethod = () => "static constructor";
+
+// **Output:** ```static constructor```
+console.log(PromiseAsConstructor.staticMethod());
 // **Output:** ```A constructed Promise!```
 console.log((new PromiseAsConstructor()).whatAmI);
 
@@ -28,13 +50,23 @@ class PromiseAsClass {
     constructor() {
         this.whatAmI = "A classical Promise!"
     }
+
+    static staticMethod() {
+        return "static class";
+    }
 }
 
+// **Output:** ```static class```
+console.log(PromiseAsClass.staticMethod());
 // **Output:** ```A classical Promise!```
 console.log((new PromiseAsClass()).whatAmI);
 
-// TODO: You must _new_ a class to get it's methods, unless you want it's static methods. Make reference to: (Array.isNumber)
+// ## Instance vs Prototypes in raw JS
 
-// TODO: Class linking and constructors
+// Now you should start to understand why we have the following:
 
-// TODO: Example of creating a constructor chain with raw constructors and prototypes
+console.log(Array.isArray([]));
+
+// The `isArray` is a _static_ method of the Array object. We couldn't call `"test".isArray()` 
+
+// Why? Because as that would mean ALL of our objects in JavaScript would require an `isArray` function ... not realistic. 
