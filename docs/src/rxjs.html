@@ -2,7 +2,7 @@
 
 <html>
 <head>
-  <title>best_practices.js</title>
+  <title>rxjs.js</title>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
   <link rel="stylesheet" media="all" href="../docco.css" />
@@ -183,7 +183,7 @@
         
           <li id="title">
               <div class="annotation">
-                  <h1>best_practices.js</h1>
+                  <h1>rxjs.js</h1>
               </div>
           </li>
         
@@ -198,151 +198,25 @@
               
             </div>
             
-        </li>
-        
-        
-        <li id="section-2">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-2">&#182;</a>
-              </div>
-              <p>TODO: Favour returned functions</p>
+            <div class="content"><div class='highlight'><pre>
+<span class="hljs-keyword">const</span> { Observable, Subject, ReplaySubject, <span class="hljs-keyword">from</span>, <span class="hljs-keyword">of</span>, range } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'rxjs'</span>);
+<span class="hljs-keyword">const</span> { map, filter, switchMap } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'rxjs/operators'</span>);
 
-            </div>
-            
-        </li>
-        
-        
-        <li id="section-3">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-3">&#182;</a>
-              </div>
-              <p>TODO: Beware early returns</p>
-
-            </div>
-            
-        </li>
-        
-        
-        <li id="section-4">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-4">&#182;</a>
-              </div>
-              <p>TODO: Implement functions that do one thing</p>
-
-            </div>
-            
-        </li>
-        
-        
-        <li id="section-5">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-5">&#182;</a>
-              </div>
-              <p>TODO: Avoid object mutation</p>
-
-            </div>
-            
-        </li>
-        
-        
-        <li id="section-6">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-6">&#182;</a>
-              </div>
-              <h2 id="code-smells">Code Smells</h2>
-
-            </div>
-            
-        </li>
-        
-        
-        <li id="section-7">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-7">&#182;</a>
-              </div>
-              <p><strong>Code Comments</strong></p>
-
-            </div>
-            
-        </li>
-        
-        
-        <li id="section-8">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-8">&#182;</a>
-              </div>
-              <p>9/10 a code comment can be replaced with: </p>
-
-            </div>
-            
-        </li>
-        
-        
-        <li id="section-9">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-9">&#182;</a>
-              </div>
-              <ul>
-<li>A smaller function</li>
-<li>A better named function</li>
-</ul>
-
-            </div>
-            
-        </li>
-        
-        
-        <li id="section-10">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-10">&#182;</a>
-              </div>
-              <p>So try <em>really</em> hard to avoid comments, please ✌️</p>
-
-            </div>
-            
-        </li>
-        
-        
-        <li id="section-11">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-11">&#182;</a>
-              </div>
-              <p>Or at least recognise that they’re an indicator that code could be improved.</p>
-
-            </div>
-            
-        </li>
-        
-        
-        <li id="section-12">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-12">&#182;</a>
-              </div>
-              <p><strong>Temporary Variables</strong></p>
-
-            </div>
+<span class="hljs-keyword">const</span> sumObserver = {
+    <span class="hljs-attr">sum</span>: <span class="hljs-number">0</span>,
+    next(value) {
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Adding: '</span> + value);
+      <span class="hljs-keyword">this</span>.sum = <span class="hljs-keyword">this</span>.sum + value;
+    },
+    error() { <span class="hljs-comment">// We actually could just remove this method,</span>
+    },        <span class="hljs-comment">// since we do not really care about errors right now.</span>
+    complete() {
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Sum equals: '</span> + <span class="hljs-keyword">this</span>.sum);
+    }
+  };
+   
+<span class="hljs-keyword">of</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>) <span class="hljs-comment">// Synchronously emits 1, 2, 3 and then completes.</span>
+  .subscribe(sumObserver);</pre></div></div>
             
         </li>
         

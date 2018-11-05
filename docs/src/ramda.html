@@ -150,6 +150,11 @@
                 </a>
               
                 
+                <a class="source" href="rxjs.html">
+                  ./src/rxjs.js
+                </a>
+              
+                
                 <a class="source" href="this.html">
                   ./src/this.js
                 </a>
@@ -215,6 +220,19 @@
 
             </div>
             
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>Imagine you want to sum the ages of all the teenagers in the dataset</p>
+
+            </div>
+            
             <div class="content"><div class='highlight'><pre>
 <span class="hljs-keyword">const</span> names = [
     {
@@ -242,11 +260,11 @@
         </li>
         
         
-        <li id="section-4">
+        <li id="section-5">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-4">&#182;</a>
+                <a class="pilcrow" href="#section-5">&#182;</a>
               </div>
               <h2 id="imperative">Imperative</h2>
 
@@ -255,11 +273,11 @@
         </li>
         
         
-        <li id="section-5">
+        <li id="section-6">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-5">&#182;</a>
+                <a class="pilcrow" href="#section-6">&#182;</a>
               </div>
               <p>… This was hard to write 😭</p>
 
@@ -288,11 +306,11 @@
         </li>
         
         
-        <li id="section-6">
+        <li id="section-7">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-6">&#182;</a>
+                <a class="pilcrow" href="#section-7">&#182;</a>
               </div>
               <h2 id="semi-functional">Semi Functional</h2>
 
@@ -301,11 +319,11 @@
         </li>
         
         
-        <li id="section-7">
+        <li id="section-8">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-7">&#182;</a>
+                <a class="pilcrow" href="#section-8">&#182;</a>
               </div>
               <p>Not that functional since the data is blended in, as is the notion of the age property.</p>
 
@@ -322,11 +340,11 @@
         </li>
         
         
-        <li id="section-8">
+        <li id="section-9">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-8">&#182;</a>
+                <a class="pilcrow" href="#section-9">&#182;</a>
               </div>
               <h2 id="point-free-functional">Point Free Functional</h2>
 
@@ -335,11 +353,11 @@
         </li>
         
         
-        <li id="section-9">
+        <li id="section-10">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-9">&#182;</a>
+                <a class="pilcrow" href="#section-10">&#182;</a>
               </div>
               <p>Now our function doesn’t know anything at all about the data, it’s all behaviour.</p>
 
@@ -357,18 +375,37 @@
         </li>
         
         
-        <li id="section-10">
+        <li id="section-11">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-10">&#182;</a>
+                <a class="pilcrow" href="#section-11">&#182;</a>
               </div>
               <h1 id="asyncronous-ramda">asyncronous Ramda</h1>
 
             </div>
             
             <div class="content"><div class='highlight'><pre>
-<span class="hljs-keyword">const</span> promiseOne <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>()</pre></div></div>
+<span class="hljs-keyword">const</span> promiseOne = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve</span>)=&gt;</span> {
+    setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+        resolve(<span class="hljs-number">20</span>);
+    }, <span class="hljs-number">200</span>)
+});
+
+<span class="hljs-keyword">const</span> promiseTwo = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve</span>)=&gt;</span> {
+    setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+        resolve(<span class="hljs-number">20</span>);
+    }, <span class="hljs-number">200</span>)
+});
+
+<span class="hljs-function">(<span class="hljs-params"><span class="hljs-keyword">async</span> (</span>)=&gt;</span> {
+    <span class="hljs-keyword">const</span> result = <span class="hljs-keyword">await</span> <span class="hljs-built_in">Promise</span>.all([ 
+        promiseOne, 
+        promiseTwo, 
+        promiseTwo 
+    ])
+    <span class="hljs-built_in">console</span>.log(R.sum(result))
+})()</pre></div></div>
             
         </li>
         
