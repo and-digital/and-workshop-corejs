@@ -1,6 +1,10 @@
 const R = require('ramda');
 
+// # Syncronous Ramda 
+
 // Take the following set of data
+
+// Imagine you want to sum the ages of all the teenagers in the dataset
 
 const names = [
     {
@@ -70,3 +74,28 @@ const example3 = (prop) =>
         R.map(R.prop(prop))
     );
 console.log(example3('age')(names));
+
+
+// # asyncronous Ramda 
+
+const promiseOne = new Promise((resolve)=> {
+    setTimeout(function(){
+        resolve(20);
+    }, 200)
+});
+
+const promiseTwo = new Promise((resolve)=> {
+    setTimeout(function(){
+        resolve(20);
+    }, 200)
+});
+
+(async ()=> {
+    const result = await Promise.all([ 
+        promiseOne, 
+        promiseTwo, 
+        promiseTwo 
+    ])
+    console.log(R.sum(result))
+})()
+

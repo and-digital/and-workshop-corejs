@@ -15,7 +15,8 @@
     "jest": "^22.1.4",
     "lint-staged": "^6.0.1",
     "prettier": "^1.7.4",
-    "ramda": "^0.25.0"
+    "ramda": "^0.25.0",
+    "rxjs": "^6.3.3"
   },
   "lint-staged": {
     "*.js": [
