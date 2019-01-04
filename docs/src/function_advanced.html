@@ -2,7 +2,7 @@
 
 <html>
 <head>
-  <title>modules.js</title>
+  <title>function_advanced.js</title>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
   <link rel="stylesheet" media="all" href="../docco.css" />
@@ -188,7 +188,7 @@
         
           <li id="title">
               <div class="annotation">
-                  <h1>modules.js</h1>
+                  <h1>function_advanced.js</h1>
               </div>
           </li>
         
@@ -212,7 +212,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-2">&#182;</a>
               </div>
-              <p>A module is simply a way of organising code. </p>
+              <p>TODO: Recursive functions</p>
 
             </div>
             
@@ -225,7 +225,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-3">&#182;</a>
               </div>
-              <p>You can utilise the module systems as native modules, node modules etc. </p>
+              <p>TODO: Partial application</p>
 
             </div>
             
@@ -238,7 +238,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-4">&#182;</a>
               </div>
-              <p>But you can also create them in your code as well</p>
+              <p>TODO: The different types of currying</p>
 
             </div>
             
@@ -251,7 +251,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-5">&#182;</a>
               </div>
-              <h2 id="a-basic-module">A basic module</h2>
+              <h3 id="infinite-arguments">Infinite Arguments</h3>
 
             </div>
             
@@ -264,27 +264,9 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-6">&#182;</a>
               </div>
-              <p>Is just an object with properties applied.</p>
+              <p>The following function signature takes infinite arguments</p>
 
             </div>
-            
-            <div class="content"><div class='highlight'><pre>
-<span class="hljs-keyword">const</span> databaseSeed = {
-    <span class="hljs-attr">init</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">query</span>) </span>{
-        <span class="hljs-keyword">const</span> patch = <span class="hljs-keyword">this</span>.getPatch();
-        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.runQuery(patch);
-    },
-
-    getPatch() {
-        <span class="hljs-keyword">return</span> <span class="hljs-string">"INSERT into USERS ..."</span>
-    },
-
-    runQuery(query) {
-        <span class="hljs-keyword">return</span> <span class="hljs-string">`Running: <span class="hljs-subst">${query}</span>`</span>
-    }
-};
-
-<span class="hljs-built_in">console</span>.log(databaseSeed.init());</pre></div></div>
             
         </li>
         
@@ -295,9 +277,14 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-7">&#182;</a>
               </div>
-              <h2 id="revealing-module-pattern">Revealing module pattern</h2>
+              <p>This can be useful if you don’t know how many arguments you are going to recieve</p>
 
             </div>
+            
+            <div class="content"><div class='highlight'><pre>
+<span class="hljs-keyword">const</span> add = <span class="hljs-function">(<span class="hljs-params">...args</span>) =&gt;</span> {
+    <span class="hljs-keyword">return</span> args.reduce( <span class="hljs-function">(<span class="hljs-params">prev, curr</span>) =&gt;</span> prev + curr );
+};</pre></div></div>
             
         </li>
         
@@ -308,9 +295,13 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-8">&#182;</a>
               </div>
-              <p>Reveals only certain methods, therefore creating pseudo-private methods inside the function closure.</p>
+              <p><strong>Note:</strong> Use this over the previous <code>arguments</code> property</p>
 
             </div>
+            
+            <div class="content"><div class='highlight'><pre>
+<span class="hljs-built_in">console</span>.log(add(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>))
+<span class="hljs-built_in">console</span>.log(add(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>))</pre></div></div>
             
         </li>
         
@@ -321,7 +312,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-9">&#182;</a>
               </div>
-              <p>This is a form of <em>abstraction</em> (An OOP concept).</p>
+              <h3 id="object-api-with-defaults-">Object API (With defaults)</h3>
 
             </div>
             
@@ -334,32 +325,24 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-10">&#182;</a>
               </div>
-              <p>Discuss testing implications of private methods</p>
+              <p>This takes an object and extends the object with defaults</p>
 
             </div>
             
             <div class="content"><div class='highlight'><pre>
-<span class="hljs-keyword">const</span> databasePatch = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">query</span>) </span>{
+<span class="hljs-keyword">const</span> setupToast = <span class="hljs-function">(<span class="hljs-params">options</span>) =&gt;</span> {
+    defaults = {
+        <span class="hljs-attr">time</span>: <span class="hljs-number">1000</span>,
+        <span class="hljs-attr">color</span>: <span class="hljs-string">'red'</span>
+    }
 
-        <span class="hljs-keyword">const</span> getPatch = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-            <span class="hljs-keyword">return</span> <span class="hljs-string">"INSERT into USERS ..."</span>;
-        };
-    
-        <span class="hljs-keyword">const</span> runQuery = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">query</span>) </span>{
-            <span class="hljs-keyword">return</span> <span class="hljs-string">`Running: <span class="hljs-subst">${query}</span>`</span>;
-        };
-
-        <span class="hljs-keyword">const</span> init = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
-            <span class="hljs-keyword">const</span> patch = getPatch();
-            <span class="hljs-keyword">return</span> runQuery(patch);
-        };
-
-        <span class="hljs-keyword">return</span> {
-            init
-        };
+    <span class="hljs-keyword">return</span> {
+        ...defaults,
+        ...options
+    };
 };
 
-<span class="hljs-built_in">console</span>.log(databasePatch().init());</pre></div></div>
+<span class="hljs-built_in">console</span>.log(setupToast({ <span class="hljs-attr">time</span>: <span class="hljs-number">1000</span> }))</pre></div></div>
             
         </li>
         
@@ -370,7 +353,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-11">&#182;</a>
               </div>
-              <p>The adavantages of revealing module is that you don’t have to reference the object directly</p>
+              <h3 id="curried-functions">Curried functions</h3>
 
             </div>
             
@@ -383,7 +366,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-12">&#182;</a>
               </div>
-              <p>Instead you can invoke functions by name (or variable assignment)</p>
+              <p>A curried function is one that takes a function and returns a function</p>
 
             </div>
             
@@ -396,9 +379,17 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-13">&#182;</a>
               </div>
-              <p>i.e. <code>runQuery</code> as opposed to <code>this.runQuery</code></p>
+              <p>Currying breaks down the idea that all arguments of a function must be supplied at once, this makes for expressive code.</p>
 
             </div>
+            
+            <div class="content"><div class='highlight'><pre>
+<span class="hljs-keyword">const</span> prefix = <span class="hljs-function">(<span class="hljs-params">prefix</span>) =&gt;</span> (name) =&gt; <span class="hljs-string">`<span class="hljs-subst">${prefix}</span> <span class="hljs-subst">${name}</span>`</span>;
+
+<span class="hljs-keyword">const</span> mr = prefix(<span class="hljs-string">'Mr'</span>);
+<span class="hljs-keyword">const</span> mrs = prefix(<span class="hljs-string">'Mrs'</span>);
+<span class="hljs-built_in">console</span>.log(mr(<span class="hljs-string">'John Brooks'</span>))
+<span class="hljs-built_in">console</span>.log(mrs(<span class="hljs-string">'Sarah Baker'</span>))</pre></div></div>
             
         </li>
         

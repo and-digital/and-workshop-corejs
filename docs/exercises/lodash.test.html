@@ -95,8 +95,13 @@
                 </a>
               
                 
-                <a class="source" href="../src/function.html">
-                  ./src/function.js
+                <a class="source" href="../src/function_advanced.html">
+                  ./src/function_advanced.js
+                </a>
+              
+                
+                <a class="source" href="../src/function_basics.html">
+                  ./src/function_basics.js
                 </a>
               
                 
@@ -314,7 +319,7 @@
         <span class="hljs-keyword">return</span> <span class="hljs-function">(<span class="hljs-params">...props</span>) =&gt;</span> findInStore(props) ? findInStore(props).result : cacheResult(props, func(...props))
     },
 
-    <span class="hljs-attr">throttle</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">fn, delay</span>)</span>{</pre></div></div>
+    <span class="hljs-attr">defaults</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">original, defaults</span>)</span>{</pre></div></div>
             
         </li>
         
@@ -324,6 +329,31 @@
               
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <h2 id="implement-defaults">Implement .defaults</h2>
+<p>Takes two arguments, an original object and a set of defaults
+Returns the amalgamation of both
+(<a href="https://lodash.com/docs/4.17.10#defaults">https://lodash.com/docs/4.17.10#defaults</a>)</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+        <span class="hljs-keyword">return</span> {
+            ...defaults,
+            ...original,
+        }
+    },
+
+    <span class="hljs-attr">throttle</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">fn, delay</span>)</span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
               </div>
               <h2 id="implement-throttle">Implement .throttle</h2>
 <p>Implement a throttle (that doesn’t queue, but drops if the previous throttle is running)
@@ -371,11 +401,11 @@ describe(<span class="hljs-string">'_.reduce'</span>, () =&gt; {
         </li>
         
         
-        <li id="section-8">
+        <li id="section-9">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-8">&#182;</a>
+                <a class="pilcrow" href="#section-9">&#182;</a>
               </div>
               <p>The default initial value of reduce is … 0</p>
 
@@ -390,11 +420,11 @@ describe(<span class="hljs-string">'_.reduce'</span>, () =&gt; {
         </li>
         
         
-        <li id="section-9">
+        <li id="section-10">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-9">&#182;</a>
+                <a class="pilcrow" href="#section-10">&#182;</a>
               </div>
               <p>But, we can override the default</p>
 
@@ -412,11 +442,11 @@ describe(<span class="hljs-string">'_.reduce'</span>, () =&gt; {
         </li>
         
         
-        <li id="section-10">
+        <li id="section-11">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-10">&#182;</a>
+                <a class="pilcrow" href="#section-11">&#182;</a>
               </div>
               <p>And, as always, reduce should be non-mutating</p>
 
@@ -435,11 +465,11 @@ describe(<span class="hljs-string">'_.pick'</span>, () =&gt; {
         </li>
         
         
-        <li id="section-11">
+        <li id="section-12">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-11">&#182;</a>
+                <a class="pilcrow" href="#section-12">&#182;</a>
               </div>
               <p>Now, we’ll remove our callback logic, in favour of a generic pick method</p>
 
@@ -460,11 +490,11 @@ describe(<span class="hljs-string">'_.partialRight'</span>, () =&gt; {
         </li>
         
         
-        <li id="section-12">
+        <li id="section-13">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-12">&#182;</a>
+                <a class="pilcrow" href="#section-13">&#182;</a>
               </div>
               <p>Now, we’ll remove our anonymous function completely</p>
 
@@ -484,11 +514,11 @@ describe(<span class="hljs-string">'_.memoize'</span>, () =&gt; {
         </li>
         
         
-        <li id="section-13">
+        <li id="section-14">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-13">&#182;</a>
+                <a class="pilcrow" href="#section-14">&#182;</a>
               </div>
               <p>Store this as an object, so that jest can mock it</p>
 
@@ -501,11 +531,11 @@ describe(<span class="hljs-string">'_.memoize'</span>, () =&gt; {
         </li>
         
         
-        <li id="section-14">
+        <li id="section-15">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-14">&#182;</a>
+                <a class="pilcrow" href="#section-15">&#182;</a>
               </div>
               <p>Now intercept the function with a spy, so we can check how often it’s called</p>
 
@@ -517,29 +547,13 @@ describe(<span class="hljs-string">'_.memoize'</span>, () =&gt; {
         </li>
         
         
-        <li id="section-15">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-15">&#182;</a>
-              </div>
-              <p>This is the first call of the function, so the mock <em>will</em> be called.</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>        expect(memoizedFunction(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>)).toEqual(<span class="hljs-number">4</span>);
-        expect(spy).toHaveBeenCalledTimes(<span class="hljs-number">1</span>);</pre></div></div>
-            
-        </li>
-        
-        
         <li id="section-16">
             <div class="annotation">
               
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-16">&#182;</a>
               </div>
-              <p>We expect it to be the same result, but this time, it’ll be from cache.</p>
+              <p>This is the first call of the function, so the mock <em>will</em> be called.</p>
 
             </div>
             
@@ -555,19 +569,12 @@ describe(<span class="hljs-string">'_.memoize'</span>, () =&gt; {
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-17">&#182;</a>
               </div>
-              <p>It won’t be called twice, now that it’s memoized.</p>
+              <p>We expect it to be the same result, but this time, it’ll be from cache.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>        expect(spy).not.toHaveBeenCalledTimes(<span class="hljs-number">2</span>);
-    });
-});
-
-
-describe(<span class="hljs-string">'_.throttle'</span>, () =&gt; {
-    test(<span class="hljs-string">'Returns correct result, twice'</span>, (done) =&gt; {
-        <span class="hljs-keyword">const</span> click = jest.fn().mockReturnValue(<span class="hljs-number">3</span>);
-        <span class="hljs-keyword">const</span> throttledClick = _.throttle(click, <span class="hljs-number">100</span>);</pre></div></div>
+            <div class="content"><div class='highlight'><pre>        expect(memoizedFunction(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>)).toEqual(<span class="hljs-number">4</span>);
+        expect(spy).toHaveBeenCalledTimes(<span class="hljs-number">1</span>);</pre></div></div>
             
         </li>
         
@@ -577,6 +584,44 @@ describe(<span class="hljs-string">'_.throttle'</span>, () =&gt; {
               
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-18">&#182;</a>
+              </div>
+              <p>It won’t be called twice, now that it’s memoized.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        expect(spy).not.toHaveBeenCalledTimes(<span class="hljs-number">2</span>);
+    });
+});
+
+describe(<span class="hljs-string">'_.defaults'</span>, () =&gt; {
+    test(<span class="hljs-string">'Returns an object'</span>, () =&gt; {
+        <span class="hljs-keyword">const</span> result = _.defaults({}, {});
+        expect(result).toEqual({});
+    });
+    test(<span class="hljs-string">'Does not mutate original value'</span>, () =&gt; {
+        <span class="hljs-keyword">const</span> original = {};
+        <span class="hljs-keyword">const</span> result = _.defaults(original, {});
+        expect(result).not.toBe(original);
+    });
+    test(<span class="hljs-string">'Gives precedence to the original object, not default'</span>, () =&gt; {
+        <span class="hljs-keyword">const</span> result = _.defaults({ <span class="hljs-attr">a</span> : <span class="hljs-number">1</span> }, { <span class="hljs-attr">a</span>: <span class="hljs-number">2</span> });
+        expect(result).toEqual({ <span class="hljs-attr">a</span>: <span class="hljs-number">1</span> });
+    });
+});
+
+describe(<span class="hljs-string">'_.throttle'</span>, () =&gt; {
+    test(<span class="hljs-string">'Returns correct result, twice'</span>, (done) =&gt; {
+        <span class="hljs-keyword">const</span> click = jest.fn().mockReturnValue(<span class="hljs-number">3</span>);
+        <span class="hljs-keyword">const</span> throttledClick = _.throttle(click, <span class="hljs-number">100</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-19">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-19">&#182;</a>
               </div>
               <p>If we run the throttle, it should return and the mock is called</p>
 
@@ -588,11 +633,11 @@ describe(<span class="hljs-string">'_.throttle'</span>, () =&gt; {
         </li>
         
         
-        <li id="section-19">
+        <li id="section-20">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-19">&#182;</a>
+                <a class="pilcrow" href="#section-20">&#182;</a>
               </div>
               <p>Function won’t be called, so we won’t compute and the return is undefined</p>
 
@@ -604,11 +649,11 @@ describe(<span class="hljs-string">'_.throttle'</span>, () =&gt; {
         </li>
         
         
-        <li id="section-20">
+        <li id="section-21">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-20">&#182;</a>
+                <a class="pilcrow" href="#section-21">&#182;</a>
               </div>
               <p>If we want and call again in the future, it should work</p>
 
