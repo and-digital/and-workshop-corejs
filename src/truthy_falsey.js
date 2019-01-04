@@ -1,11 +1,31 @@
 // # Truthy / Falsey
 
-// TODO: Objects return true
+// ## The `!!` operator
 
-// TODO: Arrays return true
+// We sometimes see the double exclamation operator
 
-// TODO: Null is not undefined
+// This simply coerces a value into either true/false, it's useful for turning values such as `undefined` or `null` or empty object into their boolean counterparts, for simplicity. 
 
-// TODO: ```!!``` The double equals operator
+// ## What do you think the following will return?
 
-// TODO: Object equality (and how React uses this)
+console.log( !!({}) );
+
+console.log( !!([]) );
+
+console.log( !!("true") );
+
+console.log( !!("false") );
+
+console.log( !!("0") );
+
+console.log( !!(1) );
+
+console.log( !!(undefined) );
+
+console.log( !!(null) );
+
+console.log( !!("") );
+
+console.log( !!(0) );
+
+// **Question:** What's the difference between null and undefined?

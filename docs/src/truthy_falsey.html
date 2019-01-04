@@ -202,7 +202,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-2">&#182;</a>
               </div>
-              <p>TODO: Objects return true</p>
+              <h2 id="the-operator">The <code>!!</code> operator</h2>
 
             </div>
             
@@ -215,7 +215,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-3">&#182;</a>
               </div>
-              <p>TODO: Arrays return true</p>
+              <p>We sometimes see the double exclamation operator</p>
 
             </div>
             
@@ -228,7 +228,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-4">&#182;</a>
               </div>
-              <p>TODO: Null is not undefined</p>
+              <p>This simply coerces a value into either true/false, it’s useful for turning values such as <code>undefined</code> or <code>null</code> or empty object into their boolean counterparts, for simplicity. </p>
 
             </div>
             
@@ -241,9 +241,30 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-5">&#182;</a>
               </div>
-              <p>TODO: <code>!!</code> The double equals operator</p>
+              <h2 id="what-do-you-think-the-following-will-return-">What do you think the following will return?</h2>
 
             </div>
+            
+            <div class="content"><div class='highlight'><pre>
+<span class="hljs-built_in">console</span>.log( !!({}) );
+
+<span class="hljs-built_in">console</span>.log( !!([]) );
+
+<span class="hljs-built_in">console</span>.log( !!(<span class="hljs-string">"true"</span>) );
+
+<span class="hljs-built_in">console</span>.log( !!(<span class="hljs-string">"false"</span>) );
+
+<span class="hljs-built_in">console</span>.log( !!(<span class="hljs-string">"0"</span>) );
+
+<span class="hljs-built_in">console</span>.log( !!(<span class="hljs-number">1</span>) );
+
+<span class="hljs-built_in">console</span>.log( !!(<span class="hljs-literal">undefined</span>) );
+
+<span class="hljs-built_in">console</span>.log( !!(<span class="hljs-literal">null</span>) );
+
+<span class="hljs-built_in">console</span>.log( !!(<span class="hljs-string">""</span>) );
+
+<span class="hljs-built_in">console</span>.log( !!(<span class="hljs-number">0</span>) );</pre></div></div>
             
         </li>
         
@@ -254,7 +275,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-6">&#182;</a>
               </div>
-              <p>TODO: Object equality (and how React uses this)</p>
+              <p><strong>Question:</strong> What’s the difference between null and undefined?</p>
 
             </div>
             
