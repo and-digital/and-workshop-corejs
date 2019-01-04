@@ -9,6 +9,8 @@
 
 // ## Use case 1: Infinite arguments
 
+// This is called a variadic function
+
 const sum = (...args) => args.reduce((agg, curr) => agg + curr);
 
 // **Output:** ```10```

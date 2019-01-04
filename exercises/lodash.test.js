@@ -49,6 +49,18 @@ const _ = {
         return (...props) => findInStore(props) ? findInStore(props).result : cacheResult(props, func(...props))
     },
 
+    defaults: function(original, defaults){
+        // ## Implement .defaults
+        // Takes two arguments, an original object and a set of defaults
+        // Returns the amalgamation of both
+        // (https://lodash.com/docs/4.17.10#defaults)
+
+        return {
+            ...defaults,
+            ...original,
+        }
+    },
+
     throttle: function(fn, delay){
         // ## Implement .throttle
         // Implement a throttle (that doesn't queue, but drops if the previous throttle is running)
@@ -165,6 +177,21 @@ describe('_.memoize', () => {
     });
 });
 
+describe('_.defaults', () => {
+    test('Returns an object', () => {
+        const result = _.defaults({}, {});
+        expect(result).toEqual({});
+    });
+    test('Does not mutate original value', () => {
+        const original = {};
+        const result = _.defaults(original, {});
+        expect(result).not.toBe(original);
+    });
+    test('Gives precedence to the original object, not default', () => {
+        const result = _.defaults({ a : 1 }, { a: 2 });
+        expect(result).toEqual({ a: 1 });
+    });
+});
 
 describe('_.throttle', () => {
     test('Returns correct result, twice', (done) => {
