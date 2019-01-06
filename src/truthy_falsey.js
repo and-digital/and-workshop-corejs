@@ -31,3 +31,18 @@ console.log( !!("") );
 console.log( !!(0) );
 
 // **Question:** What's the difference between null and undefined?
+
+// ## Loose, vs strict equality
+
+// **Question:** What are the differences between: 
+
+console.log(0 == "0")
+console.log(0 === "0")
+
+// **Question:** What's the difference between `==` and `===`
+
+// **Answer:** `==` is looser about type checking. 
+
+// **Question:** So which should you use?
+
+// **Answer:** Always use `===` strict equality — just cast the types if you need, be explicit (and test)!

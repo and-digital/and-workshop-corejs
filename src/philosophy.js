@@ -8,7 +8,7 @@
 
 // I like to run the content where individuals go through the exercises themselves, but then come together at the end to share their solutions. By doing this, people can see the different considerations of the others and share ideas. 
 
-// One big goal is to try and make the course informative, yet applicable. Informative to understand the _why_ things work the way they do, but also to give as strong a direction and opinion as I can possibly give. To take a stand and say: "Do it this way" with as much authority as I can reasonably muster. 
+// One big goal is to try and make the course informative, yet applicable. Informative to understand the _why_ things work the way they do, but also to give as strong a direction and opinion as I can possibly give. To take a stand and say: "Do it this way" with as much authority as I can reasonably muster. To live alongside this, all exercises are implemented using TDD styles. I believe strongly that implementing using TDD and testing is such a vital important part of learning a language. 
 
 // The content is designed more as a guide than a read-from-start-to-finish linear learning path. I don't believe learning is linear, and I think we learn best from doing. With this in mind, I intend the learner to get to the exercise as soon as possible, and use these real examples as the jumping-off point needed to colour explanations appropriately. 
 
