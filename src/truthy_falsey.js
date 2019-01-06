@@ -20,6 +20,8 @@ console.log( !!("0") );
 
 console.log( !!(1) );
 
+console.log( !!new Boolean(false) );
+
 console.log( !!(undefined) );
 
 console.log( !!(null) );

@@ -2,6 +2,7 @@
 
 const assert = (expectedValue) => {
     return {
+
         toBeTruthy: () => {
             // ## Implement .toBeTruthy
             // https://jestjs.io/docs/en/expect#tobetruthy

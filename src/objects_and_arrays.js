@@ -4,24 +4,27 @@
 
 // The object and the array
 
-// But, what's the difference? 
+// ## Constructed vs Object Literal
 
-// ## Objects & Primitives
+// **Question:** What's the difference betweeen
 
-// An easy way to remember a primitive is that the word means an early stage of development. 
+new Array();
+new Object();
 
-// So a primitive can be considered a "primitive object".
+// and their counterpart:
 
-// There are 5 types of primitive:
-// * undefined
-// * null
-// * boolean
-// * string
-// * number
+[]
+{}
 
-// A primitive is kinda like it's object counterpart, but you just can't assign new properties to it. 
+// **Answer:** Nothing, use the short version
 
-// ## Assigning data to an object
+// ## Objects vs Arrays
+
+// **Question:** When would you use one over the other? 
+
+// **Answer:** Ordering. Arrays ensure order, Objects do not. 
+
+// ## Objects, a deep dive...
 
 // ### Method 1: Dot notation
 
@@ -53,10 +56,12 @@ const shortHandNotation = {
 console.log(shortHandNotation);
 // **Output:** ```{ name2: 'Im a dot assignment' }```
 
-// TODO: Literal vs Constructed form
+// ## Arrays, a deep dive...
 
-// TODO: Using objects as modules
+// Arrays are actually implemented as types of objects, you can see this on it's prototype
 
-// TODO: Functions in arrays / objects
+// Which is why... 
 
-// TODO: Object inheritance 
+console.log(typeof new Array);
+
+// But this doesn't matter too much, only when using `typeof` on an `Array`.
