@@ -3,6 +3,7 @@ const _ = {
     reduce: function (data, operation, start = 0) {
         // ## Implement .reduce
         // Should take an array of values and apply the callback
+        // **Bonus Point:** Do this with recursion
         // (https://lodash.com/docs/4.17.10#reduce)
 
         let result = start;
@@ -73,6 +74,18 @@ const _ = {
           lastCall = now;
           return fn(...args);
         }
+    },
+
+    curry: function curry (f){
+        // ## Implement .curry
+        // Implement a function that curries the function given to it
+        // (https://lodash.com/docs/4.17.10#curry)
+        
+        return function currify(...args) {
+            return args.length >= f.length ?
+              f.apply(null, args) :
+              currify.bind(null, ...args)
+          }
     }
 };
 
@@ -212,5 +225,51 @@ describe('_.throttle', () => {
             expect(click).toHaveBeenCalledTimes(2);
             done();
         }, 500);
+    });
+});
+
+describe('_.curry', () => {
+    test('Currys a one argument function', () => {
+        
+        // Setup the test
+        const inner = jest.fn();
+        const outer = (a) => inner(a);
+        const curriedFunction = _.curry(outer);
+        
+        // Partially apply the first argument
+        const appliedCurriedFunction = curriedFunction('first');
+        
+        // Call the function
+        expect(inner).toHaveBeenCalledWith('first')
+        
+    });
+    test('Currys a two argument function', () => {
+
+        // Setup the test
+        const inner = jest.fn();
+        const outer = (a, b) => inner(a, b);
+        const curriedFunction = _.curry(outer);
+        
+        // Partially apply the two arguments separately
+        const appliedCurriedFunction = curriedFunction('first')('second');
+        
+        // Call the function
+        expect(inner).toHaveBeenCalledWith('first', 'second')
+        
+    });
+
+    test('Takes two arguments at once', () => {
+        
+        // Setup the test
+        const inner = jest.fn();
+        const outer = (a, b, c) => inner(a, b, c);
+        const curriedFunction = _.curry(outer);
+        
+        // Partially apply the first argument
+        const appliedCurriedFunction = curriedFunction('first')('second', 'third');
+        
+        // Call the function
+        expect(inner).toHaveBeenCalledWith('first', 'second', 'third');
+        
     });
 });

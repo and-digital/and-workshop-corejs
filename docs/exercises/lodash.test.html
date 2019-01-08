@@ -55,11 +55,6 @@
                 </a>
               
                 
-                <a class="source" href="../src/best_practices.html">
-                  ./src/best_practices.js
-                </a>
-              
-                
                 <a class="source" href="../src/callback.html">
                   ./src/callback.js
                 </a>
@@ -107,11 +102,6 @@
                 
                 <a class="source" href="../src/functional_methods.html">
                   ./src/functional_methods.js
-                </a>
-              
-                
-                <a class="source" href="../src/glossary.html">
-                  ./src/glossary.js
                 </a>
               
                 
@@ -223,6 +213,7 @@
               </div>
               <h2 id="implement-reduce">Implement .reduce</h2>
 <p>Should take an array of values and apply the callback
+<strong>Bonus Point:</strong> Do this with recursion
 (<a href="https://lodash.com/docs/4.17.10#reduce">https://lodash.com/docs/4.17.10#reduce</a>)</p>
 
             </div>
@@ -374,6 +365,31 @@ Returns the amalgamation of both
           lastCall = now;
           <span class="hljs-keyword">return</span> fn(...args);
         }
+    },
+
+    <span class="hljs-attr">curry</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">curry</span> (<span class="hljs-params">f</span>)</span>{</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-9">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-9">&#182;</a>
+              </div>
+              <h2 id="implement-curry">Implement .curry</h2>
+<p>Implement a function that curries the function given to it
+(<a href="https://lodash.com/docs/4.17.10#curry">https://lodash.com/docs/4.17.10#curry</a>)</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        
+        <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">currify</span>(<span class="hljs-params">...args</span>) </span>{
+            <span class="hljs-keyword">return</span> args.length &gt;= f.length ?
+              f.apply(<span class="hljs-literal">null</span>, args) :
+              currify.bind(<span class="hljs-literal">null</span>, ...args)
+          }
     }
 };
 
@@ -406,11 +422,11 @@ describe(<span class="hljs-string">'_.reduce'</span>, () =&gt; {
         </li>
         
         
-        <li id="section-9">
+        <li id="section-10">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-9">&#182;</a>
+                <a class="pilcrow" href="#section-10">&#182;</a>
               </div>
               <p>The default initial value of reduce is … 0</p>
 
@@ -425,11 +441,11 @@ describe(<span class="hljs-string">'_.reduce'</span>, () =&gt; {
         </li>
         
         
-        <li id="section-10">
+        <li id="section-11">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-10">&#182;</a>
+                <a class="pilcrow" href="#section-11">&#182;</a>
               </div>
               <p>But, we can override the default</p>
 
@@ -447,11 +463,11 @@ describe(<span class="hljs-string">'_.reduce'</span>, () =&gt; {
         </li>
         
         
-        <li id="section-11">
+        <li id="section-12">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-11">&#182;</a>
+                <a class="pilcrow" href="#section-12">&#182;</a>
               </div>
               <p>And, as always, reduce should be non-mutating</p>
 
@@ -470,11 +486,11 @@ describe(<span class="hljs-string">'_.pick'</span>, () =&gt; {
         </li>
         
         
-        <li id="section-12">
+        <li id="section-13">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-12">&#182;</a>
+                <a class="pilcrow" href="#section-13">&#182;</a>
               </div>
               <p>Now, we’ll remove our callback logic, in favour of a generic pick method</p>
 
@@ -495,11 +511,11 @@ describe(<span class="hljs-string">'_.partialRight'</span>, () =&gt; {
         </li>
         
         
-        <li id="section-13">
+        <li id="section-14">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-13">&#182;</a>
+                <a class="pilcrow" href="#section-14">&#182;</a>
               </div>
               <p>Now, we’ll remove our anonymous function completely</p>
 
@@ -519,11 +535,11 @@ describe(<span class="hljs-string">'_.memoize'</span>, () =&gt; {
         </li>
         
         
-        <li id="section-14">
+        <li id="section-15">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-14">&#182;</a>
+                <a class="pilcrow" href="#section-15">&#182;</a>
               </div>
               <p>Store this as an object, so that jest can mock it</p>
 
@@ -536,11 +552,11 @@ describe(<span class="hljs-string">'_.memoize'</span>, () =&gt; {
         </li>
         
         
-        <li id="section-15">
+        <li id="section-16">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-15">&#182;</a>
+                <a class="pilcrow" href="#section-16">&#182;</a>
               </div>
               <p>Now intercept the function with a spy, so we can check how often it’s called</p>
 
@@ -552,29 +568,13 @@ describe(<span class="hljs-string">'_.memoize'</span>, () =&gt; {
         </li>
         
         
-        <li id="section-16">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-16">&#182;</a>
-              </div>
-              <p>This is the first call of the function, so the mock <em>will</em> be called.</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>        expect(memoizedFunction(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>)).toEqual(<span class="hljs-number">4</span>);
-        expect(spy).toHaveBeenCalledTimes(<span class="hljs-number">1</span>);</pre></div></div>
-            
-        </li>
-        
-        
         <li id="section-17">
             <div class="annotation">
               
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-17">&#182;</a>
               </div>
-              <p>We expect it to be the same result, but this time, it’ll be from cache.</p>
+              <p>This is the first call of the function, so the mock <em>will</em> be called.</p>
 
             </div>
             
@@ -589,6 +589,22 @@ describe(<span class="hljs-string">'_.memoize'</span>, () =&gt; {
               
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-18">&#182;</a>
+              </div>
+              <p>We expect it to be the same result, but this time, it’ll be from cache.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        expect(memoizedFunction(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>)).toEqual(<span class="hljs-number">4</span>);
+        expect(spy).toHaveBeenCalledTimes(<span class="hljs-number">1</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-19">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-19">&#182;</a>
               </div>
               <p>It won’t be called twice, now that it’s memoized.</p>
 
@@ -622,11 +638,11 @@ describe(<span class="hljs-string">'_.throttle'</span>, () =&gt; {
         </li>
         
         
-        <li id="section-19">
+        <li id="section-20">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-19">&#182;</a>
+                <a class="pilcrow" href="#section-20">&#182;</a>
               </div>
               <p>If we run the throttle, it should return and the mock is called</p>
 
@@ -638,11 +654,11 @@ describe(<span class="hljs-string">'_.throttle'</span>, () =&gt; {
         </li>
         
         
-        <li id="section-20">
+        <li id="section-21">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-20">&#182;</a>
+                <a class="pilcrow" href="#section-21">&#182;</a>
               </div>
               <p>Function won’t be called, so we won’t compute and the return is undefined</p>
 
@@ -654,11 +670,11 @@ describe(<span class="hljs-string">'_.throttle'</span>, () =&gt; {
         </li>
         
         
-        <li id="section-21">
+        <li id="section-22">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-21">&#182;</a>
+                <a class="pilcrow" href="#section-22">&#182;</a>
               </div>
               <p>If we want and call again in the future, it should work</p>
 
@@ -669,6 +685,160 @@ describe(<span class="hljs-string">'_.throttle'</span>, () =&gt; {
             expect(click).toHaveBeenCalledTimes(<span class="hljs-number">2</span>);
             done();
         }, <span class="hljs-number">500</span>);
+    });
+});
+
+describe(<span class="hljs-string">'_.curry'</span>, () =&gt; {
+    test(<span class="hljs-string">'Currys a one argument function'</span>, () =&gt; {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-23">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-23">&#182;</a>
+              </div>
+              <p>Setup the test</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="hljs-keyword">const</span> inner = jest.fn();
+        <span class="hljs-keyword">const</span> outer = <span class="hljs-function">(<span class="hljs-params">a</span>) =&gt;</span> inner(a);
+        <span class="hljs-keyword">const</span> curriedFunction = _.curry(outer);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-24">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-24">&#182;</a>
+              </div>
+              <p>Partially apply the first argument</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="hljs-keyword">const</span> appliedCurriedFunction = curriedFunction(<span class="hljs-string">'first'</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-25">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-25">&#182;</a>
+              </div>
+              <p>Call the function</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        expect(inner).toHaveBeenCalledWith(<span class="hljs-string">'first'</span>)
+        
+    });
+    test(<span class="hljs-string">'Currys a two argument function'</span>, () =&gt; {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-26">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-26">&#182;</a>
+              </div>
+              <p>Setup the test</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="hljs-keyword">const</span> inner = jest.fn();
+        <span class="hljs-keyword">const</span> outer = <span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> inner(a, b);
+        <span class="hljs-keyword">const</span> curriedFunction = _.curry(outer);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-27">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-27">&#182;</a>
+              </div>
+              <p>Partially apply the two arguments separately</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="hljs-keyword">const</span> appliedCurriedFunction = curriedFunction(<span class="hljs-string">'first'</span>)(<span class="hljs-string">'second'</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-28">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-28">&#182;</a>
+              </div>
+              <p>Call the function</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        expect(inner).toHaveBeenCalledWith(<span class="hljs-string">'first'</span>, <span class="hljs-string">'second'</span>)
+        
+    });
+
+    test(<span class="hljs-string">'Takes two arguments at once'</span>, () =&gt; {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-29">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-29">&#182;</a>
+              </div>
+              <p>Setup the test</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="hljs-keyword">const</span> inner = jest.fn();
+        <span class="hljs-keyword">const</span> outer = <span class="hljs-function">(<span class="hljs-params">a, b, c</span>) =&gt;</span> inner(a, b, c);
+        <span class="hljs-keyword">const</span> curriedFunction = _.curry(outer);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-30">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-30">&#182;</a>
+              </div>
+              <p>Partially apply the first argument</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="hljs-keyword">const</span> appliedCurriedFunction = curriedFunction(<span class="hljs-string">'first'</span>)(<span class="hljs-string">'second'</span>, <span class="hljs-string">'third'</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-31">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-31">&#182;</a>
+              </div>
+              <p>Call the function</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        expect(inner).toHaveBeenCalledWith(<span class="hljs-string">'first'</span>, <span class="hljs-string">'second'</span>, <span class="hljs-string">'third'</span>);
+        
     });
 });</pre></div></div>
             
