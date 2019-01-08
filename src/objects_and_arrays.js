@@ -65,3 +65,11 @@ console.log(shortHandNotation);
 console.log(typeof new Array);
 
 // But this doesn't matter too much, only when using `typeof` on an `Array`.
+
+// ### Array Access
+
+const horses = ['Arabian', 'Clydesdale', 'Shire', 'Shetland Pony']
+
+console.log(horses[1]);
+
+console.log(horses[2]);
