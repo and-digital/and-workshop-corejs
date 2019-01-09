@@ -69,18 +69,18 @@ describe('.toBe', () => {
 });
 
 describe('.toEqual', () => {
-    test('Will not show true as equal to true', () => {
-        const oneObject = {}
-        const twoObject = {};
-
-        // Test that the objects are not references to each other
+    test('Different object with the same contents are equal', () => {
+        const objectOne = {adam: "Hello"}
+        const objectTwo = {adam: "Hello"};
         expect(
-            assert(oneObject).toEqual(twoObject)
-        ).not.toEqual(true);
-        
-        // Test that the objects are infact equal
+            assert(objectOne).toEqual(objectTwo)
+        ).toEqual(true);
+    });
+    test('Different object with different contents are not equal', () => {
+        const objectOne = {adam: "Hello"}
+        const objectTwo = {adam: "Hi"};
         expect(
-            assert(oneObject).toBe(twoObject)
+            assert(objectOne).toEqual(objectTwo)
         ).toEqual(false);
     });
 });
