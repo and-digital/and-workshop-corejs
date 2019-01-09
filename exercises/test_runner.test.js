@@ -53,6 +53,19 @@ describe('.toBe', () => {
             assert(stringReference).toBe(stringReference)
         ).toBe(true);
     });
+    test('Ensures that two references in memory are not the same', () => {
+        const oneObject = {};
+        const twoObject = {};
+        expect(
+            assert(oneObject).toBe(twoObject)
+        ).toBe(false);
+    });
+    test('Ensures the same reference in memory is true', () => {
+        const oneObject = {};
+        expect(
+            assert(oneObject).toBe(oneObject)
+        ).toBe(true);
+    });
 });
 
 describe('.toEqual', () => {
