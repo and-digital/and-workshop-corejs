@@ -11,7 +11,7 @@
 // https://jestjs.io/docs/en/expect#tothrowerror
 
 describe('.toBeTruthy', () => {
-    test('Will not show true as equal to true', () => {
+    test('Will show true as equal to true', () => {
         expect(
             assert(true).toBeTruthy()
         ).toEqual(true);
