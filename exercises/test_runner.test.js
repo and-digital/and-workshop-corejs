@@ -2,10 +2,10 @@
 // https://jestjs.io/docs/en/expect#tobetruthy
 
 // ## Implement .toBe
-// https://jestjs.io/docs/en/expect#toequalvalue
+// https://jestjs.io/docs/en/expect#tobevalue
 
 // ## Implement .toEqual
-// https://jestjs.io/docs/en/expect#tobevalue
+// https://jestjs.io/docs/en/expect#toequalvalue
 
 // ## Implement .toThrow
 // https://jestjs.io/docs/en/expect#tothrowerror
