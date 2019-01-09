@@ -1,10 +1,4 @@
 
-// TODO: Recursive functions
-
-// TODO: Partial application
-
-// TODO: The different types of currying
-
 // ### Infinite Arguments
 
 // The following function signature takes infinite arguments

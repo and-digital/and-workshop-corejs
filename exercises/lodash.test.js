@@ -1,93 +1,37 @@
+// ## Implement .reduce
+// Should take an array of values and apply the callback
+// **Bonus Point:** Do this with recursion
+// (https://lodash.com/docs/4.17.10#reduce)
 
-const _ = {
-    reduce: function (data, operation, start = 0) {
-        // ## Implement .reduce
-        // Should take an array of values and apply the callback
-        // **Bonus Point:** Do this with recursion
-        // (https://lodash.com/docs/4.17.10#reduce)
+// ## Implement .map
+// Now, implement .map
+// **Bonus Point:** Do this whilst _using reduce_
+// (https://lodash.com/docs/4.17.10#map)
 
-        let result = start;
+// ## Implement .pick
+// Should pick a property from an object
+// (https://lodash.com/docs/4.17.10#pick)
 
-        for (let i = 0; i < data.length; i++) {
-            result = operation(result, data[i]);
-        }
+// ## Implement .partialRight
+// Should apply the arguments to the right of the original function
+// (https://lodash.com/docs/4.17.10#partialRight)
 
-        return result;
-    },
-    map: function (collection, callback) {
-        // ## Implement .map
-        // Now, implement .map
-        // **Bonus Point:** Do this whilst _using reduce_
-        // (https://lodash.com/docs/4.17.10#map)
+// ## Implement .memoize
+// Should pick a property from an object
+// (https://lodash.com/docs/4.17.10#memoize)
 
-        return _.reduce(collection, (prev, ...args) => ([...prev, callback(...args)]), []);
-    },
-    pick: function (object, prop) {
-        // ## Implement .pick
-        // Should pick a property from an object
-        // (https://lodash.com/docs/4.17.10#pick)
+// ## Implement .defaults
+// Takes two arguments, an original object and a set of defaults
+// Returns the amalgamation of both
+// (https://lodash.com/docs/4.17.10#defaults)
 
-        return object[prop];
-    },
+// ## Implement .throttle
+// Implement a throttle (that doesn't queue, but drops if the previous throttle is running)
+// (https://lodash.com/docs/4.17.10#throttle)
 
-    partialRight: function (func, ...partialRightArgs) {
-        // ## Implement .partialRight
-        // Should apply the arguments to the right of the original function
-        // (https://lodash.com/docs/4.17.10#partialRight)
-
-        return (...originalArgs) => func(...originalArgs, ...partialRightArgs);
-    },
-
-    memoize: function (func) {
-        // ## Implement .memoize
-        // Should pick a property from an object
-        // (https://lodash.com/docs/4.17.10#memoize)
-
-        const store = [];
-        const cacheResult = (args, result) => { store.push({ args, result }); return result; };
-        const findInStore = (props) => store.find(entry => entry.args.every((arg, index) => arg == props[index]));
-
-        return (...props) => findInStore(props) ? findInStore(props).result : cacheResult(props, func(...props))
-    },
-
-    defaults: function(original, defaults){
-        // ## Implement .defaults
-        // Takes two arguments, an original object and a set of defaults
-        // Returns the amalgamation of both
-        // (https://lodash.com/docs/4.17.10#defaults)
-
-        return {
-            ...defaults,
-            ...original,
-        }
-    },
-
-    throttle: function(fn, delay){
-        // ## Implement .throttle
-        // Implement a throttle (that doesn't queue, but drops if the previous throttle is running)
-        // (https://lodash.com/docs/4.17.10#throttle)
-
-        let lastCall = 0;
-        return (...args) => {
-          const now = (new Date).getTime();
-          if (now - lastCall < delay) return;
-          lastCall = now;
-          return fn(...args);
-        }
-    },
-
-    curry: function curry (f){
-        // ## Implement .curry
-        // Implement a function that curries the function given to it
-        // (https://lodash.com/docs/4.17.10#curry)
-        
-        return function currify(...args) {
-            return args.length >= f.length ?
-              f.apply(null, args) :
-              currify.bind(null, ...args)
-          }
-    }
-};
+// ## Implement .curry
+// Implement a function that curries the function given to it
+// (https://lodash.com/docs/4.17.10#curry)
 
 describe('_.map', () => {
     test('Can concatenate a string as part of a map', () => {

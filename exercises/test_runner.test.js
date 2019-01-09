@@ -1,46 +1,14 @@
+// ## Implement .toBeTruthy
+// https://jestjs.io/docs/en/expect#tobetruthy
 
+// ## Implement .toBe
+// https://jestjs.io/docs/en/expect#toequalvalue
 
-const assert = (expectedValue) => {
-    return {
+// ## Implement .toEqual
+// https://jestjs.io/docs/en/expect#tobevalue
 
-        toBeTruthy: () => {
-            // ## Implement .toBeTruthy
-            // https://jestjs.io/docs/en/expect#tobetruthy
-
-            return !!expectedValue;
-        },
-
-        toBe: (value) => {
-            // ## Implement .toBe
-            // https://jestjs.io/docs/en/expect#toequalvalue
-
-            return expectedValue === value;
-        },
-
-        toEqual: (value) => {
-            // ## Implement .toEqual
-            // https://jestjs.io/docs/en/expect#tobevalue
-            
-            return expectedValue == value;
-        },
-
-        toThrow: () => {
-            // ## Implement .toThrow
-            // https://jestjs.io/docs/en/expect#tothrowerror
-
-            let didThrow = false;
-
-            try {
-                expectedValue()
-            } catch(e) {
-                didThrow = true;
-            }
-            
-            return didThrow;
-
-        }
-    }
-};
+// ## Implement .toThrow
+// https://jestjs.io/docs/en/expect#tothrowerror
 
 describe('.toBeTruthy', () => {
     test('Will not show true as equal to true', () => {
