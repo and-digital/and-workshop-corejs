@@ -358,13 +358,29 @@ xdescribe(<span class="hljs-string">'.toBe'</span>, () =&gt; {
 });
 
 describe(<span class="hljs-string">'.toEqual'</span>, () =&gt; {
-    test(<span class="hljs-string">'Will not show true as equal to true'</span>, () =&gt; {
-        <span class="hljs-keyword">const</span> oneObject = {
-            <span class="hljs-attr">name</span>: <span class="hljs-string">"adam"</span>
+&lt;&lt;<span class="xml"><span class="hljs-tag">&lt;&lt;&lt;&lt;&lt; <span class="hljs-attr">HEAD</span>
+    <span class="hljs-attr">test</span>('<span class="hljs-attr">Different</span> <span class="hljs-attr">object</span> <span class="hljs-attr">with</span> <span class="hljs-attr">the</span> <span class="hljs-attr">same</span> <span class="hljs-attr">contents</span> <span class="hljs-attr">are</span> <span class="hljs-attr">equal</span>', () =&gt;</span> {
+        const objectOne = {adam: "Hello"}
+        const objectTwo = {adam: "Hello"};
+        expect(
+            assert(objectOne).toEqual(objectTwo)
+        ).toEqual(true);
+    });
+    test('Different object with different contents are not equal', () =&gt; {
+        const objectOne = {adam: "Hello"}
+        const objectTwo = {adam: "Hi"};
+        expect(
+            assert(objectOne).toEqual(objectTwo)
+=======
+    test('Will not show true as equal to true', () =&gt; {
+        const oneObject = {
+            name: "adam"
         };
-        <span class="hljs-keyword">const</span> twoObject = {
-            <span class="hljs-attr">name</span>: <span class="hljs-string">"adam"</span>
-        };</pre></div></div>
+        const twoObject = {
+            name: "adam"
+        };
+
+</span></pre></div></div>
             
         </li>
         
@@ -403,6 +419,7 @@ describe(<span class="hljs-string">'.toEqual'</span>, () =&gt; {
             
             <div class="content"><div class='highlight'><pre>        expect(
             assert(oneObject).toBe(threeObject)
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; updated promise exercises and the promise docs
         ).toEqual(<span class="hljs-literal">false</span>);
     });
 });
