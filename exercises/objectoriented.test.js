@@ -1,7 +1,7 @@
 
 // This is an exercise in design patterns
 
-// Create a calculator object/constructor/class that takes two numbers
+// Create a calculator object/constructor/class that takes some numbers
 
 // And then exposes the following methods: 
 
