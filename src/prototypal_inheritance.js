@@ -100,7 +100,7 @@ Bungalow.prototype = houseInstance;
 const bungalowInstanceOne = new Bungalow();
 houseInstance.walls = null;
 
-// Oh no, now our house has no walls!
+// Oh no, now our bungalow has no walls!
 
 // That's because we've modified the object that our bungalow was referencing... damn. 
 
