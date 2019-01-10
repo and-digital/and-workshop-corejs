@@ -85,20 +85,58 @@ const doSomething = data => console.log(data);
 gitHubData
     .then(doSomething);
 
-// TODO: Promise `.then` returning a (new) Promise
+// A `.then` always wraps the result in a `new Promise` so that you can call `.then` forever on this result. But, it's a new Promise. 
 
-// TODO: Promise alternative methods `.finally`
+// ## Promise return values
 
-// TODO: Promise exceptions with `.catch`
+// Promises work heavily with return values, this is a *very common gotcha*
 
-// TODO: Promise exceptions
+// A consuming function _must_ have access to the Promise in order to understand when it is returned. 
 
-// TODO: Promise libraries
+// This is common to fail to recognise this when a function expects a promise, such as in a jest test. 
 
-// TODO: How to spot a promise
+// **Question:** Will the following work? 
 
-// TODO: How to promisify a callback (wrap it manually, use a library with a promise implementation, use a promisify method)
+test('Calls the server', () => {
 
-// TODO: Converting callbacks to promises
+    axios.get('/users/:123')
+        .then((data) => {
+            expect(data.user).toEqual('Trevor')
+        });
 
-// TODO: The 3 states of promises (pending, fulfilled, rejected)
+})
+
+// **Answer:** Probably not, it could work intermittently. 
+
+// ## Promise Spec
+
+// There are some differences in Promises specifications. 
+
+// There is a standard [Promise spec](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) but not all libraries will implement the same behaviour. 
+
+// Some Promise libraries, will swallow unhandled exceptions, unless a `.catch` is provided.
+
+// ## .catch
+
+// Errors that are thrown in a Promise will go down the Promise 'chain'. If no `.catch` is provided the Promise usually throws an unhandled exception. 
+
+// It is generally best practice to always add a `.catch` to your promises. 
+
+// ## Promisification
+
+// If you're working with a callback library you can easily convert it to a Promise
+
+// You can just wrap the callback
+
+return new Promise(function(resolve, reject) {
+    callback(param, function(err, data) {
+        if (err !== null) reject(err);
+        else resolve(data);
+    });
+});
+
+// Alternatively, node for instance has it's own Promisification utility
+
+const util = require('util');
+const fs = require('fs');
+const stat = util.promisify(fs.stat);

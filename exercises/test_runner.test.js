@@ -10,7 +10,7 @@
 // ## Implement .toThrow
 // https://jestjs.io/docs/en/expect#tothrowerror
 
-describe('.toBeTruthy', () => {
+xdescribe('.toBeTruthy', () => {
     test('Will show true as equal to true', () => {
         expect(
             assert(true).toBeTruthy()
@@ -38,7 +38,15 @@ describe('.toBeTruthy', () => {
     });
 });
 
-describe('.toBe', () => {
+function assert(first) {
+    return {
+        toBe: function(second){
+            return first === second
+        }
+    }
+};
+
+xdescribe('.toBe', () => {
     test('Works for boolean', () => {
         expect(
             assert(true).toBe(true)
@@ -69,6 +77,7 @@ describe('.toBe', () => {
 });
 
 describe('.toEqual', () => {
+<<<<<<< HEAD
     test('Different object with the same contents are equal', () => {
         const objectOne = {adam: "Hello"}
         const objectTwo = {adam: "Hello"};
@@ -81,11 +90,34 @@ describe('.toEqual', () => {
         const objectTwo = {adam: "Hi"};
         expect(
             assert(objectOne).toEqual(objectTwo)
+=======
+    test('Will not show true as equal to true', () => {
+        const oneObject = {
+            name: "adam"
+        };
+        const twoObject = {
+            name: "adam"
+        };
+
+        // Test that objects of the same structure are true
+        expect(
+            assert(oneObject).toEqual(twoObject)
+        ).toEqual(true);
+
+        const threeObject = {
+            name: "adam",
+            age: 25
+        }
+        
+        // Test that incorrect properties
+        expect(
+            assert(oneObject).toBe(threeObject)
+>>>>>>> updated promise exercises and the promise docs
         ).toEqual(false);
     });
 });
 
-describe('.toThrow', () => {
+xdescribe('.toThrow', () => {
     test('Will not show true as equal to true', () => {
         expect(
             assert(() => { throw new Error() }).toThrow()
