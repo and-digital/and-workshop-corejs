@@ -7,6 +7,7 @@
 
 // * `sum`
 // * `multiply`
+// * `getValueOfPI`
 
 // For this exercise... _you_ write the tests.
 
