@@ -12,8 +12,8 @@
   "license": "ISC",
   "dependencies": {
     "husky": "^0.14.3",
-    "jest": "^22.1.4",
-    "lint-staged": "^6.0.1",
+    "jest": "^23.6.0",
+    "lint-staged": "^8.1.0",
     "prettier": "^1.7.4",
     "ramda": "^0.25.0",
     "rxjs": "^6.3.3"
