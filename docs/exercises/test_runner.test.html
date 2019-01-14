@@ -11,174 +11,6 @@
   <div id="container">
     <div id="background"></div>
     
-      <ul id="jump_to">
-        <li>
-          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
-          <a class="small" href="javascript:void(0);">+</a>
-          <div id="jump_wrapper">
-          <div id="jump_page_wrapper">
-            <div id="jump_page">
-              
-                
-                <a class="source" href="advanced_async.test.html">
-                  ./exercises/advanced_async.test.js
-                </a>
-              
-                
-                <a class="source" href="implement_patterns.test.html">
-                  ./exercises/implement_patterns.test.js
-                </a>
-              
-                
-                <a class="source" href="lodash.test.html">
-                  ./exercises/lodash.test.js
-                </a>
-              
-                
-                <a class="source" href="objectoriented.test.html">
-                  ./exercises/objectoriented.test.js
-                </a>
-              
-                
-                <a class="source" href="promise.test.html">
-                  ./exercises/promise.test.js
-                </a>
-              
-                
-                <a class="source" href="test_runner.test.html">
-                  ./exercises/test_runner.test.js
-                </a>
-              
-                
-                <a class="source" href="../src/async_await.html">
-                  ./src/async_await.js
-                </a>
-              
-                
-                <a class="source" href="../src/callback.html">
-                  ./src/callback.js
-                </a>
-              
-                
-                <a class="source" href="../src/chained_api.html">
-                  ./src/chained_api.js
-                </a>
-              
-                
-                <a class="source" href="../src/classes.html">
-                  ./src/classes.js
-                </a>
-              
-                
-                <a class="source" href="../src/closure.html">
-                  ./src/closure.js
-                </a>
-              
-                
-                <a class="source" href="../src/constructor.html">
-                  ./src/constructor.js
-                </a>
-              
-                
-                <a class="source" href="../src/errors.html">
-                  ./src/errors.js
-                </a>
-              
-                
-                <a class="source" href="../src/event_loop.html">
-                  ./src/event_loop.js
-                </a>
-              
-                
-                <a class="source" href="../src/function_advanced.html">
-                  ./src/function_advanced.js
-                </a>
-              
-                
-                <a class="source" href="../src/function_basics.html">
-                  ./src/function_basics.js
-                </a>
-              
-                
-                <a class="source" href="../src/functional_methods.html">
-                  ./src/functional_methods.js
-                </a>
-              
-                
-                <a class="source" href="../src/mixin.html">
-                  ./src/mixin.js
-                </a>
-              
-                
-                <a class="source" href="../src/modules.html">
-                  ./src/modules.js
-                </a>
-              
-                
-                <a class="source" href="../src/objects_and_arrays.html">
-                  ./src/objects_and_arrays.js
-                </a>
-              
-                
-                <a class="source" href="../src/pass_by_reference_or_value.html">
-                  ./src/pass_by_reference_or_value.js
-                </a>
-              
-                
-                <a class="source" href="../src/philosophy.html">
-                  ./src/philosophy.js
-                </a>
-              
-                
-                <a class="source" href="../src/promises.html">
-                  ./src/promises.js
-                </a>
-              
-                
-                <a class="source" href="../src/prototypal_inheritance.html">
-                  ./src/prototypal_inheritance.js
-                </a>
-              
-                
-                <a class="source" href="../src/ramda.html">
-                  ./src/ramda.js
-                </a>
-              
-                
-                <a class="source" href="../src/rest_spread.html">
-                  ./src/rest_spread.js
-                </a>
-              
-                
-                <a class="source" href="../src/rxjs.html">
-                  ./src/rxjs.js
-                </a>
-              
-                
-                <a class="source" href="../src/this.html">
-                  ./src/this.js
-                </a>
-              
-                
-                <a class="source" href="../src/truthy_falsey.html">
-                  ./src/truthy_falsey.js
-                </a>
-              
-                
-                <a class="source" href="../src/types.html">
-                  ./src/types.js
-                </a>
-              
-                
-                <a class="source" href="../src/variables.html">
-                  ./src/variables.js
-                </a>
-              
-            </div>
-          </div>
-        </li>
-      </ul>
-    
     <ul class="sections">
         
           <li id="title">
@@ -243,11 +75,9 @@
             </div>
             
             <div class="content"><div class='highlight'><pre>
-xdescribe(<span class="hljs-string">'.toBeTruthy'</span>, () =&gt; {
-    test(<span class="hljs-string">'Will show true as equal to true'</span>, () =&gt; {
-        expect(
-            assert(<span class="hljs-literal">true</span>).toBeTruthy()
-        ).toEqual(<span class="hljs-literal">true</span>);</pre></div></div>
+describe(<span class="hljs-string">'.toBeTruthy'</span>, () =&gt; {
+  test(<span class="hljs-string">'Will show true as equal to true'</span>, () =&gt; {
+    expect(assert(<span class="hljs-literal">true</span>).toBeTruthy()).toEqual(<span class="hljs-literal">true</span>);</pre></div></div>
             
         </li>
         
@@ -262,9 +92,7 @@ xdescribe(<span class="hljs-string">'.toBeTruthy'</span>, () =&gt; {
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>        expect(
-            assert(<span class="hljs-string">""</span>).toBeTruthy()
-        ).not.toEqual(<span class="hljs-literal">true</span>);</pre></div></div>
+            <div class="content"><div class='highlight'><pre>    expect(assert(<span class="hljs-string">''</span>).toBeTruthy()).not.toEqual(<span class="hljs-literal">true</span>);</pre></div></div>
             
         </li>
         
@@ -279,9 +107,7 @@ xdescribe(<span class="hljs-string">'.toBeTruthy'</span>, () =&gt; {
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>        expect(
-            assert(<span class="hljs-string">"populated"</span>).toBeTruthy()
-        ).toEqual(<span class="hljs-literal">true</span>);</pre></div></div>
+            <div class="content"><div class='highlight'><pre>    expect(assert(<span class="hljs-string">'populated'</span>).toBeTruthy()).toEqual(<span class="hljs-literal">true</span>);</pre></div></div>
             
         </li>
         
@@ -296,9 +122,7 @@ xdescribe(<span class="hljs-string">'.toBeTruthy'</span>, () =&gt; {
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>        expect(
-            assert({}).toBeTruthy()
-        ).toEqual(<span class="hljs-literal">true</span>);</pre></div></div>
+            <div class="content"><div class='highlight'><pre>    expect(assert({}).toBeTruthy()).toEqual(<span class="hljs-literal">true</span>);</pre></div></div>
             
         </li>
         
@@ -313,126 +137,57 @@ xdescribe(<span class="hljs-string">'.toBeTruthy'</span>, () =&gt; {
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>        expect(
-            assert([]).toBeTruthy()
-        ).toEqual(<span class="hljs-literal">true</span>);
-    });
+            <div class="content"><div class='highlight'><pre>    expect(assert([]).toBeTruthy()).toEqual(<span class="hljs-literal">true</span>);
+  });
 });
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">assert</span>(<span class="hljs-params">first</span>) </span>{
-    <span class="hljs-keyword">return</span> {
-        <span class="hljs-attr">toBe</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">second</span>)</span>{
-            <span class="hljs-keyword">return</span> first === second
-        }
-    }
-};
-
-xdescribe(<span class="hljs-string">'.toBe'</span>, () =&gt; {
-    test(<span class="hljs-string">'Works for boolean'</span>, () =&gt; {
-        expect(
-            assert(<span class="hljs-literal">true</span>).toBe(<span class="hljs-literal">true</span>)
-        ).toEqual(<span class="hljs-literal">true</span>);
-        expect(
-            assert(<span class="hljs-literal">false</span>).toBe(<span class="hljs-literal">false</span>)
-        ).toEqual(<span class="hljs-literal">true</span>);
-    });
-    test(<span class="hljs-string">'Works for strings'</span>, () =&gt; {
-        <span class="hljs-keyword">const</span> stringReference = <span class="hljs-string">"testing"</span>;
-        expect(
-            assert(stringReference).toBe(stringReference)
-        ).toBe(<span class="hljs-literal">true</span>);
-    });
-    test(<span class="hljs-string">'Ensures that two references in memory are not the same'</span>, () =&gt; {
-        <span class="hljs-keyword">const</span> oneObject = {};
-        <span class="hljs-keyword">const</span> twoObject = {};
-        expect(
-            assert(oneObject).toBe(twoObject)
-        ).toBe(<span class="hljs-literal">false</span>);
-    });
-    test(<span class="hljs-string">'Ensures the same reference in memory is true'</span>, () =&gt; {
-        <span class="hljs-keyword">const</span> oneObject = {};
-        expect(
-            assert(oneObject).toBe(oneObject)
-        ).toBe(<span class="hljs-literal">true</span>);
-    });
+describe(<span class="hljs-string">'.toBe'</span>, () =&gt; {
+  test(<span class="hljs-string">'Works for boolean'</span>, () =&gt; {
+    expect(assert(<span class="hljs-literal">true</span>).toBe(<span class="hljs-literal">true</span>)).toEqual(<span class="hljs-literal">true</span>);
+    expect(assert(<span class="hljs-literal">false</span>).toBe(<span class="hljs-literal">false</span>)).toEqual(<span class="hljs-literal">true</span>);
+  });
+  test(<span class="hljs-string">'Works for strings'</span>, () =&gt; {
+    <span class="hljs-keyword">const</span> stringReference = <span class="hljs-string">'testing'</span>;
+    expect(assert(stringReference).toBe(stringReference)).toBe(<span class="hljs-literal">true</span>);
+  });
+  test(<span class="hljs-string">'Ensures that two references in memory are not the same'</span>, () =&gt; {
+    <span class="hljs-keyword">const</span> oneObject = {};
+    <span class="hljs-keyword">const</span> twoObject = {};
+    expect(assert(oneObject).toBe(twoObject)).toBe(<span class="hljs-literal">false</span>);
+  });
+  test(<span class="hljs-string">'Ensures the same reference in memory is true'</span>, () =&gt; {
+    <span class="hljs-keyword">const</span> oneObject = {};
+    expect(assert(oneObject).toBe(oneObject)).toBe(<span class="hljs-literal">true</span>);
+  });
 });
 
 describe(<span class="hljs-string">'.toEqual'</span>, () =&gt; {
-&lt;&lt;<span class="xml"><span class="hljs-tag">&lt;&lt;&lt;&lt;&lt; <span class="hljs-attr">HEAD</span>
-    <span class="hljs-attr">test</span>('<span class="hljs-attr">Different</span> <span class="hljs-attr">object</span> <span class="hljs-attr">with</span> <span class="hljs-attr">the</span> <span class="hljs-attr">same</span> <span class="hljs-attr">contents</span> <span class="hljs-attr">are</span> <span class="hljs-attr">equal</span>', () =&gt;</span> {
-        const objectOne = {adam: "Hello"}
-        const objectTwo = {adam: "Hello"};
-        expect(
-            assert(objectOne).toEqual(objectTwo)
-        ).toEqual(true);
-    });
-    test('Different object with different contents are not equal', () =&gt; {
-        const objectOne = {adam: "Hello"}
-        const objectTwo = {adam: "Hi"};
-        expect(
-            assert(objectOne).toEqual(objectTwo)
-=======
-    test('Will not show true as equal to true', () =&gt; {
-        const oneObject = {
-            name: "adam"
-        };
-        const twoObject = {
-            name: "adam"
-        };
-
-</span></pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-9">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-9">&#182;</a>
-              </div>
-              <p>Test that objects of the same structure are true</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>        expect(
-            assert(oneObject).toEqual(twoObject)
-        ).toEqual(<span class="hljs-literal">true</span>);
-
-        <span class="hljs-keyword">const</span> threeObject = {
-            <span class="hljs-attr">name</span>: <span class="hljs-string">"adam"</span>,
-            <span class="hljs-attr">age</span>: <span class="hljs-number">25</span>
-        }</pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-10">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-10">&#182;</a>
-              </div>
-              <p>Test that incorrect properties</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>        expect(
-            assert(oneObject).toBe(threeObject)
-&gt;&gt;&gt;&gt;&gt;&gt;&gt; updated promise exercises and the promise docs
-        ).toEqual(<span class="hljs-literal">false</span>);
-    });
+  test(<span class="hljs-string">'Different objects with the same contents are equal'</span>, () =&gt; {
+    <span class="hljs-keyword">const</span> objectOne = { <span class="hljs-attr">adam</span>: <span class="hljs-string">'Hello'</span> };
+    <span class="hljs-keyword">const</span> objectTwo = { <span class="hljs-attr">adam</span>: <span class="hljs-string">'Hello'</span> };
+    expect(assert(objectOne).toEqual(objectTwo)).toEqual(<span class="hljs-literal">true</span>);
+  });
+  test(<span class="hljs-string">'Different objects with different keys are not equal'</span>, () =&gt; {
+    <span class="hljs-keyword">const</span> objectOne = { <span class="hljs-attr">adam</span>: <span class="hljs-string">'Hello'</span> };
+    <span class="hljs-keyword">const</span> objectTwo = { <span class="hljs-attr">adam</span>: <span class="hljs-string">'Hello'</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">21</span> };
+    expect(assert(objectOne).toEqual(objectTwo)).toEqual(<span class="hljs-literal">false</span>);
+  });
+  test(<span class="hljs-string">'Different objects with same keys but different values are not equal'</span>, () =&gt; {
+    <span class="hljs-keyword">const</span> objectOne = { <span class="hljs-attr">adam</span>: <span class="hljs-string">'Hello'</span> };
+    <span class="hljs-keyword">const</span> objectTwo = { <span class="hljs-attr">adam</span>: <span class="hljs-string">'Hi'</span> };
+    expect(assert(objectOne).toEqual(objectTwo)).toEqual(<span class="hljs-literal">false</span>);
+  });
 });
 
-xdescribe(<span class="hljs-string">'.toThrow'</span>, () =&gt; {
-    test(<span class="hljs-string">'Will not show true as equal to true'</span>, () =&gt; {
-        expect(
-            assert(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> { <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>() }).toThrow()
-        ).toEqual(<span class="hljs-literal">true</span>);
-        expect(
-            assert(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> { }).toThrow()
-        ).toEqual(<span class="hljs-literal">false</span>);
-    });
+describe(<span class="hljs-string">'.toThrow'</span>, () =&gt; {
+  test(<span class="hljs-string">'Will not show true as equal to true'</span>, () =&gt; {
+    expect(
+      assert(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>();
+      }).toThrow()
+    ).toEqual(<span class="hljs-literal">true</span>);
+    expect(assert(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {}).toThrow()).toEqual(<span class="hljs-literal">false</span>);
+  });
 });</pre></div></div>
             
         </li>
