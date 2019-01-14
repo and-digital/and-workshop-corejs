@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest ./src/*test.js --watch",
     "docs": "./node_modules/.bin/docco ./src/*.js ./exercises/*.js",
-    "precommit": "lint-staged && npm run docs"
+    "precommit": "lint-staged"
   },
   "author": "",
   "license": "ISC",
@@ -21,7 +21,8 @@
   "lint-staged": {
     "*.js": [
       "prettier --write --single-quote",
-      "git add"
+      "git add",
+      "sh ./commitGeneratedDocPage.sh"
     ]
   },
   "devDependencies": {
