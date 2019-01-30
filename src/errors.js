@@ -111,11 +111,3 @@ try{
 // ## Summary
 // - Try to handle all unknown errors in your system
 // - Think about testing for unknwon errors
-
-// TODO: Async try/catch
-
-// TODO: How try/catch works for syncronous functions
-
-// TODO: Error object structure
-
-// TODO: Handling async errors (show the examples)

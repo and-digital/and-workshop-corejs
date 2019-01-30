@@ -227,9 +227,9 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-3">&#182;</a>
               </div>
-              <h2 id="implement-pick">Implement .pick</h2>
+              <h2 id="implement-memoize">Implement .memoize</h2>
 <p>Should pick a property from an object
-(<a href="https://lodash.com/docs/4.17.10#pick">https://lodash.com/docs/4.17.10#pick</a>)</p>
+(<a href="https://lodash.com/docs/4.17.10#memoize">https://lodash.com/docs/4.17.10#memoize</a>)</p>
 
             </div>
             
@@ -242,9 +242,10 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-4">&#182;</a>
               </div>
-              <h2 id="implement-partialright">Implement .partialRight</h2>
-<p>Should apply the arguments to the right of the original function
-(<a href="https://lodash.com/docs/4.17.10#partialRight">https://lodash.com/docs/4.17.10#partialRight</a>)</p>
+              <h2 id="implement-defaults">Implement .defaults</h2>
+<p>Takes two arguments, an original object and a set of defaults
+Returns the amalgamation of both
+(<a href="https://lodash.com/docs/4.17.10#defaults">https://lodash.com/docs/4.17.10#defaults</a>)</p>
 
             </div>
             
@@ -257,9 +258,9 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-5">&#182;</a>
               </div>
-              <h2 id="implement-memoize">Implement .memoize</h2>
-<p>Should pick a property from an object
-(<a href="https://lodash.com/docs/4.17.10#memoize">https://lodash.com/docs/4.17.10#memoize</a>)</p>
+              <h2 id="implement-throttle">Implement .throttle</h2>
+<p>Implement a throttle (that doesn’t queue, but drops if the previous throttle is running)
+(<a href="https://lodash.com/docs/4.17.10#throttle">https://lodash.com/docs/4.17.10#throttle</a>)</p>
 
             </div>
             
@@ -271,37 +272,6 @@
               
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-6">&#182;</a>
-              </div>
-              <h2 id="implement-defaults">Implement .defaults</h2>
-<p>Takes two arguments, an original object and a set of defaults
-Returns the amalgamation of both
-(<a href="https://lodash.com/docs/4.17.10#defaults">https://lodash.com/docs/4.17.10#defaults</a>)</p>
-
-            </div>
-            
-        </li>
-        
-        
-        <li id="section-7">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-7">&#182;</a>
-              </div>
-              <h2 id="implement-throttle">Implement .throttle</h2>
-<p>Implement a throttle (that doesn’t queue, but drops if the previous throttle is running)
-(<a href="https://lodash.com/docs/4.17.10#throttle">https://lodash.com/docs/4.17.10#throttle</a>)</p>
-
-            </div>
-            
-        </li>
-        
-        
-        <li id="section-8">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-8">&#182;</a>
               </div>
               <h2 id="implement-curry">Implement .curry</h2>
 <p>Implement a function that curries the function given to it
@@ -334,200 +304,44 @@ describe(<span class="hljs-string">'_.map'</span>, () =&gt; {
 
 describe(<span class="hljs-string">'_.reduce'</span>, () =&gt; {
 
-    test(<span class="hljs-string">'Reduces an array without a default'</span>, () =&gt; {</pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-9">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-9">&#182;</a>
-              </div>
-              <p>The default initial value of reduce is … 0</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>        <span class="hljs-keyword">const</span> result = _.reduce([{ <span class="hljs-attr">age</span>: <span class="hljs-number">12</span> }, { <span class="hljs-attr">age</span>: <span class="hljs-number">13</span> }], (prev, item) =&gt; { prev = prev + item.age; <span class="hljs-keyword">return</span> prev; });
+    test(<span class="hljs-string">'Reduces an array without a default'</span>, () =&gt; {
+        <span class="hljs-keyword">const</span> result = _.reduce([{ <span class="hljs-attr">age</span>: <span class="hljs-number">12</span> }, { <span class="hljs-attr">age</span>: <span class="hljs-number">13</span> }], (prev, item) =&gt; { prev = prev + item.age; <span class="hljs-keyword">return</span> prev; });
         expect(result).toEqual(<span class="hljs-number">25</span>);
     });
 
-    test(<span class="hljs-string">'Reduces an array, starting with 10'</span>, () =&gt; {</pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-10">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-10">&#182;</a>
-              </div>
-              <p>But, we can override the default</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>        <span class="hljs-keyword">const</span> result = _.reduce([{ <span class="hljs-attr">age</span>: <span class="hljs-number">12</span> }, { <span class="hljs-attr">age</span>: <span class="hljs-number">13</span> }], (prev, item) =&gt; { prev = prev + item.age; <span class="hljs-keyword">return</span> prev; }, <span class="hljs-number">10</span>);
+    test(<span class="hljs-string">'Reduces an array, starting with 10'</span>, () =&gt; {
+        <span class="hljs-keyword">const</span> result = _.reduce([{ <span class="hljs-attr">age</span>: <span class="hljs-number">12</span> }, { <span class="hljs-attr">age</span>: <span class="hljs-number">13</span> }], (prev, item) =&gt; { prev = prev + item.age; <span class="hljs-keyword">return</span> prev; }, <span class="hljs-number">10</span>);
         expect(result).toEqual(<span class="hljs-number">35</span>);
     });
 
     test(<span class="hljs-string">'Does not mutate original array'</span>, () =&gt; {
         <span class="hljs-keyword">const</span> original = [{ <span class="hljs-attr">age</span>: <span class="hljs-number">12</span> }, { <span class="hljs-attr">age</span>: <span class="hljs-number">13</span> }];
         <span class="hljs-keyword">const</span> start = <span class="hljs-number">0</span>;
-        <span class="hljs-keyword">const</span> result = _.reduce(original, (prev, item) =&gt; { prev = prev + item.age; <span class="hljs-keyword">return</span> prev; }, start);</pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-11">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-11">&#182;</a>
-              </div>
-              <p>And, as always, reduce should be non-mutating</p>
+        <span class="hljs-keyword">const</span> result = _.reduce(original, (prev, item) =&gt; { prev = prev + item.age; <span class="hljs-keyword">return</span> prev; }, start);
 
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>        expect(original).toEqual([{ <span class="hljs-attr">age</span>: <span class="hljs-number">12</span> }, { <span class="hljs-attr">age</span>: <span class="hljs-number">13</span> }]);
+        expect(original).toEqual([{ <span class="hljs-attr">age</span>: <span class="hljs-number">12</span> }, { <span class="hljs-attr">age</span>: <span class="hljs-number">13</span> }]);
         expect(result).toEqual(<span class="hljs-number">25</span>);
         expect(start).toEqual(<span class="hljs-number">0</span>);
     });
 });
 
-describe(<span class="hljs-string">'_.pick'</span>, () =&gt; {
-    test(<span class="hljs-string">'Can pick from a mapped array'</span>, () =&gt; {
-        expect(</pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-12">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-12">&#182;</a>
-              </div>
-              <p>Now, we’ll remove our callback logic, in favour of a generic pick method</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>            _.map([{ <span class="hljs-attr">name</span>: <span class="hljs-string">'Lou'</span> }], (person) =&gt; _.pick(person, <span class="hljs-string">'name'</span>))
-
-        ).toEqual(
-            [<span class="hljs-string">'Lou'</span>]
-        );
-    });
-});
-
-describe(<span class="hljs-string">'_.partialRight'</span>, () =&gt; {
-    test(<span class="hljs-string">'Can partially apply to the right of a function'</span>, () =&gt; {
-        expect(</pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-13">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-13">&#182;</a>
-              </div>
-              <p>Now, we’ll remove our anonymous function completely</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>            _.map([{ <span class="hljs-attr">name</span>: <span class="hljs-string">'Lou'</span> }], _.partialRight(_.pick, <span class="hljs-string">'name'</span>))
-
-        ).toEqual(
-            [<span class="hljs-string">'Lou'</span>]
-        );
-    });
-});
-
 describe(<span class="hljs-string">'_.memoize'</span>, () =&gt; {
-    test(<span class="hljs-string">'Returns correct result, twice'</span>, () =&gt; {</pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-14">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-14">&#182;</a>
-              </div>
-              <p>Store this as an object, so that jest can mock it</p>
+    test(<span class="hljs-string">'Returns correct result, twice'</span>, () =&gt; {
 
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>        <span class="hljs-keyword">const</span> testObject = {
+        <span class="hljs-keyword">const</span> testObject = {
             <span class="hljs-attr">add</span>: <span class="hljs-function">(<span class="hljs-params">first, second</span>) =&gt;</span> first + second
-        };</pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-15">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-15">&#182;</a>
-              </div>
-              <p>Now intercept the function with a spy, so we can check how often it’s called</p>
+        };
 
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>        <span class="hljs-keyword">const</span> spy = jest.spyOn(testObject, <span class="hljs-string">'add'</span>);
-        <span class="hljs-keyword">const</span> memoizedFunction = _.memoize(spy);</pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-16">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-16">&#182;</a>
-              </div>
-              <p>This is the first call of the function, so the mock <em>will</em> be called.</p>
+        <span class="hljs-keyword">const</span> spy = jest.spyOn(testObject, <span class="hljs-string">'add'</span>);
+        <span class="hljs-keyword">const</span> memoizedFunction = _.memoize(spy);
 
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>        expect(memoizedFunction(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>)).toEqual(<span class="hljs-number">4</span>);
-        expect(spy).toHaveBeenCalledTimes(<span class="hljs-number">1</span>);</pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-17">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-17">&#182;</a>
-              </div>
-              <p>We expect it to be the same result, but this time, it’ll be from cache.</p>
+        expect(memoizedFunction(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>)).toEqual(<span class="hljs-number">4</span>);
+        expect(spy).toHaveBeenCalledTimes(<span class="hljs-number">1</span>);
 
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>        expect(memoizedFunction(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>)).toEqual(<span class="hljs-number">4</span>);
-        expect(spy).toHaveBeenCalledTimes(<span class="hljs-number">1</span>);</pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-18">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-18">&#182;</a>
-              </div>
-              <p>It won’t be called twice, now that it’s memoized.</p>
+        expect(memoizedFunction(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>)).toEqual(<span class="hljs-number">4</span>);
+        expect(spy).toHaveBeenCalledTimes(<span class="hljs-number">1</span>);
 
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>        expect(spy).not.toHaveBeenCalledTimes(<span class="hljs-number">2</span>);
+        expect(spy).not.toHaveBeenCalledTimes(<span class="hljs-number">2</span>);
     });
 });
 
@@ -550,54 +364,15 @@ describe(<span class="hljs-string">'_.defaults'</span>, () =&gt; {
 describe(<span class="hljs-string">'_.throttle'</span>, () =&gt; {
     test(<span class="hljs-string">'Returns correct result, twice'</span>, (done) =&gt; {
         <span class="hljs-keyword">const</span> click = jest.fn().mockReturnValue(<span class="hljs-number">3</span>);
-        <span class="hljs-keyword">const</span> throttledClick = _.throttle(click, <span class="hljs-number">100</span>);</pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-19">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-19">&#182;</a>
-              </div>
-              <p>If we run the throttle, it should return and the mock is called</p>
+        <span class="hljs-keyword">const</span> throttledClick = _.throttle(click, <span class="hljs-number">100</span>);
+    
+        expect(throttledClick()).toBe(<span class="hljs-number">3</span>);
+        expect(click).toHaveBeenCalledTimes(<span class="hljs-number">1</span>);
 
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>        expect(throttledClick()).toBe(<span class="hljs-number">3</span>);
-        expect(click).toHaveBeenCalledTimes(<span class="hljs-number">1</span>);</pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-20">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-20">&#182;</a>
-              </div>
-              <p>Function won’t be called, so we won’t compute and the return is undefined</p>
+        expect(throttledClick()).toBe(<span class="hljs-literal">undefined</span>);
+        expect(click).toHaveBeenCalledTimes(<span class="hljs-number">1</span>);
 
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>        expect(throttledClick()).toBe(<span class="hljs-literal">undefined</span>);
-        expect(click).toHaveBeenCalledTimes(<span class="hljs-number">1</span>);</pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-21">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-21">&#182;</a>
-              </div>
-              <p>If we want and call again in the future, it should work</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>        setTimeout(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+        setTimeout(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
             expect(throttledClick()).toBe(<span class="hljs-number">3</span>);
             expect(click).toHaveBeenCalledTimes(<span class="hljs-number">2</span>);
             done();
@@ -606,155 +381,38 @@ describe(<span class="hljs-string">'_.throttle'</span>, () =&gt; {
 });
 
 describe(<span class="hljs-string">'_.curry'</span>, () =&gt; {
-    test(<span class="hljs-string">'Currys a one argument function'</span>, () =&gt; {</pre></div></div>
-            
-        </li>
+    test(<span class="hljs-string">'Currys a one argument function'</span>, () =&gt; {
         
-        
-        <li id="section-22">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-22">&#182;</a>
-              </div>
-              <p>Setup the test</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>        <span class="hljs-keyword">const</span> inner = jest.fn();
+        <span class="hljs-keyword">const</span> inner = jest.fn();
         <span class="hljs-keyword">const</span> outer = <span class="hljs-function">(<span class="hljs-params">a</span>) =&gt;</span> inner(a);
-        <span class="hljs-keyword">const</span> curriedFunction = _.curry(outer);</pre></div></div>
-            
-        </li>
+        <span class="hljs-keyword">const</span> curriedFunction = _.curry(outer);
         
+        <span class="hljs-keyword">const</span> appliedCurriedFunction = curriedFunction(<span class="hljs-string">'first'</span>);
         
-        <li id="section-23">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-23">&#182;</a>
-              </div>
-              <p>Partially apply the first argument</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>        <span class="hljs-keyword">const</span> appliedCurriedFunction = curriedFunction(<span class="hljs-string">'first'</span>);</pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-24">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-24">&#182;</a>
-              </div>
-              <p>Call the function</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>        expect(inner).toHaveBeenCalledWith(<span class="hljs-string">'first'</span>)
+        expect(inner).toHaveBeenCalledWith(<span class="hljs-string">'first'</span>)
         
     });
-    test(<span class="hljs-string">'Currys a two argument function'</span>, () =&gt; {</pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-25">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-25">&#182;</a>
-              </div>
-              <p>Setup the test</p>
+    test(<span class="hljs-string">'Currys a two argument function'</span>, () =&gt; {
 
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>        <span class="hljs-keyword">const</span> inner = jest.fn();
+        <span class="hljs-keyword">const</span> inner = jest.fn();
         <span class="hljs-keyword">const</span> outer = <span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> inner(a, b);
-        <span class="hljs-keyword">const</span> curriedFunction = _.curry(outer);</pre></div></div>
-            
-        </li>
+        <span class="hljs-keyword">const</span> curriedFunction = _.curry(outer);
         
+        <span class="hljs-keyword">const</span> appliedCurriedFunction = curriedFunction(<span class="hljs-string">'first'</span>)(<span class="hljs-string">'second'</span>);
         
-        <li id="section-26">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-26">&#182;</a>
-              </div>
-              <p>Partially apply the two arguments separately</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>        <span class="hljs-keyword">const</span> appliedCurriedFunction = curriedFunction(<span class="hljs-string">'first'</span>)(<span class="hljs-string">'second'</span>);</pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-27">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-27">&#182;</a>
-              </div>
-              <p>Call the function</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>        expect(inner).toHaveBeenCalledWith(<span class="hljs-string">'first'</span>, <span class="hljs-string">'second'</span>)
+        expect(inner).toHaveBeenCalledWith(<span class="hljs-string">'first'</span>, <span class="hljs-string">'second'</span>)
         
     });
 
-    test(<span class="hljs-string">'Takes two arguments at once'</span>, () =&gt; {</pre></div></div>
-            
-        </li>
+    test(<span class="hljs-string">'Takes two arguments at once'</span>, () =&gt; {
         
-        
-        <li id="section-28">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-28">&#182;</a>
-              </div>
-              <p>Setup the test</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>        <span class="hljs-keyword">const</span> inner = jest.fn();
+        <span class="hljs-keyword">const</span> inner = jest.fn();
         <span class="hljs-keyword">const</span> outer = <span class="hljs-function">(<span class="hljs-params">a, b, c</span>) =&gt;</span> inner(a, b, c);
-        <span class="hljs-keyword">const</span> curriedFunction = _.curry(outer);</pre></div></div>
-            
-        </li>
+        <span class="hljs-keyword">const</span> curriedFunction = _.curry(outer);
         
+        <span class="hljs-keyword">const</span> appliedCurriedFunction = curriedFunction(<span class="hljs-string">'first'</span>)(<span class="hljs-string">'second'</span>, <span class="hljs-string">'third'</span>);
         
-        <li id="section-29">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-29">&#182;</a>
-              </div>
-              <p>Partially apply the first argument</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>        <span class="hljs-keyword">const</span> appliedCurriedFunction = curriedFunction(<span class="hljs-string">'first'</span>)(<span class="hljs-string">'second'</span>, <span class="hljs-string">'third'</span>);</pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-30">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-30">&#182;</a>
-              </div>
-              <p>Call the function</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>        expect(inner).toHaveBeenCalledWith(<span class="hljs-string">'first'</span>, <span class="hljs-string">'second'</span>, <span class="hljs-string">'third'</span>);
+        expect(inner).toHaveBeenCalledWith(<span class="hljs-string">'first'</span>, <span class="hljs-string">'second'</span>, <span class="hljs-string">'third'</span>);
         
     });
 });</pre></div></div>

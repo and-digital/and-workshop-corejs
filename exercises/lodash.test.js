@@ -8,14 +8,6 @@
 // **Bonus Point:** Do this whilst _using reduce_
 // (https://lodash.com/docs/4.17.10#map)
 
-// ## Implement .pick
-// Should pick a property from an object
-// (https://lodash.com/docs/4.17.10#pick)
-
-// ## Implement .partialRight
-// Should apply the arguments to the right of the original function
-// (https://lodash.com/docs/4.17.10#partialRight)
-
 // ## Implement .memoize
 // Should pick a property from an object
 // (https://lodash.com/docs/4.17.10#memoize)
@@ -58,15 +50,11 @@ describe('_.map', () => {
 describe('_.reduce', () => {
 
     test('Reduces an array without a default', () => {
-
-        // The default initial value of reduce is ... 0
         const result = _.reduce([{ age: 12 }, { age: 13 }], (prev, item) => { prev = prev + item.age; return prev; });
         expect(result).toEqual(25);
     });
 
     test('Reduces an array, starting with 10', () => {
-
-        // But, we can override the default
         const result = _.reduce([{ age: 12 }, { age: 13 }], (prev, item) => { prev = prev + item.age; return prev; }, 10);
         expect(result).toEqual(35);
     });
@@ -76,60 +64,28 @@ describe('_.reduce', () => {
         const start = 0;
         const result = _.reduce(original, (prev, item) => { prev = prev + item.age; return prev; }, start);
 
-        // And, as always, reduce should be non-mutating
         expect(original).toEqual([{ age: 12 }, { age: 13 }]);
         expect(result).toEqual(25);
         expect(start).toEqual(0);
     });
 });
 
-describe('_.pick', () => {
-    test('Can pick from a mapped array', () => {
-        expect(
-
-            // Now, we'll remove our callback logic, in favour of a generic pick method
-            _.map([{ name: 'Lou' }], (person) => _.pick(person, 'name'))
-
-        ).toEqual(
-            ['Lou']
-        );
-    });
-});
-
-describe('_.partialRight', () => {
-    test('Can partially apply to the right of a function', () => {
-        expect(
-
-            // Now, we'll remove our anonymous function completely
-            _.map([{ name: 'Lou' }], _.partialRight(_.pick, 'name'))
-
-        ).toEqual(
-            ['Lou']
-        );
-    });
-});
-
 describe('_.memoize', () => {
     test('Returns correct result, twice', () => {
 
-        // Store this as an object, so that jest can mock it
         const testObject = {
             add: (first, second) => first + second
         };
 
-        // Now intercept the function with a spy, so we can check how often it's called
         const spy = jest.spyOn(testObject, 'add');
         const memoizedFunction = _.memoize(spy);
 
-        // This is the first call of the function, so the mock _will_ be called.
         expect(memoizedFunction(2, 2)).toEqual(4);
         expect(spy).toHaveBeenCalledTimes(1);
 
-        // We expect it to be the same result, but this time, it'll be from cache.
         expect(memoizedFunction(2, 2)).toEqual(4);
         expect(spy).toHaveBeenCalledTimes(1);
 
-        // It won't be called twice, now that it's memoized.
         expect(spy).not.toHaveBeenCalledTimes(2);
     });
 });
@@ -155,15 +111,12 @@ describe('_.throttle', () => {
         const click = jest.fn().mockReturnValue(3);
         const throttledClick = _.throttle(click, 100);
     
-        // If we run the throttle, it should return and the mock is called
         expect(throttledClick()).toBe(3);
         expect(click).toHaveBeenCalledTimes(1);
 
-        // Function won't be called, so we won't compute and the return is undefined
         expect(throttledClick()).toBe(undefined);
         expect(click).toHaveBeenCalledTimes(1);
 
-        // If we want and call again in the future, it should work
         setTimeout(() => {
             expect(throttledClick()).toBe(3);
             expect(click).toHaveBeenCalledTimes(2);
@@ -175,44 +128,35 @@ describe('_.throttle', () => {
 describe('_.curry', () => {
     test('Currys a one argument function', () => {
         
-        // Setup the test
         const inner = jest.fn();
         const outer = (a) => inner(a);
         const curriedFunction = _.curry(outer);
         
-        // Partially apply the first argument
         const appliedCurriedFunction = curriedFunction('first');
         
-        // Call the function
         expect(inner).toHaveBeenCalledWith('first')
         
     });
     test('Currys a two argument function', () => {
 
-        // Setup the test
         const inner = jest.fn();
         const outer = (a, b) => inner(a, b);
         const curriedFunction = _.curry(outer);
         
-        // Partially apply the two arguments separately
         const appliedCurriedFunction = curriedFunction('first')('second');
         
-        // Call the function
         expect(inner).toHaveBeenCalledWith('first', 'second')
         
     });
 
     test('Takes two arguments at once', () => {
         
-        // Setup the test
         const inner = jest.fn();
         const outer = (a, b, c) => inner(a, b, c);
         const curriedFunction = _.curry(outer);
         
-        // Partially apply the first argument
         const appliedCurriedFunction = curriedFunction('first')('second', 'third');
         
-        // Call the function
         expect(inner).toHaveBeenCalledWith('first', 'second', 'third');
         
     });
