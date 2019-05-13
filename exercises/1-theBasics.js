@@ -23,19 +23,27 @@
 module.exports = function assert(actualValue) {
   return {
     toBeTruthy: () => {
-      return false;
+      return !!actualValue;
     },
     toBeUndefined: () => {
-      return false;
+      return typeof actualValue === "undefined";
     },
     toBeArray: () => {
-      return false;
+      return Array.isArray(actualValue);
     },
     toBe: (expectedValue) => {
-      return false;
+      return actualValue === expectedValue;
     },
     toThrow: () => {
-      return false;
+      let thrown = false;
+
+      try {
+        actualValue();
+      } catch (e) {
+        thrown = true;
+      }
+
+      return thrown;
     },
   };
 };
