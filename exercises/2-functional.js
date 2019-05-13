@@ -18,7 +18,28 @@
 
 // This is your lodash library. Add your own implementation for each method
 module.exports = {
-  reduce: (inputArray, callback, initialValue) => {},
-  map: (inputArray, callback) => {},
-  defaults: (inputObject, defaults) => {},
+  reduce: (inputArray, callback, initialValue) => {
+    let returnValue = initialValue !== undefined ? initialValue : inputArray[0];
+
+    for (let i = 0; i < inputArray.length; i++) {
+      returnValue = callback(returnValue, inputArray[i]);
+    }
+
+    return returnValue;
+  },
+  map: (inputArray, callback) => {
+    const returnArray = [];
+
+    for (let i = 0; i < inputArray.length; i++) {
+      returnArray.push(callback(inputArray[i]));
+    }
+
+    return returnArray;
+  },
+  defaults: (inputObject, defaults) => {
+    return {
+      ...defaults,
+      ...inputObject,
+    };
+  },
 };
