@@ -1,8 +1,10 @@
-//Implement a myFirstPromise function which returns a promise
+//## Part 1: A basic promise
+// Implement a `myFirstPromise` function which returns a promise
 //If its successful the response should be "Yay!"
 //If unsuccessful the response should be "Boo :("
 
-//Implement the function rainbowConverter which resolves  an array of colours
+//## Part 2: .Then
+//Implement the function `rainbowConverter` which resolves  an array of colours
 //Then loop over the colours, converting each colour from a string to an object
 //The object should contain a 'colour' key and an 'id' key which is its index in the array
 const colours = [
@@ -15,11 +17,12 @@ const colours = [
   'violet'
 ];
 
-//Implement the function caughtPromise which rejects with an error object
+//## Part 3: Caught Promises
+//Implement the function `caughtPromise` which rejects with an error object
 //containing the message 'The promise rejected'
 
-//Now do all of these again with async await. Call #1 myFirstAsyncAwait,
-//#2 asyncAwaitRainbowConverter, #3 caughtAsyncAwait
+//## Part 4: Do it all again... with async/await!
+//Implement `myFirstAsyncAwait`, `asyncAwaitRainbowConverter` and `caughtAsyncAwait`
 
 describe('myFirstPromise', () => {
   test('should return "Yay!" if the promise resolves', async () => {
