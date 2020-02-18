@@ -1,7 +1,6 @@
-
 // Async / Await is simply a different way of writing Promises
 
-// If you understand Promises, async/await is a walk in the park, so understand Promises _well_ first. 
+// If you understand Promises, async/await is a walk in the park, so understand Promises _well_ first.
 
 // ## Anatomy of async/await
 
@@ -16,120 +15,106 @@
 // For example...
 
 const exampleAsync = async () => {
-    const example = await facebook.getUser();
+  const example = await facebook.getUser();
 
-    return example;
+  return example;
 };
 
 // ## Converting Promises to async/await
 
 // Lets take the following example, implementing a 'facebook'-like module.
 
-// We want to get a user, then get their friends and photos asyncronously (at the same time) and amalgamate the results into a response as follows:
+// We want to get a user, then get their friends and photos asynchronously (at the same time) and amalgamate the results into a response as follows:
 
-// ```{ 
+// ```{
 //     name: 'Lou',​​​​​
 // ​​​​    ​friends: [ 'John', 'Sandra' ],​​​​​
 // ​​​​​    photos: [ 'family.jpeg', 'dog.jpeg' ]
 // }​​```​​​
 
 const facebook = {
+  getUser: id => {
+    return Promise.resolve({ name: 'Lou' });
+  },
 
-    getUser: (id) => {
-        return Promise.resolve({ name: "Lou" });
-    },
+  getFriends: id => {
+    return Promise.resolve(['John', 'Sandra']);
+  },
 
-    getFriends: (id) => {
-        return Promise.resolve([
-            'John',
-            'Sandra'
-        ]);
-    },
-
-    getPhotos: (name) => {
-        return Promise.resolve([
-            'family.jpeg',
-            'dog.jpeg'
-        ]);
-    }
-
+  getPhotos: name => {
+    return Promise.resolve(['family.jpeg', 'dog.jpeg']);
+  }
 };
 
 const PromiseImplementation = () => {
-    return facebook.getUser()
-        .then( (user) => {
-            return Promise.all([
-                facebook.getFriends(),
-                facebook.getPhotos()
-            ])
-            .then( ([ friends, photos ]) => ({
-                    ...user,
-                    friends, 
-                    photos
-                })
-            );
-        });
+  return facebook.getUser().then(user => {
+    return Promise.all([facebook.getFriends(), facebook.getPhotos()]).then(
+      ([friends, photos]) => ({
+        ...user,
+        friends,
+        photos
+      })
+    );
+  });
 };
 
-PromiseImplementation()
-    .then( (data) => {
-        console.log(data);
-    });
+PromiseImplementation().then(data => {
+  console.log(data);
+});
 
 // Let's re-write this as async/await
 
 const asyncAwaitImplementation = async () => {
-    const user = await facebook.getUser();
-    
-    const [ friends, photos ] = await Promise.all([
-        facebook.getFriends(),
-        facebook.getPhotos()
-    ]);
-    
-    return ({
-        ...user,
-        friends, 
-        photos
-    })
+  const user = await facebook.getUser();
+
+  const [friends, photos] = await Promise.all([
+    facebook.getFriends(),
+    facebook.getPhotos()
+  ]);
+
+  return {
+    ...user,
+    friends,
+    photos
+  };
 };
 
-asyncAwaitImplementation()
-    .then( (data) => {
-        console.log(data);
-    });
+asyncAwaitImplementation().then(data => {
+  console.log(data);
+});
 
 // ## async/await and try..catch
 
 // Let's first see what would happen if we don't handle the error...
 
 const exampleWithUnhandledError = async () => {
-    const user = await Promise.reject('Oh no, something went wrong');
-    return user;
+  const user = await Promise.reject('Oh no, something went wrong');
+  return user;
 };
 
 exampleWithUnhandledError()
-    .then( (data) => {
-        console.log(data);
-    })
-    .catch((e) => {
-        console.log(e);
-    })
+  .then(data => {
+    console.log(data);
+  })
+  .catch(e => {
+    console.log(e);
+  });
 
 // Then, lets see what happens if we do handle the error...
-    
+
 const exampleWithHandledError = async () => {
-    try {
-        const user = await Promise.reject('Oh no, something went wrong');
-    } catch(e) {
-        return null;
-    }
-    return user;
+  try {
+    const user = await Promise.reject('Oh no, something went wrong');
+  } catch (e) {
+    return null;
+  }
+  return user;
 };
 
 exampleWithHandledError()
-    .then( (data) => {
-        console.log(data);
-    })
-    .catch((e) => {
-        console.log(e);
-    })
+  .then(data => {
+    console.log(data);
+  })
+  .catch(e => {
+    console.log(e);
+  });

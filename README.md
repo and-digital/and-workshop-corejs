@@ -22,12 +22,11 @@ nodemon <file>
 
 * Each sub section should contain: 
     * Explanation file for the concept (Use Docco to go through the concept)
-    * Test javasript file (this if for the exercise)
+    * Test javascript file (this if for the exercise)
     * Answer file (answers to the questions)
     
 ## Feedback / Updates To Make (Backlog)
 
-- [ ] Ensure appropriate information about object / array equality vs string, booleans etc. 
-- [ ] Update closures example with Express implementation
-- [ ] Add exercises for each section (with explanation as tests)
-- [ ] Embed practices of test driven development into the content
+- [ ] Update closure real world example to use private methods/vars (etc secrets)
+- [ ] Update tests with better descriptions
+- [ ] Look at the order of functional programming sections - we use reduce before we introduce it

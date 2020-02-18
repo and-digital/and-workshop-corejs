@@ -1,4 +1,3 @@
-
 // ## Implement a node.js library wrapper for:
 
 // * Think about your SDK function signatures
@@ -18,19 +17,13 @@
 // Your SDK _could_ look something like...
 
 const getPosts = {
-    
-    getAllPostsCallback: () => {
-        
-    }, 
+  getAllPostsCallback: () => {},
 
-    getAllPostsPromise: () => {
-
-    }
-
+  getAllPostsPromise: () => {}
 };
 
 describe('Your SDK', () => {
-    test('works', () => {
-        expect(true).toBe(true);
-    })
+  test('works', () => {
+    expect(true).toBe(true);
+  });
 });
