@@ -20,158 +20,108 @@
             <div id="jump_page">
               
                 
-                <a class="source" href="../exercises/advanced_async.test.html">
-                  ./exercises/advanced_async.test.js
-                </a>
-              
-                
-                <a class="source" href="../exercises/implement_patterns.test.html">
-                  ./exercises/implement_patterns.test.js
-                </a>
-              
-                
-                <a class="source" href="../exercises/lodash.test.html">
-                  ./exercises/lodash.test.js
-                </a>
-              
-                
-                <a class="source" href="../exercises/objectoriented.test.html">
-                  ./exercises/objectoriented.test.js
-                </a>
-              
-                
-                <a class="source" href="../exercises/promise.test.html">
-                  ./exercises/promise.test.js
-                </a>
-              
-                
-                <a class="source" href="../exercises/test_runner.test.html">
-                  ./exercises/test_runner.test.js
-                </a>
-              
-                
                 <a class="source" href="async_await.html">
-                  ./src/async_await.js
+                  src/async_await.js
                 </a>
               
                 
                 <a class="source" href="callback.html">
-                  ./src/callback.js
+                  src/callback.js
                 </a>
               
                 
                 <a class="source" href="chained_api.html">
-                  ./src/chained_api.js
+                  src/chained_api.js
                 </a>
               
                 
                 <a class="source" href="classes.html">
-                  ./src/classes.js
+                  src/classes.js
                 </a>
               
                 
                 <a class="source" href="closure.html">
-                  ./src/closure.js
+                  src/closure.js
                 </a>
               
                 
                 <a class="source" href="constructor.html">
-                  ./src/constructor.js
+                  src/constructor.js
                 </a>
               
                 
                 <a class="source" href="errors.html">
-                  ./src/errors.js
+                  src/errors.js
                 </a>
               
                 
                 <a class="source" href="event_loop.html">
-                  ./src/event_loop.js
+                  src/event_loop.js
                 </a>
               
                 
                 <a class="source" href="function_advanced.html">
-                  ./src/function_advanced.js
+                  src/function_advanced.js
                 </a>
               
                 
                 <a class="source" href="function_basics.html">
-                  ./src/function_basics.js
+                  src/function_basics.js
                 </a>
               
                 
                 <a class="source" href="functional_methods.html">
-                  ./src/functional_methods.js
-                </a>
-              
-                
-                <a class="source" href="mixin.html">
-                  ./src/mixin.js
+                  src/functional_methods.js
                 </a>
               
                 
                 <a class="source" href="modules.html">
-                  ./src/modules.js
+                  src/modules.js
                 </a>
               
                 
                 <a class="source" href="objects_and_arrays.html">
-                  ./src/objects_and_arrays.js
+                  src/objects_and_arrays.js
                 </a>
               
                 
                 <a class="source" href="pass_by_reference_or_value.html">
-                  ./src/pass_by_reference_or_value.js
-                </a>
-              
-                
-                <a class="source" href="philosophy.html">
-                  ./src/philosophy.js
+                  src/pass_by_reference_or_value.js
                 </a>
               
                 
                 <a class="source" href="promises.html">
-                  ./src/promises.js
+                  src/promises.js
                 </a>
               
                 
                 <a class="source" href="prototypal_inheritance.html">
-                  ./src/prototypal_inheritance.js
-                </a>
-              
-                
-                <a class="source" href="ramda.html">
-                  ./src/ramda.js
+                  src/prototypal_inheritance.js
                 </a>
               
                 
                 <a class="source" href="rest_spread.html">
-                  ./src/rest_spread.js
-                </a>
-              
-                
-                <a class="source" href="rxjs.html">
-                  ./src/rxjs.js
+                  src/rest_spread.js
                 </a>
               
                 
                 <a class="source" href="this.html">
-                  ./src/this.js
+                  src/this.js
                 </a>
               
                 
                 <a class="source" href="truthy_falsey.html">
-                  ./src/truthy_falsey.js
+                  src/truthy_falsey.js
                 </a>
               
                 
                 <a class="source" href="types.html">
-                  ./src/types.js
+                  src/types.js
                 </a>
               
                 
                 <a class="source" href="variables.html">
-                  ./src/variables.js
+                  src/variables.js
                 </a>
               
             </div>
@@ -327,10 +277,10 @@
             </div>
             
             <div class="content"><div class='highlight'><pre>
-(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">outer</span>(<span class="hljs-params"></span>)</span>{
+(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">outer</span>(<span class="hljs-params"></span>) </span>{
   <span class="hljs-keyword">var</span> a = <span class="hljs-number">1</span>;
-  
-  (<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">inner</span>(<span class="hljs-params"></span>)</span>{
+
+  (<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">inner</span>(<span class="hljs-params"></span>) </span>{
     <span class="hljs-keyword">var</span> a = <span class="hljs-number">2</span>;</pre></div></div>
             
         </li>
@@ -347,7 +297,7 @@
             </div>
             
             <div class="content"><div class='highlight'><pre>    <span class="hljs-built_in">console</span>.log(a);
-  })()</pre></div></div>
+  })();</pre></div></div>
             
         </li>
         
@@ -374,7 +324,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-13">&#182;</a>
               </div>
-              <p>As you can see, we’re not overwriting the outer variable. We have two, one in the inner function, one in the outer function. </p>
+              <p>As you can see, we’re not overwriting the outer variable. We have two, one in the inner function, one in the outer function.</p>
 
             </div>
             
@@ -425,7 +375,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-17">&#182;</a>
               </div>
-              <p>But what does that mean? </p>
+              <p>But what does that mean?</p>
 
             </div>
             
@@ -447,7 +397,7 @@
 <span class="hljs-keyword">let</span> let_variable = <span class="hljs-number">2</span>;
 <span class="hljs-keyword">const</span> const_variable = <span class="hljs-number">3</span>;
 
-<span class="hljs-keyword">if</span>(<span class="hljs-literal">true</span>) {
+<span class="hljs-keyword">if</span> (<span class="hljs-literal">true</span>) {
   <span class="hljs-keyword">var</span> var_variable = <span class="hljs-literal">true</span>;
   <span class="hljs-keyword">let</span> let_variable = <span class="hljs-literal">true</span>;
   <span class="hljs-keyword">const</span> const_variable = <span class="hljs-literal">true</span>;
@@ -516,7 +466,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-23">&#182;</a>
               </div>
-              <p>A <code>const</code> cannot. And if you attempt to… an error will be thrown. </p>
+              <p>A <code>const</code> cannot. And if you attempt to… an error will be thrown.</p>
 
             </div>
             
@@ -547,7 +497,7 @@
             </div>
             
             <div class="content"><div class='highlight'><pre>
-<span class="hljs-keyword">const</span> NAME = <span class="hljs-string">"Louis"</span>;
+<span class="hljs-keyword">const</span> NAME = <span class="hljs-string">'Louis'</span>;
 <span class="hljs-keyword">let</span> age = <span class="hljs-number">12</span>;</pre></div></div>
             
         </li>
@@ -580,8 +530,8 @@
             
             <div class="content"><div class='highlight'><pre><span class="hljs-keyword">try</span> {
   age = age + <span class="hljs-number">1</span>;
-  NAME = <span class="hljs-string">"woo"</span>;
-} <span class="hljs-keyword">catch</span>(e) {</pre></div></div>
+  NAME = <span class="hljs-string">'woo'</span>;
+} <span class="hljs-keyword">catch</span> (e) {</pre></div></div>
             
         </li>
         
@@ -623,7 +573,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-30">&#182;</a>
               </div>
-              <p>As you can see, <code>age</code> can be updated as it’s a <code>let</code> whereas <code>NAME</code> cannot as it’s a <code>const</code>. However, you <em>can</em> update the properties of an object or an array if it’s a const. </p>
+              <p>As you can see, <code>age</code> can be updated as it’s a <code>let</code> whereas <code>NAME</code> cannot as it’s a <code>const</code>. However, you <em>can</em> update the properties of an object or an array if it’s a const.</p>
 
             </div>
             
@@ -661,7 +611,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-33">&#182;</a>
               </div>
-              <p><strong>Example:</strong> Updating an object or an array. </p>
+              <p><strong>Example:</strong> Updating an object or an array.</p>
 
             </div>
             
@@ -677,7 +627,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-34">&#182;</a>
               </div>
-              <p>Let’s try pushing to the previously created array. </p>
+              <p>Let’s try pushing to the previously created array.</p>
 
             </div>
             
@@ -707,7 +657,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-36">&#182;</a>
               </div>
-              <p>How is this possible? Because a <code>const</code> says that the in memory reference cannot be changed, but the properties can. </p>
+              <p>How is this possible? Because a <code>const</code> says that the in memory reference cannot be changed, but the properties can.</p>
 
             </div>
             
@@ -720,7 +670,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-37">&#182;</a>
               </div>
-              <p>Note: This is similiar to how JS handles “pass by reference” and “pass by value”.</p>
+              <p>Note: This is similar to how JS handles “pass by reference” and “pass by value”.</p>
 
             </div>
             
@@ -751,8 +701,8 @@
             </div>
             
             <div class="content"><div class='highlight'><pre>
-(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">nameMyCat</span>(<span class="hljs-params"></span>)</span>{
-  cat = <span class="hljs-string">"Molly"</span>
+(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">nameMyCat</span>(<span class="hljs-params"></span>) </span>{
+  cat = <span class="hljs-string">'Molly'</span>;
 })();</pre></div></div>
             
         </li>
@@ -805,7 +755,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-43">&#182;</a>
               </div>
-              <p>In JavaScript there are no strict “naming standards”, however there are some conventions. </p>
+              <p>In JavaScript there are no strict “naming standards”, however there are some conventions.</p>
 
             </div>
             
@@ -835,7 +785,7 @@
 
             </div>
             
-            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">const</span> PERSON = <span class="hljs-string">"Mo"</span>;</pre></div></div>
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">const</span> PERSON = <span class="hljs-string">'Mo'</span>;</pre></div></div>
             
         </li>
         
@@ -846,7 +796,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-46">&#182;</a>
               </div>
-              <p>This just makes it easier to see when you cannot overwrite a value. </p>
+              <p>This just makes it easier to see when you cannot overwrite a value.</p>
 
             </div>
             
