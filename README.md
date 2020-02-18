@@ -22,7 +22,7 @@ nodemon <file>
 
 * Each sub section should contain: 
     * Explanation file for the concept (Use Docco to go through the concept)
-    * Test javasript file (this if for the exercise)
+    * Test javascript file (this if for the exercise)
     * Answer file (answers to the questions)
     
 ## Feedback / Updates To Make (Backlog)
