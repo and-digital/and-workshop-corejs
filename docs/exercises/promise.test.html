@@ -21,157 +21,32 @@
               
                 
                 <a class="source" href="advanced_async.test.html">
-                  ./exercises/advanced_async.test.js
+                  exercises/advanced_async.test.js
                 </a>
               
                 
                 <a class="source" href="implement_patterns.test.html">
-                  ./exercises/implement_patterns.test.js
+                  exercises/implement_patterns.test.js
                 </a>
               
                 
                 <a class="source" href="lodash.test.html">
-                  ./exercises/lodash.test.js
+                  exercises/lodash.test.js
                 </a>
               
                 
                 <a class="source" href="objectoriented.test.html">
-                  ./exercises/objectoriented.test.js
+                  exercises/objectoriented.test.js
                 </a>
               
                 
                 <a class="source" href="promise.test.html">
-                  ./exercises/promise.test.js
+                  exercises/promise.test.js
                 </a>
               
                 
                 <a class="source" href="test_runner.test.html">
-                  ./exercises/test_runner.test.js
-                </a>
-              
-                
-                <a class="source" href="../src/async_await.html">
-                  ./src/async_await.js
-                </a>
-              
-                
-                <a class="source" href="../src/callback.html">
-                  ./src/callback.js
-                </a>
-              
-                
-                <a class="source" href="../src/chained_api.html">
-                  ./src/chained_api.js
-                </a>
-              
-                
-                <a class="source" href="../src/classes.html">
-                  ./src/classes.js
-                </a>
-              
-                
-                <a class="source" href="../src/closure.html">
-                  ./src/closure.js
-                </a>
-              
-                
-                <a class="source" href="../src/constructor.html">
-                  ./src/constructor.js
-                </a>
-              
-                
-                <a class="source" href="../src/errors.html">
-                  ./src/errors.js
-                </a>
-              
-                
-                <a class="source" href="../src/event_loop.html">
-                  ./src/event_loop.js
-                </a>
-              
-                
-                <a class="source" href="../src/function_advanced.html">
-                  ./src/function_advanced.js
-                </a>
-              
-                
-                <a class="source" href="../src/function_basics.html">
-                  ./src/function_basics.js
-                </a>
-              
-                
-                <a class="source" href="../src/functional_methods.html">
-                  ./src/functional_methods.js
-                </a>
-              
-                
-                <a class="source" href="../src/mixin.html">
-                  ./src/mixin.js
-                </a>
-              
-                
-                <a class="source" href="../src/modules.html">
-                  ./src/modules.js
-                </a>
-              
-                
-                <a class="source" href="../src/objects_and_arrays.html">
-                  ./src/objects_and_arrays.js
-                </a>
-              
-                
-                <a class="source" href="../src/pass_by_reference_or_value.html">
-                  ./src/pass_by_reference_or_value.js
-                </a>
-              
-                
-                <a class="source" href="../src/philosophy.html">
-                  ./src/philosophy.js
-                </a>
-              
-                
-                <a class="source" href="../src/promises.html">
-                  ./src/promises.js
-                </a>
-              
-                
-                <a class="source" href="../src/prototypal_inheritance.html">
-                  ./src/prototypal_inheritance.js
-                </a>
-              
-                
-                <a class="source" href="../src/ramda.html">
-                  ./src/ramda.js
-                </a>
-              
-                
-                <a class="source" href="../src/rest_spread.html">
-                  ./src/rest_spread.js
-                </a>
-              
-                
-                <a class="source" href="../src/rxjs.html">
-                  ./src/rxjs.js
-                </a>
-              
-                
-                <a class="source" href="../src/this.html">
-                  ./src/this.js
-                </a>
-              
-                
-                <a class="source" href="../src/truthy_falsey.html">
-                  ./src/truthy_falsey.js
-                </a>
-              
-                
-                <a class="source" href="../src/types.html">
-                  ./src/types.js
-                </a>
-              
-                
-                <a class="source" href="../src/variables.html">
-                  ./src/variables.js
+                  exercises/test_runner.test.js
                 </a>
               
             </div>
@@ -195,8 +70,15 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-1">&#182;</a>
               </div>
-              
+              <p>Implement the following Promise constructor function</p>
+
             </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Promise</span>(<span class="hljs-params">callback</span>) </span>{
+  <span class="hljs-keyword">this</span>.successCallbacks = [];
+  <span class="hljs-keyword">this</span>.catchCallbacks = [];
+
+  <span class="hljs-keyword">this</span>.then = <span class="hljs-function"><span class="hljs-params">func</span> =&gt;</span> {</pre></div></div>
             
         </li>
         
@@ -207,16 +89,17 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-2">&#182;</a>
               </div>
-              <p>Implement the following Promise constructor function</p>
+              <h2 id="implement-then">Implement <code>then</code></h2>
+<p>This function registers a success callback</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Promise</span>(<span class="hljs-params">callback</span>) </span>{
+            <div class="content"><div class='highlight'><pre>
+    <span class="hljs-keyword">this</span>.successCallbacks = [...this.successCallbacks, func];
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+  };
 
-    <span class="hljs-keyword">this</span>.successCallbacks = [];
-    <span class="hljs-keyword">this</span>.catchCallbacks = [];
-    
-    <span class="hljs-keyword">this</span>.then = <span class="hljs-function">(<span class="hljs-params">func</span>) =&gt;</span> {</pre></div></div>
+  <span class="hljs-keyword">this</span>.catch = <span class="hljs-function"><span class="hljs-params">func</span> =&gt;</span> {</pre></div></div>
             
         </li>
         
@@ -227,18 +110,17 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-3">&#182;</a>
               </div>
-              <h2 id="implement-then">Implement <code>then</code></h2>
-<p>This function registers a success callback</p>
+              <h2 id="implement-catch">Implement <code>catch</code></h2>
+<p>This function registers an error callback</p>
 
             </div>
             
             <div class="content"><div class='highlight'><pre>
-        <span class="hljs-keyword">this</span>.successCallbacks = [...this.successCallbacks, func];
-        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
-    };
+    <span class="hljs-keyword">this</span>.catchCallbacks = [...this.catchCallbacks, func];
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+  };
 
-    
-    <span class="hljs-keyword">this</span>.catch = <span class="hljs-function">(<span class="hljs-params">func</span>) =&gt;</span> {</pre></div></div>
+  <span class="hljs-keyword">const</span> resolve = <span class="hljs-function"><span class="hljs-params">resolvedValue</span> =&gt;</span> {</pre></div></div>
             
         </li>
         
@@ -249,17 +131,20 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-4">&#182;</a>
               </div>
-              <h2 id="implement-catch">Implement <code>catch</code></h2>
-<p>This function registers an error callback</p>
+              <h2 id="implement-resolve">Implement <code>resolve</code></h2>
+<p>This method calls the most recent error callback</p>
 
             </div>
             
             <div class="content"><div class='highlight'><pre>
-        <span class="hljs-keyword">this</span>.catchCallbacks = [...this.catchCallbacks, func];
-        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
-    };
+    <span class="hljs-keyword">try</span> {
+      <span class="hljs-keyword">this</span>.successCallbacks.pop()(resolvedValue);
+    } <span class="hljs-keyword">catch</span> (e) {
+      <span class="hljs-keyword">this</span>.catchCallbacks.pop()(e);
+    }
+  };
 
-    <span class="hljs-keyword">const</span> resolve = <span class="hljs-function">(<span class="hljs-params">resolvedValue</span>) =&gt;</span> {</pre></div></div>
+  <span class="hljs-keyword">const</span> reject = <span class="hljs-function"><span class="hljs-params">message</span> =&gt;</span> {</pre></div></div>
             
         </li>
         
@@ -270,20 +155,19 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-5">&#182;</a>
               </div>
-              <h2 id="implement-resolve">Implement <code>resolve</code></h2>
+              <h2 id="implement-reject">Implement <code>reject</code></h2>
 <p>This method calls the most recent error callback</p>
 
             </div>
             
             <div class="content"><div class='highlight'><pre>
-        <span class="hljs-keyword">try</span> {
-            <span class="hljs-keyword">this</span>.successCallbacks.pop()(resolvedValue);
-        } <span class="hljs-keyword">catch</span> (e) {
-            <span class="hljs-keyword">this</span>.catchCallbacks.pop()(e);
-        }
-    };
-    
-    <span class="hljs-keyword">const</span> reject = <span class="hljs-function">(<span class="hljs-params">message</span>) =&gt;</span> {</pre></div></div>
+    <span class="hljs-keyword">this</span>.catchCallbacks.pop()(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(message));
+  };
+
+  callback(resolve, reject);
+
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+}</pre></div></div>
             
         </li>
         
@@ -294,19 +178,10 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-6">&#182;</a>
               </div>
-              <h2 id="implement-reject">Implement <code>reject</code></h2>
-<p>This method calls the most recent error callback</p>
+              <h2 id="implement-all">Implement <code>all</code></h2>
+<p>Remember, this is a “static” method so we can apply it to our function object</p>
 
             </div>
-            
-            <div class="content"><div class='highlight'><pre>
-        <span class="hljs-keyword">this</span>.catchCallbacks.pop()(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(message));
-    };
-
-    callback(resolve, reject);
-
-    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
-};</pre></div></div>
             
         </li>
         
@@ -317,108 +192,100 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-7">&#182;</a>
               </div>
-              <h2 id="implement-all">Implement <code>all</code></h2>
-<p>Remember, this is a “static” method so we can apply it to our function object</p>
+              <p><strong>Hint:</strong> Collect results of passed promises. Returning a new promise when you have all results (utilise closures)</p>
 
             </div>
             
-        </li>
-        
-        
-        <li id="section-8">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-8">&#182;</a>
-              </div>
-              <p><strong>Hint:</strong> Collect results of passed promises. Returnin a new promise when you have all results (utilise closures)</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">Promise</span>.all = <span class="hljs-function">(<span class="hljs-params">ps</span>) =&gt;</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">res</span>) =&gt;</span> {
+            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">Promise</span>.all = <span class="hljs-function"><span class="hljs-params">ps</span> =&gt;</span>
+  <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-params">res</span> =&gt;</span> {
     <span class="hljs-keyword">let</span> results = [];
-    ps.forEach(<span class="hljs-function">(<span class="hljs-params">p, i</span>) =&gt;</span> p.then(<span class="hljs-function"><span class="hljs-params">result</span> =&gt;</span> {
+    ps.forEach(<span class="hljs-function">(<span class="hljs-params">p, i</span>) =&gt;</span>
+      p.then(<span class="hljs-function"><span class="hljs-params">result</span> =&gt;</span> {
         results[i] = result;
         <span class="hljs-keyword">if</span> (results.length == ps.length) <span class="hljs-keyword">return</span> res(results);
-    }))
-});
+      })
+    );
+  });
 
 describe(<span class="hljs-string">'Promise'</span>, () =&gt; {
-    test(<span class="hljs-string">'.then gets passed the resolved value'</span>, (done) =&gt; {
-        <span class="hljs-keyword">const</span> resolveValue = <span class="hljs-string">"exampleResolvedValue"</span>;
-        <span class="hljs-keyword">const</span> fakePromise = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> {
-            setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-                resolve(resolveValue);
-            }, <span class="hljs-number">100</span>);
-        });
-        fakePromise().then(<span class="hljs-function">(<span class="hljs-params">thenPassedValue</span>) =&gt;</span> {
-            expect(thenPassedValue).toEqual(resolveValue);
-            done();
-        });
+  test(<span class="hljs-string">'.then gets passed the resolved value'</span>, done =&gt; {
+    <span class="hljs-keyword">const</span> resolveValue = <span class="hljs-string">'exampleResolvedValue'</span>;
+    <span class="hljs-keyword">const</span> fakePromise = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span>
+      <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> {
+        setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+          resolve(resolveValue);
+        }, <span class="hljs-number">100</span>);
+      });
+    fakePromise().then(<span class="hljs-function"><span class="hljs-params">thenPassedValue</span> =&gt;</span> {
+      expect(thenPassedValue).toEqual(resolveValue);
+      done();
     });
-    test(<span class="hljs-string">'.then can be chained as many times as needed'</span>, (done) =&gt; {
-        <span class="hljs-keyword">const</span> resolveValue = <span class="hljs-string">"exampleResolvedValue"</span>;
-        <span class="hljs-keyword">const</span> fakePromise = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> {
-            setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-                resolve(resolveValue);
-            }, <span class="hljs-number">100</span>);
-        });
-        fakePromise()
-            .then(<span class="hljs-function"><span class="hljs-params">intermediate</span> =&gt;</span> intermediate)
-            .then(<span class="hljs-function"><span class="hljs-params">intermediate</span> =&gt;</span> intermediate)
-            .then(<span class="hljs-function">(<span class="hljs-params">thenPassedValue</span>) =&gt;</span> {
-                expect(thenPassedValue).toEqual(resolveValue);
-                done();
-            });
+  });
+  test(<span class="hljs-string">'.then can be chained as many times as needed'</span>, done =&gt; {
+    <span class="hljs-keyword">const</span> resolveValue = <span class="hljs-string">'exampleResolvedValue'</span>;
+    <span class="hljs-keyword">const</span> fakePromise = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span>
+      <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> {
+        setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+          resolve(resolveValue);
+        }, <span class="hljs-number">100</span>);
+      });
+    fakePromise()
+      .then(<span class="hljs-function"><span class="hljs-params">intermediate</span> =&gt;</span> intermediate)
+      .then(<span class="hljs-function"><span class="hljs-params">intermediate</span> =&gt;</span> intermediate)
+      .then(<span class="hljs-function"><span class="hljs-params">thenPassedValue</span> =&gt;</span> {
+        expect(thenPassedValue).toEqual(resolveValue);
+        done();
+      });
+  });
+  test(<span class="hljs-string">'.catch catches an error in the original promise'</span>, done =&gt; {
+    <span class="hljs-keyword">const</span> fakePromise = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span>
+      <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> {
+        setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+          reject(<span class="hljs-string">'example error message'</span>);
+        }, <span class="hljs-number">100</span>);
+      });
+    fakePromise().catch(<span class="hljs-function"><span class="hljs-params">e</span> =&gt;</span> {
+      expect(e.message).toEqual(<span class="hljs-string">'example error message'</span>);
+      done();
     });
-    test(<span class="hljs-string">'.catch catches an error in the original promise'</span>, (done) =&gt; {
-        <span class="hljs-keyword">const</span> fakePromise = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> {
-            setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-                reject(<span class="hljs-string">'example error message'</span>);
-            }, <span class="hljs-number">100</span>);
-        });
-        fakePromise()
-            .catch(<span class="hljs-function">(<span class="hljs-params">e</span>) =&gt;</span> {
-                expect(e.message).toEqual(<span class="hljs-string">'example error message'</span>);
-                done();
-            });
-    });
-    test(<span class="hljs-string">'.catch catches an error when chained'</span>, (done) =&gt; {
-        <span class="hljs-keyword">const</span> fakePromise = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> {
-            setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-                resolve();
-            }, <span class="hljs-number">100</span>);
-        });
-        
-        fakePromise()
-            .then(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
-                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">'example error message'</span>);
-            })
-            .catch(<span class="hljs-function">(<span class="hljs-params">e</span>) =&gt;</span> {
-                expect(e.message).toEqual(<span class="hljs-string">'example error message'</span>);
-                done();
-            });
-    });
-    test(<span class="hljs-string">'.all resolves two promises successfully'</span>, (done) =&gt; {
+  });
+  test(<span class="hljs-string">'.catch catches an error when chained'</span>, done =&gt; {
+    <span class="hljs-keyword">const</span> fakePromise = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span>
+      <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> {
+        setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+          resolve();
+        }, <span class="hljs-number">100</span>);
+      });
 
-        <span class="hljs-keyword">const</span> fakePromiseOne = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> {
-            setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-                resolve(<span class="hljs-number">10</span>);
-            }, <span class="hljs-number">100</span>);
-        });
+    fakePromise()
+      .then(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">'example error message'</span>);
+      })
+      .catch(<span class="hljs-function"><span class="hljs-params">e</span> =&gt;</span> {
+        expect(e.message).toEqual(<span class="hljs-string">'example error message'</span>);
+        done();
+      });
+  });
+  test(<span class="hljs-string">'.all resolves two promises successfully'</span>, done =&gt; {
+    <span class="hljs-keyword">const</span> fakePromiseOne = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span>
+      <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> {
+        setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+          resolve(<span class="hljs-number">10</span>);
+        }, <span class="hljs-number">100</span>);
+      });
 
-        <span class="hljs-keyword">const</span> fakePromiseTwo = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> {
-            setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-                resolve(<span class="hljs-number">20</span>);
-            }, <span class="hljs-number">100</span>);
-        });
+    <span class="hljs-keyword">const</span> fakePromiseTwo = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span>
+      <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> {
+        setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+          resolve(<span class="hljs-number">20</span>);
+        }, <span class="hljs-number">100</span>);
+      });
 
-        <span class="hljs-built_in">Promise</span>.all([ fakePromiseOne(), fakePromiseTwo() ])
-            .then(<span class="hljs-function">(<span class="hljs-params">data</span>) =&gt;</span> {
-                expect(data).toEqual([<span class="hljs-number">10</span>, <span class="hljs-number">20</span>]);
-                done();
-            });
+    <span class="hljs-built_in">Promise</span>.all([fakePromiseOne(), fakePromiseTwo()]).then(<span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> {
+      expect(data).toEqual([<span class="hljs-number">10</span>, <span class="hljs-number">20</span>]);
+      done();
     });
+  });
 });</pre></div></div>
             
         </li>

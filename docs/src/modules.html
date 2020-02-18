@@ -20,158 +20,108 @@
             <div id="jump_page">
               
                 
-                <a class="source" href="../exercises/advanced_async.test.html">
-                  ./exercises/advanced_async.test.js
-                </a>
-              
-                
-                <a class="source" href="../exercises/implement_patterns.test.html">
-                  ./exercises/implement_patterns.test.js
-                </a>
-              
-                
-                <a class="source" href="../exercises/lodash.test.html">
-                  ./exercises/lodash.test.js
-                </a>
-              
-                
-                <a class="source" href="../exercises/objectoriented.test.html">
-                  ./exercises/objectoriented.test.js
-                </a>
-              
-                
-                <a class="source" href="../exercises/promise.test.html">
-                  ./exercises/promise.test.js
-                </a>
-              
-                
-                <a class="source" href="../exercises/test_runner.test.html">
-                  ./exercises/test_runner.test.js
-                </a>
-              
-                
                 <a class="source" href="async_await.html">
-                  ./src/async_await.js
+                  src/async_await.js
                 </a>
               
                 
                 <a class="source" href="callback.html">
-                  ./src/callback.js
+                  src/callback.js
                 </a>
               
                 
                 <a class="source" href="chained_api.html">
-                  ./src/chained_api.js
+                  src/chained_api.js
                 </a>
               
                 
                 <a class="source" href="classes.html">
-                  ./src/classes.js
+                  src/classes.js
                 </a>
               
                 
                 <a class="source" href="closure.html">
-                  ./src/closure.js
+                  src/closure.js
                 </a>
               
                 
                 <a class="source" href="constructor.html">
-                  ./src/constructor.js
+                  src/constructor.js
                 </a>
               
                 
                 <a class="source" href="errors.html">
-                  ./src/errors.js
+                  src/errors.js
                 </a>
               
                 
                 <a class="source" href="event_loop.html">
-                  ./src/event_loop.js
+                  src/event_loop.js
                 </a>
               
                 
                 <a class="source" href="function_advanced.html">
-                  ./src/function_advanced.js
+                  src/function_advanced.js
                 </a>
               
                 
                 <a class="source" href="function_basics.html">
-                  ./src/function_basics.js
+                  src/function_basics.js
                 </a>
               
                 
                 <a class="source" href="functional_methods.html">
-                  ./src/functional_methods.js
-                </a>
-              
-                
-                <a class="source" href="mixin.html">
-                  ./src/mixin.js
+                  src/functional_methods.js
                 </a>
               
                 
                 <a class="source" href="modules.html">
-                  ./src/modules.js
+                  src/modules.js
                 </a>
               
                 
                 <a class="source" href="objects_and_arrays.html">
-                  ./src/objects_and_arrays.js
+                  src/objects_and_arrays.js
                 </a>
               
                 
                 <a class="source" href="pass_by_reference_or_value.html">
-                  ./src/pass_by_reference_or_value.js
-                </a>
-              
-                
-                <a class="source" href="philosophy.html">
-                  ./src/philosophy.js
+                  src/pass_by_reference_or_value.js
                 </a>
               
                 
                 <a class="source" href="promises.html">
-                  ./src/promises.js
+                  src/promises.js
                 </a>
               
                 
                 <a class="source" href="prototypal_inheritance.html">
-                  ./src/prototypal_inheritance.js
-                </a>
-              
-                
-                <a class="source" href="ramda.html">
-                  ./src/ramda.js
+                  src/prototypal_inheritance.js
                 </a>
               
                 
                 <a class="source" href="rest_spread.html">
-                  ./src/rest_spread.js
-                </a>
-              
-                
-                <a class="source" href="rxjs.html">
-                  ./src/rxjs.js
+                  src/rest_spread.js
                 </a>
               
                 
                 <a class="source" href="this.html">
-                  ./src/this.js
+                  src/this.js
                 </a>
               
                 
                 <a class="source" href="truthy_falsey.html">
-                  ./src/truthy_falsey.js
+                  src/truthy_falsey.js
                 </a>
               
                 
                 <a class="source" href="types.html">
-                  ./src/types.js
+                  src/types.js
                 </a>
               
                 
                 <a class="source" href="variables.html">
-                  ./src/variables.js
+                  src/variables.js
                 </a>
               
             </div>
@@ -195,7 +145,8 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-1">&#182;</a>
               </div>
-              
+              <p>A module is simply a way of organizing code.</p>
+
             </div>
             
         </li>
@@ -207,7 +158,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-2">&#182;</a>
               </div>
-              <p>A module is simply a way of organising code. </p>
+              <p>You can utilise the module systems as native modules, node modules etc.</p>
 
             </div>
             
@@ -220,7 +171,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-3">&#182;</a>
               </div>
-              <p>You can utilise the module systems as native modules, node modules etc. </p>
+              <p>But you can also create them in your code as well</p>
 
             </div>
             
@@ -233,7 +184,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-4">&#182;</a>
               </div>
-              <p>But you can also create them in your code as well</p>
+              <h2 id="a-basic-module">A basic module</h2>
 
             </div>
             
@@ -246,9 +197,27 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-5">&#182;</a>
               </div>
-              <h2 id="a-basic-module">A basic module</h2>
+              <p>Is just an object with properties applied.</p>
 
             </div>
+            
+            <div class="content"><div class='highlight'><pre>
+<span class="hljs-keyword">const</span> databaseSeed = {
+  <span class="hljs-attr">init</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">query</span>) </span>{
+    <span class="hljs-keyword">const</span> patch = <span class="hljs-keyword">this</span>.getPatch();
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.runQuery(patch);
+  },
+
+  getPatch() {
+    <span class="hljs-keyword">return</span> <span class="hljs-string">'INSERT into USERS ...'</span>;
+  },
+
+  runQuery(query) {
+    <span class="hljs-keyword">return</span> <span class="hljs-string">`Running: <span class="hljs-subst">${query}</span>`</span>;
+  }
+};
+
+<span class="hljs-built_in">console</span>.log(databaseSeed.init());</pre></div></div>
             
         </li>
         
@@ -259,27 +228,9 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-6">&#182;</a>
               </div>
-              <p>Is just an object with properties applied.</p>
+              <h2 id="revealing-module-pattern">Revealing module pattern</h2>
 
             </div>
-            
-            <div class="content"><div class='highlight'><pre>
-<span class="hljs-keyword">const</span> databaseSeed = {
-    <span class="hljs-attr">init</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">query</span>) </span>{
-        <span class="hljs-keyword">const</span> patch = <span class="hljs-keyword">this</span>.getPatch();
-        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.runQuery(patch);
-    },
-
-    getPatch() {
-        <span class="hljs-keyword">return</span> <span class="hljs-string">"INSERT into USERS ..."</span>
-    },
-
-    runQuery(query) {
-        <span class="hljs-keyword">return</span> <span class="hljs-string">`Running: <span class="hljs-subst">${query}</span>`</span>
-    }
-};
-
-<span class="hljs-built_in">console</span>.log(databaseSeed.init());</pre></div></div>
             
         </li>
         
@@ -290,7 +241,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-7">&#182;</a>
               </div>
-              <h2 id="revealing-module-pattern">Revealing module pattern</h2>
+              <p>Reveals only certain methods, therefore creating pseudo-private methods inside the function closure.</p>
 
             </div>
             
@@ -303,7 +254,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-8">&#182;</a>
               </div>
-              <p>Reveals only certain methods, therefore creating pseudo-private methods inside the function closure.</p>
+              <p>This is a form of <em>abstraction</em> (An OOP concept).</p>
 
             </div>
             
@@ -316,9 +267,31 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-9">&#182;</a>
               </div>
-              <p>This is a form of <em>abstraction</em> (An OOP concept).</p>
+              <p>Discuss testing implications of private methods</p>
 
             </div>
+            
+            <div class="content"><div class='highlight'><pre>
+<span class="hljs-keyword">const</span> databasePatch = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">query</span>) </span>{
+  <span class="hljs-keyword">const</span> getPatch = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-string">'INSERT into USERS ...'</span>;
+  };
+
+  <span class="hljs-keyword">const</span> runQuery = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">query</span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-string">`Running: <span class="hljs-subst">${query}</span>`</span>;
+  };
+
+  <span class="hljs-keyword">const</span> init = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">const</span> patch = getPatch();
+    <span class="hljs-keyword">return</span> runQuery(patch);
+  };
+
+  <span class="hljs-keyword">return</span> {
+    init
+  };
+};
+
+<span class="hljs-built_in">console</span>.log(databasePatch().init());</pre></div></div>
             
         </li>
         
@@ -329,32 +302,9 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-10">&#182;</a>
               </div>
-              <p>Discuss testing implications of private methods</p>
+              <p>The advantages of revealing module is that you don’t have to reference the object directly</p>
 
             </div>
-            
-            <div class="content"><div class='highlight'><pre>
-<span class="hljs-keyword">const</span> databasePatch = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">query</span>) </span>{
-
-        <span class="hljs-keyword">const</span> getPatch = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-            <span class="hljs-keyword">return</span> <span class="hljs-string">"INSERT into USERS ..."</span>;
-        };
-    
-        <span class="hljs-keyword">const</span> runQuery = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">query</span>) </span>{
-            <span class="hljs-keyword">return</span> <span class="hljs-string">`Running: <span class="hljs-subst">${query}</span>`</span>;
-        };
-
-        <span class="hljs-keyword">const</span> init = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
-            <span class="hljs-keyword">const</span> patch = getPatch();
-            <span class="hljs-keyword">return</span> runQuery(patch);
-        };
-
-        <span class="hljs-keyword">return</span> {
-            init
-        };
-};
-
-<span class="hljs-built_in">console</span>.log(databasePatch().init());</pre></div></div>
             
         </li>
         
@@ -365,7 +315,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-11">&#182;</a>
               </div>
-              <p>The adavantages of revealing module is that you don’t have to reference the object directly</p>
+              <p>Instead you can invoke functions by name (or variable assignment)</p>
 
             </div>
             
@@ -377,19 +327,6 @@
               
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-12">&#182;</a>
-              </div>
-              <p>Instead you can invoke functions by name (or variable assignment)</p>
-
-            </div>
-            
-        </li>
-        
-        
-        <li id="section-13">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-13">&#182;</a>
               </div>
               <p>i.e. <code>runQuery</code> as opposed to <code>this.runQuery</code></p>
 

@@ -20,158 +20,108 @@
             <div id="jump_page">
               
                 
-                <a class="source" href="../exercises/advanced_async.test.html">
-                  ./exercises/advanced_async.test.js
-                </a>
-              
-                
-                <a class="source" href="../exercises/implement_patterns.test.html">
-                  ./exercises/implement_patterns.test.js
-                </a>
-              
-                
-                <a class="source" href="../exercises/lodash.test.html">
-                  ./exercises/lodash.test.js
-                </a>
-              
-                
-                <a class="source" href="../exercises/objectoriented.test.html">
-                  ./exercises/objectoriented.test.js
-                </a>
-              
-                
-                <a class="source" href="../exercises/promise.test.html">
-                  ./exercises/promise.test.js
-                </a>
-              
-                
-                <a class="source" href="../exercises/test_runner.test.html">
-                  ./exercises/test_runner.test.js
-                </a>
-              
-                
                 <a class="source" href="async_await.html">
-                  ./src/async_await.js
+                  src/async_await.js
                 </a>
               
                 
                 <a class="source" href="callback.html">
-                  ./src/callback.js
+                  src/callback.js
                 </a>
               
                 
                 <a class="source" href="chained_api.html">
-                  ./src/chained_api.js
+                  src/chained_api.js
                 </a>
               
                 
                 <a class="source" href="classes.html">
-                  ./src/classes.js
+                  src/classes.js
                 </a>
               
                 
                 <a class="source" href="closure.html">
-                  ./src/closure.js
+                  src/closure.js
                 </a>
               
                 
                 <a class="source" href="constructor.html">
-                  ./src/constructor.js
+                  src/constructor.js
                 </a>
               
                 
                 <a class="source" href="errors.html">
-                  ./src/errors.js
+                  src/errors.js
                 </a>
               
                 
                 <a class="source" href="event_loop.html">
-                  ./src/event_loop.js
+                  src/event_loop.js
                 </a>
               
                 
                 <a class="source" href="function_advanced.html">
-                  ./src/function_advanced.js
+                  src/function_advanced.js
                 </a>
               
                 
                 <a class="source" href="function_basics.html">
-                  ./src/function_basics.js
+                  src/function_basics.js
                 </a>
               
                 
                 <a class="source" href="functional_methods.html">
-                  ./src/functional_methods.js
-                </a>
-              
-                
-                <a class="source" href="mixin.html">
-                  ./src/mixin.js
+                  src/functional_methods.js
                 </a>
               
                 
                 <a class="source" href="modules.html">
-                  ./src/modules.js
+                  src/modules.js
                 </a>
               
                 
                 <a class="source" href="objects_and_arrays.html">
-                  ./src/objects_and_arrays.js
+                  src/objects_and_arrays.js
                 </a>
               
                 
                 <a class="source" href="pass_by_reference_or_value.html">
-                  ./src/pass_by_reference_or_value.js
-                </a>
-              
-                
-                <a class="source" href="philosophy.html">
-                  ./src/philosophy.js
+                  src/pass_by_reference_or_value.js
                 </a>
               
                 
                 <a class="source" href="promises.html">
-                  ./src/promises.js
+                  src/promises.js
                 </a>
               
                 
                 <a class="source" href="prototypal_inheritance.html">
-                  ./src/prototypal_inheritance.js
-                </a>
-              
-                
-                <a class="source" href="ramda.html">
-                  ./src/ramda.js
+                  src/prototypal_inheritance.js
                 </a>
               
                 
                 <a class="source" href="rest_spread.html">
-                  ./src/rest_spread.js
-                </a>
-              
-                
-                <a class="source" href="rxjs.html">
-                  ./src/rxjs.js
+                  src/rest_spread.js
                 </a>
               
                 
                 <a class="source" href="this.html">
-                  ./src/this.js
+                  src/this.js
                 </a>
               
                 
                 <a class="source" href="truthy_falsey.html">
-                  ./src/truthy_falsey.js
+                  src/truthy_falsey.js
                 </a>
               
                 
                 <a class="source" href="types.html">
-                  ./src/types.js
+                  src/types.js
                 </a>
               
                 
                 <a class="source" href="variables.html">
-                  ./src/variables.js
+                  src/variables.js
                 </a>
               
             </div>
@@ -195,7 +145,8 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-1">&#182;</a>
               </div>
-              
+              <h3 id="infinite-arguments">Infinite Arguments</h3>
+
             </div>
             
         </li>
@@ -207,7 +158,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-2">&#182;</a>
               </div>
-              <h3 id="infinite-arguments">Infinite Arguments</h3>
+              <p>The following function signature takes infinite arguments</p>
 
             </div>
             
@@ -220,9 +171,14 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-3">&#182;</a>
               </div>
-              <p>The following function signature takes infinite arguments</p>
+              <p>This can be useful if you don’t know how many arguments you are going to receive</p>
 
             </div>
+            
+            <div class="content"><div class='highlight'><pre>
+<span class="hljs-keyword">const</span> add = <span class="hljs-function">(<span class="hljs-params">...args</span>) =&gt;</span> {
+  <span class="hljs-keyword">return</span> args.reduce(<span class="hljs-function">(<span class="hljs-params">prev, curr</span>) =&gt;</span> prev + curr);
+};</pre></div></div>
             
         </li>
         
@@ -233,14 +189,13 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-4">&#182;</a>
               </div>
-              <p>This can be useful if you don’t know how many arguments you are going to recieve</p>
+              <p><strong>Note:</strong> Use this over the previous <code>arguments</code> property</p>
 
             </div>
             
             <div class="content"><div class='highlight'><pre>
-<span class="hljs-keyword">const</span> add = <span class="hljs-function">(<span class="hljs-params">...args</span>) =&gt;</span> {
-    <span class="hljs-keyword">return</span> args.reduce( <span class="hljs-function">(<span class="hljs-params">prev, curr</span>) =&gt;</span> prev + curr );
-};</pre></div></div>
+<span class="hljs-built_in">console</span>.log(add(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>));
+<span class="hljs-built_in">console</span>.log(add(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>));</pre></div></div>
             
         </li>
         
@@ -251,13 +206,9 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-5">&#182;</a>
               </div>
-              <p><strong>Note:</strong> Use this over the previous <code>arguments</code> property</p>
+              <h3 id="object-api-with-defaults-">Object API (With defaults)</h3>
 
             </div>
-            
-            <div class="content"><div class='highlight'><pre>
-<span class="hljs-built_in">console</span>.log(add(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>))
-<span class="hljs-built_in">console</span>.log(add(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>))</pre></div></div>
             
         </li>
         
@@ -268,9 +219,24 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-6">&#182;</a>
               </div>
-              <h3 id="object-api-with-defaults-">Object API (With defaults)</h3>
+              <p>This takes an object and extends the object with defaults</p>
 
             </div>
+            
+            <div class="content"><div class='highlight'><pre>
+<span class="hljs-keyword">const</span> setupToast = <span class="hljs-function"><span class="hljs-params">options</span> =&gt;</span> {
+  defaults = {
+    <span class="hljs-attr">time</span>: <span class="hljs-number">1000</span>,
+    <span class="hljs-attr">color</span>: <span class="hljs-string">'red'</span>
+  };
+
+  <span class="hljs-keyword">return</span> {
+    ...defaults,
+    ...options
+  };
+};
+
+<span class="hljs-built_in">console</span>.log(setupToast({ <span class="hljs-attr">time</span>: <span class="hljs-number">1000</span> }));</pre></div></div>
             
         </li>
         
@@ -281,24 +247,9 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-7">&#182;</a>
               </div>
-              <p>This takes an object and extends the object with defaults</p>
+              <h3 id="curried-functions">Curried functions</h3>
 
             </div>
-            
-            <div class="content"><div class='highlight'><pre>
-<span class="hljs-keyword">const</span> setupToast = <span class="hljs-function">(<span class="hljs-params">options</span>) =&gt;</span> {
-    defaults = {
-        <span class="hljs-attr">time</span>: <span class="hljs-number">1000</span>,
-        <span class="hljs-attr">color</span>: <span class="hljs-string">'red'</span>
-    }
-
-    <span class="hljs-keyword">return</span> {
-        ...defaults,
-        ...options
-    };
-};
-
-<span class="hljs-built_in">console</span>.log(setupToast({ <span class="hljs-attr">time</span>: <span class="hljs-number">1000</span> }))</pre></div></div>
             
         </li>
         
@@ -309,7 +260,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-8">&#182;</a>
               </div>
-              <h3 id="curried-functions">Curried functions</h3>
+              <p>A curried function is one that takes a function and returns a function</p>
 
             </div>
             
@@ -322,30 +273,17 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-9">&#182;</a>
               </div>
-              <p>A curried function is one that takes a function and returns a function</p>
-
-            </div>
-            
-        </li>
-        
-        
-        <li id="section-10">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-10">&#182;</a>
-              </div>
               <p>Currying breaks down the idea that all arguments of a function must be supplied at once, this makes for expressive code.</p>
 
             </div>
             
             <div class="content"><div class='highlight'><pre>
-<span class="hljs-keyword">const</span> prefix = <span class="hljs-function">(<span class="hljs-params">prefix</span>) =&gt;</span> (name) =&gt; <span class="hljs-string">`<span class="hljs-subst">${prefix}</span> <span class="hljs-subst">${name}</span>`</span>;
+<span class="hljs-keyword">const</span> prefix = <span class="hljs-function"><span class="hljs-params">prefix</span> =&gt;</span> name =&gt; <span class="hljs-string">`<span class="hljs-subst">${prefix}</span> <span class="hljs-subst">${name}</span>`</span>;
 
 <span class="hljs-keyword">const</span> mr = prefix(<span class="hljs-string">'Mr'</span>);
 <span class="hljs-keyword">const</span> mrs = prefix(<span class="hljs-string">'Mrs'</span>);
-<span class="hljs-built_in">console</span>.log(mr(<span class="hljs-string">'John Brooks'</span>))
-<span class="hljs-built_in">console</span>.log(mrs(<span class="hljs-string">'Sarah Baker'</span>))</pre></div></div>
+<span class="hljs-built_in">console</span>.log(mr(<span class="hljs-string">'John Brooks'</span>));
+<span class="hljs-built_in">console</span>.log(mrs(<span class="hljs-string">'Sarah Baker'</span>));</pre></div></div>
             
         </li>
         
