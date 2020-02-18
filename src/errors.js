@@ -31,7 +31,7 @@ try {
 
 try {
   const shallowThing = {};
-  const pick = shallowThing.onelayer.twolayers;
+  const pick = shallowThing.oneLayer.twoLayers;
 } catch (e) {
   console.log(e);
 }
@@ -39,7 +39,7 @@ try {
 // A common 'trick' is to use lazy evaluation to avoid computing the second property
 
 const shallowThing = {};
-const pick = !!(shallowThing.onelayer && shallowThing.onelayer.twolayers);
+const pick = !!(shallowThing.oneLayer && shallowThing.oneLayer.twoLayers);
 console.log(pick);
 
 // **Questions:**
@@ -71,7 +71,7 @@ try {
 
 // The throw keyword halts the current execution.
 
-// It then traverses up the call stack to the neareest try/catch block.
+// It then traverses up the call stack to the nearest try/catch block.
 
 // Throw, can take any argument, a string or a boolean, but it's typically used with an object (the inbuilt `Error` constructor).
 

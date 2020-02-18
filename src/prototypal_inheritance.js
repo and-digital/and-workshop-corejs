@@ -125,4 +125,4 @@ console.log('test'.toLowerCase());
 
 // That said, prototypes allow us to implement inheritance and therefore implement different design patterns
 
-// Design patterns appear not to be useful in small codebases, but they can make all the difference in larger ones (especially in libraries)
+// Design patterns appear not to be useful in small code bases, but they can make all the difference in larger ones (especially in libraries)

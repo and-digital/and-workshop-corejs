@@ -94,7 +94,7 @@ gitHubData.then(doSomething);
 
 // A consuming function _must_ have access to the Promise in order to understand when it is returned.
 
-// This is common to fail to recognize this when a function expects a promise, such as in a jest test.
+// This is common to fail to recognise this when a function expects a promise, such as in a jest test.
 
 // **Question:** Will the following work?
 

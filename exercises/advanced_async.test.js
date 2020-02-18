@@ -1,7 +1,7 @@
 // ## Implement a node.js library wrapper for:
 
 // * Think about your SDK function signatures
-// * Think about behaviors you want to expose from your SDK
+// * Think about behaviours you want to expose from your SDK
 // * Expose both promise based methods, and callback based methods
 // * Write tests for your implementation of your SDK
 // * Use async await where needed to improve your solution

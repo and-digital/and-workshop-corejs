@@ -10,10 +10,10 @@
 
 // The following is an example of a closure using the function keyword
 
-const add = function(a){
-    return function(b){
-        return a + b;
-    }
+const add = function(a) {
+  return function(b) {
+    return a + b;
+  };
 };
 
 const parent = add(1);
@@ -22,9 +22,9 @@ console.log(parent(2));
 
 // And this is the same(ish) function, but with fat arrow syntax
 
-const subtract = (a) => (b) => a - b;
+const subtract = a => b => a - b;
 
-console.log(subtract(10)(5))
+console.log(subtract(10)(5));
 
 // Okay, but this is a _little_ abstract, right?
 
@@ -39,18 +39,18 @@ console.log(subtract(10)(5))
 // The following is a small mock implementation of express (with some details omitted for simplicity)
 
 const express = {
-    routes: [],
-    use: (callback) => {
-        express.middlewares.push( callback );
-    },
-    get: (path, callback) => {
-        express.routes.push({ path, callback });
-    },
-    execute: (pathToMatch, body) => {
-        const req = { pathToMatch, body };
-        const path = express.routes.find( (routes) => routes.path === pathToMatch );
-        return path.callback(req);
-    }
+  routes: [],
+  use: callback => {
+    express.middlewares.push(callback);
+  },
+  get: (path, callback) => {
+    express.routes.push({ path, callback });
+  },
+  execute: (pathToMatch, body) => {
+    const req = { pathToMatch, body };
+    const path = express.routes.find(routes => routes.path === pathToMatch);
+    return path.callback(req);
+  }
 };
 
 // So, lets go ahead and implement an express endpoint...
@@ -59,24 +59,22 @@ const express = {
 
 // **Question:** What do you think could be improved in this code?
 
-express.get('/login', (req) => {
+express.get('/login', req => {
+  const allowedUsers = ['Tamar'];
 
-    const allowedUsers = ["Tamar"];
-
-    if(allowedUsers.includes(req.body.username)) {
-        return 'Awesome, youre in!';
-    } else {
-        return 'Get lost!';
-    }
-
+  if (allowedUsers.includes(req.body.username)) {
+    return "Awesome, you're in!";
+  } else {
+    return 'Get lost!';
+  }
 });
 
 console.log(
-    express.execute('/login', { username: "Tamar" }),
-    express.execute('/login', { username: "NotTamar" })
+  express.execute('/login', { username: 'Tamar' }),
+  express.execute('/login', { username: 'NotTamar' })
 );
 
-// **Answer:** 
+// **Answer:**
 // - If you ever want to move away from REST / HTTP, your login function is heavily coupled to express
 // - We're not abstracting away our login function
 
@@ -86,38 +84,38 @@ console.log(
 
 // This is advantageous as it would allow us to easily move away from HTTP as our server, and use some other service integration pattern.
 
-const login = (username) => {
+const login = username => {
+  const allowedUsers = ['Tamar'];
 
-    const allowedUsers = ["Tamar"];
-
-    if(allowedUsers.includes(username)) {
-        return 'Awesome, youre in!';
-    } else {
-        return 'Get lost!';
-    }
-
+  if (allowedUsers.includes(username)) {
+    return "Awesome, you're in!";
+  } else {
+    return 'Get lost!';
+  }
 };
 
 const createHTTPEndpoint = ({ businessLogic, inputMap }) => {
-    return (req) => {
-        const inputMapOutcome = inputMap(req);
-        return businessLogic(inputMapOutcome);
-    }
+  return req => {
+    const inputMapOutcome = inputMap(req);
+    return businessLogic(inputMapOutcome);
+  };
 };
 
-const inputMap = (req) => req.body.username;
+const inputMap = req => req.body.username;
 
-express.get('/login2', createHTTPEndpoint({ 
-    businessLogic: login, 
+express.get(
+  '/login2',
+  createHTTPEndpoint({
+    businessLogic: login,
     inputMap
-}));
+  })
+);
 
-const request1 = express.execute('/login2', { username: "Tamar" });
+const request1 = express.execute('/login2', { username: 'Tamar' });
 console.log(request1);
 
-const request2 = express.execute('/login2', { username: "NotTamar" });
+const request2 = express.execute('/login2', { username: 'NotTamar' });
 console.log(request2);
-
 
 // Now you can see our login function only takes username, it doesn't know about a request object (HTTP specific).
 
@@ -128,21 +126,21 @@ console.log(request2);
 // What will this return?
 
 const getFunctions = function() {
-    let funcs = [];
-   
-    for (var i = 0; i < 3; i++) {
-      funcs[i] = function() {
-        return `I am index ${i}!`;
-      };
-    }
-    return funcs;
-};
-   
-const funcs = getFunctions();
-console.log(funcs[0]())
-console.log(funcs[1]())
-console.log(funcs[2]())
+  let funcs = [];
 
-// Why does this happen? 
+  for (var i = 0; i < 3; i++) {
+    funcs[i] = function() {
+      return `I am index ${i}!`;
+    };
+  }
+  return funcs;
+};
+
+const funcs = getFunctions();
+console.log(funcs[0]());
+console.log(funcs[1]());
+console.log(funcs[2]());
+
+// Why does this happen?
 
 // Because a function stores it's closure when it's _created_
