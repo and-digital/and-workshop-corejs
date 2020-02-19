@@ -25,16 +25,6 @@
                 </a>
               
                 
-                <a class="source" href="callback.html">
-                  src/callback.js
-                </a>
-              
-                
-                <a class="source" href="chained_api.html">
-                  src/chained_api.js
-                </a>
-              
-                
                 <a class="source" href="classes.html">
                   src/classes.js
                 </a>
@@ -171,7 +161,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-3">&#182;</a>
               </div>
-              <h2 id="anatomy-of-async-await">Anatomy of async/await</h2>
+              <h2 id="anatomy-of-asyncawait">Anatomy of async/await</h2>
 
             </div>
             
@@ -242,10 +232,10 @@
             
             <div class="content"><div class='highlight'><pre>
 <span class="hljs-keyword">const</span> exampleAsync = <span class="hljs-keyword">async</span> () =&gt; {
-  <span class="hljs-keyword">const</span> example = <span class="hljs-keyword">await</span> facebook.getUser();
-
-  <span class="hljs-keyword">return</span> example;
-};</pre></div></div>
+    <span class="hljs-keyword">const</span> example = <span class="hljs-keyword">await</span> facebook.getUser();
+  
+    <span class="hljs-keyword">return</span> example;
+  };</pre></div></div>
             
         </li>
         
@@ -256,7 +246,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-9">&#182;</a>
               </div>
-              <h2 id="converting-promises-to-async-await">Converting Promises to async/await</h2>
+              <h2 id="converting-promises-to-asyncawait">Converting Promises to async/await</h2>
 
             </div>
             
@@ -295,44 +285,43 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-12">&#182;</a>
               </div>
-              <p><code>{
-    name: &#39;Lou&#39;,​​​​​
+              <pre><code class="language-{">    name: &#39;Lou&#39;,​​​​​
 ​​​​    ​friends: [ &#39;John&#39;, &#39;Sandra&#39; ],​​​​​
 ​​​​​    photos: [ &#39;family.jpeg&#39;, &#39;dog.jpeg&#39; ]
-}​​</code>​​​</p>
+}​​```​​​</code></pre>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>
-<span class="hljs-keyword">const</span> facebook = {
-  <span class="hljs-attr">getUser</span>: <span class="hljs-function"><span class="hljs-params">id</span> =&gt;</span> {
-    <span class="hljs-keyword">return</span> <span class="hljs-built_in">Promise</span>.resolve({ <span class="hljs-attr">name</span>: <span class="hljs-string">'Lou'</span> });
-  },
-
-  <span class="hljs-attr">getFriends</span>: <span class="hljs-function"><span class="hljs-params">id</span> =&gt;</span> {
-    <span class="hljs-keyword">return</span> <span class="hljs-built_in">Promise</span>.resolve([<span class="hljs-string">'John'</span>, <span class="hljs-string">'Sandra'</span>]);
-  },
-
-  <span class="hljs-attr">getPhotos</span>: <span class="hljs-function"><span class="hljs-params">name</span> =&gt;</span> {
-    <span class="hljs-keyword">return</span> <span class="hljs-built_in">Promise</span>.resolve([<span class="hljs-string">'family.jpeg'</span>, <span class="hljs-string">'dog.jpeg'</span>]);
-  }
-};
-
-<span class="hljs-keyword">const</span> PromiseImplementation = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
-  <span class="hljs-keyword">return</span> facebook.getUser().then(<span class="hljs-function"><span class="hljs-params">user</span> =&gt;</span> {
-    <span class="hljs-keyword">return</span> <span class="hljs-built_in">Promise</span>.all([facebook.getFriends(), facebook.getPhotos()]).then(
-      <span class="hljs-function">(<span class="hljs-params">[friends, photos]</span>) =&gt;</span> ({
-        ...user,
-        friends,
-        photos
-      })
-    );
-  });
-};
-
-PromiseImplementation().then(<span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> {
-  <span class="hljs-built_in">console</span>.log(data);
-});</pre></div></div>
+            <div class="content"><div class='highlight'><pre>  
+  <span class="hljs-keyword">const</span> facebook = {
+    <span class="hljs-attr">getUser</span>: <span class="hljs-function"><span class="hljs-params">id</span> =&gt;</span> {
+      <span class="hljs-keyword">return</span> <span class="hljs-built_in">Promise</span>.resolve({ <span class="hljs-attr">name</span>: <span class="hljs-string">'Lou'</span> });
+    },
+  
+    <span class="hljs-attr">getFriends</span>: <span class="hljs-function"><span class="hljs-params">id</span> =&gt;</span> {
+      <span class="hljs-keyword">return</span> <span class="hljs-built_in">Promise</span>.resolve([<span class="hljs-string">'John'</span>, <span class="hljs-string">'Sandra'</span>]);
+    },
+  
+    <span class="hljs-attr">getPhotos</span>: <span class="hljs-function"><span class="hljs-params">name</span> =&gt;</span> {
+      <span class="hljs-keyword">return</span> <span class="hljs-built_in">Promise</span>.resolve([<span class="hljs-string">'family.jpeg'</span>, <span class="hljs-string">'dog.jpeg'</span>]);
+    }
+  };
+  
+  <span class="hljs-keyword">const</span> PromiseImplementation = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    <span class="hljs-keyword">return</span> facebook.getUser().then(<span class="hljs-function"><span class="hljs-params">user</span> =&gt;</span> {
+      <span class="hljs-keyword">return</span> <span class="hljs-built_in">Promise</span>.all([facebook.getFriends(), facebook.getPhotos()]).then(
+        <span class="hljs-function">(<span class="hljs-params">[friends, photos]</span>) =&gt;</span> ({
+          ...user,
+          friends,
+          photos
+        })
+      );
+    });
+  };
+  
+  PromiseImplementation().then(<span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> {
+    <span class="hljs-built_in">console</span>.log(data);
+  });</pre></div></div>
             
         </li>
         
@@ -347,25 +336,25 @@ PromiseImplementation().then(<span class="hljs-function"><span class="hljs-param
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>
-<span class="hljs-keyword">const</span> asyncAwaitImplementation = <span class="hljs-keyword">async</span> () =&gt; {
-  <span class="hljs-keyword">const</span> user = <span class="hljs-keyword">await</span> facebook.getUser();
-
-  <span class="hljs-keyword">const</span> [friends, photos] = <span class="hljs-keyword">await</span> <span class="hljs-built_in">Promise</span>.all([
-    facebook.getFriends(),
-    facebook.getPhotos()
-  ]);
-
-  <span class="hljs-keyword">return</span> {
-    ...user,
-    friends,
-    photos
+            <div class="content"><div class='highlight'><pre>  
+  <span class="hljs-keyword">const</span> asyncAwaitImplementation = <span class="hljs-keyword">async</span> () =&gt; {
+    <span class="hljs-keyword">const</span> user = <span class="hljs-keyword">await</span> facebook.getUser();
+  
+    <span class="hljs-keyword">const</span> [friends, photos] = <span class="hljs-keyword">await</span> <span class="hljs-built_in">Promise</span>.all([
+      facebook.getFriends(),
+      facebook.getPhotos()
+    ]);
+  
+    <span class="hljs-keyword">return</span> {
+      ...user,
+      friends,
+      photos
+    };
   };
-};
-
-asyncAwaitImplementation().then(<span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> {
-  <span class="hljs-built_in">console</span>.log(data);
-});</pre></div></div>
+  
+  asyncAwaitImplementation().then(<span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> {
+    <span class="hljs-built_in">console</span>.log(data);
+  });</pre></div></div>
             
         </li>
         
@@ -376,7 +365,7 @@ asyncAwaitImplementation().then(<span class="hljs-function"><span class="hljs-pa
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-14">&#182;</a>
               </div>
-              <h2 id="async-await-and-try-catch">async/await and try..catch</h2>
+              <h2 id="asyncawait-and-trycatch">async/await and try..catch</h2>
 
             </div>
             
@@ -393,19 +382,19 @@ asyncAwaitImplementation().then(<span class="hljs-function"><span class="hljs-pa
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>
-<span class="hljs-keyword">const</span> exampleWithUnhandledError = <span class="hljs-keyword">async</span> () =&gt; {
-  <span class="hljs-keyword">const</span> user = <span class="hljs-keyword">await</span> <span class="hljs-built_in">Promise</span>.reject(<span class="hljs-string">'Oh no, something went wrong'</span>);
-  <span class="hljs-keyword">return</span> user;
-};
-
-exampleWithUnhandledError()
-  .then(<span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> {
-    <span class="hljs-built_in">console</span>.log(data);
-  })
-  .catch(<span class="hljs-function"><span class="hljs-params">e</span> =&gt;</span> {
-    <span class="hljs-built_in">console</span>.log(e);
-  });</pre></div></div>
+            <div class="content"><div class='highlight'><pre>  
+  <span class="hljs-keyword">const</span> exampleWithUnhandledError = <span class="hljs-keyword">async</span> () =&gt; {
+    <span class="hljs-keyword">const</span> user = <span class="hljs-keyword">await</span> <span class="hljs-built_in">Promise</span>.reject(<span class="hljs-string">'Oh no, something went wrong'</span>);
+    <span class="hljs-keyword">return</span> user;
+  };
+  
+  exampleWithUnhandledError()
+    .then(<span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> {
+      <span class="hljs-built_in">console</span>.log(data);
+    })
+    .catch(<span class="hljs-function"><span class="hljs-params">e</span> =&gt;</span> {
+      <span class="hljs-built_in">console</span>.log(e);
+    });</pre></div></div>
             
         </li>
         
@@ -420,23 +409,23 @@ exampleWithUnhandledError()
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>
-<span class="hljs-keyword">const</span> exampleWithHandledError = <span class="hljs-keyword">async</span> () =&gt; {
-  <span class="hljs-keyword">try</span> {
-    <span class="hljs-keyword">const</span> user = <span class="hljs-keyword">await</span> <span class="hljs-built_in">Promise</span>.reject(<span class="hljs-string">'Oh no, something went wrong'</span>);
-  } <span class="hljs-keyword">catch</span> (e) {
-    <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
-  }
-  <span class="hljs-keyword">return</span> user;
-};
-
-exampleWithHandledError()
-  .then(<span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> {
-    <span class="hljs-built_in">console</span>.log(data);
-  })
-  .catch(<span class="hljs-function"><span class="hljs-params">e</span> =&gt;</span> {
-    <span class="hljs-built_in">console</span>.log(e);
-  });</pre></div></div>
+            <div class="content"><div class='highlight'><pre>  
+  <span class="hljs-keyword">const</span> exampleWithHandledError = <span class="hljs-keyword">async</span> () =&gt; {
+    <span class="hljs-keyword">try</span> {
+      <span class="hljs-keyword">const</span> user = <span class="hljs-keyword">await</span> <span class="hljs-built_in">Promise</span>.reject(<span class="hljs-string">'Oh no, something went wrong'</span>);
+    } <span class="hljs-keyword">catch</span> (e) {
+      <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+    }
+    <span class="hljs-keyword">return</span> user;
+  };
+  
+  exampleWithHandledError()
+    .then(<span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> {
+      <span class="hljs-built_in">console</span>.log(data);
+    })
+    .catch(<span class="hljs-function"><span class="hljs-params">e</span> =&gt;</span> {
+      <span class="hljs-built_in">console</span>.log(e);
+    });</pre></div></div>
             
         </li>
         
