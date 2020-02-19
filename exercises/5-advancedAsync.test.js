@@ -1,4 +1,6 @@
-// ## Implement a node.js library wrapper for:
+// Your final exercise is to implement a node.js SDK using the following two API's:
+// [NodeJS HTTPS library](https://nodejs.org/api/https.html)
+// [Example API](https://jsonplaceholder.typicode.com/)
 
 // * Think about your SDK function signatures
 // * Think about behaviours you want to expose from your SDK
@@ -6,16 +8,13 @@
 // * Write tests for your implementation of your SDK
 // * Use async await where needed to improve your solution
 
-// **Bonus Points:**
+// Extension
 // * Error handling and messages to users if they do the "wrong thing"
 
-// Your SDK should be a wrapper using the following two API's:
 
-// [NodeJS HTTPS library](https://nodejs.org/api/https.html)
-// [Example API](https://jsonplaceholder.typicode.com/)
+
 
 // Your SDK _could_ look something like...
-
 const getPosts = {
   getAllPostsCallback: () => {},
 

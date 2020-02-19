@@ -1,3 +1,5 @@
+// Your fourth exercise is to get to grips with promises and async/await
+
 //## Part 1: A basic promise
 // Implement a `myFirstPromise` function which returns a promise
 //If its successful the response should be "Yay!"

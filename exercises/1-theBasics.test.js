@@ -1,3 +1,8 @@
+// Your first exercise is to build an assert library with the below methods.
+// You cannot import any library - build it all yourself!
+// Hint: Create an assert function in this file
+
+
 // ## Implement .toBeTruthy
 // https://jestjs.io/docs/en/expect#tobetruthy
 
