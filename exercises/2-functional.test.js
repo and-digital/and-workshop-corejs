@@ -1,3 +1,7 @@
+// Your second exercise is to rebuild the lodash utility with the below methods.
+// You cannot import lodash - build it all yourself!
+
+
 // ## Implement .reduce
 // Should take an array of values and apply the callback
 // **Bonus Point:** Do this with recursion
@@ -8,22 +12,32 @@
 // **Bonus Point:** Do this whilst _using reduce_
 // (https://lodash.com/docs/4.17.10#map)
 
-// ## Implement .memoize
-// Should pick a property from an object
-// (https://lodash.com/docs/4.17.10#memoize)
-
 // ## Implement .defaults
 // Takes two arguments, an original object and a set of defaults
 // Returns the amalgamation of both
 // (https://lodash.com/docs/4.17.10#defaults)
 
+// ## Implement .curry
+// Implement a function that curries the function given to it
+// (https://lodash.com/docs/4.17.10#curry)
+
+
+// ####################################################################
+// ###  Extension - Implement the below methods and relevant tests  ###
+// ####################################################################
+
+// ## Implement .pick
+// Implement a pick function that creates an object composed of the picked properties
+// (https://lodash.com/docs/4.17.10#pick)
+
 // ## Implement .throttle
 // Implement a throttle (that doesn't queue, but drops if the previous throttle is running)
 // (https://lodash.com/docs/4.17.10#throttle)
 
-// ## Implement .curry
-// Implement a function that curries the function given to it
-// (https://lodash.com/docs/4.17.10#curry)
+// ## Implement .memoize
+// Should pick a property from an object
+// (https://lodash.com/docs/4.17.10#memoize)
+
 
 describe('_.map', () => {
   test('Can concatenate a string as part of a map', () => {

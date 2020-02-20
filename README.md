@@ -32,6 +32,6 @@ nodemon <file>
     
 ## Feedback / Updates To Make (Backlog)
 
-- [ ] Update tests with better descriptions
 - [ ] Look at the order of functional programming sections - we use reduce before we introduce it
-- [ ] Look at lodash tests, define which are extras and give hints for throttle and memoize
+- [ ] Add solutions to the exercises
+- [ ] More examples for prototypal inheritance
