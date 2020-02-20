@@ -2,11 +2,11 @@
 
 ## Getting Started...
 
-1 - fork and clone this repo on your machine
-2 - install or update nodejs to the latest version (8): ```brew install node```
-3 - install [Jest](https://facebook.github.io/jest/) globally: ```npm install -g jest```
-4 - install nodemon globally: ```npm install -g nodemon```
-5 - install node modules: ```npm install```
+1. fork and clone this repo on your machine
+2. install or update nodejs to the latest version (8): ```brew install node```
+3. install [Jest](https://facebook.github.io/jest/) globally: ```npm install -g jest```
+4. install nodemon globally: ```npm install -g nodemon```
+5. install node modules: ```npm install```
 
 ** You should run the test individually **
 
@@ -32,7 +32,6 @@ nodemon <file>
     
 ## Feedback / Updates To Make (Backlog)
 
-- [ ] Update closure real world example to use private methods/vars (etc secrets)
 - [ ] Update tests with better descriptions
 - [ ] Look at the order of functional programming sections - we use reduce before we introduce it
 - [ ] Look at lodash tests, define which are extras and give hints for throttle and memoize

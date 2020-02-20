@@ -32,94 +32,30 @@ console.log(subtract(10)(5));
 
 // ## Why is this useful?
 
-// Take this example ... a basic express-like implementation
+// Take this example ... a secret handler 
 
-// Express is a simple HTTP server wrapper for node.js
+function Person(name) {
+  var secret = "secret!"
+  this.name = name
+  this.setName = (newName) => { this.name = newName }
+  this.setNameToFoo = () => { this.name = foo }
+  this.getSecret = () => { return secret }
+}
 
-// The following is a small mock implementation of express (with some details omitted for simplicity)
+var a = new Person("Max")
 
-const express = {
-  routes: [],
-  use: callback => {
-    express.middlewares.push(callback);
-  },
-  get: (path, callback) => {
-    express.routes.push({ path, callback });
-  },
-  execute: (pathToMatch, body) => {
-    const req = { pathToMatch, body };
-    const path = express.routes.find(routes => routes.path === pathToMatch);
-    return path.callback(req);
-  }
-};
+console.log(a.name)
+a.setName("Oliver")
+console.log(a.name) 
+a.setNameToFoo() 
 
-// So, lets go ahead and implement an express endpoint...
+var foo = "Foo"
+a.setNameToFoo()
+console.log(a.name)
 
-// ### Attempt 1
+console.log(a.secret)
+console.log(a.getSecret())
 
-// **Question:** What do you think could be improved in this code?
-
-express.get('/login', req => {
-  const allowedUsers = ['Tamar'];
-
-  if (allowedUsers.includes(req.body.username)) {
-    return "Awesome, you're in!";
-  } else {
-    return 'Get lost!';
-  }
-});
-
-console.log(
-  express.execute('/login', { username: 'Tamar' }),
-  express.execute('/login', { username: 'NotTamar' })
-);
-
-// **Answer:**
-// - If you ever want to move away from REST / HTTP, your login function is heavily coupled to express
-// - We're not abstracting away our login function
-
-// ### Attempt 2
-
-// Now, rather than passing a function directly to our express implementation we're using an interim function `createHTTPEndpoint` that inverts the control of our function and abstracts away the HTTP element of our server
-
-// This is advantageous as it would allow us to easily move away from HTTP as our server, and use some other service integration pattern.
-
-const login = username => {
-  const allowedUsers = ['Tamar'];
-
-  if (allowedUsers.includes(username)) {
-    return "Awesome, you're in!";
-  } else {
-    return 'Get lost!';
-  }
-};
-
-const createHTTPEndpoint = ({ businessLogic, inputMap }) => {
-  return req => {
-    const inputMapOutcome = inputMap(req);
-    return businessLogic(inputMapOutcome);
-  };
-};
-
-const inputMap = req => req.body.username;
-
-express.get(
-  '/login2',
-  createHTTPEndpoint({
-    businessLogic: login,
-    inputMap
-  })
-);
-
-const request1 = express.execute('/login2', { username: 'Tamar' });
-console.log(request1);
-
-const request2 = express.execute('/login2', { username: 'NotTamar' });
-console.log(request2);
-
-// Now you can see our login function only takes username, it doesn't know about a request object (HTTP specific).
-
-// If we moved away from HTTP, we could shift our login function easily, and re-implement a new input mapper.
 
 // ## The quintessential closure example
 
