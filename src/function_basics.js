@@ -2,7 +2,7 @@
 
 // A function is the encapsulation of behaviours
 
-// Here, we'll discuss probably the most important part of JavaScript: Understanding functions.
+// Here, we'll discuss probably the most important part of JavaScript: Functions.
 
 // ## Function characteristics
 
@@ -27,7 +27,7 @@
 // * Expects a single parameter
 // * If no parameter is passed, the assumed default value for the cat is ```Miggins```
 
-// This is a somewhat trite example, but you want to think deeply about the arguments you expect and the responses you want to send
+// This is a silly example, but you want to think deeply about the arguments you expect and the responses you want to send
 
 // Things to consider:
 // * Should we throw an error if the type is wrong?
@@ -68,7 +68,7 @@ const unary = x => x;
 
 // **Answer:** It _drops_ additional arguments, this is useful when passing only a few arguments to a function.
 
-// ## Function definitions vs expressions
+// ## Hoisting
 
 // What's the difference between the following:
 
@@ -83,11 +83,52 @@ function iAmADeclaration() {}
 
 const iAmAnExpression = () => {};
 
-// Only declarations are hoisted, expressions are interpreted when they need to be
+// Functions and variable declarations are taken to the top of the functions they are executing in. 
+// If there is no parent function present, then they are hoisted to the top of the global scope.
 
-// **Question:** Which should you use?
+// The code gets 'rearranged' to 
 
-// **Answer:** Declarations, since they are explicitly named
+function iAmADeclaration() {}
+
+try {
+  console.log(iAmADeclaration);
+  console.log(iAmAnExpressionn);
+} catch (e) {
+  console.log(e);
+}
+
+const iAmAnExpressionn = () => {};
+
+
+// Hoisting happens because of how our code is interpreted and executed by the JavaScript interpreter.
+// During run time, javascript code is interpreted in a minimum of 2 cycles:
+
+// * During 1st run, the interpreter goes through the code line by line while looking only for functions or variable declarations. Wherever it encounters a declaration, it moves it to the top. (This is how the interpreter will get an idea about which functions and variables are going to be used in the current context, also how much approximate memory it will be needing to execute the current function)
+
+// * During 2nd run, the compiler starts the execution of output from the previous run. Now it will start compiling the code in a normal way i.e. assigning values, executing function calls, reassignment of values, etc.
+
+// **Question:** What will the following code result in?
+var studentName = "Frank";
+console.log(studentName); // Frank
+
+var studentName;
+console.log(studentName); // ?
+
+
+// **Question:** What will the following code result in?
+var greeting;
+
+function greeting() {
+    console.log("Hello!");
+}
+
+var greeting;
+console.log(typeof greeting);        // ?
+var greeting = "Hello!";
+console.log(typeof greeting);        // ?
+
+// **Question:** Do you get the same result if you use `let` or `const` instead of `var`?
+
 
 // ## Anonymous functions
 
@@ -142,3 +183,28 @@ console.log(myFunctionSignature(1, 2, 3));
 const undefinedReturn = () => {};
 
 console.log(undefinedReturn());
+
+// Implicit Returns
+
+// **Question:** What will be logged results be?
+
+const functionOne = () => 'hello';
+const functionTwo = () => {'hello'};
+
+console.log(functionOne())
+console.log(functionTwo())
+
+
+// **Question:** What will be logged results be?
+
+const functionThree = () => 'hello' + ' world';
+const functionFour = () => {
+  'hello';
+  'hello' + 'world'
+}
+
+console.log(functionThree())
+console.log(functionFour())
+
+
+
