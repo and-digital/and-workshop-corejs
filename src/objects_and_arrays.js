@@ -14,8 +14,7 @@ new Object();
 // and their counterpart:
 
 [];
-{
-}
+{};
 
 // **Answer:** Nothing, use the short version
 
