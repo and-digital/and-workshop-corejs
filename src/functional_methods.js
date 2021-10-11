@@ -12,8 +12,6 @@
 
 // Functional methods are immutable. 
 
-// Functional methods utilise closures instead of temporary variables (less chance of pollution).
-
 // Functional methods and their style indicate to the reader what type of operation is being performed. 
 
 // A `map` indicates a type of operation, whereas a `for loop` must be read first, before we understand the type of operation and return value. 

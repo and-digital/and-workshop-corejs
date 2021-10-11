@@ -1,5 +1,6 @@
 // Your second exercise is to rebuild the lodash utility with the below methods.
 // You cannot import lodash - build it all yourself!
+// Run these tests using the command `jest --watch exercises/2-functional.test`
 
 
 // ## Implement .reduce
@@ -16,11 +17,6 @@
 // Takes two arguments, an original object and a set of defaults
 // Returns the amalgamation of both
 // (https://lodash.com/docs/4.17.10#defaults)
-
-// ## Implement .curry
-// Implement a function that curries the function given to it
-// (https://lodash.com/docs/4.17.10#curry)
-
 
 // ####################################################################
 // ###  Extension - Implement the below methods and relevant tests  ###
@@ -151,36 +147,5 @@ describe('_.throttle', () => {
       expect(click).toHaveBeenCalledTimes(2);
       done();
     }, 500);
-  });
-});
-
-describe('_.curry', () => {
-  test("Curry's a one argument function", () => {
-    const inner = jest.fn();
-    const outer = a => inner(a);
-    const curriedFunction = _.curry(outer);
-
-    const appliedCurriedFunction = curriedFunction('first');
-
-    expect(inner).toHaveBeenCalledWith('first');
-  });
-  test("Curry's a two argument function", () => {
-    const inner = jest.fn();
-    const outer = (a, b) => inner(a, b);
-    const curriedFunction = _.curry(outer);
-
-    const appliedCurriedFunction = curriedFunction('first')('second');
-
-    expect(inner).toHaveBeenCalledWith('first', 'second');
-  });
-
-  test('Takes two arguments at once', () => {
-    const inner = jest.fn();
-    const outer = (a, b, c) => inner(a, b, c);
-    const curriedFunction = _.curry(outer);
-
-    const appliedCurriedFunction = curriedFunction('first')('second', 'third');
-
-    expect(inner).toHaveBeenCalledWith('first', 'second', 'third');
   });
 });
