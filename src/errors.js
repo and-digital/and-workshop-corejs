@@ -51,6 +51,17 @@ console.log(pick);
 
 // Further reading: [_.get](https://lodash.com/docs/4.17.11#get)
 
+// Optional chaining
+// A new operator was introduced in ES2020 to do this even quicker.
+// If any property in the chain is undefined, it will return 'undefined' (and not error)
+
+const shallowThing = {};
+const pick = shallowThing?.oneLayer?.twoLayers;
+console.log(pick);
+
+// **Note:** We'll cover new in more depth later.
+
+
 // ## JavaScript and error objects
 
 // You typically see the following syntax for errors...
