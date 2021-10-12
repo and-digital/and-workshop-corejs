@@ -132,8 +132,8 @@
         <li id="section-1">
             <div class="annotation">
               
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-1">&#182;</a>
+              <div class="sswrap ">
+                <a class="ss" href="#section-1">&#x00a7;</a>
               </div>
               <p>A module is simply a way of organizing code.</p>
 
@@ -145,8 +145,8 @@
         <li id="section-2">
             <div class="annotation">
               
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-2">&#182;</a>
+              <div class="sswrap ">
+                <a class="ss" href="#section-2">&#x00a7;</a>
               </div>
               <p>You can utilise the module systems as native modules, node modules etc.</p>
 
@@ -158,8 +158,8 @@
         <li id="section-3">
             <div class="annotation">
               
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-3">&#182;</a>
+              <div class="sswrap ">
+                <a class="ss" href="#section-3">&#x00a7;</a>
               </div>
               <p>But you can also create them in your code as well</p>
 
@@ -171,8 +171,8 @@
         <li id="section-4">
             <div class="annotation">
               
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-4">&#182;</a>
+              <div class="sswrap ">
+                <a class="ss" href="#section-4">&#x00a7;</a>
               </div>
               <h2 id="a-basic-module">A basic module</h2>
 
@@ -184,8 +184,8 @@
         <li id="section-5">
             <div class="annotation">
               
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-5">&#182;</a>
+              <div class="sswrap ">
+                <a class="ss" href="#section-5">&#x00a7;</a>
               </div>
               <p>Is just an object with properties applied.</p>
 
@@ -193,21 +193,21 @@
             
             <div class="content"><div class='highlight'><pre>
 <span class="hljs-keyword">const</span> databaseSeed = {
-  <span class="hljs-attr">init</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">query</span>) </span>{
-    <span class="hljs-keyword">const</span> patch = <span class="hljs-keyword">this</span>.getPatch();
-    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.runQuery(patch);
+  <span class="hljs-attr">init</span>: <span class="hljs-keyword">function</span>(<span class="hljs-params">query</span>) {
+    <span class="hljs-keyword">const</span> patch = <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">getPatch</span>();
+    <span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">runQuery</span>(patch);
   },
 
-  getPatch() {
-    <span class="hljs-keyword">return</span> <span class="hljs-string">'INSERT into USERS ...'</span>;
+  <span class="hljs-title function_">getPatch</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;INSERT into USERS ...&#x27;</span>;
   },
 
-  runQuery(query) {
+  <span class="hljs-title function_">runQuery</span>(<span class="hljs-params">query</span>) {
     <span class="hljs-keyword">return</span> <span class="hljs-string">`Running: <span class="hljs-subst">${query}</span>`</span>;
   }
 };
 
-<span class="hljs-built_in">console</span>.log(databaseSeed.init());</pre></div></div>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(databaseSeed.<span class="hljs-title function_">init</span>());</pre></div></div>
             
         </li>
         
@@ -215,8 +215,8 @@
         <li id="section-6">
             <div class="annotation">
               
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-6">&#182;</a>
+              <div class="sswrap ">
+                <a class="ss" href="#section-6">&#x00a7;</a>
               </div>
               <h2 id="revealing-module-pattern">Revealing module pattern</h2>
 
@@ -228,8 +228,8 @@
         <li id="section-7">
             <div class="annotation">
               
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-7">&#182;</a>
+              <div class="sswrap ">
+                <a class="ss" href="#section-7">&#x00a7;</a>
               </div>
               <p>Reveals only certain methods, therefore creating pseudo-private methods inside the function closure.</p>
 
@@ -241,8 +241,8 @@
         <li id="section-8">
             <div class="annotation">
               
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-8">&#182;</a>
+              <div class="sswrap ">
+                <a class="ss" href="#section-8">&#x00a7;</a>
               </div>
               <p>This is a form of <em>abstraction</em> (An OOP concept).</p>
 
@@ -254,26 +254,26 @@
         <li id="section-9">
             <div class="annotation">
               
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-9">&#182;</a>
+              <div class="sswrap ">
+                <a class="ss" href="#section-9">&#x00a7;</a>
               </div>
               <p>Discuss testing implications of private methods</p>
 
             </div>
             
             <div class="content"><div class='highlight'><pre>
-<span class="hljs-keyword">const</span> databasePatch = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">query</span>) </span>{
-  <span class="hljs-keyword">const</span> getPatch = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-    <span class="hljs-keyword">return</span> <span class="hljs-string">'INSERT into USERS ...'</span>;
+<span class="hljs-keyword">const</span> databasePatch = <span class="hljs-keyword">function</span>(<span class="hljs-params">query</span>) {
+  <span class="hljs-keyword">const</span> getPatch = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;INSERT into USERS ...&#x27;</span>;
   };
 
-  <span class="hljs-keyword">const</span> runQuery = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">query</span>) </span>{
+  <span class="hljs-keyword">const</span> runQuery = <span class="hljs-keyword">function</span>(<span class="hljs-params">query</span>) {
     <span class="hljs-keyword">return</span> <span class="hljs-string">`Running: <span class="hljs-subst">${query}</span>`</span>;
   };
 
-  <span class="hljs-keyword">const</span> init = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-    <span class="hljs-keyword">const</span> patch = getPatch();
-    <span class="hljs-keyword">return</span> runQuery(patch);
+  <span class="hljs-keyword">const</span> init = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-keyword">const</span> patch = <span class="hljs-title function_">getPatch</span>();
+    <span class="hljs-keyword">return</span> <span class="hljs-title function_">runQuery</span>(patch);
   };
 
   <span class="hljs-keyword">return</span> {
@@ -281,7 +281,7 @@
   };
 };
 
-<span class="hljs-built_in">console</span>.log(databasePatch().init());</pre></div></div>
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title function_">databasePatch</span>().<span class="hljs-title function_">init</span>());</pre></div></div>
             
         </li>
         
@@ -289,8 +289,8 @@
         <li id="section-10">
             <div class="annotation">
               
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-10">&#182;</a>
+              <div class="sswrap ">
+                <a class="ss" href="#section-10">&#x00a7;</a>
               </div>
               <p>The advantages of revealing module is that you don’t have to reference the object directly</p>
 
@@ -302,8 +302,8 @@
         <li id="section-11">
             <div class="annotation">
               
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-11">&#182;</a>
+              <div class="sswrap ">
+                <a class="ss" href="#section-11">&#x00a7;</a>
               </div>
               <p>Instead you can invoke functions by name (or variable assignment)</p>
 
@@ -315,8 +315,8 @@
         <li id="section-12">
             <div class="annotation">
               
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-12">&#182;</a>
+              <div class="sswrap ">
+                <a class="ss" href="#section-12">&#x00a7;</a>
               </div>
               <p>i.e. <code>runQuery</code> as opposed to <code>this.runQuery</code></p>
 

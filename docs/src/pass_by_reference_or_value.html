@@ -126,8 +126,8 @@
         <li id="section-1">
             <div class="annotation">
               
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-1">&#182;</a>
+              <div class="sswrap ">
+                <a class="ss" href="#section-1">&#x00a7;</a>
               </div>
               <h1 id="pass-by-reference--pass-by-value">Pass by reference / pass by value</h1>
 
@@ -139,8 +139,8 @@
         <li id="section-2">
             <div class="annotation">
               
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-2">&#182;</a>
+              <div class="sswrap ">
+                <a class="ss" href="#section-2">&#x00a7;</a>
               </div>
               <h2 id="whats-the-difference">What’s the difference?</h2>
 
@@ -152,8 +152,8 @@
         <li id="section-3">
             <div class="annotation">
               
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-3">&#182;</a>
+              <div class="sswrap ">
+                <a class="ss" href="#section-3">&#x00a7;</a>
               </div>
               <p>Pass by reference is when a reference to an original object in memory is given to a function.</p>
 
@@ -165,8 +165,8 @@
         <li id="section-4">
             <div class="annotation">
               
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-4">&#182;</a>
+              <div class="sswrap ">
+                <a class="ss" href="#section-4">&#x00a7;</a>
               </div>
               <p>Pass by value is when a value is passed to a function as a copy, not as a pointer to the original in memory value.</p>
 
@@ -178,8 +178,8 @@
         <li id="section-5">
             <div class="annotation">
               
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-5">&#182;</a>
+              <div class="sswrap ">
+                <a class="ss" href="#section-5">&#x00a7;</a>
               </div>
               <h2 id="why-this-matters">Why this matters?</h2>
 
@@ -191,8 +191,8 @@
         <li id="section-6">
             <div class="annotation">
               
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-6">&#182;</a>
+              <div class="sswrap ">
+                <a class="ss" href="#section-6">&#x00a7;</a>
               </div>
               <p>It is really important to understand when something is created in memory, vs when we’re acting on a reference.</p>
 
@@ -204,8 +204,8 @@
         <li id="section-7">
             <div class="annotation">
               
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-7">&#182;</a>
+              <div class="sswrap ">
+                <a class="ss" href="#section-7">&#x00a7;</a>
               </div>
               <p>This is the foundation of understanding JavaScript, when we’re operating on a new object, vs when we’re mutating the existing one. </p>
 
@@ -217,8 +217,8 @@
         <li id="section-8">
             <div class="annotation">
               
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-8">&#182;</a>
+              <div class="sswrap ">
+                <a class="ss" href="#section-8">&#x00a7;</a>
               </div>
               <p>For instance, if we want to create a data store that is protected from the components that access it, we’ll need to create new object references of our data store, rather than passing references to it directly. </p>
 
@@ -230,8 +230,8 @@
         <li id="section-9">
             <div class="annotation">
               
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-9">&#182;</a>
+              <div class="sswrap ">
+                <a class="ss" href="#section-9">&#x00a7;</a>
               </div>
               <p><strong>Note:</strong> Immutability also applies within Promises (a value returned in a promise will be a reference, not a copy!)</p>
 
@@ -243,15 +243,15 @@
         <li id="section-10">
             <div class="annotation">
               
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-10">&#182;</a>
+              <div class="sswrap ">
+                <a class="ss" href="#section-10">&#x00a7;</a>
               </div>
               <h2 id="mutating-example">Mutating Example</h2>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">const</span> updateAge = <span class="hljs-function">(<span class="hljs-params">person</span>) =&gt;</span> {
-    person.age = person.age + <span class="hljs-number">1</span>;
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">const</span> <span class="hljs-title function_">updateAge</span> = (<span class="hljs-params">person</span>) =&gt; {
+    person.<span class="hljs-property">age</span> = person.<span class="hljs-property">age</span> + <span class="hljs-number">1</span>;
     <span class="hljs-keyword">return</span> person;
 };</pre></div></div>
             
@@ -261,14 +261,14 @@
         <li id="section-11">
             <div class="annotation">
               
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-11">&#182;</a>
+              <div class="sswrap ">
+                <a class="ss" href="#section-11">&#x00a7;</a>
               </div>
               <p>Let’s create an object in memory.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">const</span> sandra = { <span class="hljs-attr">name</span>: <span class="hljs-string">'sandra'</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">22</span> };</pre></div></div>
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">const</span> sandra = { <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;sandra&#x27;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">22</span> };</pre></div></div>
             
         </li>
         
@@ -276,14 +276,14 @@
         <li id="section-12">
             <div class="annotation">
               
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-12">&#182;</a>
+              <div class="sswrap ">
+                <a class="ss" href="#section-12">&#x00a7;</a>
               </div>
               <p>And then let’s pass the object to our update function.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>updateAge(sandra);</pre></div></div>
+            <div class="content"><div class='highlight'><pre><span class="hljs-title function_">updateAge</span>(sandra);</pre></div></div>
             
         </li>
         
@@ -291,14 +291,14 @@
         <li id="section-13">
             <div class="annotation">
               
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-13">&#182;</a>
+              <div class="sswrap ">
+                <a class="ss" href="#section-13">&#x00a7;</a>
               </div>
               <p><strong>Output:</strong> <code>{ name: &#39;sandra&#39;, age: 23 }</code></p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">console</span>.log(sandra);</pre></div></div>
+            <div class="content"><div class='highlight'><pre><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(sandra);</pre></div></div>
             
         </li>
         
@@ -306,8 +306,8 @@
         <li id="section-14">
             <div class="annotation">
               
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-14">&#182;</a>
+              <div class="sswrap ">
+                <a class="ss" href="#section-14">&#x00a7;</a>
               </div>
               <p>As you can see, the original object itself was modified. </p>
 
@@ -319,16 +319,16 @@
         <li id="section-15">
             <div class="annotation">
               
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-15">&#182;</a>
+              <div class="sswrap ">
+                <a class="ss" href="#section-15">&#x00a7;</a>
               </div>
               <h2 id="ensuring-immutability">Ensuring immutability</h2>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">const</span> updateAgeImmutable = <span class="hljs-function">(<span class="hljs-params">person</span>) =&gt;</span> {
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">const</span> <span class="hljs-title function_">updateAgeImmutable</span> = (<span class="hljs-params">person</span>) =&gt; {
     <span class="hljs-keyword">const</span> copy = { ...person };
-    copy.age = copy.age + <span class="hljs-number">1</span>;
+    copy.<span class="hljs-property">age</span> = copy.<span class="hljs-property">age</span> + <span class="hljs-number">1</span>;
     <span class="hljs-keyword">return</span> copy;
 };</pre></div></div>
             
@@ -338,14 +338,14 @@
         <li id="section-16">
             <div class="annotation">
               
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-16">&#182;</a>
+              <div class="sswrap ">
+                <a class="ss" href="#section-16">&#x00a7;</a>
               </div>
               <p>Let’s create an object in memory.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">const</span> dorianGray = { <span class="hljs-attr">name</span>: <span class="hljs-string">'dorianGray'</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">50</span> };</pre></div></div>
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">const</span> dorianGray = { <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;dorianGray&#x27;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">50</span> };</pre></div></div>
             
         </li>
         
@@ -353,14 +353,14 @@
         <li id="section-17">
             <div class="annotation">
               
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-17">&#182;</a>
+              <div class="sswrap ">
+                <a class="ss" href="#section-17">&#x00a7;</a>
               </div>
               <p>And then let’s pass the object to our update function.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>updateAgeImmutable(dorianGray);</pre></div></div>
+            <div class="content"><div class='highlight'><pre><span class="hljs-title function_">updateAgeImmutable</span>(dorianGray);</pre></div></div>
             
         </li>
         
@@ -368,14 +368,14 @@
         <li id="section-18">
             <div class="annotation">
               
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-18">&#182;</a>
+              <div class="sswrap ">
+                <a class="ss" href="#section-18">&#x00a7;</a>
               </div>
               <p><strong>Output:</strong> <code>{ name: &#39;dorianGray&#39;, age: 50 }</code></p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">console</span>.log(dorianGray);</pre></div></div>
+            <div class="content"><div class='highlight'><pre><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(dorianGray);</pre></div></div>
             
         </li>
         
@@ -383,8 +383,8 @@
         <li id="section-19">
             <div class="annotation">
               
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-19">&#182;</a>
+              <div class="sswrap ">
+                <a class="ss" href="#section-19">&#x00a7;</a>
               </div>
               <p>Here, we can see the value of the object hasn’t changed, that’s because we’ve created a new reference in memory.</p>
 
@@ -396,8 +396,8 @@
         <li id="section-20">
             <div class="annotation">
               
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-20">&#182;</a>
+              <div class="sswrap ">
+                <a class="ss" href="#section-20">&#x00a7;</a>
               </div>
               <p>Read through this —&gt; <a href="https://doesitmutate.xyz/">https://doesitmutate.xyz/</a></p>
 

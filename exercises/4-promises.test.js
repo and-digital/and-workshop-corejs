@@ -1,14 +1,18 @@
 // Your fourth exercise is to get to grips with promises and async/await
 
+// Tests have been written for you to test your code
+// Run these tests using the command `jest --watch exercises/4-promises.test`
+
+
 //## Part 1: A basic promise
 // Implement a `myFirstPromise` function which returns a promise
-//If its successful the response should be "Yay!"
-//If unsuccessful the response should be "Boo :("
+// * If its successful the response should be "Yay!"
+// * If unsuccessful the response should be "Boo :("
 
 //## Part 2: .Then
-//Implement the function `rainbowConverter` which resolves  an array of colours
-//Then loop over the colours, converting each colour from a string to an object
-//The object should contain a 'colour' key and an 'id' key which is its index in the array
+// Implement the function `rainbowConverter` which resolves an array of colours
+// Then loop over the colours, converting each colour from a string to an object
+// The object should contain a 'colour' key and an 'id' key which is its index in the array
 const colours = [
   'red',
   'orange',
@@ -21,11 +25,14 @@ const colours = [
 
 //## Part 3: Caught Promises
 //Implement the function `caughtPromise` which rejects with an error object
-//containing the message 'The promise rejected'
+// containing the message 'The promise rejected'
 
-//## Part 4: Do it all again... with async/await!
-//Implement `myFirstAsyncAwait`, `asyncAwaitRainbowConverter` and `caughtAsyncAwait`
+// ## Part 4: Do it all again... with async/await!
+// Implement `myFirstAsyncAwait`, `asyncAwaitRainbowConverter` and `caughtAsyncAwait`
 
+
+// These are the unit tests written to test your code. 
+// You will not need to touch these.
 describe('myFirstPromise', () => {
   test('should return "Yay!" if the promise resolves', async () => {
     const result = await myFirstPromise();

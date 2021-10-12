@@ -1,10 +1,14 @@
 // Your third exercise is all about design patterns.
-// Create a calculator object/constructor/class that takes some numbers
-// It should  exposes the following methods: 
+// Create a calculator object/constructor/class
+
+// For this exercise... YOU write the tests.
+
+
+// Your calculator should expose the following methods: 
 // * `sum`
 // * `multiply`
 // * `getValueOfPI`
-// For this exercise... YOU write the tests.
+
 
 
 // ## Part 1: Module

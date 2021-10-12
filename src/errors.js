@@ -47,9 +47,17 @@ console.log(pick);
 // * Why doesn't the second part execute?
 // * What will the return value be if both are true?
 // * An empty object is true/false?
-// * Could you make a helper function that does a deep pick?
 
-// Further reading: [_.get](https://lodash.com/docs/4.17.11#get)
+
+// **Optional chaining:**
+// A new operator was introduced in ES2020 to do this even quicker.
+
+// If any property in the chain is undefined, it will return 'undefined' (and not error)
+
+const shallowThing = {};
+const pick = shallowThing?.oneLayer?.twoLayers;
+console.log(pick);
+
 
 // ## JavaScript and error objects
 

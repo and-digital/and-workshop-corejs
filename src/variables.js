@@ -1,7 +1,5 @@
 // Variables
 
-// Hint: Run me in [Quokka](https://quokkajs.com/)
-
 // ## The three types of variables
 
 // `var`
