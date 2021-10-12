@@ -132,8 +132,8 @@
         <li id="section-1">
             <div class="annotation">
               
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-1">&#182;</a>
+              <div class="sswrap ">
+                <a class="ss" href="#section-1">&#x00a7;</a>
               </div>
               <p>Async / Await is simply a different way of writing Promises</p>
 
@@ -145,8 +145,8 @@
         <li id="section-2">
             <div class="annotation">
               
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-2">&#182;</a>
+              <div class="sswrap ">
+                <a class="ss" href="#section-2">&#x00a7;</a>
               </div>
               <p>If you understand Promises, async/await is a walk in the park, so understand Promises <em>well</em> first.</p>
 
@@ -158,8 +158,8 @@
         <li id="section-3">
             <div class="annotation">
               
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-3">&#182;</a>
+              <div class="sswrap ">
+                <a class="ss" href="#section-3">&#x00a7;</a>
               </div>
               <h2 id="anatomy-of-asyncawait">Anatomy of async/await</h2>
 
@@ -171,8 +171,8 @@
         <li id="section-4">
             <div class="annotation">
               
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-4">&#182;</a>
+              <div class="sswrap ">
+                <a class="ss" href="#section-4">&#x00a7;</a>
               </div>
               <p>The async keyword must be applied to the function implementing await</p>
 
@@ -184,8 +184,8 @@
         <li id="section-5">
             <div class="annotation">
               
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-5">&#182;</a>
+              <div class="sswrap ">
+                <a class="ss" href="#section-5">&#x00a7;</a>
               </div>
               <p>This fundamentally changes the behaviour of the function</p>
 
@@ -197,8 +197,8 @@
         <li id="section-6">
             <div class="annotation">
               
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-6">&#182;</a>
+              <div class="sswrap ">
+                <a class="ss" href="#section-6">&#x00a7;</a>
               </div>
               <p>Now the async function by default, returns a promise</p>
 
@@ -210,8 +210,8 @@
         <li id="section-7">
             <div class="annotation">
               
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-7">&#182;</a>
+              <div class="sswrap ">
+                <a class="ss" href="#section-7">&#x00a7;</a>
               </div>
               <p>Any time you want to make an async call (calling a function that returns a promise) you simply add the await keyword.</p>
 
@@ -223,8 +223,8 @@
         <li id="section-8">
             <div class="annotation">
               
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-8">&#182;</a>
+              <div class="sswrap ">
+                <a class="ss" href="#section-8">&#x00a7;</a>
               </div>
               <p>For example…</p>
 
@@ -232,7 +232,7 @@
             
             <div class="content"><div class='highlight'><pre>
 <span class="hljs-keyword">const</span> exampleAsync = <span class="hljs-keyword">async</span> () =&gt; {
-    <span class="hljs-keyword">const</span> example = <span class="hljs-keyword">await</span> facebook.getUser();
+    <span class="hljs-keyword">const</span> example = <span class="hljs-keyword">await</span> facebook.<span class="hljs-title function_">getUser</span>();
   
     <span class="hljs-keyword">return</span> example;
   };</pre></div></div>
@@ -243,8 +243,8 @@
         <li id="section-9">
             <div class="annotation">
               
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-9">&#182;</a>
+              <div class="sswrap ">
+                <a class="ss" href="#section-9">&#x00a7;</a>
               </div>
               <h2 id="converting-promises-to-asyncawait">Converting Promises to async/await</h2>
 
@@ -256,8 +256,8 @@
         <li id="section-10">
             <div class="annotation">
               
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-10">&#182;</a>
+              <div class="sswrap ">
+                <a class="ss" href="#section-10">&#x00a7;</a>
               </div>
               <p>Lets take the following example, implementing a ‘facebook’-like module.</p>
 
@@ -269,8 +269,8 @@
         <li id="section-11">
             <div class="annotation">
               
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-11">&#182;</a>
+              <div class="sswrap ">
+                <a class="ss" href="#section-11">&#x00a7;</a>
               </div>
               <p>We want to get a user, then get their friends and photos asynchronously (at the same time) and amalgamate the results into a response as follows:</p>
 
@@ -282,34 +282,35 @@
         <li id="section-12">
             <div class="annotation">
               
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-12">&#182;</a>
+              <div class="sswrap ">
+                <a class="ss" href="#section-12">&#x00a7;</a>
               </div>
               <pre><code class="language-{">    name: &#39;Lou&#39;,​​​​​
 ​​​​    ​friends: [ &#39;John&#39;, &#39;Sandra&#39; ],​​​​​
 ​​​​​    photos: [ &#39;family.jpeg&#39;, &#39;dog.jpeg&#39; ]
-}​​```​​​</code></pre>
+}​​```​​​
+</code></pre>
 
             </div>
             
             <div class="content"><div class='highlight'><pre>  
   <span class="hljs-keyword">const</span> facebook = {
     <span class="hljs-attr">getUser</span>: <span class="hljs-function"><span class="hljs-params">id</span> =&gt;</span> {
-      <span class="hljs-keyword">return</span> <span class="hljs-built_in">Promise</span>.resolve({ <span class="hljs-attr">name</span>: <span class="hljs-string">'Lou'</span> });
+      <span class="hljs-keyword">return</span> <span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">resolve</span>({ <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Lou&#x27;</span> });
     },
   
     <span class="hljs-attr">getFriends</span>: <span class="hljs-function"><span class="hljs-params">id</span> =&gt;</span> {
-      <span class="hljs-keyword">return</span> <span class="hljs-built_in">Promise</span>.resolve([<span class="hljs-string">'John'</span>, <span class="hljs-string">'Sandra'</span>]);
+      <span class="hljs-keyword">return</span> <span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">resolve</span>([<span class="hljs-string">&#x27;John&#x27;</span>, <span class="hljs-string">&#x27;Sandra&#x27;</span>]);
     },
   
     <span class="hljs-attr">getPhotos</span>: <span class="hljs-function"><span class="hljs-params">name</span> =&gt;</span> {
-      <span class="hljs-keyword">return</span> <span class="hljs-built_in">Promise</span>.resolve([<span class="hljs-string">'family.jpeg'</span>, <span class="hljs-string">'dog.jpeg'</span>]);
+      <span class="hljs-keyword">return</span> <span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">resolve</span>([<span class="hljs-string">&#x27;family.jpeg&#x27;</span>, <span class="hljs-string">&#x27;dog.jpeg&#x27;</span>]);
     }
   };
   
-  <span class="hljs-keyword">const</span> PromiseImplementation = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
-    <span class="hljs-keyword">return</span> facebook.getUser().then(<span class="hljs-function"><span class="hljs-params">user</span> =&gt;</span> {
-      <span class="hljs-keyword">return</span> <span class="hljs-built_in">Promise</span>.all([facebook.getFriends(), facebook.getPhotos()]).then(
+  <span class="hljs-keyword">const</span> <span class="hljs-title function_">PromiseImplementation</span> = (<span class="hljs-params"></span>) =&gt; {
+    <span class="hljs-keyword">return</span> facebook.<span class="hljs-title function_">getUser</span>().<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">user</span> =&gt;</span> {
+      <span class="hljs-keyword">return</span> <span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">all</span>([facebook.<span class="hljs-title function_">getFriends</span>(), facebook.<span class="hljs-title function_">getPhotos</span>()]).<span class="hljs-title function_">then</span>(
         <span class="hljs-function">(<span class="hljs-params">[friends, photos]</span>) =&gt;</span> ({
           ...user,
           friends,
@@ -319,8 +320,8 @@
     });
   };
   
-  PromiseImplementation().then(<span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> {
-    <span class="hljs-built_in">console</span>.log(data);
+  <span class="hljs-title class_">PromiseImplementation</span>().<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(data);
   });</pre></div></div>
             
         </li>
@@ -329,8 +330,8 @@
         <li id="section-13">
             <div class="annotation">
               
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-13">&#182;</a>
+              <div class="sswrap ">
+                <a class="ss" href="#section-13">&#x00a7;</a>
               </div>
               <p>Let’s re-write this as async/await</p>
 
@@ -338,11 +339,11 @@
             
             <div class="content"><div class='highlight'><pre>  
   <span class="hljs-keyword">const</span> asyncAwaitImplementation = <span class="hljs-keyword">async</span> () =&gt; {
-    <span class="hljs-keyword">const</span> user = <span class="hljs-keyword">await</span> facebook.getUser();
+    <span class="hljs-keyword">const</span> user = <span class="hljs-keyword">await</span> facebook.<span class="hljs-title function_">getUser</span>();
   
-    <span class="hljs-keyword">const</span> [friends, photos] = <span class="hljs-keyword">await</span> <span class="hljs-built_in">Promise</span>.all([
-      facebook.getFriends(),
-      facebook.getPhotos()
+    <span class="hljs-keyword">const</span> [friends, photos] = <span class="hljs-keyword">await</span> <span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">all</span>([
+      facebook.<span class="hljs-title function_">getFriends</span>(),
+      facebook.<span class="hljs-title function_">getPhotos</span>()
     ]);
   
     <span class="hljs-keyword">return</span> {
@@ -352,8 +353,8 @@
     };
   };
   
-  asyncAwaitImplementation().then(<span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> {
-    <span class="hljs-built_in">console</span>.log(data);
+  <span class="hljs-title function_">asyncAwaitImplementation</span>().<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(data);
   });</pre></div></div>
             
         </li>
@@ -362,8 +363,8 @@
         <li id="section-14">
             <div class="annotation">
               
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-14">&#182;</a>
+              <div class="sswrap ">
+                <a class="ss" href="#section-14">&#x00a7;</a>
               </div>
               <h2 id="asyncawait-and-trycatch">async/await and try..catch</h2>
 
@@ -375,8 +376,8 @@
         <li id="section-15">
             <div class="annotation">
               
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-15">&#182;</a>
+              <div class="sswrap ">
+                <a class="ss" href="#section-15">&#x00a7;</a>
               </div>
               <p>Let’s first see what would happen if we don’t handle the error…</p>
 
@@ -384,16 +385,16 @@
             
             <div class="content"><div class='highlight'><pre>  
   <span class="hljs-keyword">const</span> exampleWithUnhandledError = <span class="hljs-keyword">async</span> () =&gt; {
-    <span class="hljs-keyword">const</span> user = <span class="hljs-keyword">await</span> <span class="hljs-built_in">Promise</span>.reject(<span class="hljs-string">'Oh no, something went wrong'</span>);
+    <span class="hljs-keyword">const</span> user = <span class="hljs-keyword">await</span> <span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">reject</span>(<span class="hljs-string">&#x27;Oh no, something went wrong&#x27;</span>);
     <span class="hljs-keyword">return</span> user;
   };
   
-  exampleWithUnhandledError()
-    .then(<span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> {
-      <span class="hljs-built_in">console</span>.log(data);
+  <span class="hljs-title function_">exampleWithUnhandledError</span>()
+    .<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> {
+      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(data);
     })
-    .catch(<span class="hljs-function"><span class="hljs-params">e</span> =&gt;</span> {
-      <span class="hljs-built_in">console</span>.log(e);
+    .<span class="hljs-title function_">catch</span>(<span class="hljs-function"><span class="hljs-params">e</span> =&gt;</span> {
+      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(e);
     });</pre></div></div>
             
         </li>
@@ -402,8 +403,8 @@
         <li id="section-16">
             <div class="annotation">
               
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-16">&#182;</a>
+              <div class="sswrap ">
+                <a class="ss" href="#section-16">&#x00a7;</a>
               </div>
               <p>Then, lets see what happens if we do handle the error…</p>
 
@@ -412,19 +413,19 @@
             <div class="content"><div class='highlight'><pre>  
   <span class="hljs-keyword">const</span> exampleWithHandledError = <span class="hljs-keyword">async</span> () =&gt; {
     <span class="hljs-keyword">try</span> {
-      <span class="hljs-keyword">const</span> user = <span class="hljs-keyword">await</span> <span class="hljs-built_in">Promise</span>.reject(<span class="hljs-string">'Oh no, something went wrong'</span>);
+      <span class="hljs-keyword">const</span> user = <span class="hljs-keyword">await</span> <span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">reject</span>(<span class="hljs-string">&#x27;Oh no, something went wrong&#x27;</span>);
     } <span class="hljs-keyword">catch</span> (e) {
       <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
     }
     <span class="hljs-keyword">return</span> user;
   };
   
-  exampleWithHandledError()
-    .then(<span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> {
-      <span class="hljs-built_in">console</span>.log(data);
+  <span class="hljs-title function_">exampleWithHandledError</span>()
+    .<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> {
+      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(data);
     })
-    .catch(<span class="hljs-function"><span class="hljs-params">e</span> =&gt;</span> {
-      <span class="hljs-built_in">console</span>.log(e);
+    .<span class="hljs-title function_">catch</span>(<span class="hljs-function"><span class="hljs-params">e</span> =&gt;</span> {
+      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(e);
     });</pre></div></div>
             
         </li>

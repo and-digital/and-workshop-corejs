@@ -1,5 +1,7 @@
 // Your second exercise is to rebuild the lodash utility with the below methods.
 // You cannot import lodash - build it all yourself!
+
+// Tests have been written for you to test your lodash utility
 // Run these tests using the command `jest --watch exercises/2-functional.test`
 
 
@@ -35,6 +37,8 @@
 // (https://lodash.com/docs/4.17.10#memoize)
 
 
+// These are the unit tests written to test your lodash utility. 
+// You will not need to touch these.
 describe('_.map', () => {
   test('Can concatenate a string as part of a map', () => {
     expect(_.map(['Graham', 'Sarah', 'Bob'], name => `The ${name}`)).toEqual([

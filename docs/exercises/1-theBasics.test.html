@@ -62,12 +62,11 @@
         <li id="section-1">
             <div class="annotation">
               
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-1">&#182;</a>
+              <div class="sswrap ">
+                <a class="ss" href="#section-1">&#x00a7;</a>
               </div>
               <p>Your first exercise is to build an assert library with the below methods.
-You cannot import any library - build it all yourself!
-Hint: Create an assert function in this file</p>
+You cannot import any library - build it all yourself!</p>
 
             </div>
             
@@ -77,11 +76,11 @@ Hint: Create an assert function in this file</p>
         <li id="section-2">
             <div class="annotation">
               
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-2">&#182;</a>
+              <div class="sswrap ">
+                <a class="ss" href="#section-2">&#x00a7;</a>
               </div>
-              <h2 id="implement-tobetruthy">Implement .toBeTruthy</h2>
-<p><a href="https://jestjs.io/docs/en/expect#tobetruthy">https://jestjs.io/docs/en/expect#tobetruthy</a></p>
+              <p>Tests have been written for you to test your assert library
+Run them using the command <code>jest --watch exercises/1-theBasics.test</code></p>
 
             </div>
             
@@ -91,11 +90,11 @@ Hint: Create an assert function in this file</p>
         <li id="section-3">
             <div class="annotation">
               
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-3">&#182;</a>
+              <div class="sswrap ">
+                <a class="ss" href="#section-3">&#x00a7;</a>
               </div>
-              <h2 id="implement-tobe">Implement .toBe</h2>
-<p><a href="https://jestjs.io/docs/en/expect#tobevalue">https://jestjs.io/docs/en/expect#tobevalue</a></p>
+              <h2 id="implement-tobetruthy">Implement .toBeTruthy</h2>
+<p><a href="https://jestjs.io/docs/en/expect#tobetruthy">https://jestjs.io/docs/en/expect#tobetruthy</a></p>
 
             </div>
             
@@ -105,11 +104,11 @@ Hint: Create an assert function in this file</p>
         <li id="section-4">
             <div class="annotation">
               
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-4">&#182;</a>
+              <div class="sswrap ">
+                <a class="ss" href="#section-4">&#x00a7;</a>
               </div>
-              <h2 id="implement-toequal">Implement .toEqual</h2>
-<p><a href="https://jestjs.io/docs/en/expect#toequalvalue">https://jestjs.io/docs/en/expect#toequalvalue</a></p>
+              <h2 id="implement-tobe">Implement .toBe</h2>
+<p><a href="https://jestjs.io/docs/en/expect#tobevalue">https://jestjs.io/docs/en/expect#tobevalue</a></p>
 
             </div>
             
@@ -119,18 +118,13 @@ Hint: Create an assert function in this file</p>
         <li id="section-5">
             <div class="annotation">
               
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-5">&#182;</a>
+              <div class="sswrap ">
+                <a class="ss" href="#section-5">&#x00a7;</a>
               </div>
-              <h2 id="implement-tothrow">Implement .toThrow</h2>
-<p><a href="https://jestjs.io/docs/en/expect#tothrowerror">https://jestjs.io/docs/en/expect#tothrowerror</a></p>
+              <h2 id="implement-toequal">Implement .toEqual</h2>
+<p><a href="https://jestjs.io/docs/en/expect#toequalvalue">https://jestjs.io/docs/en/expect#toequalvalue</a></p>
 
             </div>
-            
-            <div class="content"><div class='highlight'><pre>
-describe(<span class="hljs-string">'.toBeTruthy'</span>, () =&gt; {
-  test(<span class="hljs-string">'Will show true as equal to true'</span>, () =&gt; {
-    expect(assert(<span class="hljs-literal">true</span>).toBeTruthy()).toEqual(<span class="hljs-literal">true</span>);</pre></div></div>
             
         </li>
         
@@ -138,14 +132,13 @@ describe(<span class="hljs-string">'.toBeTruthy'</span>, () =&gt; {
         <li id="section-6">
             <div class="annotation">
               
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-6">&#182;</a>
+              <div class="sswrap ">
+                <a class="ss" href="#section-6">&#x00a7;</a>
               </div>
-              <p>An empty string is false</p>
+              <h2 id="implement-tothrow">Implement .toThrow</h2>
+<p><a href="https://jestjs.io/docs/en/expect#tothrowerror">https://jestjs.io/docs/en/expect#tothrowerror</a></p>
 
             </div>
-            
-            <div class="content"><div class='highlight'><pre>    expect(assert(<span class="hljs-string">''</span>).toBeTruthy()).not.toEqual(<span class="hljs-literal">true</span>);</pre></div></div>
             
         </li>
         
@@ -153,14 +146,21 @@ describe(<span class="hljs-string">'.toBeTruthy'</span>, () =&gt; {
         <li id="section-7">
             <div class="annotation">
               
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-7">&#182;</a>
+              <div class="sswrap ">
+                <a class="ss" href="#section-7">&#x00a7;</a>
               </div>
-              <p>An string is true</p>
+              <p>This is your assert library. Add your own implementation for each method</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>    expect(assert(<span class="hljs-string">'populated'</span>).toBeTruthy()).toEqual(<span class="hljs-literal">true</span>);</pre></div></div>
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">const</span> <span class="hljs-title function_">assert</span> = expectedValue =&gt; (
+  {
+    <span class="hljs-attr">toBeTruthy</span>: <span class="hljs-literal">undefined</span>, 
+    <span class="hljs-attr">toBe</span>: <span class="hljs-literal">undefined</span>,
+    <span class="hljs-attr">toEqual</span>: <span class="hljs-literal">undefined</span>,
+    <span class="hljs-attr">toThrow</span>: <span class="hljs-literal">undefined</span>,
+  }
+)</pre></div></div>
             
         </li>
         
@@ -168,78 +168,70 @@ describe(<span class="hljs-string">'.toBeTruthy'</span>, () =&gt; {
         <li id="section-8">
             <div class="annotation">
               
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-8">&#182;</a>
+              <div class="sswrap ">
+                <a class="ss" href="#section-8">&#x00a7;</a>
               </div>
-              <p>An empty object is truthy</p>
+              <p>These are the unit tests written to test your assert library. 
+You will not need to touch these.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>    expect(assert({}).toBeTruthy()).toEqual(<span class="hljs-literal">true</span>);</pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-9">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-9">&#182;</a>
-              </div>
-              <p>An empty array is truthy</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>    expect(assert([]).toBeTruthy()).toEqual(<span class="hljs-literal">true</span>);
+            <div class="content"><div class='highlight'><pre><span class="hljs-title function_">describe</span>(<span class="hljs-string">&#x27;.toBeTruthy&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
+  <span class="hljs-title function_">test</span>(<span class="hljs-string">&#x27;Will show true as equal to true&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
+    <span class="hljs-title function_">expect</span>(<span class="hljs-title function_">assert</span>(<span class="hljs-literal">true</span>).<span class="hljs-title function_">toBeTruthy</span>()).<span class="hljs-title function_">toEqual</span>(<span class="hljs-literal">true</span>);
+    <span class="hljs-title function_">expect</span>(<span class="hljs-title function_">assert</span>(<span class="hljs-string">&#x27;&#x27;</span>).<span class="hljs-title function_">toBeTruthy</span>()).<span class="hljs-property">not</span>.<span class="hljs-title function_">toEqual</span>(<span class="hljs-literal">true</span>);
+    <span class="hljs-title function_">expect</span>(<span class="hljs-title function_">assert</span>(<span class="hljs-string">&#x27;populated&#x27;</span>).<span class="hljs-title function_">toBeTruthy</span>()).<span class="hljs-title function_">toEqual</span>(<span class="hljs-literal">true</span>);
+    <span class="hljs-title function_">expect</span>(<span class="hljs-title function_">assert</span>({}).<span class="hljs-title function_">toBeTruthy</span>()).<span class="hljs-title function_">toEqual</span>(<span class="hljs-literal">true</span>);
+    <span class="hljs-title function_">expect</span>(<span class="hljs-title function_">assert</span>([]).<span class="hljs-title function_">toBeTruthy</span>()).<span class="hljs-title function_">toEqual</span>(<span class="hljs-literal">true</span>);
   });
 });
 
-describe(<span class="hljs-string">'.toBe'</span>, () =&gt; {
-  test(<span class="hljs-string">'Works for boolean'</span>, () =&gt; {
-    expect(assert(<span class="hljs-literal">true</span>).toBe(<span class="hljs-literal">true</span>)).toEqual(<span class="hljs-literal">true</span>);
-    expect(assert(<span class="hljs-literal">false</span>).toBe(<span class="hljs-literal">false</span>)).toEqual(<span class="hljs-literal">true</span>);
+<span class="hljs-title function_">describe</span>(<span class="hljs-string">&#x27;.toBe&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
+  <span class="hljs-title function_">test</span>(<span class="hljs-string">&#x27;Works for boolean&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
+    <span class="hljs-title function_">expect</span>(<span class="hljs-title function_">assert</span>(<span class="hljs-literal">true</span>).<span class="hljs-title function_">toBe</span>(<span class="hljs-literal">true</span>)).<span class="hljs-title function_">toEqual</span>(<span class="hljs-literal">true</span>);
+    <span class="hljs-title function_">expect</span>(<span class="hljs-title function_">assert</span>(<span class="hljs-literal">false</span>).<span class="hljs-title function_">toBe</span>(<span class="hljs-literal">false</span>)).<span class="hljs-title function_">toEqual</span>(<span class="hljs-literal">true</span>);
   });
-  test(<span class="hljs-string">'Works for strings'</span>, () =&gt; {
-    <span class="hljs-keyword">const</span> stringReference = <span class="hljs-string">'testing'</span>;
-    expect(assert(stringReference).toBe(stringReference)).toBe(<span class="hljs-literal">true</span>);
+  <span class="hljs-title function_">test</span>(<span class="hljs-string">&#x27;Works for strings&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
+    <span class="hljs-keyword">const</span> stringReference = <span class="hljs-string">&#x27;testing&#x27;</span>;
+    <span class="hljs-title function_">expect</span>(<span class="hljs-title function_">assert</span>(stringReference).<span class="hljs-title function_">toBe</span>(stringReference)).<span class="hljs-title function_">toBe</span>(<span class="hljs-literal">true</span>);
   });
-  test(<span class="hljs-string">'Ensures that two references in memory are not the same'</span>, () =&gt; {
+  <span class="hljs-title function_">test</span>(<span class="hljs-string">&#x27;Ensures that two references in memory are not the same&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
     <span class="hljs-keyword">const</span> oneObject = {};
     <span class="hljs-keyword">const</span> twoObject = {};
-    expect(assert(oneObject).toBe(twoObject)).toBe(<span class="hljs-literal">false</span>);
+    <span class="hljs-title function_">expect</span>(<span class="hljs-title function_">assert</span>(oneObject).<span class="hljs-title function_">toBe</span>(twoObject)).<span class="hljs-title function_">toBe</span>(<span class="hljs-literal">false</span>);
   });
-  test(<span class="hljs-string">'Ensures the same reference in memory is true'</span>, () =&gt; {
+  <span class="hljs-title function_">test</span>(<span class="hljs-string">&#x27;Ensures the same reference in memory is true&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
     <span class="hljs-keyword">const</span> oneObject = {};
-    expect(assert(oneObject).toBe(oneObject)).toBe(<span class="hljs-literal">true</span>);
+    <span class="hljs-title function_">expect</span>(<span class="hljs-title function_">assert</span>(oneObject).<span class="hljs-title function_">toBe</span>(oneObject)).<span class="hljs-title function_">toBe</span>(<span class="hljs-literal">true</span>);
   });
 });
 
-describe(<span class="hljs-string">'.toEqual'</span>, () =&gt; {
-  test(<span class="hljs-string">'Different objects with the same contents are equal'</span>, () =&gt; {
-    <span class="hljs-keyword">const</span> objectOne = { <span class="hljs-attr">adam</span>: <span class="hljs-string">'Hello'</span> };
-    <span class="hljs-keyword">const</span> objectTwo = { <span class="hljs-attr">adam</span>: <span class="hljs-string">'Hello'</span> };
-    expect(assert(objectOne).toEqual(objectTwo)).toEqual(<span class="hljs-literal">true</span>);
+<span class="hljs-title function_">describe</span>(<span class="hljs-string">&#x27;.toEqual&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
+  <span class="hljs-title function_">test</span>(<span class="hljs-string">&#x27;Different objects with the same contents are equal&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
+    <span class="hljs-keyword">const</span> objectOne = { <span class="hljs-attr">adam</span>: <span class="hljs-string">&#x27;Hello&#x27;</span> };
+    <span class="hljs-keyword">const</span> objectTwo = { <span class="hljs-attr">adam</span>: <span class="hljs-string">&#x27;Hello&#x27;</span> };
+    <span class="hljs-title function_">expect</span>(<span class="hljs-title function_">assert</span>(objectOne).<span class="hljs-title function_">toEqual</span>(objectTwo)).<span class="hljs-title function_">toEqual</span>(<span class="hljs-literal">true</span>);
   });
-  test(<span class="hljs-string">'Different objects with different keys are not equal'</span>, () =&gt; {
-    <span class="hljs-keyword">const</span> objectOne = { <span class="hljs-attr">adam</span>: <span class="hljs-string">'Hello'</span> };
-    <span class="hljs-keyword">const</span> objectTwo = { <span class="hljs-attr">adam</span>: <span class="hljs-string">'Hello'</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">21</span> };
-    expect(assert(objectOne).toEqual(objectTwo)).toEqual(<span class="hljs-literal">false</span>);
+  <span class="hljs-title function_">test</span>(<span class="hljs-string">&#x27;Different objects with different keys are not equal&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
+    <span class="hljs-keyword">const</span> objectOne = { <span class="hljs-attr">adam</span>: <span class="hljs-string">&#x27;Hello&#x27;</span> };
+    <span class="hljs-keyword">const</span> objectTwo = { <span class="hljs-attr">adam</span>: <span class="hljs-string">&#x27;Hello&#x27;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">21</span> };
+    <span class="hljs-title function_">expect</span>(<span class="hljs-title function_">assert</span>(objectOne).<span class="hljs-title function_">toEqual</span>(objectTwo)).<span class="hljs-title function_">toEqual</span>(<span class="hljs-literal">false</span>);
   });
-  test(<span class="hljs-string">'Different objects with same keys but different values are not equal'</span>, () =&gt; {
-    <span class="hljs-keyword">const</span> objectOne = { <span class="hljs-attr">adam</span>: <span class="hljs-string">'Hello'</span> };
-    <span class="hljs-keyword">const</span> objectTwo = { <span class="hljs-attr">adam</span>: <span class="hljs-string">'Hi'</span> };
-    expect(assert(objectOne).toEqual(objectTwo)).toEqual(<span class="hljs-literal">false</span>);
+  <span class="hljs-title function_">test</span>(<span class="hljs-string">&#x27;Different objects with same keys but different values are not equal&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
+    <span class="hljs-keyword">const</span> objectOne = { <span class="hljs-attr">adam</span>: <span class="hljs-string">&#x27;Hello&#x27;</span> };
+    <span class="hljs-keyword">const</span> objectTwo = { <span class="hljs-attr">adam</span>: <span class="hljs-string">&#x27;Hi&#x27;</span> };
+    <span class="hljs-title function_">expect</span>(<span class="hljs-title function_">assert</span>(objectOne).<span class="hljs-title function_">toEqual</span>(objectTwo)).<span class="hljs-title function_">toEqual</span>(<span class="hljs-literal">false</span>);
   });
 });
 
-describe(<span class="hljs-string">'.toThrow'</span>, () =&gt; {
-  test(<span class="hljs-string">'Will not show true as equal to true'</span>, () =&gt; {
-    expect(
-      assert(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
-        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>();
-      }).toThrow()
-    ).toEqual(<span class="hljs-literal">true</span>);
-    expect(assert(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {}).toThrow()).toEqual(<span class="hljs-literal">false</span>);
+<span class="hljs-title function_">describe</span>(<span class="hljs-string">&#x27;.toThrow&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
+  <span class="hljs-title function_">test</span>(<span class="hljs-string">&#x27;Will not show true as equal to true&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
+    <span class="hljs-title function_">expect</span>(
+      <span class="hljs-title function_">assert</span>(<span class="hljs-function">() =&gt;</span> {
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>();
+      }).<span class="hljs-title function_">toThrow</span>()
+    ).<span class="hljs-title function_">toEqual</span>(<span class="hljs-literal">true</span>);
+    <span class="hljs-title function_">expect</span>(<span class="hljs-title function_">assert</span>(<span class="hljs-function">() =&gt;</span> {}).<span class="hljs-title function_">toThrow</span>()).<span class="hljs-title function_">toEqual</span>(<span class="hljs-literal">false</span>);
   });
 });</pre></div></div>
             

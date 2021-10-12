@@ -62,8 +62,8 @@
         <li id="section-1">
             <div class="annotation">
               
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-1">&#182;</a>
+              <div class="sswrap ">
+                <a class="ss" href="#section-1">&#x00a7;</a>
               </div>
               <p>Your final exercise is to implement a node.js SDK using the following two API’s:
 <a href="https://nodejs.org/api/https.html">NodeJS HTTPS library</a>
@@ -77,8 +77,8 @@
         <li id="section-2">
             <div class="annotation">
               
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-2">&#182;</a>
+              <div class="sswrap ">
+                <a class="ss" href="#section-2">&#x00a7;</a>
               </div>
               <ul>
 <li>Think about your SDK function signatures</li>
@@ -96,8 +96,8 @@
         <li id="section-3">
             <div class="annotation">
               
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-3">&#182;</a>
+              <div class="sswrap ">
+                <a class="ss" href="#section-3">&#x00a7;</a>
               </div>
               <p>Extension</p>
 <ul>
@@ -112,22 +112,22 @@
         <li id="section-4">
             <div class="annotation">
               
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-4">&#182;</a>
+              <div class="sswrap ">
+                <a class="ss" href="#section-4">&#x00a7;</a>
               </div>
               <p>Your SDK <em>could</em> look something like…</p>
 
             </div>
             
             <div class="content"><div class='highlight'><pre><span class="hljs-keyword">const</span> getPosts = {
-  <span class="hljs-attr">getAllPostsCallback</span>: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {},
+  <span class="hljs-attr">getAllPostsCallback</span>: <span class="hljs-function">() =&gt;</span> {},
 
-  <span class="hljs-attr">getAllPostsPromise</span>: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {}
+  <span class="hljs-attr">getAllPostsPromise</span>: <span class="hljs-function">() =&gt;</span> {}
 };
 
-describe(<span class="hljs-string">'Your SDK'</span>, () =&gt; {
-  test(<span class="hljs-string">'works'</span>, () =&gt; {
-    expect(<span class="hljs-literal">true</span>).toBe(<span class="hljs-literal">true</span>);
+<span class="hljs-title function_">describe</span>(<span class="hljs-string">&#x27;Your SDK&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
+  <span class="hljs-title function_">test</span>(<span class="hljs-string">&#x27;works&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
+    <span class="hljs-title function_">expect</span>(<span class="hljs-literal">true</span>).<span class="hljs-title function_">toBe</span>(<span class="hljs-literal">true</span>);
   });
 });</pre></div></div>
             

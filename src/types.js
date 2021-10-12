@@ -37,7 +37,7 @@ console.log(1 + 1);
 
 
 
-// ## The `typeof` operator
+// ## The typeof operator
 
 // We can use the `typeof` operator to tell the difference between data types. This allows us to implement error handling and/or different behaviour dependent on type
 
@@ -76,16 +76,19 @@ console.log(typeof new Number(0));
 // `null` returning `"object"` is actually a bug...
 
 // **Question:** Why is array an "object"? How do we type check an array then?
+
 // **Answer:** Arrays are a child of the object prototype, but with methods overwritten.
+
 // **Note:** Because of these heavy discrepancies, I can strongly recommend using something like Lodash's utilities, for instance: [_.isObject](https://lodash.com/docs/4.17.11#isObject) or at least rolling your own (And use TDD, of course).
 
 
 // ## Type coercion
 
-// If primitives have no properties, why does "abc".length return a value?
+// **Question:** If primitives have no properties, why does "abc".length return a value?
 
 console.log('hello'.length);
 
+// **Answer:**
 // This works as JavaScript wraps the primitive in an object `String` temporarily at run time.
 // This is quite confusing, but worth discussing as when you use the object over the primitive as you make a trade off:
 
@@ -111,20 +114,21 @@ const objectWrapper = new Boolean(false)
 // 1. We want to do lots of things with primitives. Accessing them as methods would be a great thing.
 // 2. Primitives must to be lightweight and fast.
 
-// **Solution: ** - Primitives have no properties/ methods, which keeps them memory size small (A boolean is 1 bit, a number is 8 bytes)
-//                - Wrapper objects provide sets of properties / methods. E.g str.length &  str.toUpperCase()
+// **Solution:** 
+// * Primitives have no properties/ methods, which keeps them memory size small (A boolean is 1 bit, a number is 8 bytes)
+// * Wrapper objects provide sets of properties / methods. E.g str.length &  str.toUpperCase()
 
 // Primitive values are *coerced* to a wrapper object when needed e.g.:
 
 var str = 'hello';
 var upper = str.toUpperCase();
-console.log(upper); // --> HELLO
+console.log(upper); // HELLO
 
 
 // is coerced to:
 var str = 'hello';
 var upper = (new String(str)).toUpperCase()
-console.log(upper);
+console.log(upper); // HELLO
 
 // Once the property or method (in this example, toUpperCase()) has resolved, the wrapper object is discarded
 

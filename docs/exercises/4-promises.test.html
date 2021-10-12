@@ -62,8 +62,8 @@
         <li id="section-1">
             <div class="annotation">
               
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-1">&#182;</a>
+              <div class="sswrap ">
+                <a class="ss" href="#section-1">&#x00a7;</a>
               </div>
               <p>Your fourth exercise is to get to grips with promises and async/await</p>
 
@@ -75,13 +75,11 @@
         <li id="section-2">
             <div class="annotation">
               
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-2">&#182;</a>
+              <div class="sswrap ">
+                <a class="ss" href="#section-2">&#x00a7;</a>
               </div>
-              <h2 id="part-1-a-basic-promise">Part 1: A basic promise</h2>
-<p>Implement a <code>myFirstPromise</code> function which returns a promise
-If its successful the response should be “Yay!”
-If unsuccessful the response should be “Boo :(“</p>
+              <p>Tests have been written for you to test your code
+Run these tests using the command <code>jest --watch exercises/4-promises.test</code></p>
 
             </div>
             
@@ -91,25 +89,17 @@ If unsuccessful the response should be “Boo :(“</p>
         <li id="section-3">
             <div class="annotation">
               
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-3">&#182;</a>
+              <div class="sswrap ">
+                <a class="ss" href="#section-3">&#x00a7;</a>
               </div>
-              <h2 id="part-2-then">Part 2: .Then</h2>
-<p>Implement the function <code>rainbowConverter</code> which resolves  an array of colours
-Then loop over the colours, converting each colour from a string to an object
-The object should contain a ‘colour’ key and an ‘id’ key which is its index in the array</p>
+              <h2 id="part-1-a-basic-promise">Part 1: A basic promise</h2>
+<p>Implement a <code>myFirstPromise</code> function which returns a promise</p>
+<ul>
+<li>If its successful the response should be “Yay!”</li>
+<li>If unsuccessful the response should be “Boo :(“</li>
+</ul>
 
             </div>
-            
-            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">const</span> colours = [
-  <span class="hljs-string">'red'</span>,
-  <span class="hljs-string">'orange'</span>,
-  <span class="hljs-string">'yellow'</span>,
-  <span class="hljs-string">'green'</span>,
-  <span class="hljs-string">'blue'</span>,
-  <span class="hljs-string">'indigo'</span>,
-  <span class="hljs-string">'violet'</span>
-];</pre></div></div>
             
         </li>
         
@@ -117,8 +107,34 @@ The object should contain a ‘colour’ key and an ‘id’ key which is its in
         <li id="section-4">
             <div class="annotation">
               
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-4">&#182;</a>
+              <div class="sswrap ">
+                <a class="ss" href="#section-4">&#x00a7;</a>
+              </div>
+              <h2 id="part-2-then">Part 2: .Then</h2>
+<p>Implement the function <code>rainbowConverter</code> which resolves an array of colours
+Then loop over the colours, converting each colour from a string to an object
+The object should contain a ‘colour’ key and an ‘id’ key which is its index in the array</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">const</span> colours = [
+  <span class="hljs-string">&#x27;red&#x27;</span>,
+  <span class="hljs-string">&#x27;orange&#x27;</span>,
+  <span class="hljs-string">&#x27;yellow&#x27;</span>,
+  <span class="hljs-string">&#x27;green&#x27;</span>,
+  <span class="hljs-string">&#x27;blue&#x27;</span>,
+  <span class="hljs-string">&#x27;indigo&#x27;</span>,
+  <span class="hljs-string">&#x27;violet&#x27;</span>
+];</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="sswrap ">
+                <a class="ss" href="#section-5">&#x00a7;</a>
               </div>
               <h2 id="part-3-caught-promises">Part 3: Caught Promises</h2>
 <p>Implement the function <code>caughtPromise</code> which rejects with an error object
@@ -129,102 +145,115 @@ containing the message ‘The promise rejected’</p>
         </li>
         
         
-        <li id="section-5">
+        <li id="section-6">
             <div class="annotation">
               
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-5">&#182;</a>
+              <div class="sswrap ">
+                <a class="ss" href="#section-6">&#x00a7;</a>
               </div>
               <h2 id="part-4-do-it-all-again-with-asyncawait">Part 4: Do it all again… with async/await!</h2>
 <p>Implement <code>myFirstAsyncAwait</code>, <code>asyncAwaitRainbowConverter</code> and <code>caughtAsyncAwait</code></p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>
-describe(<span class="hljs-string">'myFirstPromise'</span>, () =&gt; {
-  test(<span class="hljs-string">'should return "Yay!" if the promise resolves'</span>, <span class="hljs-keyword">async</span> () =&gt; {
-    <span class="hljs-keyword">const</span> result = <span class="hljs-keyword">await</span> myFirstPromise();
-    expect(result).toEqual(<span class="hljs-string">'Yay!'</span>);
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="sswrap ">
+                <a class="ss" href="#section-7">&#x00a7;</a>
+              </div>
+              <p>These are the unit tests written to test your code. 
+You will not need to touch these.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-title function_">describe</span>(<span class="hljs-string">&#x27;myFirstPromise&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
+  <span class="hljs-title function_">test</span>(<span class="hljs-string">&#x27;should return &quot;Yay!&quot; if the promise resolves&#x27;</span>, <span class="hljs-keyword">async</span> () =&gt; {
+    <span class="hljs-keyword">const</span> result = <span class="hljs-keyword">await</span> <span class="hljs-title function_">myFirstPromise</span>();
+    <span class="hljs-title function_">expect</span>(result).<span class="hljs-title function_">toEqual</span>(<span class="hljs-string">&#x27;Yay!&#x27;</span>);
   });
 
-  test(<span class="hljs-string">'should return "Boo :(" if the promise rejects'</span>, <span class="hljs-keyword">async</span> () =&gt; {
+  <span class="hljs-title function_">test</span>(<span class="hljs-string">&#x27;should return &quot;Boo :(&quot; if the promise rejects&#x27;</span>, <span class="hljs-keyword">async</span> () =&gt; {
     <span class="hljs-keyword">let</span> error = <span class="hljs-literal">false</span>;
     <span class="hljs-keyword">try</span> {
-      <span class="hljs-keyword">await</span> myFirstPromise();
+      <span class="hljs-keyword">await</span> <span class="hljs-title function_">myFirstPromise</span>();
     } <span class="hljs-keyword">catch</span> (e) {
       error = e;
     }
-    expect(error).toBeTruthy();
+    <span class="hljs-title function_">expect</span>(error).<span class="hljs-title function_">toBeTruthy</span>();
   });
 });
 
-describe(<span class="hljs-string">'rainbowConverter'</span>, () =&gt; {
-  test(<span class="hljs-string">'should return an array of objects with id and colour'</span>, <span class="hljs-keyword">async</span> () =&gt; {
-    <span class="hljs-keyword">const</span> result = <span class="hljs-keyword">await</span> rainbowConverter();
+<span class="hljs-title function_">describe</span>(<span class="hljs-string">&#x27;rainbowConverter&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
+  <span class="hljs-title function_">test</span>(<span class="hljs-string">&#x27;should return an array of objects with id and colour&#x27;</span>, <span class="hljs-keyword">async</span> () =&gt; {
+    <span class="hljs-keyword">const</span> result = <span class="hljs-keyword">await</span> <span class="hljs-title function_">rainbowConverter</span>();
     <span class="hljs-keyword">const</span> expected = [
-      { <span class="hljs-attr">id</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">colour</span>: <span class="hljs-string">'red'</span> },
-      { <span class="hljs-attr">id</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">colour</span>: <span class="hljs-string">'orange'</span> },
-      { <span class="hljs-attr">id</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">colour</span>: <span class="hljs-string">'yellow'</span> },
-      { <span class="hljs-attr">id</span>: <span class="hljs-number">3</span>, <span class="hljs-attr">colour</span>: <span class="hljs-string">'green'</span> },
-      { <span class="hljs-attr">id</span>: <span class="hljs-number">4</span>, <span class="hljs-attr">colour</span>: <span class="hljs-string">'blue'</span> },
-      { <span class="hljs-attr">id</span>: <span class="hljs-number">5</span>, <span class="hljs-attr">colour</span>: <span class="hljs-string">'indigo'</span> },
-      { <span class="hljs-attr">id</span>: <span class="hljs-number">6</span>, <span class="hljs-attr">colour</span>: <span class="hljs-string">'violet'</span> }
+      { <span class="hljs-attr">id</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">colour</span>: <span class="hljs-string">&#x27;red&#x27;</span> },
+      { <span class="hljs-attr">id</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">colour</span>: <span class="hljs-string">&#x27;orange&#x27;</span> },
+      { <span class="hljs-attr">id</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">colour</span>: <span class="hljs-string">&#x27;yellow&#x27;</span> },
+      { <span class="hljs-attr">id</span>: <span class="hljs-number">3</span>, <span class="hljs-attr">colour</span>: <span class="hljs-string">&#x27;green&#x27;</span> },
+      { <span class="hljs-attr">id</span>: <span class="hljs-number">4</span>, <span class="hljs-attr">colour</span>: <span class="hljs-string">&#x27;blue&#x27;</span> },
+      { <span class="hljs-attr">id</span>: <span class="hljs-number">5</span>, <span class="hljs-attr">colour</span>: <span class="hljs-string">&#x27;indigo&#x27;</span> },
+      { <span class="hljs-attr">id</span>: <span class="hljs-number">6</span>, <span class="hljs-attr">colour</span>: <span class="hljs-string">&#x27;violet&#x27;</span> }
     ];
-    expect(result).toEqual(expected);
+    <span class="hljs-title function_">expect</span>(result).<span class="hljs-title function_">toEqual</span>(expected);
   });
 });
 
-describe(<span class="hljs-string">'caughtPromise'</span>, () =&gt; {
-  test(<span class="hljs-string">'should throw an error with the message "The promise rejected"'</span>, <span class="hljs-keyword">async</span> () =&gt; {
+<span class="hljs-title function_">describe</span>(<span class="hljs-string">&#x27;caughtPromise&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
+  <span class="hljs-title function_">test</span>(<span class="hljs-string">&#x27;should throw an error with the message &quot;The promise rejected&quot;&#x27;</span>, <span class="hljs-keyword">async</span> () =&gt; {
     <span class="hljs-keyword">try</span> {
-      <span class="hljs-keyword">await</span> caughtPromise();
+      <span class="hljs-keyword">await</span> <span class="hljs-title function_">caughtPromise</span>();
     } <span class="hljs-keyword">catch</span> (error) {
-      expect(error).toBeInstanceOf(<span class="hljs-built_in">Error</span>);
-      expect(error.message).toEqual(<span class="hljs-string">'The promise rejected'</span>);
+      <span class="hljs-title function_">expect</span>(error).<span class="hljs-title function_">toBeInstanceOf</span>(<span class="hljs-title class_">Error</span>);
+      <span class="hljs-title function_">expect</span>(error.<span class="hljs-property">message</span>).<span class="hljs-title function_">toEqual</span>(<span class="hljs-string">&#x27;The promise rejected&#x27;</span>);
     }
   });
 });
 
-describe(<span class="hljs-string">'myFirstAsyncAwait'</span>, () =&gt; {
-  test(<span class="hljs-string">'should return "Yay!" if the promise resolves'</span>, <span class="hljs-keyword">async</span> () =&gt; {
-    <span class="hljs-keyword">const</span> result = <span class="hljs-keyword">await</span> myFirstAsyncAwait();
-    expect(result).toEqual(<span class="hljs-string">'Yay!'</span>);
+<span class="hljs-title function_">describe</span>(<span class="hljs-string">&#x27;myFirstAsyncAwait&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
+  <span class="hljs-title function_">test</span>(<span class="hljs-string">&#x27;should return &quot;Yay!&quot; if the promise resolves&#x27;</span>, <span class="hljs-keyword">async</span> () =&gt; {
+    <span class="hljs-keyword">const</span> result = <span class="hljs-keyword">await</span> <span class="hljs-title function_">myFirstAsyncAwait</span>();
+    <span class="hljs-title function_">expect</span>(result).<span class="hljs-title function_">toEqual</span>(<span class="hljs-string">&#x27;Yay!&#x27;</span>);
   });
 
-  test(<span class="hljs-string">'should return "Boo :(" if the promise rejects'</span>, <span class="hljs-keyword">async</span> () =&gt; {
+  <span class="hljs-title function_">test</span>(<span class="hljs-string">&#x27;should return &quot;Boo :(&quot; if the promise rejects&#x27;</span>, <span class="hljs-keyword">async</span> () =&gt; {
     <span class="hljs-keyword">let</span> error = <span class="hljs-literal">false</span>;
     <span class="hljs-keyword">try</span> {
-      <span class="hljs-keyword">await</span> myFirstAsyncAwait();
+      <span class="hljs-keyword">await</span> <span class="hljs-title function_">myFirstAsyncAwait</span>();
     } <span class="hljs-keyword">catch</span> (e) {
       error = e;
     }
-    expect(error).toBeTruthy();
+    <span class="hljs-title function_">expect</span>(error).<span class="hljs-title function_">toBeTruthy</span>();
   });
 });
 
-describe(<span class="hljs-string">'asyncAwaitRainbowConverter'</span>, () =&gt; {
-  test(<span class="hljs-string">'should return an array of objects with id and colour'</span>, <span class="hljs-keyword">async</span> () =&gt; {
-    <span class="hljs-keyword">const</span> result = <span class="hljs-keyword">await</span> asyncAwaitRainbowConverter();
+<span class="hljs-title function_">describe</span>(<span class="hljs-string">&#x27;asyncAwaitRainbowConverter&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
+  <span class="hljs-title function_">test</span>(<span class="hljs-string">&#x27;should return an array of objects with id and colour&#x27;</span>, <span class="hljs-keyword">async</span> () =&gt; {
+    <span class="hljs-keyword">const</span> result = <span class="hljs-keyword">await</span> <span class="hljs-title function_">asyncAwaitRainbowConverter</span>();
     <span class="hljs-keyword">const</span> expected = [
-      { <span class="hljs-attr">id</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">colour</span>: <span class="hljs-string">'red'</span> },
-      { <span class="hljs-attr">id</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">colour</span>: <span class="hljs-string">'orange'</span> },
-      { <span class="hljs-attr">id</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">colour</span>: <span class="hljs-string">'yellow'</span> },
-      { <span class="hljs-attr">id</span>: <span class="hljs-number">3</span>, <span class="hljs-attr">colour</span>: <span class="hljs-string">'green'</span> },
-      { <span class="hljs-attr">id</span>: <span class="hljs-number">4</span>, <span class="hljs-attr">colour</span>: <span class="hljs-string">'blue'</span> },
-      { <span class="hljs-attr">id</span>: <span class="hljs-number">5</span>, <span class="hljs-attr">colour</span>: <span class="hljs-string">'indigo'</span> },
-      { <span class="hljs-attr">id</span>: <span class="hljs-number">6</span>, <span class="hljs-attr">colour</span>: <span class="hljs-string">'violet'</span> }
+      { <span class="hljs-attr">id</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">colour</span>: <span class="hljs-string">&#x27;red&#x27;</span> },
+      { <span class="hljs-attr">id</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">colour</span>: <span class="hljs-string">&#x27;orange&#x27;</span> },
+      { <span class="hljs-attr">id</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">colour</span>: <span class="hljs-string">&#x27;yellow&#x27;</span> },
+      { <span class="hljs-attr">id</span>: <span class="hljs-number">3</span>, <span class="hljs-attr">colour</span>: <span class="hljs-string">&#x27;green&#x27;</span> },
+      { <span class="hljs-attr">id</span>: <span class="hljs-number">4</span>, <span class="hljs-attr">colour</span>: <span class="hljs-string">&#x27;blue&#x27;</span> },
+      { <span class="hljs-attr">id</span>: <span class="hljs-number">5</span>, <span class="hljs-attr">colour</span>: <span class="hljs-string">&#x27;indigo&#x27;</span> },
+      { <span class="hljs-attr">id</span>: <span class="hljs-number">6</span>, <span class="hljs-attr">colour</span>: <span class="hljs-string">&#x27;violet&#x27;</span> }
     ];
-    expect(result).toEqual(expected);
+    <span class="hljs-title function_">expect</span>(result).<span class="hljs-title function_">toEqual</span>(expected);
   });
 });
 
-describe(<span class="hljs-string">'caughtAsyncAwait'</span>, () =&gt; {
-  test(<span class="hljs-string">'should throw an error with the message "The promise rejected"'</span>, <span class="hljs-keyword">async</span> () =&gt; {
+<span class="hljs-title function_">describe</span>(<span class="hljs-string">&#x27;caughtAsyncAwait&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
+  <span class="hljs-title function_">test</span>(<span class="hljs-string">&#x27;should throw an error with the message &quot;The promise rejected&quot;&#x27;</span>, <span class="hljs-keyword">async</span> () =&gt; {
     <span class="hljs-keyword">try</span> {
-      <span class="hljs-keyword">await</span> caughtAsyncAwait();
+      <span class="hljs-keyword">await</span> <span class="hljs-title function_">caughtAsyncAwait</span>();
     } <span class="hljs-keyword">catch</span> (error) {
-      expect(error).toBeInstanceOf(<span class="hljs-built_in">Error</span>);
-      expect(error.message).toEqual(<span class="hljs-string">'The promise rejected'</span>);
+      <span class="hljs-title function_">expect</span>(error).<span class="hljs-title function_">toBeInstanceOf</span>(<span class="hljs-title class_">Error</span>);
+      <span class="hljs-title function_">expect</span>(error.<span class="hljs-property">message</span>).<span class="hljs-title function_">toEqual</span>(<span class="hljs-string">&#x27;The promise rejected&#x27;</span>);
     }
   });
 });</pre></div></div>

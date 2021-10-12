@@ -70,7 +70,7 @@ const unary = x => x;
 
 // ## Hoisting
 
-// What's the difference between the following:
+// **Question:** What will the result of the following code be?
 
 try {
   console.log(iAmADeclaration);
@@ -83,10 +83,10 @@ function iAmADeclaration() {}
 
 const iAmAnExpression = () => {};
 
-// Functions and variable declarations are taken to the top of the functions they are executing in. 
-// If there is no parent function present, then they are hoisted to the top of the global scope.
+// * Functions and variable declarations are taken to the top of the functions they are executing in. 
+// * If there is no parent function present, then they are hoisted to the top of the global scope.
 
-// The code gets 'rearranged' to 
+// The previous code snippet gets 'rearranged/hoisted' to
 
 function iAmADeclaration() {}
 
@@ -99,13 +99,15 @@ try {
 
 const iAmAnExpressionn = () => {};
 
+// **But why?**
 
 // Hoisting happens because of how our code is interpreted and executed by the JavaScript interpreter.
+
 // During run time, javascript code is interpreted in a minimum of 2 cycles:
 
-// * During 1st run, the interpreter goes through the code line by line while looking only for functions or variable declarations. Wherever it encounters a declaration, it moves it to the top. (This is how the interpreter will get an idea about which functions and variables are going to be used in the current context, also how much approximate memory it will be needing to execute the current function)
+// **1st run:** the interpreter goes through the code line by line while looking only for functions or variable declarations. Wherever it encounters a declaration, it moves it to the top.
 
-// * During 2nd run, the interpreter starts the execution of output from the previous run. Now it will start compiling the code in a normal way i.e. assigning values, executing function calls, reassignment of values, etc.
+// **2nd run:** the interpreter starts compiling the code from the previous run.  i.e. assigning values, executing function calls, reassignment of values, etc.
 
 // **Question:** What will the following code result in?
 var studentName = "Frank";

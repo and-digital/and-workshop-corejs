@@ -1,6 +1,8 @@
 // Your first exercise is to build an assert library with the below methods.
 // You cannot import any library - build it all yourself!
-// Run these tests using the command `jest --watch exercises/1-theBasics.test`
+
+// Tests have been written for you to test your assert library
+// Run them using the command `jest --watch exercises/1-theBasics.test`
 
 // ## Implement .toBeTruthy
 // https://jestjs.io/docs/en/expect#tobetruthy
@@ -14,7 +16,8 @@
 // ## Implement .toThrow
 // https://jestjs.io/docs/en/expect#tothrowerror
 
-// fill this in with your own implementation of each method
+
+// This is your assert library. Add your own implementation for each method
 const assert = expectedValue => (
   {
     toBeTruthy: undefined, 
@@ -24,20 +27,14 @@ const assert = expectedValue => (
   }
 )
 
+// These are the unit tests written to test your assert library. 
+// You will not need to touch these.
 describe('.toBeTruthy', () => {
   test('Will show true as equal to true', () => {
     expect(assert(true).toBeTruthy()).toEqual(true);
-
-    // An empty string is false
     expect(assert('').toBeTruthy()).not.toEqual(true);
-
-    // An string is true
     expect(assert('populated').toBeTruthy()).toEqual(true);
-
-    // An empty object is truthy
     expect(assert({}).toBeTruthy()).toEqual(true);
-
-    // An empty array is truthy
     expect(assert([]).toBeTruthy()).toEqual(true);
   });
 });
