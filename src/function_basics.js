@@ -105,7 +105,7 @@ const iAmAnExpressionn = () => {};
 
 // * During 1st run, the interpreter goes through the code line by line while looking only for functions or variable declarations. Wherever it encounters a declaration, it moves it to the top. (This is how the interpreter will get an idea about which functions and variables are going to be used in the current context, also how much approximate memory it will be needing to execute the current function)
 
-// * During 2nd run, the compiler starts the execution of output from the previous run. Now it will start compiling the code in a normal way i.e. assigning values, executing function calls, reassignment of values, etc.
+// * During 2nd run, the interpreter starts the execution of output from the previous run. Now it will start compiling the code in a normal way i.e. assigning values, executing function calls, reassignment of values, etc.
 
 // **Question:** What will the following code result in?
 var studentName = "Frank";
@@ -206,5 +206,6 @@ const functionFour = () => {
 console.log(functionThree())
 console.log(functionFour())
 
+// **Question:** How do you perform a implicit return a JSON object?
 
 

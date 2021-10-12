@@ -59,8 +59,6 @@ const shallowThing = {};
 const pick = shallowThing?.oneLayer?.twoLayers;
 console.log(pick);
 
-// **Note:** We'll cover new in more depth later.
-
 
 // ## JavaScript and error objects
 
