@@ -25,6 +25,7 @@
 // ####################################################################
 
 // ## Implement .pick
+// **Bonus Point:** Do this whilst _using reduce_
 // Implement a pick function that creates an object composed of the picked properties
 // (https://lodash.com/docs/4.17.10#pick)
 
@@ -37,30 +38,18 @@
 // (https://lodash.com/docs/4.17.10#memoize)
 
 
+// This is your lodash library. Add your own implementation for each method
+const _ = {
+    reduce: undefined, 
+    map: undefined,
+    defaults: undefined,
+    pick: undefined,
+    throttle: undefined,
+    memoize: undefined
+}
+
 // These are the unit tests written to test your lodash utility. 
 // You will not need to touch these.
-describe('_.map', () => {
-  test('Can concatenate a string as part of a map', () => {
-    expect(_.map(['Graham', 'Sarah', 'Bob'], name => `The ${name}`)).toEqual([
-      'The Graham',
-      'The Sarah',
-      'The Bob'
-    ]);
-  });
-  test('Can map an array with data objects', () => {
-    expect(_.map([{ name: 'Lou' }], person => person.name)).toEqual(['Lou']);
-  });
-  test('does not mutate', () => {
-    const originalValues = ['Graham', 'Sarah', 'Bob'];
-    expect(_.map(originalValues, name => `The ${name}`)).toEqual([
-      'The Graham',
-      'The Sarah',
-      'The Bob'
-    ]);
-    expect(originalValues).toEqual(['Graham', 'Sarah', 'Bob']);
-  });
-});
-
 describe('_.reduce', () => {
   test('Reduces an array without a default', () => {
     const result = _.reduce([{ age: 12 }, { age: 13 }], (prev, item) => {
@@ -100,22 +89,25 @@ describe('_.reduce', () => {
   });
 });
 
-describe('_.memoize', () => {
-  test('Returns correct result, twice', () => {
-    const testObject = {
-      add: (first, second) => first + second
-    };
-
-    const spy = jest.spyOn(testObject, 'add');
-    const memoizedFunction = _.memoize(spy);
-
-    expect(memoizedFunction(2, 2)).toEqual(4);
-    expect(spy).toHaveBeenCalledTimes(1);
-
-    expect(memoizedFunction(2, 2)).toEqual(4);
-    expect(spy).toHaveBeenCalledTimes(1);
-
-    expect(spy).not.toHaveBeenCalledTimes(2);
+describe('_.map', () => {
+  test('Can concatenate a string as part of a map', () => {
+    expect(_.map(['Graham', 'Sarah', 'Bob'], name => `The ${name}`)).toEqual([
+      'The Graham',
+      'The Sarah',
+      'The Bob'
+    ]);
+  });
+  test('Can map an array with data objects', () => {
+    expect(_.map([{ name: 'Lou' }], person => person.name)).toEqual(['Lou']);
+  });
+  test('does not mutate', () => {
+    const originalValues = ['Graham', 'Sarah', 'Bob'];
+    expect(_.map(originalValues, name => `The ${name}`)).toEqual([
+      'The Graham',
+      'The Sarah',
+      'The Bob'
+    ]);
+    expect(originalValues).toEqual(['Graham', 'Sarah', 'Bob']);
   });
 });
 
@@ -135,6 +127,37 @@ describe('_.defaults', () => {
   });
 });
 
+describe('_.pick', () => { 
+  test('Returns the correct value, with one chosen property', () => {
+    const testObject = {
+      firstArg: 'first',
+      secondArg: 'second'
+    }
+
+    expect(_.pick(testObject,['secondArg'])).toEqual({ secondArg: 'second' })
+  })
+
+  test('Returns the correct values, when more than one property is chosen', () => {
+    const testObject = {
+      firstArg: 'first',
+      secondArg: 'second',
+      thirdArg: 'third'
+    }
+
+    expect(_.pick(testObject,['secondArg','thirdArg'])).toEqual({ secondArg: 'second',thirdArg: 'third' })
+  })
+
+  test('Returns an empty object if property does not exist', () => {
+    const testObject = {
+      firstArg: 'first',
+      secondArg: 'second',
+      thirdArg: 'third'
+    }
+
+    expect(_.pick(testObject,['tenthArg'])).toStrictEqual({})
+  })
+})
+
 describe('_.throttle', () => {
   test('Returns correct result, twice', done => {
     const click = jest.fn().mockReturnValue(3);
@@ -151,5 +174,24 @@ describe('_.throttle', () => {
       expect(click).toHaveBeenCalledTimes(2);
       done();
     }, 500);
+  });
+});
+
+describe('_.memoize', () => {
+  test('Returns correct result, twice', () => {
+    const testObject = {
+      add: (first, second) => first + second
+    };
+
+    const spy = jest.spyOn(testObject, 'add');
+    const memoizedFunction = _.memoize(spy);
+
+    expect(memoizedFunction(2, 2)).toEqual(4);
+    expect(spy).toHaveBeenCalledTimes(1);
+
+    expect(memoizedFunction(2, 2)).toEqual(4);
+    expect(spy).toHaveBeenCalledTimes(1);
+
+    expect(spy).not.toHaveBeenCalledTimes(2);
   });
 });
