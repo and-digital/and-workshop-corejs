@@ -1,9 +1,6 @@
 // Your first exercise is to build an assert library with the below methods.
 // You cannot import any library - build it all yourself!
 
-// Tests have been written for you to test your assert library
-// Run them using the command `jest --watch exercises/1-theBasics.test`
-
 // ## Implement .toBeTruthy
 // https://jestjs.io/docs/en/expect#tobetruthy
 

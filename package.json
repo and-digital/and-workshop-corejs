@@ -6,7 +6,10 @@
   "scripts": {
     "test": "jest ./src/*test.js --watch",
     "docs": "./node_modules/.bin/docco ./src/*.js ./exercises/*.js",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "exercise::basics": "jest exercises/1-theBasics.test.js --watch",
+    "exercise::functional": "jest exercises/2-functional.test.js --watch",
+    "exercise::object-oriented": "jest exercises/3-objectOriented.test.js --watch"
   },
   "author": "",
   "license": "ISC",
