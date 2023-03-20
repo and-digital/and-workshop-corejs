@@ -4,9 +4,6 @@
   "description": "",
   "main": "",
   "scripts": {
-    "test": "jest ./src/*test.js --watch",
-    "docs": "./node_modules/.bin/docco ./src/*.js ./exercises/*.js",
-    "precommit": "lint-staged",
     "exercise::basics": "jest exercises/1-theBasics.test.js --watch",
     "exercise::functional": "jest exercises/2-functional.test.js --watch",
     "exercise::object-oriented": "jest exercises/3-objectOriented.test.js --watch"
@@ -15,17 +12,6 @@
   "license": "ISC",
   "dependencies": {
     "jest": "^27.2.5",
-    "lint-staged": "^11.2.3",
     "prettier": "^2.4.1"
-  },
-  "lint-staged": {
-    "*.js": [
-      "prettier --write --single-quote",
-      "git add",
-      "sh ./commitGeneratedDocPage.sh"
-    ]
-  },
-  "devDependencies": {
-    "docco": "^0.8.1"
   }
 }
