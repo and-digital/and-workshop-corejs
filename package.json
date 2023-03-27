@@ -4,9 +4,9 @@
   "description": "",
   "main": "",
   "scripts": {
-    "exercise::basics": "jest exercises/1-theBasics.test.js --watch",
-    "exercise::functional": "jest exercises/2-functional.test.js --watch",
-    "exercise::object-oriented": "jest exercises/3-objectOriented.test.js --watch"
+    "exercise::basics": "jest exercises[/\\]__tests__[/\\]1-theBasics.test.js --watch",
+    "exercise::functional": "jest exercises[/\\]__tests__[/\\]2-functional.test.js --watch",
+    "exercise::object-oriented": "jest exercises[/\\]__tests__[/\\]3-objectOriented.test.js --watch"
   },
   "author": "",
   "license": "ISC",
