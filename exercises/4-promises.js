@@ -25,6 +25,14 @@ function arrayConverter(arrayPromise) {
   });
 }
 
+// Async/await version
+async function arrayConverter(arrayPromise) {
+  const values = await arrayPromise;
+  return values.map((value, id) => {
+    return { id, value };
+  });
+}
+
 //## Part 3: Caught promises
 // Implement a `caughtPromise` function that accepts a promise which will reject
 // Catch the rejection and throw an error with the message "Promise rejected: " followed by the message from the caught rejection
@@ -34,6 +42,15 @@ function caughtPromise(rejected) {
   return rejected.catch((e) => {
     throw new Error(`Promise rejected: ${e}`);
   });
+}
+
+// Async.await version
+async function caughtPromise(rejected) {
+  try {
+    await rejected;
+  } catch (e) {
+    throw new Error(`Promise rejected: ${e}`);
+  }
 }
 
 module.exports = {
