@@ -6,12 +6,13 @@
   "scripts": {
     "exercise::basics": "jest exercises[/\\]__tests__[/\\]1-theBasics.test.js --watch",
     "exercise::functional": "jest exercises[/\\]__tests__[/\\]2-functional.test.js --watch",
-    "exercise::object-oriented": "jest exercises[/\\]__tests__[/\\]3-objectOriented.test.js --watch"
+    "exercise::object-oriented": "jest exercises[/\\]__tests__[/\\]3-objectOriented.test.js --watch",
+    "exercise::promises": "jest exercises[/\\]__tests__[/\\]4-promises.test.js --watch"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "jest": "^27.2.5",
+    "jest": "^29.5.0",
     "prettier": "^2.4.1"
   }
 }
