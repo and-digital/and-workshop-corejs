@@ -13,13 +13,20 @@
 // ## Implement .toThrow
 // https://jestjs.io/docs/en/expect#tothrowerror
 
-
 // This is your assert library. Add your own implementation for each method
-module.exports = expectedValue => (
-  {
-    toBeTruthy: undefined, 
-    toBe: undefined,
-    toEqual: undefined,
-    toThrow: undefined,
-  }
-)
+module.exports = function assert(actualValue) {
+  return {
+    toBeTruthy: () => {
+      return false;
+    },
+    toBe: (expectedValue) => {
+      return false;
+    },
+    toEqual: (expectedValue) => {
+      return false;
+    },
+    toThrow: () => {
+      return false;
+    },
+  };
+};
