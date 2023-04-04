@@ -82,6 +82,6 @@ describe(".toThrow", () => {
   });
 
   test("Will return false if the function doesn't throw an error", () => {
-    expect(assert(() => {}).toThrow()).toEqual(true);
+    expect(assert(() => {}).toThrow()).toEqual(false);
   });
 });
