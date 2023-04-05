@@ -2,11 +2,14 @@ const _ = require("../2-functional");
 
 describe("_.reduce", () => {
   test("Reduces an array without a default", () => {
-    const result = _.reduce([{ age: 12 }, { age: 13 }], (prev, item) => {
-      prev = prev + item.age;
+    const result = _.reduce([24, 19, 71, 3, 20], (prev, item) => {
+      if (item > prev) {
+        return item;
+      }
+
       return prev;
     });
-    expect(result).toEqual(25);
+    expect(result).toEqual(71);
   });
 
   test("Reduces an array, starting with 10", () => {
@@ -22,19 +25,19 @@ describe("_.reduce", () => {
   });
 
   test("Does not mutate original array", () => {
-    const original = [{ age: 12 }, { age: 13 }];
+    const original = [{ count: 97 }, { count: 33 }];
     const start = 0;
     const result = _.reduce(
       original,
       (prev, item) => {
-        prev = prev + item.age;
+        prev = prev + item.count;
         return prev;
       },
       start
     );
 
-    expect(original).toEqual([{ age: 12 }, { age: 13 }]);
-    expect(result).toEqual(25);
+    expect(original).toEqual([{ count: 97 }, { count: 33 }]);
+    expect(result).toEqual(130);
     expect(start).toEqual(0);
   });
 });
@@ -48,7 +51,12 @@ describe("_.map", () => {
     ]);
   });
   test("Can map an array with data objects", () => {
-    expect(_.map([{ name: "Lou" }], (person) => person.name)).toEqual(["Lou"]);
+    expect(
+      _.map(
+        [{ name: "Lou" }, { name: "Drew" }, { name: "Sue" }],
+        (person) => person.name
+      )
+    ).toEqual(["Lou", "Drew", "Sue"]);
   });
   test("does not mutate", () => {
     const originalValues = ["Graham", "Sarah", "Bob"];

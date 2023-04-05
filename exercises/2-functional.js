@@ -1,24 +1,24 @@
-// Your second exercise is to rebuild the lodash utility with the below methods.
-// You cannot import lodash - build it all yourself!
+// Your second exercise is to build some object manipulation functions
 
 // ## Implement .reduce
-// Should take an array of values and apply the callback
-// **Bonus Point:** Do this with recursion
-// (https://lodash.com/docs/4.17.10#reduce)
+// Accepts an array of values, a callback and an optional initial value
+// Should apply the callback to each item in the array of values and return the output from the final call
+// The callback accepts the output from the previous call (or the initial value), and the item from the array
+// If the initial value isn't defined, then the first item from the array of values should be used
 
 // ## Implement .map
-// Now, implement .map
-// **Bonus Point:** Do this whilst _using reduce_
-// (https://lodash.com/docs/4.17.10#map)
+// Accepts an array of values and a callback
+// Should apply the callback to each item in the array of values and return a new array with the results of each of those calls
+// The callback accepts the current item from the array
 
 // ## Implement .defaults
-// Takes two arguments, an original object and a set of defaults
-// Returns the amalgamation of both
-// (https://lodash.com/docs/4.17.10#defaults)
+// Takes two arguments, an input object and a set of defaults
+// Should return a new object with the values from both objects merged together
+// If both objects have an item for the same key, the value from the input object should take precidence
 
 // This is your lodash library. Add your own implementation for each method
 module.exports = {
-  reduce: undefined,
-  map: undefined,
-  defaults: undefined,
+  reduce: (inputArray, callback, initialValue) => {},
+  map: (inputArray, callback) => {},
+  defaults: (inputObject, defaults) => {},
 };
